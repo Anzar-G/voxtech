@@ -209,13 +209,13 @@ const Contact: React.FC = () => {
 
           {/* Right: Contact Form */}
           <ScrollReveal variant="fade-left" delay={0.4}>
-            <div className="bg-white rounded-3xl p-10 shadow-2xl">
-              <h3 className="text-2xl font-bold text-navy-900 mb-8">Kirim Pesan</h3>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-8">Kirim Pesan</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy-900 mb-2">
+                  <label className="block text-sm font-semibold text-white/90 mb-2">
                     Nama Lengkap
                   </label>
                   <input
@@ -223,14 +223,14 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Nama lengkap Anda"
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 border border-gray-300 rounded-lg text-navy-900 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
                     required
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy-900 mb-2">
+                  <label className="block text-sm font-semibold text-white/90 mb-2">
                     Alamat Email
                   </label>
                   <input
@@ -238,20 +238,20 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="email@contoh.com"
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 border border-gray-300 rounded-lg text-navy-900 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
                     required
                   />
                 </div>
 
                 {/* Service Interest */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy-900 mb-2">
+                  <label className="block text-sm font-semibold text-white/90 mb-2">
                     Layanan yang Diminati
                   </label>
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 border border-gray-300 rounded-lg text-navy-900 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all bg-white"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
                   >
                     <option value="">Pilih layanan</option>
                     <option value="web-development">Pengembangan Web</option>
@@ -264,7 +264,7 @@ const Contact: React.FC = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy-900 mb-2">
+                  <label className="block text-sm font-semibold text-white/90 mb-2">
                     Pesan
                   </label>
                   <textarea
@@ -272,7 +272,7 @@ const Contact: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Ceritakan tentang proyek Anda..."
                     rows={5}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 border border-gray-300 rounded-lg text-navy-900 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-white/30"
                     required
                   />
                 </div>
@@ -346,8 +346,8 @@ const Contact: React.FC = () => {
         </ScrollReveal>
 
         {/* Work Process */}
-        <ScrollReveal className="bg-white rounded-3xl p-10 shadow-2xl">
-          <h3 className="text-2xl font-bold text-navy-900 mb-8 text-center">Proses Setelah Anda Menghubungi</h3>
+        <ScrollReveal className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Proses Setelah Anda Menghubungi</h3>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             {workProcess.map((process, index) => (
               <motion.div
@@ -362,9 +362,9 @@ const Contact: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">
                     {process.step}
                   </div>
-                  <h4 className="text-lg font-bold text-navy-900 mb-2">{process.title}</h4>
-                  <p className="text-sm text-navy-900/70 mb-3">{process.description}</p>
-                  <div className="flex items-center gap-2 text-xs text-navy-900/60">
+                  <h4 className="text-lg font-bold text-white mb-2">{process.title}</h4>
+                  <p className="text-sm text-white/70 mb-3">{process.description}</p>
+                  <div className="flex items-center gap-2 text-xs text-white/60">
                     <Calendar className="w-4 h-4" />
                     <span>{process.duration}</span>
                   </div>

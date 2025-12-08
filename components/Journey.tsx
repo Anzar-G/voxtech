@@ -62,14 +62,14 @@ const Journey: React.FC = () => {
   ];
 
   return (
-    <section id="journey" className="py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-b from-white to-bg-light-blue">
+    <section id="journey" className="py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Digital Entrepreneurship Journey
           </h2>
-          <p className="text-lg text-navy-900/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             My path from learning to building successful digital businesses
           </p>
         </div>
@@ -88,11 +88,11 @@ const Journey: React.FC = () => {
                   }`}
               >
                 {/* Timeline Dot */}
-                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-electric-500 border-4 border-white shadow-lg z-10" />
+                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-electric-500 border-4 border-navy-900 shadow-lg z-10" />
 
                 {/* Content Card */}
                 <div className="lg:w-1/2">
-                  <div className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/20">
                     {/* Date Badge */}
                     <div className="inline-block px-5 py-2 bg-electric-500 text-white rounded-full text-sm font-semibold mb-4">
                       {event.date}
@@ -100,14 +100,14 @@ const Journey: React.FC = () => {
 
                     {/* Icon & Title */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-bg-light-blue flex items-center justify-center text-electric-500 flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-electric-300 flex-shrink-0">
                         {event.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-navy-900 mb-2">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {event.title}
                         </h3>
-                        <p className="text-sm text-navy-900/70">
+                        <p className="text-sm text-white/70">
                           {event.description}
                         </p>
                       </div>
@@ -115,11 +115,11 @@ const Journey: React.FC = () => {
 
                     {/* Achievements */}
                     <div className="mt-4">
-                      <p className="text-xs font-semibold text-navy-900/60 mb-2">Achievements:</p>
+                      <p className="text-xs font-semibold text-white/60 mb-2">Achievements:</p>
                       <ul className="space-y-2">
                         {event.achievements.map((achievement, i) => (
-                          <li key={i} className="text-sm text-navy-900/70 flex items-start gap-2">
-                            <span className="text-electric-500 mt-0.5">•</span>
+                          <li key={i} className="text-sm text-white/70 flex items-start gap-2">
+                            <span className="text-electric-300 mt-0.5">•</span>
                             <span>{achievement}</span>
                           </li>
                         ))}

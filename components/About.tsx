@@ -345,13 +345,13 @@ const About: React.FC = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10"
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10 hover:border-electric-500/30"
               >
-                <div className="w-12 h-12 rounded-lg bg-electric-500/10 flex items-center justify-center text-electric-500 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-electric-500/10 flex items-center justify-center text-electric-300 mb-4 border border-electric-500/20">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-navy-900 mb-3">{item.title}</h3>
-                <p className="text-sm text-navy-900/70 leading-relaxed">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/70 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </StaggerContainer>
@@ -376,22 +376,22 @@ const About: React.FC = () => {
                   hidden: { opacity: 0, x: -20 },
                   visible: { opacity: 1, x: 0 }
                 }}
-                className="flex gap-6 bg-white rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200"
+                className="flex gap-6 bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-white/20"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-xl border-2 border-white/20 shadow-lg">
                     {step.number}
                   </div>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-bold text-navy-900">{step.title}</h3>
-                    <div className="flex items-center gap-2 text-sm text-navy-900/60">
+                    <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                    <div className="flex items-center gap-2 text-sm text-white/60">
                       <Clock className="w-4 h-4" />
                       <span>{step.duration}</span>
                     </div>
                   </div>
-                  <p className="text-navy-900/70 leading-relaxed">{step.description}</p>
+                  <p className="text-white/70 leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}

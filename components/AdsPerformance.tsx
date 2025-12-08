@@ -72,40 +72,40 @@ const AdsPerformance: React.FC = () => {
   ];
 
   return (
-    <section id="ads-performance" className="py-20 lg:py-32 px-6 lg:px-20 bg-white">
+    <section id="ads-performance" className="py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Data-Driven Marketing Results
           </h2>
-          <p className="text-lg text-navy-900/70 max-w-3xl mx-auto">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
             Mengelola campaign Facebook Ads dengan pendekatan data-driven untuk mengoptimalkan ROI dan conversion rate
           </p>
         </div>
 
         {/* Campaign Period Card */}
-        <div className="bg-gradient-to-r from-bg-light-blue to-white border border-electric-500/20 rounded-2xl p-8 mb-16 shadow-md">
+        <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 mb-16 shadow-md">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <span className="text-2xl">📅</span>
               <div>
-                <p className="text-sm text-navy-900/60">Campaign Period</p>
-                <p className="text-lg font-semibold text-navy-900">Nov 10 - Dec 4, 2024</p>
+                <p className="text-sm text-white/60">Campaign Period</p>
+                <p className="text-lg font-semibold text-white">Nov 10 - Dec 4, 2024</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">💰</span>
               <div>
-                <p className="text-sm text-navy-900/60">Total Ad Spend</p>
-                <p className="text-lg font-semibold text-navy-900">Rp 298.643</p>
+                <p className="text-sm text-white/60">Total Ad Spend</p>
+                <p className="text-lg font-semibold text-white">Rp 298.643</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">📊</span>
               <div>
-                <p className="text-sm text-navy-900/60">Budget Strategy</p>
-                <p className="text-lg font-semibold text-navy-900">Rp 32.000/hari per campaign</p>
+                <p className="text-sm text-white/60">Budget Strategy</p>
+                <p className="text-lg font-semibold text-white">Rp 32.000/hari per campaign</p>
               </div>
             </div>
           </div>
@@ -116,56 +116,56 @@ const AdsPerformance: React.FC = () => {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-electric-500/30 transition-all duration-300"
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex justify-center text-electric-500 mb-4">
+              <div className="flex justify-center text-electric-300 mb-4">
                 {React.cloneElement(metric.icon, { size: 32 })}
               </div>
-              <p className="text-3xl font-bold text-navy-900 mb-2">{metric.value}</p>
-              <p className="text-sm font-semibold text-navy-900 mb-1">{metric.label}</p>
-              <p className="text-xs text-navy-900/60">{metric.sub}</p>
+              <p className="text-3xl font-bold text-white mb-2">{metric.value}</p>
+              <p className="text-sm font-semibold text-white mb-1">{metric.label}</p>
+              <p className="text-xs text-white/60">{metric.sub}</p>
             </div>
           ))}
         </div>
 
         {/* Campaign Breakdown Table */}
-        <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 border border-gray-200">
-          <div className="bg-electric-500 text-white px-6 py-4">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl mb-16 border border-white/20">
+          <div className="bg-electric-500/20 text-white px-6 py-4 border-b border-white/10">
             <h3 className="text-xl font-bold">Campaign Breakdown</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-white/5 border-b border-white/10">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">Campaign</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">Link Clicks</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">CTR</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">CPC</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">Impressions</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-navy-900 uppercase tracking-wider">Results</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Campaign</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Link Clicks</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">CTR</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">CPC</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Impressions</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Results</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-white/10">
                 {campaigns.map((campaign, index) => (
-                  <tr key={index} className="hover:bg-bg-light-blue transition-colors">
-                    <td className="px-6 py-4 text-sm font-medium text-navy-900">{campaign.name}</td>
+                  <tr key={index} className="hover:bg-white/5 transition-colors">
+                    <td className="px-6 py-4 text-sm font-medium text-white">{campaign.name}</td>
                     <td className="px-6 py-4">
-                      <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">
                         {campaign.status}
                       </span>
                     </td>
-                    <td className={`px-6 py-4 text-sm font-semibold ${campaign.highlight === 'best' ? 'text-green-600' : 'text-navy-900'}`}>
+                    <td className={`px-6 py-4 text-sm font-semibold ${campaign.highlight === 'best' ? 'text-green-400' : 'text-white'}`}>
                       {campaign.linkClicks}
                     </td>
-                    <td className={`px-6 py-4 text-sm ${campaign.highlight === 'ctr' ? 'text-green-600 font-semibold' : 'text-navy-900'}`}>
+                    <td className={`px-6 py-4 text-sm ${campaign.highlight === 'ctr' ? 'text-green-400 font-semibold' : 'text-white'}`}>
                       {campaign.ctr}
                     </td>
-                    <td className={`px-6 py-4 text-sm ${campaign.highlight === 'best' ? 'text-green-600 font-semibold' : campaign.highlight === 'worst' ? 'text-red-600 font-semibold' : 'text-navy-900'}`}>
+                    <td className={`px-6 py-4 text-sm ${campaign.highlight === 'best' ? 'text-green-400 font-semibold' : campaign.highlight === 'worst' ? 'text-red-400 font-semibold' : 'text-white'}`}>
                       {campaign.cpc}
                     </td>
-                    <td className="px-6 py-4 text-sm text-navy-900">{campaign.impressions}</td>
-                    <td className="px-6 py-4 text-sm text-navy-900">{campaign.results}</td>
+                    <td className="px-6 py-4 text-sm text-white">{campaign.impressions}</td>
+                    <td className="px-6 py-4 text-sm text-white">{campaign.results}</td>
                   </tr>
                 ))}
               </tbody>
@@ -174,13 +174,13 @@ const AdsPerformance: React.FC = () => {
         </div>
 
         {/* Key Insights */}
-        <div className="bg-bg-light-blue rounded-2xl p-8 border-l-4 border-electric-500 mb-12">
-          <h3 className="text-2xl font-bold text-navy-900 mb-6">Key Insights</h3>
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 mb-12">
+          <h3 className="text-2xl font-bold text-white mb-6">Key Insights</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map((insight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <span className="text-electric-500 text-xl font-bold mt-1">✅</span>
-                <p className="text-base text-navy-900 leading-relaxed">{insight}</p>
+                <span className="text-electric-300 text-xl font-bold mt-1">✅</span>
+                <p className="text-base text-white/90 leading-relaxed">{insight}</p>
               </div>
             ))}
           </div>
@@ -188,15 +188,15 @@ const AdsPerformance: React.FC = () => {
 
         {/* Products Advertised */}
         <div>
-          <h3 className="text-xl font-bold text-navy-900 mb-6">Products Advertised</h3>
+          <h3 className="text-xl font-bold text-white mb-6">Products Advertised</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
+                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
               >
                 <span className="text-2xl">{product.split(' ')[0]}</span>
-                <p className="text-sm font-medium text-navy-900">{product.substring(3)}</p>
+                <p className="text-sm font-medium text-white/90">{product.substring(3)}</p>
               </div>
             ))}
           </div>

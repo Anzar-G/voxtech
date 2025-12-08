@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
       ],
       liveUrl: 'https://feyd-store.vercel.app',
       featured: true,
-      thumbnail: 'bg-gradient-to-br from-green-500 to-emerald-700',
+      image: '/website/feyd-store.png',
       caseStudy: {
         challenge: 'Membangun platform e-commerce yang mudah digunakan untuk target audience muslim dengan integrasi pembayaran lokal dan tracking Facebook Ads yang akurat.',
         solution: 'Menggunakan Next.js untuk performa optimal, implementasi Meta Pixel untuk tracking konversi, dan integrasi multiple payment gateways (BSI, Dana, Ovo, Gopay).',
@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
       ],
       liveUrl: 'https://frontworks.vercel.app',
       featured: true,
-      thumbnail: 'bg-gradient-to-br from-blue-500 to-indigo-700',
+      image: '/website/frontworks.png',
       caseStudy: {
         challenge: 'Membuat portfolio yang stand out dari kompetitor dengan menampilkan keahlian AI-assisted development secara visual dan interaktif.',
         solution: 'Design system yang clean dengan fokus pada typography dan spacing, implementasi micro-animations untuk engagement, dan showcase proyek dengan detail teknis.',
@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
       ],
       liveUrl: 'https://program-tilawah-40-hari.vercel.app',
       featured: false,
-      thumbnail: 'bg-gradient-to-br from-purple-500 to-pink-600',
+      image: '/website/program-tilawah.png',
       caseStudy: {
         challenge: 'Membuat landing page yang efektif untuk program edukasi dengan target audience yang spesifik (muslim yang ingin belajar tilawah).',
         solution: 'Copywriting yang persuasif dengan struktur AIDA, visual hierarchy yang jelas, dan CTA yang prominent di multiple sections.',
@@ -116,7 +116,7 @@ const Projects: React.FC = () => {
       ],
       liveUrl: 'https://dapurkamila.vercel.app',
       featured: false,
-      thumbnail: 'bg-gradient-to-br from-orange-500 to-red-600',
+      image: '/website/dapurkamila.png',
       caseStudy: {
         challenge: 'Membuat website showcase untuk UMKM bakery dengan budget terbatas namun tetap profesional dan fungsional.',
         solution: 'Fokus pada visual produk dengan image optimization, integrasi WhatsApp untuk kemudahan pemesanan, dan design yang warm & inviting.',
@@ -135,7 +135,7 @@ const Projects: React.FC = () => {
     },
     {
       id: 5,
-      title: 'Schola Internationalis - Website Institusi Pendidikan',
+      title: 'Khoiru Ummah - Website Institusi Pendidikan',
       category: 'Web Development',
       description: 'Website profil sekolah dengan fokus informasi keunggulan pendidikan & fasilitas.',
       techStack: ['HTML5', 'CSS3', 'JavaScript'],
@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
       ],
       liveUrl: 'https://anzar-g.github.io/khoiruummah/',
       featured: false,
-      thumbnail: 'bg-gradient-to-br from-teal-500 to-cyan-700',
+      image: '/website/khoiruummah.png',
       caseStudy: {
         challenge: 'Membuat website institusi pendidikan yang trustworthy dan informatif dengan tech stack sederhana.',
         solution: 'Clean HTML/CSS/JS implementation dengan fokus pada content hierarchy, professional color scheme, dan SEO-friendly structure.',
@@ -279,24 +279,27 @@ const Projects: React.FC = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-white/20 hover:border-electric-300/50"
             >
-              {/* Thumbnail Placeholder */}
-              <div className={`relative h-48 ${project.thumbnail} flex items-center justify-center overflow-hidden`}>
+              {/* Thumbnail Image */}
+              <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1e293b/white?text=Project';
+                  }}
+                />
+
                 {project.featured && (
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold"
+                    className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg"
                   >
                     UNGGULAN
                   </motion.div>
                 )}
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-white text-6xl font-bold opacity-30"
-                >
-                  {project.title.charAt(0)}
-                </motion.div>
               </div>
 
               {/* Content */}
@@ -410,10 +413,10 @@ const Projects: React.FC = () => {
 
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                     {/* Challenge */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
-                          <Target className="w-5 h-5 text-red-600" />
+                        <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
+                          <Target className="w-5 h-5 text-red-500" />
                         </div>
                         <h4 className="text-lg font-bold text-white">Challenge</h4>
                       </div>
@@ -423,12 +426,12 @@ const Projects: React.FC = () => {
                     </div>
 
                     {/* Solution */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                          <Zap className="w-5 h-5 text-blue-600" />
+                        <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                          <Zap className="w-5 h-5 text-blue-500" />
                         </div>
-                        <h4 className="text-lg font-bold text-navy-900">Solution</h4>
+                        <h4 className="text-lg font-bold text-white">Solution</h4>
                       </div>
                       <p className="text-sm text-white/80 leading-relaxed">
                         {project.caseStudy.solution}
@@ -436,17 +439,17 @@ const Projects: React.FC = () => {
                     </div>
 
                     {/* Results */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                          <TrendingUp className="w-5 h-5 text-green-600" />
+                        <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                          <TrendingUp className="w-5 h-5 text-green-500" />
                         </div>
-                        <h4 className="text-lg font-bold text-navy-900">Results</h4>
+                        <h4 className="text-lg font-bold text-white">Results</h4>
                       </div>
                       <ul className="space-y-2">
                         {project.caseStudy.results.map((result, i) => (
-                          <li key={i} className="text-sm text-navy-900/70 flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                          <li key={i} className="text-sm text-white/70 flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                             <span>{result}</span>
                           </li>
                         ))}

@@ -409,246 +409,352 @@ const JourneyPage: React.FC = () => {
                     </div>
                 </section>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
-                    {/* Performa Social Media */}
-                    <ScrollReveal variant="fade-up" className="mb-12">
-                        <div className="flex items-center gap-4 mb-8">
-                            <div className="p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
-                                <TrendingUp className="text-electric-300 w-8 h-8" />
+                <section className="relative py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+                    {/* Animated Particles Background */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        {[...Array(15)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="particle absolute rounded-full bg-white/20"
+                                style={{
+                                    width: `${Math.random() * 4 + 2}px`,
+                                    height: `${Math.random() * 4 + 2}px`,
+                                    left: `${Math.random() * 100}%`,
+                                }}
+                                animate={{
+                                    y: ['100vh', '-10vh'],
+                                    opacity: [0, 1, 1, 0],
+                                    scale: [1, 1.2],
+                                }}
+                                transition={{
+                                    duration: Math.random() * 10 + 15,
+                                    repeat: Infinity,
+                                    delay: Math.random() * 5,
+                                    ease: 'linear',
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Diagonal Pattern Overlay */}
+                    <div className="absolute inset-0 opacity-5"
+                        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+                    </div>
+
+                    <div className="relative z-10 max-w-7xl mx-auto">
+                        {/* Performa Social Media */}
+                        <ScrollReveal variant="fade-up" className="mb-12">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                    <TrendingUp className="text-electric-300 w-8 h-8" />
+                                </div>
+                                <h2 className="text-3xl lg:text-4xl font-bold text-white">Performa Social Media</h2>
                             </div>
-                            <h2 className="text-3xl font-bold text-white">Performa Social Media</h2>
-                        </div>
-                    </ScrollReveal>
+                        </ScrollReveal>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {/* Instagram Analytics */}
-                        <div className="space-y-8">
-                            <ScrollReveal variant="fade-right" className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 lg:p-8 shadow-xl border border-purple-100">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center shadow-lg">
-                                        <span className="text-white text-2xl font-bold">IG</span>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-navy-900">Instagram Analytics</h3>
-                                        <p className="text-sm text-navy-900/60">18 Okt - 16 Nov 2024</p>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                    {/* 30 Days */}
-                                    <div className="bg-white rounded-xl p-5 shadow-sm border border-purple-100">
-                                        <p className="text-sm font-bold text-purple-600 mb-3 uppercase tracking-wider">30 Hari Terakhir</p>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div>
-                                                <p className="text-navy-900/60 text-sm">Followers</p>
-                                                <p className="font-bold text-navy-900 text-xl">{socialMediaMetrics.instagram.period30.followers}</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-navy-900/60 text-sm">Non-Followers</p>
-                                                <p className="font-bold text-purple-600 text-xl">{socialMediaMetrics.instagram.period30.nonFollowers}</p>
-                                            </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {/* Instagram Analytics */}
+                            <div className="space-y-8">
+                                <ScrollReveal variant="fade-right" className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-xl border border-white/20">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center shadow-lg">
+                                            <span className="text-white text-2xl font-bold">IG</span>
                                         </div>
-                                    </div>
-                                    {/* 90 Days */}
-                                    <div className="bg-white rounded-xl p-5 shadow-sm border border-purple-100">
-                                        <p className="text-sm font-bold text-purple-600 mb-3 uppercase tracking-wider">90 Hari Terakhir</p>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div>
-                                                <p className="text-navy-900/60 text-sm">Views</p>
-                                                <p className="font-bold text-navy-900 text-xl">{socialMediaMetrics.instagram.period90.views.toLocaleString()}</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-navy-900/60 text-sm">Accounts Reached</p>
-                                                <p className="font-bold text-purple-600 text-xl">{socialMediaMetrics.instagram.period90.accountsReached}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Top Performing Content */}
-                                <div className="mt-8">
-                                    <h4 className="text-lg font-bold text-navy-900 mb-4">Konten Paling Populer</h4>
-                                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
-                                        {[
-                                            { url: 'https://www.instagram.com/p/DQ-qCniD6Cn/', img: '/placeholder-image/Instagram/Top1.png', views: 93, interactions: 4 },
-                                            { url: 'https://www.instagram.com/p/DRLpeWTCP9U/', img: '/placeholder-image/Instagram/Top2.png', views: 78, interactions: 3 },
-                                            { url: 'https://www.instagram.com/p/DRI6OdPDyDB/', img: '/placeholder-image/Instagram/Top3.png', views: 86, interactions: 5 }
-                                        ].map((post, index) => (
-                                            <a
-                                                key={index}
-                                                href={post.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group relative aspect-square rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
-                                            >
-                                                <img
-                                                    src={post.img}
-                                                    alt={`Instagram Post ${index + 1}`}
-                                                    className="w-full h-full object-cover"
-                                                />
-                                                {/* Metrics Overlay - Always Visible */}
-                                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                                                    <div className="flex items-center justify-between text-white text-sm">
-                                                        <div className="flex items-center gap-1">
-                                                            <Eye size={16} className="text-white" />
-                                                            <span className="font-semibold">{post.views}</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-1">
-                                                            <Heart size={16} className="text-white" />
-                                                            <span className="font-semibold">{post.interactions}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {/* Hover Overlay */}
-                                                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                                    <div className="text-center">
-                                                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                                            <span className="text-white text-xl">📸</span>
-                                                        </div>
-                                                        <p className="text-sm font-semibold text-white">Lihat Post</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
-                            </ScrollReveal>
-                        </div>
-
-                        {/* TikTok Analytics */}
-                        <div className="space-y-8">
-                            <ScrollReveal variant="fade-left" className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-200">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center shadow-lg">
-                                        <span className="text-white text-2xl font-bold">TT</span>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-navy-900">TikTok Analytics</h3>
-                                        <p className="text-sm text-navy-900/60">18 Okt - 16 Nov 2024</p>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                                    <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                                        <p className="text-sm text-navy-900/60 mb-1">Post Views</p>
-                                        <p className="text-2xl lg:text-3xl font-bold text-navy-900">{socialMediaMetrics.tiktok.views}</p>
-                                    </div>
-                                    <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                                        <p className="text-sm text-navy-900/60 mb-1">Likes</p>
-                                        <p className="text-2xl lg:text-3xl font-bold text-red-500">{socialMediaMetrics.tiktok.likes}</p>
-                                    </div>
-                                    <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                                        <p className="text-sm text-navy-900/60 mb-1">Comments</p>
-                                        <p className="text-2xl lg:text-3xl font-bold text-navy-900">{socialMediaMetrics.tiktok.comments}</p>
-                                    </div>
-                                    <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                                        <p className="text-sm text-navy-900/60 mb-1">Shares</p>
-                                        <p className="text-2xl lg:text-3xl font-bold text-navy-900">{socialMediaMetrics.tiktok.shares}</p>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {/* Traffic Source */}
-                                    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                                        <h4 className="text-lg font-bold text-navy-900 mb-4">Traffic Source</h4>
-                                        <div className="space-y-3">
-                                            <div className="flex justify-between items-center">
-                                                <span className="text-navy-900/70">For You Page</span>
-                                                <span className="font-bold text-navy-900">{socialMediaMetrics.tiktok.fypPercentage}%</span>
-                                            </div>
-                                            <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style={{ width: `${socialMediaMetrics.tiktok.fypPercentage}%` }}></div>
-                                            </div>
-                                            <div className="flex justify-between items-center">
-                                                <span className="text-navy-900/70">Search</span>
-                                                <span className="font-bold text-navy-900">{socialMediaMetrics.tiktok.searchPercentage}%</span>
-                                            </div>
-                                            <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style={{ width: `${socialMediaMetrics.tiktok.searchPercentage}%` }}></div>
-                                            </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-white">Instagram Analytics</h3>
+                                            <p className="text-sm text-white/60">18 Okt - 16 Nov 2024</p>
                                         </div>
                                     </div>
 
-                                    {/* Performance Insights */}
-                                    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                                        <h4 className="text-lg font-bold text-navy-900 mb-4">Performance Insights</h4>
-                                        <div className="space-y-3">
-                                            <div className="flex items-start gap-2">
-                                                <span className="text-green-500 text-xl">✓</span>
+                                    {/* Key Metrics Dashboard */}
+                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                                        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Engage</p>
+                                                <span className="text-green-400 text-xs font-semibold">+12%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.instagram.period30.interactions}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Followers</p>
+                                                <span className="text-green-400 text-xs font-semibold">+{socialMediaMetrics.instagram.period30.followers}</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.instagram.period30.followers}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Reach</p>
+                                                <span className="text-green-400 text-xs font-semibold">+8%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.instagram.period90.accountsReached}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Views</p>
+                                                <span className="text-green-400 text-xs font-semibold">+15%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{(socialMediaMetrics.instagram.period90.views / 1000).toFixed(1)}K</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Engagement Breakdown */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                        <div className="bg-white/5 rounded-xl p-5 border border-white/10">
+                                            <h5 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                                                <span className="w-2 h-2 rounded-full bg-purple-400"></span>
+                                                Audience Breakdown
+                                            </h5>
+                                            <div className="space-y-3">
                                                 <div>
-                                                    <p className="font-semibold text-navy-900">Engagement Rate: {socialMediaMetrics.tiktok.engagementRate}%</p>
-                                                    <p className="text-sm text-navy-900/60">Di atas rata-rata industri</p>
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-sm text-white/70">Followers</span>
+                                                        <span className="text-sm font-semibold text-white">{socialMediaMetrics.instagram.period30.followers} ({((socialMediaMetrics.instagram.period30.followers / socialMediaMetrics.instagram.period30.interactions) * 100).toFixed(0)}%)</span>
+                                                    </div>
+                                                    <div className="w-full bg-white/10 rounded-full h-2">
+                                                        <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: `${(socialMediaMetrics.instagram.period30.followers / socialMediaMetrics.instagram.period30.interactions) * 100}%` }}></div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-sm text-white/70">Non-Followers</span>
+                                                        <span className="text-sm font-semibold text-white">{socialMediaMetrics.instagram.period30.nonFollowers} ({((socialMediaMetrics.instagram.period30.nonFollowers / socialMediaMetrics.instagram.period30.interactions) * 100).toFixed(0)}%)</span>
+                                                    </div>
+                                                    <div className="w-full bg-white/10 rounded-full h-2">
+                                                        <div className="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full" style={{ width: `${(socialMediaMetrics.instagram.period30.nonFollowers / socialMediaMetrics.instagram.period30.interactions) * 100}%` }}></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className="flex items-start gap-2">
-                                                <span className="text-green-500 text-xl">✓</span>
-                                                <div>
-                                                    <p className="font-semibold text-navy-900">Viral Potential: High</p>
-                                                    <p className="text-sm text-navy-900/60">75.4% dari FYP menunjukkan algoritma kuat</p>
+                                        </div>
+                                        <div className="bg-white/5 rounded-xl p-5 border border-white/10">
+                                            <h5 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                                                <span className="w-2 h-2 rounded-full bg-pink-400"></span>
+                                                Engagement Stats
+                                            </h5>
+                                            <div className="grid grid-cols-3 gap-3">
+                                                <div className="text-center">
+                                                    <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-red-500/20 flex items-center justify-center">
+                                                        <Heart className="w-6 h-6 text-red-400" />
+                                                    </div>
+                                                    <p className="text-xl font-bold text-white">{socialMediaMetrics.instagram.period30.likes}</p>
+                                                    <p className="text-xs text-white/60">Likes</p>
                                                 </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <span className="text-green-500 text-xl">✓</span>
-                                                <div>
-                                                    <p className="font-semibold text-navy-900">Strong Organic Reach</p>
-                                                    <p className="text-sm text-navy-900/60">Discovery melalui algoritma organik</p>
+                                                <div className="text-center">
+                                                    <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                                        <span className="text-blue-400 text-lg">💬</span>
+                                                    </div>
+                                                    <p className="text-xl font-bold text-white">{socialMediaMetrics.instagram.period30.comments}</p>
+                                                    <p className="text-xs text-white/60">Comments</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-green-500/20 flex items-center justify-center">
+                                                        <span className="text-green-400 text-lg">📤</span>
+                                                    </div>
+                                                    <p className="text-xl font-bold text-white">{socialMediaMetrics.instagram.period30.shares}</p>
+                                                    <p className="text-xs text-white/60">Shares</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {/* Top Performing Content */}
-                                <div className="mt-8">
-                                    <h4 className="text-lg font-bold text-navy-900 mb-4">Konten Paling Populer</h4>
-                                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
-                                        {[
-                                            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572406798485916936', img: '/placeholder-image/Tiktok/Top1.png', views: 1890, interactions: 42 },
-                                            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7570100135565348103', img: '/placeholder-image/Tiktok/Top2.png', views: 758, interactions: 41 },
-                                            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572018045439331592', img: '/placeholder-image/Tiktok/Top3.png', views: 834, interactions: 50 }
-                                        ].map((video, index) => (
-                                            <a
-                                                key={index}
-                                                href={video.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group relative aspect-square rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
-                                            >
-                                                <img
-                                                    src={video.img}
-                                                    alt={`TikTok Video ${index + 1}`}
-                                                    className="w-full h-full object-cover"
-                                                />
-                                                {/* Metrics Overlay - Always Visible */}
-                                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                                                    <div className="flex items-center justify-between text-white text-sm">
-                                                        <div className="flex items-center gap-1">
-                                                            <Eye size={16} className="text-white" />
-                                                            <span className="font-semibold">{video.views.toLocaleString()}</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-1">
-                                                            <Heart size={16} className="text-white" />
-                                                            <span className="font-semibold">{video.interactions}</span>
+                                    {/* Top Performing Content */}
+                                    <div className="mt-8">
+                                        <h4 className="text-lg font-bold text-white mb-4">Konten Paling Populer</h4>
+                                        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
+                                            {[
+                                                { url: 'https://www.instagram.com/p/DQ-qCniD6Cn/', img: '/placeholder-image/Instagram/Top1.png', views: 93, interactions: 4 },
+                                                { url: 'https://www.instagram.com/p/DRLpeWTCP9U/', img: '/placeholder-image/Instagram/Top2.png', views: 78, interactions: 3 },
+                                                { url: 'https://www.instagram.com/p/DRI6OdPDyDB/', img: '/placeholder-image/Instagram/Top3.png', views: 86, interactions: 5 }
+                                            ].map((post, index) => (
+                                                <a
+                                                    key={index}
+                                                    href={post.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group relative aspect-square rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                                                >
+                                                    <img
+                                                        src={post.img}
+                                                        alt={`Instagram Post ${index + 1}`}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                    {/* Metrics Overlay - Always Visible */}
+                                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                        <div className="flex items-center justify-between text-white text-sm">
+                                                            <div className="flex items-center gap-1">
+                                                                <Eye size={16} className="text-white" />
+                                                                <span className="font-semibold">{post.views}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-1">
+                                                                <Heart size={16} className="text-white" />
+                                                                <span className="font-semibold">{post.interactions}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                {/* Hover Overlay */}
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                                    <div className="text-center">
-                                                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                                            <span className="text-white text-xl">🎵</span>
+                                                    {/* Hover Overlay */}
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                        <div className="text-center">
+                                                            <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                                                <span className="text-white text-xl">📸</span>
+                                                            </div>
+                                                            <p className="text-sm font-semibold text-white">Lihat Post</p>
                                                         </div>
-                                                        <p className="text-sm font-semibold text-white">Lihat Post</p>
                                                     </div>
-                                                </div>
-                                            </a>
-                                        ))}
+                                                </a>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            </ScrollReveal>
+                                </ScrollReveal>
+                            </div>
+
+                            {/* TikTok Analytics */}
+                            <div className="space-y-8">
+                                <ScrollReveal variant="fade-left" className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-xl border border-white/20">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center shadow-lg">
+                                            <span className="text-white text-2xl font-bold">TT</span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-white">TikTok Analytics</h3>
+                                            <p className="text-sm text-white/60">18 Okt - 16 Nov 2024</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Key Metrics Dashboard */}
+                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                                        <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/30 rounded-xl p-4 border border-gray-600/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Views</p>
+                                                <span className="text-green-400 text-xs font-semibold">+25%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.tiktok.views}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-xl p-4 border border-red-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Likes</p>
+                                                <span className="text-green-400 text-xs font-semibold">+18%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.tiktok.likes}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl p-4 border border-blue-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Engage</p>
+                                                <span className="text-green-400 text-xs font-semibold">{socialMediaMetrics.tiktok.engagementRate}%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.tiktok.comments + socialMediaMetrics.tiktok.shares}</p>
+                                        </div>
+                                        <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 border border-green-400/30">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <p className="text-xs text-white/70 uppercase tracking-wide">Profile</p>
+                                                <span className="text-green-400 text-xs font-semibold">+32%</span>
+                                            </div>
+                                            <p className="text-3xl font-bold text-white mb-1">{socialMediaMetrics.tiktok.profileViews}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* Traffic Source */}
+                                        <div className="bg-white/5 rounded-xl p-6 shadow-sm border border-white/10">
+                                            <h4 className="text-lg font-bold text-white mb-4">Traffic Source</h4>
+                                            <div className="space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-white/70">For You Page</span>
+                                                    <span className="font-bold text-white">{socialMediaMetrics.tiktok.fypPercentage}%</span>
+                                                </div>
+                                                <div className="w-full bg-white/10 rounded-full h-2">
+                                                    <div className="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style={{ width: `${socialMediaMetrics.tiktok.fypPercentage}%` }}></div>
+                                                </div>
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-white/70">Search</span>
+                                                    <span className="font-bold text-white">{socialMediaMetrics.tiktok.searchPercentage}%</span>
+                                                </div>
+                                                <div className="w-full bg-white/10 rounded-full h-2">
+                                                    <div className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style={{ width: `${socialMediaMetrics.tiktok.searchPercentage}%` }}></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Performance Insights */}
+                                        <div className="bg-white/5 rounded-xl p-6 shadow-sm border border-white/10">
+                                            <h4 className="text-lg font-bold text-white mb-4">Performance Insights</h4>
+                                            <div className="space-y-3">
+                                                <div className="flex items-start gap-2">
+                                                    <span className="text-green-400 text-xl">✓</span>
+                                                    <div>
+                                                        <p className="font-semibold text-white">Engagement Rate: {socialMediaMetrics.tiktok.engagementRate}%</p>
+                                                        <p className="text-sm text-white/60">Di atas rata-rata industri</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-start gap-2">
+                                                    <span className="text-green-400 text-xl">✓</span>
+                                                    <div>
+                                                        <p className="font-semibold text-white">Viral Potential: High</p>
+                                                        <p className="text-sm text-white/60">75.4% dari FYP menunjukkan algoritma kuat</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-start gap-2">
+                                                    <span className="text-green-400 text-xl">✓</span>
+                                                    <div>
+                                                        <p className="font-semibold text-white">Strong Organic Reach</p>
+                                                        <p className="text-sm text-white/60">Discovery melalui algoritma organik</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Top Performing Content */}
+                                    <div className="mt-8">
+                                        <h4 className="text-lg font-bold text-white mb-4">Konten Paling Populer</h4>
+                                        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
+                                            {[
+                                                { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572406798485916936', img: '/placeholder-image/Tiktok/Top1.png', views: 1890, interactions: 42 },
+                                                { url: 'https://www.tiktok.com/@studifiqh.id/photo/7570100135565348103', img: '/placeholder-image/Tiktok/Top2.png', views: 758, interactions: 41 },
+                                                { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572018045439331592', img: '/placeholder-image/Tiktok/Top3.png', views: 834, interactions: 50 }
+                                            ].map((video, index) => (
+                                                <a
+                                                    key={index}
+                                                    href={video.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group relative aspect-square rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                                                >
+                                                    <img
+                                                        src={video.img}
+                                                        alt={`TikTok Video ${index + 1}`}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                    {/* Metrics Overlay - Always Visible */}
+                                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                        <div className="flex items-center justify-between text-white text-sm">
+                                                            <div className="flex items-center gap-1">
+                                                                <Eye size={16} className="text-white" />
+                                                                <span className="font-semibold">{video.views.toLocaleString()}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-1">
+                                                                <Heart size={16} className="text-white" />
+                                                                <span className="font-semibold">{video.interactions}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {/* Hover Overlay */}
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                        <div className="text-center">
+                                                            <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                                                <span className="text-white text-xl">🎵</span>
+                                                            </div>
+                                                            <p className="text-sm font-semibold text-white">Lihat Post</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </ScrollReveal>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </PageWrapper>
     );
