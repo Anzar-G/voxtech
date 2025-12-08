@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- SEO Meta Tags -->
+  <title>Muhammad Nizar Al-Faris | AI Engineer & Tech Provider</title>
+  <meta name="description"
+    content="AI Engineer & Tech Provider specializing in AI-powered web development, e-commerce solutions, and digital marketing. 16-year-old tech entrepreneur with proven track record in Semarang, Indonesia.">
+  <meta name="keywords"
+    content="AI Engineer, Web Development, Next.js, React, Facebook Ads, Digital Marketing, E-commerce, Semarang, Muhammad Nizar Al-Faris">
+  <meta name="author" content="Muhammad Nizar Al-Faris">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Muhammad Nizar Al-Faris | AI Engineer & Tech Provider">
+  <meta property="og:description"
+    content="AI-powered web development & digital solutions. Mastering Digital Entrepreneurship through Data-Driven Facebook Ads.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://muhammad-nizar-portfolio.vercel.app">
+  <meta property="og:image" content="https://muhammad-nizar-portfolio.vercel.app/og-image.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muhammad Nizar Al-Faris | AI Engineer">
+  <meta name="twitter:description" content="AI-powered web development & digital solutions">
+  <meta name="twitter:image" content="https://muhammad-nizar-portfolio.vercel.app/og-image.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0E162B',
+              800: '#15203B',
+            },
+            electric: {
+              300: '#60A5FA',
+              500: '#1F50D6',
+              600: '#1941B8',
+            },
+            bg: {
+              light: 'rgba(31, 80, 214, 0.03)',
+              'light-blue': 'rgba(31, 80, 214, 0.1)',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out',
+            'scale-in': 'scaleIn 0.4s ease-out',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhammad Nizar Al-Faris",
+      "jobTitle": "AI Engineer & Tech Provider",
+      "url": "https://muhammad-nizar-portfolio.vercel.app",
+      "sameAs": [
+        "https://www.linkedin.com/in/muhammad-niyar-49272339a",
+        "https://github.com/Anzar-G"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Semarang",
+        "addressRegion": "Jawa Tengah",
+        "addressCountry": "ID"
+      }
+    }
+    </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background-color: #0E162B;
+    }
+
+    body {
+      background-color: #0E162B;
+      margin: 0;
+      padding: 0;
+    }
+
+    #root {
+      background-color: #0E162B !important;
+      min-height: 100vh;
+    }
+
+    /* Force dark background on all main containers */
+    main,
+    section,
+    div {
+      background-color: transparent;
+    }
+
+    /* Ensure no white backgrounds slip through */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    /* Smooth transitions */
+    * {
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Mobile-First Grid Utilities */
+    .mobile-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-grid-2 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Touch-Friendly Sizing */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Prevent Horizontal Scroll */
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

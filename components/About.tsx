@@ -1,0 +1,451 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  Code,
+  BarChart,
+  Zap,
+  Target,
+  CheckCircle,
+  Users,
+  MapPin,
+  GraduationCap,
+  Briefcase,
+  Clock,
+  Star
+} from 'lucide-react';
+import ScrollReveal from './animations/ScrollReveal';
+import StaggerContainer from './animations/StaggerContainer';
+import Certificates from './Certificates';
+
+const About: React.FC = () => {
+  const skills = [
+    {
+      icon: <Code className="w-8 h-8" />,
+      title: 'AI Engineering',
+      items: ['Pengembangan No-Code/Low-Code', 'AI-Assisted Coding', 'Rapid Prototyping'],
+    },
+    {
+      icon: <Code className="w-8 h-8" />,
+      title: 'Tech Stack',
+      items: ['Next.js, React, TypeScript', 'Tailwind CSS', 'Vercel Deployment'],
+    },
+    {
+      icon: <BarChart className="w-8 h-8" />,
+      title: 'Digital Marketing',
+      items: ['Manajemen Facebook Ads', 'Strategi Konten', 'SEO & Analytics'],
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: 'Penguasaan Tools',
+      items: ['8+ AI Development Tools', 'Claude AI, Qwen Coder', 'Multi-AI Workflow'],
+    },
+  ];
+
+  const whyChooseMe = [
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: 'Pengembangan 3x Lebih Cepat',
+      description: 'Menggunakan AI-assisted development untuk mempercepat proses tanpa mengorbankan kualitas',
+    },
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: 'Fokus pada Hasil',
+      description: 'Setiap proyek dirancang dengan tujuan bisnis yang jelas dan metrics yang terukur',
+    },
+    {
+      icon: <CheckCircle className="w-6 h-6" />,
+      title: 'Kualitas Terjamin',
+      description: 'Code yang clean, responsive design, dan performa optimal (90+ Lighthouse score)',
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: 'Komunikasi Transparan',
+      description: 'Update progress berkala dan kolaborasi yang erat dengan client',
+    },
+  ];
+
+  const workflowSteps = [
+    {
+      number: '01',
+      title: 'Konsultasi & Discovery',
+      description: 'Memahami kebutuhan bisnis, target audience, dan goals yang ingin dicapai',
+      duration: '1-2 hari',
+    },
+    {
+      number: '02',
+      title: 'Planning & Design',
+      description: 'Membuat wireframe, mockup, dan tech stack planning yang sesuai dengan kebutuhan',
+      duration: '2-3 hari',
+    },
+    {
+      number: '03',
+      title: 'Development',
+      description: 'Coding dengan AI-assisted development, regular updates, dan iterasi berdasarkan feedback',
+      duration: '5-14 hari',
+    },
+    {
+      number: '04',
+      title: 'Testing & QA',
+      description: 'Testing menyeluruh untuk memastikan semua fitur berfungsi dengan baik',
+      duration: '1-2 hari',
+    },
+    {
+      number: '05',
+      title: 'Deployment & Support',
+      description: 'Deploy ke production dan support untuk memastikan website berjalan lancar',
+      duration: 'Ongoing',
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: '[Nama Client]',
+      position: '[Posisi/Perusahaan]',
+      rating: 5,
+      text: 'Placeholder untuk testimonial client. Hasil kerja sangat memuaskan, komunikasi lancar, dan delivery tepat waktu.',
+      project: '[Nama Proyek]',
+    },
+    {
+      name: '[Nama Client]',
+      position: '[Posisi/Perusahaan]',
+      rating: 5,
+      text: 'Placeholder untuk testimonial client. Website yang dihasilkan sangat profesional dan sesuai dengan ekspektasi.',
+      project: '[Nama Proyek]',
+    },
+    {
+      name: '[Nama Client]',
+      position: '[Posisi/Perusahaan]',
+      rating: 5,
+      text: 'Placeholder untuk testimonial client. Proses pengerjaan cepat dan hasilnya melampaui harapan.',
+      project: '[Nama Proyek]',
+    },
+  ];
+
+  return (
+    <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+      {/* Animated Particles Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="particle absolute rounded-full bg-white/20"
+            style={{
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: ['100vh', '-10vh'],
+              opacity: [0, 1, 1, 0],
+              scale: [1, 1.2],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: 'linear',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Diagonal Pattern Overlay */}
+      <div className="absolute inset-0 opacity-5"
+        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto space-y-32">
+        {/* Main About Section */}
+        <div>
+          <ScrollReveal>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16 text-center lg:text-left">
+              Tentang Saya
+            </h2>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
+            {/* Left Column - 40% */}
+            <ScrollReveal variant="fade-right" className="lg:col-span-2 space-y-6">
+              {/* Profile Photo Placeholder */}
+              <div className="w-full max-w-xs mx-auto lg:mx-0">
+                <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden flex items-center justify-center backdrop-blur-sm">
+                  <div className="text-center p-8">
+                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center">
+                      <span className="text-4xl font-bold text-white">MN</span>
+                    </div>
+                    <p className="text-sm text-white/70">Foto Profil</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Info Card */}
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 text-white shadow-xl border border-white/20">
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-6 h-6 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">Lokasi</p>
+                      <p className="text-sm text-white/90">Semarang, Jawa Tengah</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <GraduationCap className="w-6 h-6 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">Pendidikan</p>
+                      <p className="text-sm text-white/90">SMA Kelas 1 (2025)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Briefcase className="w-6 h-6 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">Bisnis Aktif</p>
+                      <p className="text-sm text-white/90">2 Bisnis Berjalan</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Zap className="w-6 h-6 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">Pengalaman AI</p>
+                      <p className="text-sm text-white/90">8 Bulan Pengalaman</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                  <p className="text-3xl font-bold text-electric-300">8+</p>
+                  <p className="text-xs text-white/70 mt-1">Bulan AI</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                  <p className="text-3xl font-bold text-electric-300">5+</p>
+                  <p className="text-xs text-white/70 mt-1">Proyek</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                  <p className="text-3xl font-bold text-electric-300">2</p>
+                  <p className="text-xs text-white/70 mt-1">Bisnis</p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right Column - 60% */}
+            <ScrollReveal variant="fade-left" delay={0.2} className="lg:col-span-3 space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">Siapa Saya?</h3>
+                <div className="space-y-4 text-white/90 leading-relaxed">
+                  <p className="text-lg">
+                    Saya Muhammad Nizar Al-Faris, seorang <strong className="text-electric-500 font-semibold">AI Engineer dan Spesialis Digital Marketing</strong> berusia 16 tahun yang passionate dalam menghadirkan solusi digital inovatif. Dengan pengalaman 8 bulan di bidang pengembangan web berbasis AI, saya membantu bisnis mengubah ide menjadi website profesional yang fungsional dan menarik.
+                  </p>
+                  <p className="text-lg">
+                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas. Saat ini, saya juga mendalami digital entrepreneurship melalui program RevoU dan Krenovator Digital Tribe, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stats Cards */}
+              <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                {[
+                  { label: 'AI Engineering', value: '8+', sub: 'Bulan Pengalaman' },
+                  { label: 'Berhasil', value: '5+', sub: 'Proyek Selesai' },
+                  { label: 'Berjalan', value: '2', sub: 'Bisnis Aktif' }
+                ].map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <p className="text-xs uppercase tracking-wide text-white/60 mb-2">{stat.label}</p>
+                    <p className="text-4xl font-bold text-electric-300 mb-1">{stat.value}</p>
+                    <p className="text-sm text-white/80">{stat.sub}</p>
+                  </motion.div>
+                ))}
+              </StaggerContainer>
+
+              {/* Skills Highlight */}
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">Keahlian Utama</h3>
+                <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      variants={{
+                        hidden: { opacity: 0, scale: 0.9 },
+                        visible: { opacity: 1, scale: 1 }
+                      }}
+                      className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-l-4 border-electric-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-white/10"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="text-electric-300">{skill.icon}</div>
+                        <h4 className="text-lg font-bold text-white">{skill.title}</h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {skill.items.map((item, i) => (
+                          <li key={i} className="text-sm text-white/80 flex items-start gap-2">
+                            <span className="text-electric-300 mt-1">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </StaggerContainer>
+              </div>
+
+              {/* Tech Stack & Education Combined */}
+              <ScrollReveal variant="fade-up" delay={0.3} className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 lg:p-8 shadow-md">
+                <h3 className="text-xl font-bold text-white mb-6">Teknologi & Pendidikan</h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">Tools Utama</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Claude AI', 'Vercel', 'Meta Ads Manager', 'Google Analytics'].map((tool, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 bg-white/10 text-white/90 rounded-lg text-sm font-medium hover:bg-electric-500 hover:text-white transition-colors border border-white/10"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">Sertifikasi</h4>
+                    <ul className="space-y-2">
+                      <li className="text-sm text-white/80">• Software Engineering - RevoU (2025)</li>
+                      <li className="text-sm text-white/80">• Digital Marketing - RevoU (2025)</li>
+                      <li className="text-sm text-white/80">• Krenovator Digital Tribe (2025)</li>
+                    </ul>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </ScrollReveal>
+          </div>
+        </div>
+
+        {/* Why Choose Me Section */}
+        <div className="bg-white/10 backdrop-blur-lg py-16 px-8 rounded-3xl border border-white/20">
+          <ScrollReveal>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+              Mengapa Memilih Saya?
+            </h2>
+            <p className="text-center text-white mb-12 max-w-2xl mx-auto">
+              Kombinasi unik antara keahlian teknis AI development dan pemahaman mendalam tentang digital marketing
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+            {whyChooseMe.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10"
+              >
+                <div className="w-12 h-12 rounded-lg bg-electric-500/10 flex items-center justify-center text-electric-500 mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold text-navy-900 mb-3">{item.title}</h3>
+                <p className="text-sm text-navy-900/70 leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </StaggerContainer>
+        </div>
+
+        {/* Workflow/Process Section */}
+        <div>
+          <ScrollReveal>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+              Proses Kerja Saya
+            </h2>
+            <p className="text-center text-white mb-16 max-w-2xl mx-auto">
+              Metodologi yang terstruktur untuk memastikan hasil terbaik di setiap proyek
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="max-w-4xl mx-auto space-y-6">
+            {workflowSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                className="flex gap-6 bg-white rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-xl">
+                    {step.number}
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="text-xl font-bold text-navy-900">{step.title}</h3>
+                    <div className="flex items-center gap-2 text-sm text-navy-900/60">
+                      <Clock className="w-4 h-4" />
+                      <span>{step.duration}</span>
+                    </div>
+                  </div>
+                  <p className="text-navy-900/70 leading-relaxed">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </StaggerContainer>
+        </div>
+
+        {/* Certificates Section */}
+        <Certificates />
+
+        {/* Testimonials Section */}
+        <div className="bg-gradient-to-br from-navy-900 to-electric-500 py-16 px-8 rounded-3xl">
+          <ScrollReveal>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+              Apa Kata Mereka?
+            </h2>
+            <p className="text-center text-white/80 mb-12 max-w-2xl mx-auto">
+              Feedback dari client yang puas dengan hasil kerja saya
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1 }
+                }}
+                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-white/90 italic mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <div className="border-t border-white/20 pt-4">
+                  <p className="text-white font-semibold">{testimonial.name}</p>
+                  <p className="text-white/70 text-sm">{testimonial.position}</p>
+                  <p className="text-electric-300 text-sm mt-2">Proyek: {testimonial.project}</p>
+                </div>
+              </motion.div>
+            ))}
+          </StaggerContainer>
+
+          <ScrollReveal variant="fade-up" delay={0.3} className="text-center mt-12">
+            <p className="text-white/60 text-sm italic">
+              * Testimonial di atas adalah placeholder. Data asli akan diisi setelah mendapat feedback dari client.
+            </p>
+          </ScrollReveal>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
