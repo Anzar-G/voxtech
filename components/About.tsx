@@ -16,6 +16,7 @@ import {
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import Certificates from './Certificates';
+import Education from './Education';
 
 const About: React.FC = () => {
   const skills = [
@@ -185,7 +186,7 @@ const About: React.FC = () => {
                     <MapPin className="w-6 h-6 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Lokasi</p>
-                      <p className="text-sm text-white/90">Semarang, Jawa Tengah</p>
+                      <p className="text-sm text-white/90">Cirebon, Jawa Barat</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -238,7 +239,7 @@ const About: React.FC = () => {
                     Saya Muhammad Nizar Al-Faris, seorang <strong className="text-electric-500 font-semibold">AI Engineer dan Spesialis Digital Marketing</strong> berusia 16 tahun yang passionate dalam menghadirkan solusi digital inovatif. Dengan pengalaman 8 bulan di bidang pengembangan web berbasis AI, saya membantu bisnis mengubah ide menjadi website profesional yang fungsional dan menarik.
                   </p>
                   <p className="text-lg">
-                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas. Saat ini, saya juga mendalami digital entrepreneurship melalui program RevoU dan Krenovator Digital Tribe, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.
+                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas. "Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.
                   </p>
                 </div>
               </div>
@@ -325,6 +326,8 @@ const About: React.FC = () => {
             </ScrollReveal>
           </div>
         </div>
+
+        <Education />
 
         {/* Why Choose Me Section */}
         <div className="bg-white/10 backdrop-blur-lg py-16 px-8 rounded-3xl border border-white/20">

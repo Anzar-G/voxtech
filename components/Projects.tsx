@@ -25,18 +25,18 @@ const Projects: React.FC = () => {
       featured: true,
       image: '/website/feyd-store.png',
       caseStudy: {
-        challenge: 'Membangun platform e-commerce yang mudah digunakan untuk target audience muslim dengan integrasi pembayaran lokal dan tracking Facebook Ads yang akurat.',
-        solution: 'Menggunakan Next.js untuk performa optimal, implementasi Meta Pixel untuk tracking konversi, dan integrasi multiple payment gateways (BSI, Dana, Ovo, Gopay).',
+        challenge: 'Menentukan dan mengintegrasikan berbagai fitur penting dalam satu platform e-commerce yang kompleks. Memperkenalkan Al-Qur\'an Kharisma ke pasar yang lebih luas secara online dan bersaing dengan produk sejenis.',
+        solution: 'Menggunakan kombinasi Cascade Windsurf, Claude, dan Qwen untuk memungkinkan kustomisasi dan efisiensi dalam pengembangan. Fokus pada keunggulan produk (tajwid warna, terjemahan) dan penggunaan Facebook Ads (Traffic Tsabit) untuk mendatangkan traffic berkualitas.',
         results: [
-          '823 klik dari Facebook Ads dalam 24 hari',
+          '566 Link Clicks dari kampanye Traffic Tsabit',
           'CTR 2.37% (di atas rata-rata industri)',
-          'CPC Rp 165 (50% lebih murah dari benchmark)',
-          '340 landing page views dari kampanye pertama',
+          'CPC Rp 165 (sangat efisien)',
+          'LP Conversion Rate 60.07%',
         ],
         metrics: {
           performance: '90+ Lighthouse Score',
-          loadTime: '< 2 detik',
-          conversion: '62.90% LC to LP',
+          advertising: 'RoAS Positif',
+          conversion: '60% LP Conv Rate',
         },
       },
     },
@@ -56,12 +56,12 @@ const Projects: React.FC = () => {
       featured: true,
       image: '/website/frontworks.png',
       caseStudy: {
-        challenge: 'Membuat portfolio yang stand out dari kompetitor dengan menampilkan keahlian AI-assisted development secara visual dan interaktif.',
-        solution: 'Design system yang clean dengan fokus pada typography dan spacing, implementasi micro-animations untuk engagement, dan showcase proyek dengan detail teknis.',
+        challenge: 'Merancang UI/UX dan tata letak yang tidak hanya menarik, tetapi juga fungsional dan mudah dinavigasi.',
+        solution: 'Memanfaatkan Cascade Windsurf dan Claude untuk mengeksplorasi pendekatan desain, serta melakukan riset menyeluruh terhadap website profesional lainnya. AI digunakan sebagai alat bantu powerful namun tetap mengutamakan sentuhan kreatif humanis.',
         results: [
-          'Portfolio yang fully responsive',
-          'Performa 90+ di semua metrics Lighthouse',
-          'Loading time < 1.5 detik',
+          'Portfolio modern dan profesional',
+          'Performa 95+ di semua metrics Lighthouse',
+          'Showcase keahlian AI-First Development',
           'Professional presentation untuk client pitching',
         ],
         metrics: {
@@ -149,13 +149,13 @@ const Projects: React.FC = () => {
       featured: false,
       image: '/website/khoiruummah.png',
       caseStudy: {
-        challenge: 'Membuat website institusi pendidikan yang trustworthy dan informatif dengan tech stack sederhana.',
-        solution: 'Clean HTML/CSS/JS implementation dengan fokus pada content hierarchy, professional color scheme, dan SEO-friendly structure.',
+        challenge: 'Menyeimbangkan pendekatan desain yang islami dengan nuansa internasional dan universal.',
+        solution: 'Mengambil inspirasi dari website institusi pendidikan ternama (UI, Oxford, Edinburgh) dan menggabungkan elemen desain dari berbagai referensi untuk menciptakan identitas digital yang kuat, inklusif, namun tetap islami.',
         results: [
-          'Website institusional yang profesional',
-          'SEO-friendly structure',
-          'Fast loading dengan vanilla tech',
-          'Easy to maintain',
+          'Desain website yang profesional & modern',
+          'Identitas visual islami yang kuat namun universal',
+          'Struktur informasi yang jelas dan rapi',
+          'Mudah dikelola dan dikembangkan',
         ],
         metrics: {
           performance: '95 Lighthouse Score',

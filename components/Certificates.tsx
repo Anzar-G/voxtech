@@ -31,34 +31,34 @@ const Certificates: React.FC = () => {
 
     const certificates = [
         {
-            title: "RevoU Software Engineering",
+            title: "RevoU Software Engineering (Fundamental)",
             image: "/sertifikat/Sertifikat RevoU Software Enginering 1.jpg",
             category: "Software Engineering",
-            description: "Fundamental Software Engineering & Web Development"
+            description: "Menguasai dasar-dasar pengembangan perangkat lunak dan web development. (19 Sep 2025)"
         },
         {
             title: "RevoU Software Engineering (Advanced)",
             image: "/sertifikat/Sertifikat RevoU Software Enginering 2.jpg",
             category: "Software Engineering",
-            description: "Advanced Software Engineering & System Architecture"
+            description: "Memahami arsitektur sistem dan teknik pengembangan perangkat lunak tingkat lanjut. (3 Okt 2025)"
         },
         {
-            title: "RevoU Digital Marketing",
+            title: "RevoU Digital Marketing (Strategy)",
             image: "/sertifikat/Sertifikat RevoU Digital Marketing 1.jpg",
             category: "Digital Marketing",
-            description: "Digital Marketing Strategy & Implementation"
+            description: "Menyusun dan menerapkan strategi pemasaran digital secara efektif. (10 Okt 2025)"
         },
         {
             title: "RevoU Digital Marketing (Advanced)",
             image: "/sertifikat/Sertifikat RevoU Digital Marketing 2.jpg",
             category: "Digital Marketing",
-            description: "Advanced Analytics & Performance Marketing"
+            description: "Menganalisis data dan mengoptimalkan kinerja kampanye pemasaran secara mendalam. (17 Okt 2025)"
         },
         {
-            title: "Universitas Satya Negara Indonesia",
+            title: "Universitas Satya Negara Indonesia - Frame to Fame",
             image: "/sertifikat/Sertifikat Frame to Fame.png",
-            category: "Digital Business",
-            description: "Frame to Fame: Meniti Karier Lewat Animasi"
+            category: "Creative",
+            description: "Memahami proses pembuatan animasi dan membuka peluang karier sebagai creator berbasis animasi. (15 Jul 2025)"
         }
     ];
 

@@ -81,7 +81,52 @@ const Journey: React.FC = () => {
 
           {/* Events */}
           <div className="space-y-12">
-            {events.map((event, index) => (
+            {[
+              {
+                date: 'Agustus 2024',
+                icon: <BookOpen className="w-6 h-6" />,
+                title: 'Awal Mula Belajar Digital Marketing',
+                description: 'Menyadari pentingnya ilmu digital, mulai belajar formal di RevoU & pelatihan dari Kang Dewa Eka Prayoga.',
+                achievements: [
+                  'Belajar fundamental digital marketing',
+                  'Mengikuti pelatihan Krenovator Digital Tribe',
+                  'Fokus melawan rasa malas dan beradaptasi',
+                ],
+              },
+              {
+                date: 'Oktober 2024',
+                icon: <Rocket className="w-6 h-6" />,
+                title: 'Peluncuran Bisnis: Feyd Store & Frontworks',
+                description: 'Membangun Feyd Store sebagai Tech Provider/Seller produk pondok, dan Frontworks untuk jasa web dev.',
+                achievements: [
+                  'Berperan sebagai Tech Provider',
+                  'Integrasi fitur e-commerce kompleks',
+                  'Riset pasar untuk UI/UX kompetitif',
+                ],
+              },
+              {
+                date: 'November 2024',
+                icon: <TrendingUp className="w-6 h-6" />,
+                title: 'Aplikasi Nyata & Facebook Ads',
+                description: 'Menjalankan kampanye iklan dengan budget 32k/hari dan optimasi website.',
+                achievements: [
+                  'Mengelola iklan produk Al-Qur\'an & Novel',
+                  'Testing audience & creative',
+                  'Penggunaan AI (Qwen) untuk ide konten',
+                ],
+              },
+              {
+                date: '2025',
+                icon: <Award className="w-6 h-6" />,
+                title: 'Pencapaian & Visi Masa Depan',
+                description: 'Terus mengembangkan bisnis dan memperluas jangkauan.',
+                achievements: [
+                  '5 Sertifikasi Profesional (RevoU, USNI)',
+                  'Target: 4-5 Klien baru per bulan',
+                  'Membangun tim/agen operasional',
+                ],
+              },
+            ].map((event, index) => (
               <div
                 key={index}
                 className={`relative flex flex-col lg:flex-row gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''
@@ -140,13 +185,13 @@ const Journey: React.FC = () => {
           <div className="flex justify-center mb-4">
             <Target className="w-12 h-12" />
           </div>
-          <h3 className="text-3xl font-bold mb-6">Current Focus</h3>
+          <h3 className="text-3xl font-bold mb-6">Goals & Aspirasi</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {[
-              'Scaling Feyd Store e-commerce',
-              'Growing Frontworks client base',
-              'Mastering Facebook Ads optimization',
-              'Exploring new AI development tools',
+              'Mengembangkan Feyd Store & Frontworks',
+              'Mendapatkan 4-5 klien baru per bulan',
+              'Pendapatan optimal & Tim Operasional',
+              'Integrasi AI dalam marketing (Qwen)',
             ].map((goal, i) => (
               <div key={i} className="flex items-center gap-2 text-left">
                 <span className="text-2xl">✓</span>
