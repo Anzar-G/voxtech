@@ -1,9 +1,12 @@
 import React from 'react';
-import { BookOpen, Rocket, TrendingUp, Award, Target, MousePointer, Eye, DollarSign, CheckCircle, Heart } from 'lucide-react';
+import { BookOpen, Rocket, TrendingUp, Award, Target, MousePointer, Eye, DollarSign, CheckCircle, Heart, Palette, BarChart3, Zap, Instagram, Music, Package, MessageSquare, Gift, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/animations/PageWrapper';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import StaggerContainer from '../components/animations/StaggerContainer';
+import MarketingStrategy from '../components/MarketingStrategy';
+import CaseStudy from '../components/CaseStudy';
+import DataAnalysis from '../components/DataAnalysis';
 
 const JourneyPage: React.FC = () => {
     const events = [
@@ -112,6 +115,54 @@ const JourneyPage: React.FC = () => {
         'Landing page conversion rate mencapai 62.90%',
         'Mengelola 4 kampanye simultan dengan total budget Rp 298K',
     ];
+
+    const marketingInsights = [
+        {
+            icon: <Target className="w-6 h-6" />,
+            category: "Audience Targeting",
+            headline: "Targeting yang Tepat adalah Kunci",
+            description: "Audience targeting yang spesifik adalah kunci utama keberhasilan kampanye Facebook Ads. Semakin relevan audience, semakin tinggi engagement."
+        },
+        {
+            icon: <Palette className="w-6 h-6" />,
+            category: "Creative & Copy",
+            headline: "Creative Menentukan Performa",
+            description: "Creative dan copywriting yang relevan dan menarik sangat mempengaruhi CTR dan CPC. Video pendek terbukti paling efektif."
+        },
+        {
+            icon: <BarChart3 className="w-6 h-6" />,
+            category: "Data Analysis",
+            headline: "Analisis Real-Time untuk Optimasi",
+            description: "Analisis data secara berkala memungkinkan optimasi kampanye secara real-time, menghemat budget dan meningkatkan ROI."
+        },
+        {
+            icon: <TrendingUp className="w-6 h-6" />,
+            category: "Traffic Quality",
+            headline: "Kualitas Traffic Lebih Penting",
+            description: "Link Click to LP Rate penting untuk diukur selain jumlah traffic. Traffic berkualitas tinggi menghasilkan konversi lebih baik."
+        },
+        {
+            icon: <Zap className="w-6 h-6" />,
+            category: "Conversion Strategy",
+            headline: "Facebook Ads untuk Awareness",
+            description: "Facebook Ads adalah alat yang ampuh untuk awareness dan traffic, tetapi perlu strategi lanjutan (landing page optimization, retargeting) untuk konversi maksimal."
+        }
+    ];
+
+    const socialMediaStrategy = {
+        platforms: [
+            { name: "Instagram", handle: "@studifiqh.id", icon: <Instagram className="w-5 h-5" /> },
+            { name: "TikTok", handle: "@studifiqh.id", icon: <Music className="w-5 h-5" /> }
+        ],
+        contentTypes: [
+            "Gambar produk Al-Qur'an dengan highlight fitur",
+            "Quotes islami dengan desain menarik",
+            "Tips belajar Al-Qur'an dan hafalan",
+            "Highlight fitur produk (tajwid warna, terjemahan)"
+        ],
+        hashtags: ["#AlQuranKharisma", "#BelajarAlQuran", "#NovelIslami", "#HafalQuran", "#ProdukIslami"],
+        ecommerceIntegration: "Media sosial digunakan untuk membangun awareness dan mengarahkan traffic ke website Feyd Store melalui link di bio dan story."
+    };
 
     const socialMediaMetrics = {
         instagram: {
@@ -266,6 +317,13 @@ const JourneyPage: React.FC = () => {
                     </ScrollReveal>
                 </section>
 
+
+                {/* Marketing Strategy Section */}
+                <MarketingStrategy />
+
+                {/* Case Study Section */}
+                <CaseStudy />
+
                 {/* Performance Section */}
                 <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
                     {/* Animated Particles Background */}
@@ -394,20 +452,44 @@ const JourneyPage: React.FC = () => {
                             </div>
                         </ScrollReveal>
 
-                        {/* Key Insights */}
-                        <ScrollReveal variant="fade-up" delay={0.3} className="bg-white/10 border-l-4 border-electric-500 rounded-2xl p-6 lg:p-8">
-                            <h3 className="text-2xl font-bold text-white mb-6">Insight Utama</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {insights.map((insight, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <span className="text-electric-300 text-xl font-bold mt-1">✓</span>
-                                        <p className="text-base text-white/90 leading-relaxed">{insight}</p>
-                                    </div>
+                        {/* Key Insights - Enhanced */}
+                        <ScrollReveal variant="fade-up" delay={0.3}>
+                            <h3 className="text-2xl font-bold text-white mb-8 text-center">Marketing Insights & Learnings</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {marketingInsights.map((insight, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                                    >
+                                        <div className="flex items-start gap-4 mb-4">
+                                            <div className="w-12 h-12 rounded-xl bg-electric-500/20 flex items-center justify-center text-electric-300 flex-shrink-0">
+                                                {insight.icon}
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-electric-300 font-semibold uppercase tracking-wide mb-1">
+                                                    {insight.category}
+                                                </p>
+                                                <h4 className="text-lg font-bold text-white mb-2">
+                                                    {insight.headline}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-white/80 leading-relaxed">
+                                            {insight.description}
+                                        </p>
+                                    </motion.div>
                                 ))}
                             </div>
                         </ScrollReveal>
                     </div>
                 </section>
+
+                {/* Data Analysis & Learnings Section */}
+                <DataAnalysis />
 
                 <section className="relative py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
                     {/* Animated Particles Background */}
@@ -449,6 +531,101 @@ const JourneyPage: React.FC = () => {
                                     <TrendingUp className="text-electric-300 w-8 h-8" />
                                 </div>
                                 <h2 className="text-3xl lg:text-4xl font-bold text-white">Performa Social Media</h2>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Social Media Strategy Overview */}
+                        <ScrollReveal variant="fade-up" delay={0.1} className="mb-12">
+                            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-xl">
+                                <h3 className="text-2xl font-bold text-white mb-6">Strategi Pertumbuhan Media Sosial</h3>
+
+                                {/* Platforms */}
+                                <div className="mb-6">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-3">Platform</p>
+                                    <div className="flex flex-wrap gap-3">
+                                        {socialMediaStrategy.platforms.map((platform, index) => (
+                                            <div key={index} className="flex items-center gap-2 bg-white/10 rounded-lg px-4 py-2 border border-white/20">
+                                                <span className="text-electric-300">{platform.icon}</span>
+                                                <span className="text-white font-semibold">{platform.name}</span>
+                                                <span className="text-white/60 text-sm">{platform.handle}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Content Types */}
+                                <div className="mb-6">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-3">Jenis Konten</p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        {socialMediaStrategy.contentTypes.map((type, index) => (
+                                            <div key={index} className="flex items-start gap-2">
+                                                <span className="text-electric-300 mt-1">•</span>
+                                                <span className="text-white/90 text-sm">{type}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Content Pillars */}
+                                <div className="mb-6">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-3">Content Pillars untuk Feyd Store</p>
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        {[
+                                            { name: 'Produk', desc: 'Tampilan & fitur', icon: <Package className="w-6 h-6" />, color: 'blue' },
+                                            { name: 'Edukasi', desc: 'Tips & manfaat', icon: <BookOpen className="w-6 h-6" />, color: 'green' },
+                                            { name: 'Testimoni', desc: 'Cerita pengguna', icon: <MessageSquare className="w-6 h-6" />, color: 'purple' },
+                                            { name: 'Promosi', desc: 'Diskon & promo', icon: <Gift className="w-6 h-6" />, color: 'orange' }
+                                        ].map((pillar, index) => {
+                                            const colorClasses = {
+                                                blue: 'bg-cyan-400/20 text-cyan-300 border-cyan-400/30',
+                                                green: 'bg-green-500/20 text-green-400 border-green-500/30',
+                                                purple: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+                                                orange: 'bg-orange-500/20 text-orange-400 border-orange-500/30'
+                                            }[pillar.color];
+
+                                            return (
+                                                <div key={index} className="bg-white/10 rounded-xl p-4 border border-white/20 text-center hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300">
+                                                    <div className={`w-12 h-12 mx-auto mb-3 rounded-xl ${colorClasses} flex items-center justify-center`}>
+                                                        {pillar.icon}
+                                                    </div>
+                                                    <p className="text-sm font-bold text-white mb-1">{pillar.name}</p>
+                                                    <p className="text-xs text-white/60">{pillar.desc}</p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+
+                                {/* Marketing Calendar */}
+                                <div className="mb-6">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-3">Kalender Pemasaran</p>
+                                    <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                                        <p className="text-sm text-white/80 mb-2">
+                                            <span className="font-semibold text-electric-300">Perencanaan Terjadwal:</span> Meskipun masih dalam tahap awal, merencanakan postingan dan kampanye iklan secara terjadwal membantu menjaga konsistensi dan menghemat waktu produksi.
+                                        </p>
+                                        <p className="text-sm text-white/70">
+                                            <span className="font-semibold">Dampak:</span> Membantu menjaga brand awareness, meningkatkan engagement, dan menjaga keseimbangan antara konten edukatif dan promosi.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Hashtags */}
+                                <div className="mb-6">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-3">Hashtag Strategy</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {socialMediaStrategy.hashtags.map((tag, index) => (
+                                            <span key={index} className="bg-electric-500/20 text-electric-300 px-3 py-1 rounded-full text-sm font-medium">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* E-commerce Integration */}
+                                <div className="bg-gradient-to-r from-electric-500/20 to-transparent rounded-xl p-4 border-l-4 border-electric-500">
+                                    <p className="text-sm text-white/70 uppercase tracking-wide mb-2">Integrasi E-commerce</p>
+                                    <p className="text-white/90 leading-relaxed">{socialMediaStrategy.ecommerceIntegration}</p>
+                                </div>
                             </div>
                         </ScrollReveal>
 

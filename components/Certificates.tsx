@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
@@ -7,7 +8,7 @@ import { Award, ExternalLink } from 'lucide-react';
 const Certificates: React.FC = () => {
     const [selectedCert, setSelectedCert] = React.useState<string | null>(null);
 
-    // Handle Escape key
+    // Handle Escape key & Lock scroll
     React.useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -16,10 +17,16 @@ const Certificates: React.FC = () => {
         };
 
         if (selectedCert) {
+            // Lock scroll
+            document.body.style.overflow = 'hidden';
             window.addEventListener('keydown', handleEsc);
         }
 
-        return () => window.removeEventListener('keydown', handleEsc);
+        return () => {
+            // Unlock scroll saat modal ditutup
+            document.body.style.overflow = 'unset';
+            window.removeEventListener('keydown', handleEsc);
+        };
     }, [selectedCert]);
 
     const certificates = [
@@ -48,10 +55,10 @@ const Certificates: React.FC = () => {
             description: "Advanced Analytics & Performance Marketing"
         },
         {
-            title: "Krenovator Digital Tribe",
+            title: "Universitas Satya Negara Indonesia",
             image: "/sertifikat/Sertifikat Frame to Fame.png",
             category: "Digital Business",
-            description: "Frame to Fame: Personal Branding & Content Creation"
+            description: "Frame to Fame: Meniti Karier Lewat Animasi"
         }
     ];
 
@@ -121,7 +128,7 @@ const Certificates: React.FC = () => {
             </div>
 
             {/* Lightbox Modal */}
-            {selectedCert && (
+            {selectedCert && ReactDOM.createPortal(
                 <div
                     className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 md:p-10"
                     onClick={() => setSelectedCert(null)}
@@ -145,7 +152,8 @@ const Certificates: React.FC = () => {
                             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10"
                         />
                     </motion.div>
-                </div>
+                </div>,
+                document.body
             )}
         </section>
     );
