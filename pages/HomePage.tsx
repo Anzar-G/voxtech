@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PageSkeleton from '../components/loaders/PageSkeleton';
 import Hero from '../components/Hero';
-import PageWrapper from '../components/animations/PageWrapper';
+import About from '../components/About';
+import Services from '../components/Services';
+import Projects from '../components/Projects';
+import Journey from '../components/Journey';
+import Businesses from '../components/Businesses';
+import Contact from '../components/Contact';
 
 const HomePage: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Simulate loading
+        const timer = setTimeout(() => setIsLoading(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) return <PageSkeleton />;
+
     return (
-        <PageWrapper>
+        <div className="overflow-hidden">
             <Hero />
-        </PageWrapper>
+            <About />
+            <Services />
+            <Projects />
+            <Journey />
+            <Businesses />
+            <Contact />
+        </div>
     );
 };
 

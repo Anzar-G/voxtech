@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Services from '../components/Services';
+import PageSkeleton from '../components/loaders/PageSkeleton';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/animations/PageWrapper';
 
@@ -10,6 +11,15 @@ const pageVariants = {
 };
 
 const ServicesPage: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 1200);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) return <PageSkeleton />;
+
     return (
         <PageWrapper>
             <Services />

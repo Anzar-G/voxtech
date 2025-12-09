@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BookOpen, Rocket, TrendingUp, Award, Target, MousePointer, Eye, DollarSign, CheckCircle, Heart, Palette, BarChart3, Zap, Instagram, Music, Package, MessageSquare, Gift, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/animations/PageWrapper';
+import PageSkeleton from '../components/loaders/PageSkeleton';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import StaggerContainer from '../components/animations/StaggerContainer';
 import MarketingStrategy from '../components/MarketingStrategy';
@@ -9,6 +10,15 @@ import CaseStudy from '../components/CaseStudy';
 import DataAnalysis from '../components/DataAnalysis';
 
 const JourneyPage: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) return <PageSkeleton />;
+
     const events = [
         {
             date: 'Agustus 2025',
