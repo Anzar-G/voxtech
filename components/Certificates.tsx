@@ -77,7 +77,7 @@ const Certificates: React.FC = () => {
                     </p>
                 </ScrollReveal>
 
-                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
                     {certificates.map((cert, index) => (
                         <motion.div
                             key={index}
@@ -106,19 +106,19 @@ const Certificates: React.FC = () => {
                                 </div>
 
                                 {/* Overlay Content */}
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 text-xs font-bold bg-electric-500 text-white rounded-full shadow-lg">
+                                <div className="absolute top-2 left-2 lg:top-4 lg:left-4">
+                                    <span className="px-2 py-0.5 lg:px-3 lg:py-1 text-[10px] lg:text-xs font-bold bg-electric-500 text-white rounded-full shadow-lg">
                                         {cert.category}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-electric-300 transition-colors">
+                            <div className="p-4 lg:p-6">
+                                <h3 className="text-sm lg:text-xl font-bold text-white mb-1 lg:mb-2 group-hover:text-electric-300 transition-colors line-clamp-2">
                                     {cert.title}
                                 </h3>
-                                <p className="text-sm text-white/70">
+                                <p className="text-[10px] lg:text-sm text-white/70 line-clamp-3 leading-relaxed">
                                     {cert.description}
                                 </p>
                             </div>

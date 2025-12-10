@@ -22,23 +22,31 @@ const About: React.FC = () => {
   const skills = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: 'AI Engineering',
-      items: ['Pengembangan No-Code/Low-Code', 'AI-Assisted Coding', 'Rapid Prototyping'],
+      name: 'AI Engineering',
+      level: 95,
+      category: 'Core Skill',
+      items: ['No-Code/Low-Code', 'AI-Assisted Coding', 'Rapid Prototyping'],
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: 'Tech Stack',
-      items: ['Next.js, React, TypeScript', 'Tailwind CSS', 'Vercel Deployment'],
+      name: 'Tech Stack',
+      level: 90,
+      category: 'Frontend & Deployment',
+      items: ['Next.js, React, TS', 'Tailwind CSS', 'Vercel'],
     },
     {
       icon: <BarChart className="w-8 h-8" />,
-      title: 'Digital Marketing',
-      items: ['Manajemen Facebook Ads', 'Strategi Konten', 'SEO & Analytics'],
+      name: 'Digital Marketing',
+      level: 85,
+      category: 'Growth & Strategy',
+      items: ['FB Ads', 'Content Strategy', 'SEO & Analytics'],
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: 'Penguasaan Tools',
-      items: ['8+ AI Development Tools', 'Claude AI, Qwen Coder', 'Multi-AI Workflow'],
+      name: 'Penguasaan Tools',
+      level: 98,
+      category: 'Productivity',
+      items: ['8+ AI Tools', 'Claude & Qwen', 'Multi-AI Workflow'],
     },
   ];
 
@@ -166,69 +174,72 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
             {/* Left Column - 40% */}
+            {/* Left Column - 40% */}
             <ScrollReveal variant="fade-right" className="lg:col-span-2 space-y-6">
-              {/* Profile Photo */}
-              <div className="w-full max-w-xs mx-auto lg:mx-0">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden backdrop-blur-sm">
-                  <img
-                    src="/profile.jpg"
-                    alt="Muhammad Nizar Al-Faris"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback jika gambar gagal load
-                      (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/1e293b/white?text=MN';
-                    }}
-                  />
+              {/* Mobile: Photo + Info Side by Side / Desktop: Standard */}
+              <div className="grid grid-cols-[45%_1fr] lg:grid-cols-1 gap-4 mb-6 lg:mb-0 lg:space-y-6">
+                {/* Profile Photo */}
+                <div className="w-full lg:max-w-xs lg:mx-auto">
+                  <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden backdrop-blur-sm">
+                    <img
+                      src="/profile.jpg"
+                      alt="Muhammad Nizar Al-Faris"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/1e293b/white?text=MN';
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Info Card */}
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 text-white shadow-xl border border-white/20">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-6 h-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">Lokasi</p>
-                      <p className="text-sm text-white/90">Semarang, Jawa Tengah</p>
+                {/* Info Card - Compact on Mobile */}
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 lg:p-8 text-white shadow-xl border border-white/20 flex flex-col justify-center lg:block">
+                  <div className="space-y-3 lg:space-y-4">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm lg:text-base">Lokasi</p>
+                        <p className="text-xs lg:text-sm text-white/90">Semarang, Jateng</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <GraduationCap className="w-6 h-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">Pendidikan</p>
-                      <p className="text-sm text-white/90">SMA Kelas 1 (2025)</p>
+                    <div className="flex items-start gap-3">
+                      <GraduationCap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm lg:text-base">Pendidikan</p>
+                        <p className="text-xs lg:text-sm text-white/90">SMA Kelas 1</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Briefcase className="w-6 h-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">Bisnis Aktif</p>
-                      <p className="text-sm text-white/90">2 Bisnis Berjalan</p>
+                    <div className="flex items-start gap-3">
+                      <Briefcase className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm lg:text-base">Bisnis</p>
+                        <p className="text-xs lg:text-sm text-white/90">2 Berjalan</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Zap className="w-6 h-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold">Pengalaman AI</p>
-                      <p className="text-sm text-white/90">8 Bulan Pengalaman</p>
+                    <div className="flex items-start gap-3">
+                      <Zap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm lg:text-base">Exp. AI</p>
+                        <p className="text-xs lg:text-sm text-white/90">8 Bulan</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <p className="text-3xl font-bold text-electric-300">8+</p>
-                  <p className="text-xs text-white/70 mt-1">Bulan AI</p>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
+                  <p className="text-2xl lg:text-3xl font-bold text-electric-300">8+</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Bulan AI</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <p className="text-3xl font-bold text-electric-300">5+</p>
-                  <p className="text-xs text-white/70 mt-1">Proyek</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
+                  <p className="text-2xl lg:text-3xl font-bold text-electric-300">5+</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Proyek</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <p className="text-3xl font-bold text-electric-300">2</p>
-                  <p className="text-xs text-white/70 mt-1">Bisnis</p>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
+                  <p className="text-2xl lg:text-3xl font-bold text-electric-300">2</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Bisnis</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -273,7 +284,7 @@ const About: React.FC = () => {
               {/* Skills Highlight */}
               <div>
                 <h3 className="text-2xl font-bold text-white mb-6">Keahlian Utama</h3>
-                <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 gap-4 lg:gap-6">
                   {skills.map((skill, index) => (
                     <motion.div
                       key={index}
@@ -281,20 +292,19 @@ const About: React.FC = () => {
                         hidden: { opacity: 0, scale: 0.9 },
                         visible: { opacity: 1, scale: 1 }
                       }}
-                      className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-l-4 border-electric-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-white/10"
+                      className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-6 border-l-4 border-electric-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-white/10"
                     >
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="text-electric-300">{skill.icon}</div>
-                        <h4 className="text-lg font-bold text-white">{skill.title}</h4>
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="bg-white/10 p-1.5 lg:p-2 rounded-lg">
+                          {/* Icon styling handled by Lucide defaults, usually 24px which is fine, but maybe scale down slightly if needed */}
+                          {React.cloneElement(skill.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6 text-electric-300" })}
+                        </div>
+                        <span className="text-[10px] lg:text-xs font-mono text-electric-300 bg-electric-300/10 px-1.5 py-0.5 rounded">
+                          {skill.level}%
+                        </span>
                       </div>
-                      <ul className="space-y-2">
-                        {skill.items.map((item, i) => (
-                          <li key={i} className="text-sm text-white/80 flex items-start gap-2">
-                            <span className="text-electric-300 mt-1">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <h4 className="text-sm lg:text-xl font-bold text-white mb-0.5 lg:mb-1 truncate">{skill.name}</h4>
+                      <p className="text-xs lg:text-sm text-white/70 line-clamp-2">{skill.category}</p>
                     </motion.div>
                   ))}
                 </StaggerContainer>
@@ -344,7 +354,7 @@ const About: React.FC = () => {
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
             {whyChooseMe.map((item, index) => (
               <motion.div
                 key={index}
@@ -352,13 +362,15 @@ const About: React.FC = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10 hover:border-electric-500/30"
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-4 lg:p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10 hover:border-electric-500/30 flex flex-col h-full"
               >
-                <div className="w-12 h-12 rounded-lg bg-electric-500/10 flex items-center justify-center text-electric-300 mb-4 border border-electric-500/20">
-                  {item.icon}
+                <div className="bg-gradient-to-br from-electric-500/20 to-navy-800/50 w-10 h-10 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center mb-3 lg:mb-4 text-electric-300 border border-electric-500/20 flex-shrink-0">
+                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6" })}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-white/70 leading-relaxed">{item.description}</p>
+                <h4 className="text-sm lg:text-lg font-bold text-white mb-1 lg:mb-2 leading-tight">{item.title}</h4>
+                <p className="text-xs lg:text-sm text-white/70 leading-relaxed flex-grow">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </StaggerContainer>
@@ -380,25 +392,25 @@ const About: React.FC = () => {
               <motion.div
                 key={index}
                 variants={{
-                  hidden: { opacity: 0, x: -20 },
+                  hidden: { opacity: 0, x: index % 2 === 0 ? -20 : 20 },
                   visible: { opacity: 1, x: 0 }
                 }}
-                className="flex gap-6 bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-white/20"
+                className={`flex gap-4 lg:gap-6 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-white/20`}
               >
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-xl border-2 border-white/20 shadow-lg">
+                  <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-lg lg:text-xl border-2 border-white/20 shadow-lg">
                     {step.number}
                   </div>
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-bold text-white">{step.title}</h3>
-                    <div className="flex items-center gap-2 text-sm text-white/60">
-                      <Clock className="w-4 h-4" />
+                <div className={`flex-1 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'items-start' : 'items-end'} mb-2`}>
+                    <h3 className="text-lg lg:text-xl font-bold text-white leading-tight">{step.title}</h3>
+                    <div className="flex items-center gap-2 text-xs lg:text-sm text-white/60 mt-1">
+                      <Clock className="w-3 h-3 lg:w-4 lg:h-4" />
                       <span>{step.duration}</span>
                     </div>
                   </div>
-                  <p className="text-white/70 leading-relaxed">{step.description}</p>
+                  <p className="text-sm lg:text-base text-white/70 leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -419,7 +431,8 @@ const About: React.FC = () => {
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {/* Desktop Grid */}
+          <StaggerContainer className="hidden lg:grid lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -427,7 +440,7 @@ const About: React.FC = () => {
                   hidden: { opacity: 0, scale: 0.9 },
                   visible: { opacity: 1, scale: 1 }
                 }}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -443,6 +456,36 @@ const About: React.FC = () => {
               </motion.div>
             ))}
           </StaggerContainer>
+
+          {/* Mobile Horizontal Scroll */}
+          <div className="lg:hidden">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide px-4 -mx-4">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="snap-center flex-shrink-0 w-[85%] bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-white/90 italic mb-6 text-sm leading-relaxed">"{testimonial.text}"</p>
+                  <div className="border-t border-white/20 pt-4">
+                    <p className="text-white font-semibold text-sm">{testimonial.name}</p>
+                    <p className="text-white/70 text-xs">{testimonial.position}</p>
+                    <p className="text-electric-300 text-xs mt-1">Proyek: {testimonial.project}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2">
+              {testimonials.map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/30" />
+              ))}
+            </div>
+          </div>
 
           <ScrollReveal variant="fade-up" delay={0.3} className="text-center mt-12">
             <p className="text-white/60 text-sm italic">
