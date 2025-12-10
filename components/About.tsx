@@ -243,7 +243,8 @@ const About: React.FC = () => {
                   </p>
                   <p className="text-lg">
                     Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas.</p>
-                  <p>"Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.</p>
+                  <p className="text-lg">
+                    "Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.</p>
                 </div>
               </div>
 
