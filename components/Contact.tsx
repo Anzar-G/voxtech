@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       label: 'Lokasi',
-      value: 'Jl. Mulya 2, RT.005/RW.006, Karyamulya, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131',
+      value: 'Perum Klipang Permai Blok H-349 5/23,Sendangmulyo, Tembalang, Semarang, Jawa Tengah',
       link: null,
       description: 'Indonesia (WIB/UTC+7)',
     },

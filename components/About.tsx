@@ -186,7 +186,7 @@ const About: React.FC = () => {
                     <MapPin className="w-6 h-6 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Lokasi</p>
-                      <p className="text-sm text-white/90">Cirebon, Jawa Barat</p>
+                      <p className="text-sm text-white/90">Semarang, Jawa Tengah</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
