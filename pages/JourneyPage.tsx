@@ -26,7 +26,7 @@ const JourneyPage: React.FC = () => {
             title: 'Memulai Pembelajaran Digital Entrepreneurship',
             description: 'Bergabung dengan bootcamp RevoU & Krenovator Digital Tribe untuk mempelajari software engineering dan digital marketing',
             achievements: [
-                'Menyelesaikan fundamental full-stack development',
+                'Memulai pembelajaran fundamental full-stack development',
                 'Mempelajari React, Next.js, dan teknologi web modern',
             ],
         },
