@@ -171,7 +171,7 @@ const About: React.FC = () => {
               <div className="w-full max-w-xs mx-auto lg:mx-0">
                 <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden backdrop-blur-sm">
                   <img
-                    src="/public/profile.jpg"
+                    src="/profile.jpg"
                     alt="Muhammad Nizar Al-Faris"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -242,8 +242,8 @@ const About: React.FC = () => {
                     Saya Muhammad Nizar Al-Faris, seorang <strong className="text-electric-500 font-semibold">AI Engineer dan Spesialis Digital Marketing</strong> berusia 16 tahun yang passionate dalam menghadirkan solusi digital inovatif. Dengan pengalaman 8 bulan di bidang pengembangan web berbasis AI, saya membantu bisnis mengubah ide menjadi website profesional yang fungsional dan menarik.
                   </p>
                   <p className="text-lg">
-                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas. "Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.
-                  </p>
+                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas.</p>
+                  <p>"Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.</p>
                 </div>
               </div>
 
