@@ -27,8 +27,7 @@ const JourneyPage: React.FC = () => {
             description: 'Bergabung dengan bootcamp RevoU & Krenovator Digital Tribe untuk mempelajari software engineering dan digital marketing',
             achievements: [
                 'Menyelesaikan fundamental full-stack development',
-                'Menguasai React, Next.js, dan teknologi web modern',
-                'Mulai mempelajari Facebook Ads & strategi digital marketing',
+                'Mempelajari React, Next.js, dan teknologi web modern',
             ],
         },
         {
@@ -54,7 +53,7 @@ const JourneyPage: React.FC = () => {
             ],
         },
         {
-            date: 'November 2025',
+            date: 'Oktober - November 2025',
             icon: <TrendingUp className="w-6 h-6" />,
             title: 'Memulai Perjalanan Facebook Ads',
             description: 'Menjalankan kampanye dengan budget 32k/hari',
@@ -62,6 +61,7 @@ const JourneyPage: React.FC = () => {
                 'Mengelola iklan multi-produk (Al-Quran, Novel)',
                 'Testing berbagai segmen audience',
                 'Optimasi untuk konversi',
+                'Mempelajari Facebook Ads & strategi digital marketing',
             ],
         },
         {
@@ -72,6 +72,8 @@ const JourneyPage: React.FC = () => {
             achievements: [
                 '2x Sertifikat Software Engineering (RevoU)',
                 '2x Sertifikat Digital Marketing (RevoU)',
+                '1x Sertifikat Data Analysis (RevoU)',
+                '1x Sertifikat Dari Universitas Satya Negara Indonesia',
                 '5+ Proyek Berhasil Diselesaikan',
                 '823 klik, CTR 2.37% pada iklan',
             ],
@@ -79,14 +81,24 @@ const JourneyPage: React.FC = () => {
     ];
 
     const metrics = [
-        { icon: <MousePointer />, value: '823', label: 'Total Klik Link' },
-        { icon: <Eye />, value: '26,653', label: 'Video Views' },
+        { icon: <MousePointer />, value: '895', label: 'Total Klik Link' },
+        { icon: <Eye />, value: '63.580', label: 'Video Views' },
         { icon: <TrendingUp />, value: '4.62%', label: 'CTR Tertinggi' },
         { icon: <DollarSign />, value: 'Rp 165', label: 'CPC Terendah' },
         { icon: <CheckCircle />, value: '62.90%', label: 'Konversi LP Terbaik' },
     ];
 
     const campaigns = [
+        {
+            name: 'Awareness Ads',
+            status: 'Tidak Aktif',
+            linkClicks: 72,
+            ctr: '0.14%',
+            cpc: 'Rp 377',
+            impressions: '49.847',
+            results: '49.026 Reach',
+            highlight: 'impressions',
+        },
         {
             name: 'Traffic Tsabit',
             status: 'Tidak Aktif',
@@ -382,11 +394,11 @@ const JourneyPage: React.FC = () => {
                             <div className="flex flex-wrap items-center justify-between gap-6">
                                 <div>
                                     <p className="text-sm text-white/70">Periode Kampanye</p>
-                                    <p className="text-lg font-semibold text-white">Nov 10 - Dec 4, 2025</p>
+                                    <p className="text-lg font-semibold text-white">Nov 10 - Dec 10, 2025</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-white/70">Total Pengeluaran Iklan</p>
-                                    <p className="text-lg font-semibold text-white">Rp 298.643</p>
+                                    <p className="text-lg font-semibold text-white">Rp 325.789</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-white/70">Strategi Budget</p>
@@ -452,8 +464,9 @@ const JourneyPage: React.FC = () => {
                                                     <td className={`px-6 py-4 text-sm ${campaign.highlight === 'best' ? 'text-green-600 font-semibold' : 'text-navy-900'}`}>
                                                         {campaign.cpc}
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm text-navy-900">{campaign.impressions}</td>
-                                                    <td className="px-6 py-4 text-sm text-navy-900">{campaign.results}</td>
+                                                    <td className={`px-6 py-4 text-sm ${campaign.highlight === 'impressions' ? 'text-green-600 font-semibold' : 'text-navy-900'}`}>
+                                                        {campaign.impressions}
+                                                    </td>                                                    <td className="px-6 py-4 text-sm text-navy-900">{campaign.results}</td>
                                                 </tr>
                                             ))}
                                         </tbody>

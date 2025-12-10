@@ -167,15 +167,18 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
             {/* Left Column - 40% */}
             <ScrollReveal variant="fade-right" className="lg:col-span-2 space-y-6">
-              {/* Profile Photo Placeholder */}
+              {/* Profile Photo */}
               <div className="w-full max-w-xs mx-auto lg:mx-0">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white">MN</span>
-                    </div>
-                    <p className="text-sm text-white/70">Foto Profil</p>
-                  </div>
+                <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden backdrop-blur-sm">
+                  <img
+                    src="/public/profile.jpg"
+                    alt="Muhammad Nizar Al-Faris"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback jika gambar gagal load
+                      (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/1e293b/white?text=MN';
+                    }}
+                  />
                 </div>
               </div>
 
