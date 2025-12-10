@@ -5,9 +5,9 @@ import { AnimatePresence } from 'framer-motion';
 import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import JourneyPage from './pages/JourneyPage';
 import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
-import JourneyPage from './pages/JourneyPage';
 import BusinessesPage from './pages/BusinessesPage';
 import ContactPage from './pages/ContactPage';
 

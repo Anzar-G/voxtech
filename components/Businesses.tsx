@@ -9,7 +9,7 @@ const Businesses: React.FC = () => {
     {
       name: 'Feyd Store',
       url: 'feyd-store.vercel.app',
-      logo: 'FS',
+      logo: '/public/ipm.png',
       category: 'E-commerce Produk Islami',
       description: 'Menyediakan Al-Qur\'an Kharisma dengan tajwid berwarna & terjemahan, serta novel-novel inspiratif islami.',
       products: [
@@ -28,7 +28,7 @@ const Businesses: React.FC = () => {
     {
       name: 'Frontworks',
       url: 'frontworks.vercel.app',
-      logo: 'FW',
+      logo: '/public/favicon.svg',
       category: 'Layanan Web Development Berbasis AI',
       description: 'Jasa pembuatan website profesional menggunakan pengembangan berbasis AI untuk delivery cepat dan kualitas tinggi.',
       services: [
@@ -103,8 +103,16 @@ const Businesses: React.FC = () => {
               className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 lg:p-10 border-2 border-white/20 shadow-xl hover:shadow-2xl hover:border-electric-300/50 transition-all duration-400"
             >
               {/* Logo Placeholder */}
-              <div className="w-16 h-16 rounded-2xl bg-white/10 border-2 border-white/30 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-md">
-                {business.logo}
+              <div className="w-16 h-16 rounded-2xl bg-white/90 border-2 border-white/30 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-md overflow-hidden">
+                {business.logo.includes('/') || business.logo.includes('.') ? (
+                  <img
+                    src={business.logo}
+                    alt={`${business.name} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <span>{business.logo}</span>
+                )}
               </div>
 
               {/* Name & URL */}

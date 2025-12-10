@@ -178,30 +178,8 @@ const Projects: React.FC = () => {
     ? projects
     : projects.filter(p => p.category === activeFilter);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
-
   return (
     <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
-      {/* Animated Particles Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
           <motion.div
@@ -227,13 +205,11 @@ const Projects: React.FC = () => {
         ))}
       </div>
 
-      {/* Diagonal Pattern Overlay */}
       <div className="absolute inset-0 opacity-5"
         style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-20">
-        {/* Section Header */}
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Proyek Unggulan
@@ -243,239 +219,153 @@ const Projects: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        {/* Filter Tabs */}
-        {/* Filter Buttons */}
         <div className="flex justify-center mb-12 overflow-x-auto pb-4 hide-scrollbar">
           <div className="flex gap-4 px-4 min-w-max">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`
-                  px-6 py-2.5 rounded-full transition-all text-sm whitespace-nowrap
-                  ${activeFilter === filter.id
-                    ? 'bg-electric-500 text-white shadow-lg shadow-electric-500/25'
-                    : 'bg-white/10 text-white/70 hover:bg-white/20 backdrop-blur-sm'
-                  }
-                `}
+                className={`px-6 py-2.5 rounded-full transition-all text-sm whitespace-nowrap ${activeFilter === filter.id ? 'bg-electric-500 text-white shadow-lg shadow-electric-500/25' : 'bg-white/10 text-white/70 hover:bg-white/20 backdrop-blur-sm'}`}
               >
                 {filter.label}
               </button>
             ))}
           </div>
         </div>
-        {/* Projects Grid */}
-        <StaggerContainer
-          key={activeFilter}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8"
-        >
+
+        <StaggerContainer key={activeFilter} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
           {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1 }
-              }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-white/20 hover:border-electric-300/50"
-            >
-              {/* Thumbnail Image */}
-              <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1e293b/white?text=Project';
-                  }}
-                />
-
-                {project.featured && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg"
-                  >
-                    UNGGULAN
-                  </motion.div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-8">
-                {/* Tech Stack Icons */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.slice(0, 3).map((tech, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.1 * i }}
-                      whileHover={{ rotate: 360 }}
-                      className="w-8 h-8 rounded-lg bg-bg-light-blue flex items-center justify-center text-electric-500 text-xs font-bold"
-                    >
-                      {tech.charAt(0)}
+            <React.Fragment key={project.id}>
+              <motion.div
+                variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-white/20 hover:border-electric-300/50"
+              >
+                <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top"
+                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1e293b/white?text=Project'; }} />
+                  {project.featured && (
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+                      className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg">
+                      UNGGULAN
                     </motion.div>
-                  ))}
+                  )}
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
-                  {project.title}
-                </h3>
-
-                {/* Category Badge */}
-                <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-xs font-semibold mb-4 border border-electric-300/30">
-                  {project.category}
-                </span>
-
-                {/* Description */}
-                <p className="text-sm text-white/80 leading-relaxed mb-5 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Key Features */}
-                <div className="mb-6">
-                  <p className="text-xs font-semibold text-white/70 mb-2">Hasil Utama:</p>
-                  <ul className="space-y-1">
-                    {project.features.slice(0, 2).map((feature, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 + 0.1 * i }}
-                        className="text-xs text-white/80 flex items-start gap-2"
-                      >
-                        <span className="text-electric-300 mt-0.5">✓</span>
-                        <span>{feature}</span>
-                      </motion.li>
+                <div className="p-8">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.techStack.slice(0, 3).map((tech, i) => (
+                      <motion.div key={i} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 * i }}
+                        whileHover={{ rotate: 360 }} className="w-8 h-8 rounded-lg bg-bg-light-blue flex items-center justify-center text-electric-500 text-xs font-bold">
+                        {tech.charAt(0)}
+                      </motion.div>
                     ))}
-                  </ul>
-                </div>
+                  </div>
 
-                {/* CTA Buttons */}
-                <div className="flex gap-3">
-                  <motion.a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold transition-all duration-300"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Lihat Website</span>
-                  </motion.a>
-                  <motion.button
-                    onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id
-                      ? 'bg-electric-500 border-electric-500 text-white'
-                      : 'bg-white/10 border-white/30 hover:bg-white/20 text-electric-300'
-                      }`}
-                  >
-                    <FileText size={16} />
-                  </motion.button>
+                  <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{project.title}</h3>
+                  <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-xs font-semibold mb-4 border border-electric-300/30">
+                    {project.category}
+                  </span>
+                  <p className="text-sm text-white/80 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
+
+                  <div className="mb-6">
+                    <p className="text-xs font-semibold text-white/70 mb-2">Hasil Utama:</p>
+                    <ul className="space-y-1">
+                      {project.features.slice(0, 2).map((feature, i) => (
+                        <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + 0.1 * i }}
+                          className="text-xs text-white/80 flex items-start gap-2">
+                          <span className="text-electric-300 mt-0.5">✓</span>
+                          <span>{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold transition-all duration-300">
+                      <ExternalLink size={16} />
+                      <span>Lihat Website</span>
+                    </motion.a>
+                    <motion.button onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
+                      whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}
+                      className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id ? 'bg-electric-500 border-electric-500 text-white' : 'bg-white/10 border-white/30 hover:bg-white/20 text-electric-300'}`}>
+                      <FileText size={16} />
+                    </motion.button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+
+              {selectedProject === project.id && (
+                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
+                  className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border-2 border-white/20">
+                  <div className="space-y-8">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
+                        <p className="text-white/70">Case Study Detail</p>
+                      </div>
+                      <button onClick={() => setSelectedProject(null)} className="text-white/60 hover:text-white text-2xl font-bold">×</button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <Target className="w-5 h-5 text-red-500" />
+                          </div>
+                          <h4 className="text-lg font-bold text-white">Challenge</h4>
+                        </div>
+                        <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.challenge}</p>
+                      </div>
+
+                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <Zap className="w-5 h-5 text-blue-500" />
+                          </div>
+                          <h4 className="text-lg font-bold text-white">Solution</h4>
+                        </div>
+                        <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.solution}</p>
+                      </div>
+
+                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <TrendingUp className="w-5 h-5 text-green-500" />
+                          </div>
+                          <h4 className="text-lg font-bold text-white">Results</h4>
+                        </div>
+                        <ul className="space-y-2">
+                          {project.caseStudy.results.map((result, i) => (
+                            <li key={i} className="text-sm text-white/70 flex items-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>{result}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-electric-500 to-navy-900 rounded-xl p-6 text-white">
+                      <h4 className="text-xl font-bold mb-4">Key Metrics</h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {Object.entries(project.caseStudy.metrics).map(([key, value], i) => (
+                          <div key={i} className="text-center">
+                            <p className="text-sm text-white/70 mb-1 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
+                            <p className="text-2xl font-bold">{value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </React.Fragment>
           ))}
         </StaggerContainer>
 
-        {/* Case Study Detail Section */}
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border-2 border-white/20"
-          >
-            {(() => {
-              const project = projects.find(p => p.id === selectedProject);
-              if (!project) return null;
-
-              return (
-                <div className="space-y-8">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-                      <p className="text-white/70">Case Study Detail</p>
-                    </div>
-                    <button
-                      onClick={() => setSelectedProject(null)}
-                      className="text-white/60 hover:text-white text-2xl font-bold"
-                    >
-                      ×
-                    </button>
-                  </div>
-
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-                    {/* Challenge */}
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
-                          <Target className="w-5 h-5 text-red-500" />
-                        </div>
-                        <h4 className="text-lg font-bold text-white">Challenge</h4>
-                      </div>
-                      <p className="text-sm text-white/80 leading-relaxed">
-                        {project.caseStudy.challenge}
-                      </p>
-                    </div>
-
-                    {/* Solution */}
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                          <Zap className="w-5 h-5 text-blue-500" />
-                        </div>
-                        <h4 className="text-lg font-bold text-white">Solution</h4>
-                      </div>
-                      <p className="text-sm text-white/80 leading-relaxed">
-                        {project.caseStudy.solution}
-                      </p>
-                    </div>
-
-                    {/* Results */}
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                          <TrendingUp className="w-5 h-5 text-green-500" />
-                        </div>
-                        <h4 className="text-lg font-bold text-white">Results</h4>
-                      </div>
-                      <ul className="space-y-2">
-                        {project.caseStudy.results.map((result, i) => (
-                          <li key={i} className="text-sm text-white/70 flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span>{result}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Metrics */}
-                  <div className="bg-gradient-to-r from-electric-500 to-navy-900 rounded-xl p-6 text-white">
-                    <h4 className="text-xl font-bold mb-4">Key Metrics</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                      {Object.entries(project.caseStudy.metrics).map(([key, value], i) => (
-                        <div key={i} className="text-center">
-                          <p className="text-sm text-white/70 mb-1 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
-                          <p className="text-2xl font-bold">{value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            })()}
-          </motion.div>
-        )}
-
-        {/* Stats Overview */}
         <div className="bg-gradient-to-br from-navy-900 to-electric-500 rounded-3xl p-10 text-white text-center">
           <h3 className="text-3xl font-bold mb-8">Portfolio Statistics</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
