@@ -15,9 +15,26 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+
+    if (formData.name && formData.email && formData.service && formData.message) {
+      // Format WhatsApp message
+      const whatsappMessage = `*Pesan Baru dari Website*%0A%0A` +
+        `*Nama:* ${formData.name}%0A` +
+        `*Email:* ${formData.email}%0A` +
+        `*Layanan:* ${formData.service || 'Tidak disebutkan'}%0A%0A` +
+        `*Pesan:*%0A${formData.message}`;
+
+      // WhatsApp number (without + and spaces)
+      const whatsappNumber = '6282221025449';
+
+      // Redirect to WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+
+      // Show success message
       setStatus('success');
       setTimeout(() => setStatus('idle'), 3000);
+
+      // Clear form
       setFormData({ name: '', email: '', service: '', message: '' });
     } else {
       setStatus('error');
@@ -252,6 +269,7 @@ const Contact: React.FC = () => {
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
+                    required
                   >
                     <option value="">Pilih layanan</option>
                     <option value="web-development">Pengembangan Web</option>
