@@ -1,207 +1,402 @@
-import React from 'react';
-import { BookOpen, Rocket, TrendingUp, Award, Target } from 'lucide-react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { BookOpen, Rocket, TrendingUp, Award, Target, ChevronDown, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Simple debounce utility
+const debounce = (func: Function, wait: number) => {
+  let timeout: NodeJS.Timeout;
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
 const Journey: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const events = [
     {
       date: 'Agustus 2024',
-      icon: <BookOpen className="w-6 h-6" />,
-      title: 'Started Digital Entrepreneurship Learning',
-      description: 'Joined RevoU & Krenovator Digital Tribe bootcamp untuk mempelajari software engineering dan digital marketing',
+      icon: <BookOpen className="w-5 h-5" />,
+      title: 'Awal Mula Belajar',
+      description: 'Memulai perjalanan digital dengan bootcamp RevoU & mentoring intensif.',
       achievements: [
-        'Completed full-stack development fundamentals',
-        'Mastered React, Next.js, and modern web technologies',
-        'Started learning Facebook Ads & digital marketing strategies',
+        'Fundamental Digital Marketing',
+        'Krenovator Digital Tribe',
+        'Adaptasi Mindset Entrepreneur',
       ],
+      type: 'learning'
     },
     {
       date: 'Oktober 2024',
-      icon: <Rocket className="w-6 h-6" />,
-      title: 'Launched First Business',
-      description: 'Feyd Store - Platform e-commerce untuk produk islami',
+      icon: <Rocket className="w-5 h-5" />,
+      title: 'Peluncuran Bisnis',
+      description: 'Mendirikan Feyd Store (Commerce) & Frontworks (Web Dev Service).',
       achievements: [
-        'Built fully functional e-commerce platform',
-        'Implemented payment integration',
-        'Started managing inventory & orders',
+        'Rilis Feyd Store v1.0',
+        'Research Market Fit',
+        'Setup Operational Workflow',
+        'Initial Revenue Stream',
       ],
-    },
-    {
-      date: 'Oktober 2024',
-      icon: <Rocket className="w-6 h-6" />,
-      title: 'Launched Second Business',
-      description: 'Frontworks - AI-powered web development services',
-      achievements: [
-        'Created professional portfolio website',
-        'Established service offerings',
-        'Started client acquisition',
-      ],
+      type: 'business'
     },
     {
       date: 'November 2024',
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: 'Started Facebook Ads Journey',
-      description: 'Running campaigns with 32k/day budget',
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: 'Growth & Ads',
+      description: 'Scaling bisnis dengan Facebook Ads (32k/day) & Organic Content.',
       achievements: [
-        'Managing multiple product ads (Quran, Novels)',
-        'Testing different audience segments',
-        'Optimizing for conversions',
+        'Winning Campaign Found',
+        'Audience Testing Strategy',
+        'Integrasi AI untuk Konten',
+        'ROI Positive in 2 Weeks',
       ],
+      type: 'marketing'
     },
     {
-      date: 'Desember 2024',
-      icon: <Award className="w-6 h-6" />,
-      title: 'Achieved Certifications & Milestones',
-      description: 'Professional certifications and project deliveries',
+      date: '2025',
+      icon: <Award className="w-5 h-5" />,
+      title: 'Expansion & Scale',
+      description: 'Target ekspansi layanan dan otomatisasi sistem bisnis.',
       achievements: [
-        '2x Software Engineering Certificates (RevoU)',
-        '2x Digital Marketing Certificates (RevoU)',
-        '5+ Successful Projects Delivered',
-        '823 clicks, CTR 2.37% on ads',
+        '5+ Sertifikasi Profesional',
+        'Target 5 Klien/Bulan',
+        'Membangun Tim Inti',
+        'Systematizing Operations',
       ],
+      type: 'achievement'
     },
   ];
 
+  // Specific event colors
+  const eventColors: { [key: string]: string } = {
+    learning: 'blue',
+    business: 'purple',
+    marketing: 'pink',
+    achievement: 'yellow'
+  };
+
+  const colorStyles: { [key: string]: string } = {
+    blue: "bg-blue-500",
+    purple: "bg-purple-500",
+    pink: "bg-pink-500",
+    yellow: "bg-yellow-500",
+  };
+
+  const textColorStyles: { [key: string]: string } = {
+    blue: "text-blue-300",
+    purple: "text-purple-300",
+    pink: "text-pink-300",
+    yellow: "text-yellow-300",
+  };
+
+  const checkColorStyles: { [key: string]: string } = {
+    blue: "text-blue-400",
+    purple: "text-purple-400",
+    pink: "text-pink-400",
+    yellow: "text-yellow-400",
+  };
+
+  const glowStyles: { [key: string]: string } = {
+    blue: "shadow-[0_0_20px_rgba(59,130,246,0.3)] border-blue-500/30",
+    purple: "shadow-[0_0_20px_rgba(168,85,247,0.3)] border-purple-500/30",
+    pink: "shadow-[0_0_20px_rgba(236,72,153,0.3)] border-pink-500/30",
+    yellow: "shadow-[0_0_20px_rgba(234,179,8,0.3)] border-yellow-500/30",
+  };
+
+  const gradientStyles: { [key: string]: string } = {
+    blue: "from-blue-500/20 to-blue-600/5",
+    purple: "from-purple-500/20 to-purple-600/5",
+    pink: "from-pink-500/20 to-pink-600/5",
+    yellow: "from-yellow-500/20 to-yellow-600/5",
+  };
+
+  // Debounced scroll handler
+  const handleScroll = useCallback(
+    debounce(() => {
+      if (scrollContainerRef.current) {
+        const scrollLeft = scrollContainerRef.current.scrollLeft;
+        const totalWidth = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
+
+        if (totalWidth > 0) {
+          const progress = scrollLeft / totalWidth;
+          const newIndex = Math.min(Math.max(Math.round(progress * (events.length - 1)), 0), events.length - 1);
+          if (newIndex !== activeIndex) {
+            setActiveIndex(newIndex);
+          }
+        }
+      }
+    }, 50),
+    [activeIndex, events.length]
+  );
+
+  // Programmatic scroll to index
+  const scrollToIndex = useCallback((index: number) => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 0;
+      const gap = 16; // 1rem gap
+      const target = index * (cardWidth + gap);
+      scrollContainerRef.current.scrollTo({ left: target, behavior: 'smooth' });
+      setActiveIndex(index);
+    }
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollToIndex(Math.min(activeIndex + 1, events.length - 1));
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollToIndex(Math.max(activeIndex - 1, 0));
+      }
+    };
+
+    // Attach to window for global keyboard nav when this component is mounted
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeIndex, events.length, scrollToIndex]);
+
   return (
-    <section id="journey" className="py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500">
-      <div className="max-w-6xl mx-auto">
+    <section id="journey" className="py-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 lg:px-20">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Digital Entrepreneurship Journey
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            My path from learning to building successful digital businesses
-          </p>
+        <div className="text-center mb-12 lg:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-4">
+              Digital Entrepreneurship Journey
+            </h2>
+            <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto">
+              My path from learning to building successful digital businesses
+            </p>
+          </motion.div>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-electric-500 to-electric-500/20 hidden md:block" />
+        {/* Mobile Horizontal Timeline (Carousel) */}
+        <div className="lg:hidden relative">
+          {/* Vertical Line Context - Thinner and Lower Opacity */}
+          <div className="absolute left-6 top-6 bottom-12 w-0.5 bg-gradient-to-b from-white/10 to-transparent z-0" />
 
-          {/* Events */}
-          <div className="space-y-12">
-            {[
-              {
-                date: 'Agustus 2024',
-                icon: <BookOpen className="w-6 h-6" />,
-                title: 'Awal Mula Belajar Digital Marketing',
-                description: 'Menyadari pentingnya ilmu digital, mulai belajar formal di RevoU & pelatihan dari Kang Dewa Eka Prayoga.',
-                achievements: [
-                  'Belajar fundamental digital marketing',
-                  'Mengikuti pelatihan Krenovator Digital Tribe',
-                  'Fokus melawan rasa malas dan beradaptasi',
-                ],
-              },
-              {
-                date: 'Oktober 2024',
-                icon: <Rocket className="w-6 h-6" />,
-                title: 'Peluncuran Bisnis: Feyd Store & Frontworks',
-                description: 'Membangun Feyd Store sebagai Tech Provider/Seller produk pondok, dan Frontworks untuk jasa web dev.',
-                achievements: [
-                  'Berperan sebagai Tech Provider',
-                  'Integrasi fitur e-commerce kompleks',
-                  'Riset pasar untuk UI/UX kompetitif',
-                ],
-              },
-              {
-                date: 'November 2024',
-                icon: <TrendingUp className="w-6 h-6" />,
-                title: 'Aplikasi Nyata & Facebook Ads',
-                description: 'Menjalankan kampanye iklan dengan budget 32k/hari dan optimasi website.',
-                achievements: [
-                  'Mengelola iklan produk Al-Qur\'an & Novel',
-                  'Testing audience & creative',
-                  'Penggunaan AI (Qwen) untuk ide konten',
-                ],
-              },
-              {
-                date: '2025',
-                icon: <Award className="w-6 h-6" />,
-                title: 'Pencapaian & Visi Masa Depan',
-                description: 'Terus mengembangkan bisnis dan memperluas jangkauan.',
-                achievements: [
-                  '5 Sertifikasi Profesional (RevoU, USNI)',
-                  'Target: 4-5 Klien baru per bulan',
-                  'Membangun tim/agen operasional',
-                ],
-              },
-            ].map((event, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col lg:flex-row gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''
-                  }`}
-              >
-                {/* Timeline Dot */}
-                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-electric-500 border-4 border-navy-900 shadow-lg z-10" />
+          <div
+            ref={scrollContainerRef}
+            onScroll={(e) => {
+              e.persist(); // React pooling
+              handleScroll();
+            }}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide touch-pan-x"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {events.map((event, index) => {
+              // Determine expanded/color state
+              const color = eventColors[event.type] || 'blue';
+              const isActive = index === activeIndex;
 
-                {/* Content Card */}
-                <div className="lg:w-1/2">
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/20">
-                    {/* Date Badge */}
-                    <div className="inline-block px-5 py-2 bg-electric-500 text-white rounded-full text-sm font-semibold mb-4">
-                      {event.date}
-                    </div>
+              return (
+                <div key={index} className="snap-center flex-shrink-0 w-[85vw] max-w-[320px] relative pl-12 py-2">
+                  {/* Timeline Connector Dot */}
+                  <button
+                    onClick={() => scrollToIndex(index)}
+                    className={`absolute left-4 top-8 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-navy-900 z-10 
+                            ${colorStyles[color]} 
+                            ${isActive ? 'scale-125 ring-4 ring-white/10 shadow-[0_0_15px_currentColor]' : 'scale-100 opacity-70'} 
+                            transition-all duration-300 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-900 focus:ring-electric-500`}
+                    aria-label={`Go to event ${index + 1}`}
+                  />
 
-                    {/* Icon & Title */}
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-electric-300 flex-shrink-0">
-                        {event.icon}
+                  <div className={`
+                        relative overflow-hidden rounded-2xl p-6 border transition-all duration-300 h-full
+                        ${isActive ? `${glowStyles[color]} bg-white/10 backdrop-blur-md` : 'border-white/5 bg-white/5 opacity-80 scale-95'}
+                    `}>
+                    {/* Dynamic Gradient Background for Active Card */}
+                    {isActive && (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${gradientStyles[color]} opacity-30 pointer-events-none`} />
+                    )}
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold bg-black/20 text-white backdrop-blur-sm border border-white/10`}>
+                          {event.date}
+                        </span>
+                        <div className={`p-2 rounded-lg bg-white/10 text-white`}>
+                          {event.icon}
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white mb-2">
-                          {event.title}
-                        </h3>
-                        <p className="text-sm text-white/70">
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
 
-                    {/* Achievements */}
-                    <div className="mt-4">
-                      <p className="text-xs font-semibold text-white/60 mb-2">Achievements:</p>
-                      <ul className="space-y-2">
-                        {event.achievements.map((achievement, i) => (
-                          <li key={i} className="text-sm text-white/70 flex items-start gap-2">
-                            <span className="text-electric-300 mt-0.5">•</span>
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+                      <p className="text-sm text-white/70 mb-5 line-clamp-3">{event.description}</p>
+
+                      {/* Collapsible Achievements */}
+                      <CollapsibleAchievements achievements={event.achievements} color={color} checkColor={checkColorStyles[color]} />
                     </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Spacer for alternating layout */}
-                <div className="hidden lg:block lg:w-1/2" />
-              </div>
-            ))}
+          {/* Progress Indicators */}
+          <div className="flex justify-center gap-2 mt-2">
+            {events.map((event, i) => {
+              const color = eventColors[event.type] || 'gray';
+              return (
+                <button
+                  key={i}
+                  onClick={() => scrollToIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? `w-6 ${colorStyles[color]}` : 'w-1.5 bg-white/10 hover:bg-white/30'}`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              );
+            })}
           </div>
         </div>
 
-        {/* Current Focus Card */}
-        <div className="mt-16 bg-gradient-to-br from-electric-500 to-navy-900 rounded-2xl p-10 text-white text-center shadow-2xl">
-          <div className="flex justify-center mb-4">
-            <Target className="w-12 h-12" />
-          </div>
-          <h3 className="text-3xl font-bold mb-6">Goals & Aspirasi</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {[
-              'Mengembangkan Feyd Store & Frontworks',
-              'Mendapatkan 4-5 klien baru per bulan',
-              'Pendapatan optimal & Tim Operasional',
-              'Integrasi AI dalam marketing (Qwen)',
-            ].map((goal, i) => (
-              <div key={i} className="flex items-center gap-2 text-left">
-                <span className="text-2xl">✓</span>
-                <span className="text-base">{goal}</span>
-              </div>
-            ))}
+        {/* Desktop Vertical Timeline */}
+        <div className="hidden lg:block relative">
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric-500 to-transparent -translate-x-1/2 opacity-30" />
+          <div className="space-y-24">
+            {events.map((event, index) => {
+              const color = eventColors[event.type];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className={`relative flex items-center gap-12 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+                >
+                  {/* Center Dot */}
+                  <div className={`absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-navy-900 border-4 ${color.replace('bg-', 'border-')} border-${color}-500 z-10 shadow-[0_0_15px_currentColor] text-${color}-500`} />
+
+                  {/* Content Side */}
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-12' : 'pl-12'}`}>
+                    <div className="group relative">
+                      <div className={`absolute inset-0 bg-gradient-to-r ${gradientStyles[color]} opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`} />
+                      <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-white/30 transition-all duration-300">
+                        <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                          <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white`}>
+                            {event.icon}
+                          </div>
+                          <div>
+                            <span className={`block text-sm font-semibold ${textColorStyles[color]} mb-1 uppercase tracking-wider`}>{event.date}</span>
+                            <h3 className="text-2xl font-bold text-white">{event.title}</h3>
+                          </div>
+                        </div>
+                        <p className="text-white/70 mb-6">{event.description}</p>
+
+                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
+                          {event.achievements.map((acc, i) => (
+                            <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/80 flex items-center gap-1">
+                              <span className={checkColorStyles[color]}>✓</span> {acc}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Empty Side */}
+                  <div className="w-1/2" />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
+
+        {/* Goals Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="mt-20 lg:mt-32 relative group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-electric-500/10 to-purple-500/10 blur-3xl opacity-50 group-hover:opacity-75 transition-opacity" />
+          <div className="relative bg-navy-900/40 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-white/10 overflow-hidden shadow-2xl">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+              <div className="flex-shrink-0 w-20 h-20 rounded-full bg-electric-500/20 flex items-center justify-center border border-electric-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                <Target className="w-10 h-10 text-electric-300" />
+              </div>
+              <div className="flex-grow text-center lg:text-left">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Goals & Aspirasi 2025</h3>
+                <p className="text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                  Fokus utama tahun depan adalah skalabilitas bisnis dan ekspansi layanan untuk memberikan dampak yang lebih luas kepada klien dan komunitas.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    'Scale Feyd Store Revenue',
+                    'Establish Frontworks Agency',
+                    'Build Operational Team',
+                    'AI-Driven Content Strategy'
+                  ].map((goal, i) => (
+                    <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors border border-white/5">
+                      <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <span className="text-green-400 text-xs">✓</span>
+                      </div>
+                      <span className="text-sm font-medium text-white/90">{goal}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
+  );
+};
+
+// Sub-component for Collapsible Achievements
+const CollapsibleAchievements: React.FC<{ achievements: string[], color: string, checkColor?: string }> = ({ achievements, color, checkColor }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const displayedAchievements = isExpanded ? achievements : achievements.slice(0, 2);
+  const hasMore = achievements.length > 2;
+  // Fallback for check color if not provided
+  const checkClass = checkColor || (color === 'yellow' ? 'text-yellow-400' : color === 'pink' ? 'text-pink-400' : color === 'purple' ? 'text-purple-400' : 'text-blue-400');
+
+  return (
+    <div className="bg-black/20 rounded-xl p-3 border border-white/5">
+      <div className="space-y-2 mb-2">
+        <AnimatePresence>
+          {displayedAchievements.map((acc, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="flex items-start gap-2 text-xs text-white/80"
+            >
+              <span className={`${checkClass} mt-0.5 font-bold`}>✓</span>
+              <span>{acc}</span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {hasMore && (
+        <button
+          onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
+          className="flex items-center gap-1 text-[10px] font-bold text-white/60 hover:text-white uppercase tracking-wider transition-colors w-full pt-2 border-t border-white/5"
+        >
+          {isExpanded ? (
+            <>Show Less <ChevronDown className="w-3 h-3 rotate-180 transition-transform" /></>
+          ) : (
+            <>Show {achievements.length - 2} More <ChevronDown className="w-3 h-3 transition-transform" /></>
+          )}
+        </button>
+      )}
+    </div>
   );
 };
 
