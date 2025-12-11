@@ -21,7 +21,7 @@ const Journey: React.FC = () => {
 
   const events = [
     {
-      date: 'Agustus 2024',
+      date: 'Agustus 2025',
       icon: <BookOpen className="w-5 h-5" />,
       title: 'Awal Mula Belajar',
       description: 'Memulai perjalanan digital dengan bootcamp RevoU & mentoring intensif.',
@@ -33,7 +33,7 @@ const Journey: React.FC = () => {
       type: 'learning'
     },
     {
-      date: 'Oktober 2024',
+      date: 'Oktober 2025',
       icon: <Rocket className="w-5 h-5" />,
       title: 'Peluncuran Bisnis',
       description: 'Mendirikan Feyd Store (Commerce) & Frontworks (Web Dev Service).',
@@ -46,7 +46,7 @@ const Journey: React.FC = () => {
       type: 'business'
     },
     {
-      date: 'November 2024',
+      date: 'November 2025',
       icon: <TrendingUp className="w-5 h-5" />,
       title: 'Growth & Ads',
       description: 'Scaling bisnis dengan Facebook Ads (32k/day) & Organic Content.',
@@ -59,7 +59,7 @@ const Journey: React.FC = () => {
       type: 'marketing'
     },
     {
-      date: '2025',
+      date: '2025 - 2026',
       icon: <Award className="w-5 h-5" />,
       title: 'Expansion & Scale',
       description: 'Target ekspansi layanan dan otomatisasi sistem bisnis.',
@@ -329,7 +329,7 @@ const Journey: React.FC = () => {
                 <Target className="w-10 h-10 text-electric-300" />
               </div>
               <div className="flex-grow text-center lg:text-left">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Goals & Aspirasi 2025</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Goals & Aspirasi 2025 - 2026</h3>
                 <p className="text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                   Fokus utama tahun depan adalah skalabilitas bisnis dan ekspansi layanan untuk memberikan dampak yang lebih luas kepada klien dan komunitas.
                 </p>
