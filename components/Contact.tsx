@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 text-white">
+    <section className="pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 text-white">
       <div className="max-w-7xl mx-auto space-y-20">
         {/* Section Header */}
         <ScrollReveal className="text-center mb-16">

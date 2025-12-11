@@ -9,7 +9,7 @@ const Businesses: React.FC = () => {
     {
       name: 'Feyd Store',
       url: 'feyd-store.vercel.app',
-      logo: '/public/ipm.png',
+      logo: '/ipm.png',
       category: 'E-commerce Produk Islami',
       description: 'Menyediakan Al-Qur\'an Kharisma dengan tajwid berwarna & terjemahan, serta novel-novel inspiratif islami.',
       products: [
@@ -28,7 +28,7 @@ const Businesses: React.FC = () => {
     {
       name: 'Frontworks',
       url: 'frontworks.vercel.app',
-      logo: '/public/favicon.svg',
+      logo: '/favicon.svg',
       category: 'Layanan Web Development Berbasis AI',
       description: 'Jasa pembuatan website profesional menggunakan pengembangan berbasis AI untuk delivery cepat dan kualitas tinggi.',
       services: [
@@ -47,7 +47,7 @@ const Businesses: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+    <section className="relative min-h-screen pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
       {/* Animated Particles Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
