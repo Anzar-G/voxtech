@@ -1,0 +1,36 @@
+/* === RESET BROWSER DEFAULTS === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0E162B; /* Navy-900 */
+}
+
+/* === FIX ROOT CONTAINER === */
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0E162B;
+}
+
+/* === SPECIFIC FIX FOR JOURNEY PAGE === */
+/* Ensure no unexpected margins on the journey page wrapper */
+#journey, .journey-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* === MAIN CONTAINER RESET === */
+main {
+  margin-top: 0;
+  padding-top: 0;
+}

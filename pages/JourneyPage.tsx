@@ -121,7 +121,7 @@ const JourneyPage: React.FC = () => {
 
     return (
         <PageWrapper>
-            <div className="pt-20 lg:pt-0">
+            <div>
                 {/* Journey Timeline Section */}
                 <Journey />
 
