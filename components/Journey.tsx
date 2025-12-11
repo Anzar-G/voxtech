@@ -167,7 +167,7 @@ const Journey: React.FC = () => {
   }, [activeIndex, events.length, scrollToIndex]);
 
   return (
-    <section id="journey" className="py-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+    <section id="journey" className="pt-24 pb-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 lg:px-20">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-20">
