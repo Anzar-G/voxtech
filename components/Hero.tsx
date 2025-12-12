@@ -14,6 +14,12 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 px-6 pt-20 pb-12 lg:pt-0 overflow-hidden">
+      {/* Smooth Gradient Transition - Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+      {/* Smooth Gradient Transition - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
       {/* Animated Particles Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(10)].map((_, i) => (

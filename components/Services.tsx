@@ -141,6 +141,12 @@ const Services: React.FC = () => {
 
   return (
     <section className="relative min-h-screen pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+      {/* Smooth Gradient Transition - Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+      {/* Smooth Gradient Transition - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
       {/* Animated Particles Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
@@ -196,8 +202,8 @@ const Services: React.FC = () => {
                   setShowDeliverables(false);
                 }}
                 className={`snap-center flex-shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${activeService === index
-                    ? 'bg-electric-500 text-white shadow-lg'
-                    : 'bg-white/10 text-white/70 hover:bg-white/20'
+                  ? 'bg-electric-500 text-white shadow-lg'
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
                   }`}
               >
                 <div className="w-8 h-8 flex items-center justify-center">
@@ -216,8 +222,8 @@ const Services: React.FC = () => {
                 onClick={() => setActiveService(index)}
                 whileHover={{ y: -5 }}
                 className={`relative p-6 rounded-2xl transition-all duration-300 ${activeService === index
-                    ? 'bg-white/15 border-2 border-electric-500 shadow-xl'
-                    : 'bg-white/5 border-2 border-white/10 hover:bg-white/10'
+                  ? 'bg-white/15 border-2 border-electric-500 shadow-xl'
+                  : 'bg-white/5 border-2 border-white/10 hover:bg-white/10'
                   }`}
               >
                 <div className={`w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center ${activeService === index ? 'bg-electric-500/20 text-electric-300' : 'bg-white/10 text-white/60'

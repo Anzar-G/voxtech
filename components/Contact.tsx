@@ -136,7 +136,13 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section className="pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 text-white">
+    <section className="relative pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 text-white">
+      {/* Smooth Gradient Transition - Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+      {/* Smooth Gradient Transition - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
       <div className="max-w-7xl mx-auto space-y-20">
         {/* Section Header */}
         <ScrollReveal className="text-center mb-16">

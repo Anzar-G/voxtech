@@ -9,6 +9,7 @@ import MarketingStrategy from '../components/MarketingStrategy';
 import CaseStudy from '../components/CaseStudy';
 import DataAnalysis from '../components/DataAnalysis';
 import SocialMediaAnalytics from '../components/SocialMediaAnalytics';
+import WebsiteAnalytics from '../components/WebsiteAnalytics';
 import Journey from '../components/Journey';
 
 const JourneyPage: React.FC = () => {
@@ -134,6 +135,12 @@ const JourneyPage: React.FC = () => {
 
                 {/* Performance Section */}
                 <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+                    {/* Smooth Gradient Transition - Top */}
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+                    {/* Smooth Gradient Transition - Bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
                     {/* Animated Particles Background */}
                     <div className="absolute inset-0 overflow-hidden">
                         {[...Array(15)].map((_, i) => (
@@ -333,6 +340,9 @@ const JourneyPage: React.FC = () => {
                         </ScrollReveal>
                     </div>
                 </section>
+
+                {/* Website Analytics Section */}
+                <WebsiteAnalytics />
 
                 {/* Data Analysis & Learnings Section */}
                 <DataAnalysis />

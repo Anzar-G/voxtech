@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     { path: '/', label: 'Beranda', icon: Home },
     { path: '/about', label: 'Tentang Saya', icon: User },
     { path: '/journey', label: 'Perjalanan & Pencapaian', icon: TrendingUp },
-    { path: '/projects', label: 'Proyek', icon: FolderOpen },
+      { path: '/projects', label: 'Proyek', icon: FolderOpen },
     { path: '/services', label: 'Layanan', icon: Briefcase },
     { path: '/businesses', label: 'Bisnis Saya', icon: Building2 },
     { path: '/contact', label: 'Kontak', icon: Mail },

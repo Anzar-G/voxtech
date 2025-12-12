@@ -167,7 +167,13 @@ const Journey: React.FC = () => {
   }, [activeIndex, events.length, scrollToIndex]);
 
   return (
-    <section id="journey" className="pt-24 pb-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+    <section id="journey" className="relative pt-24 pb-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+      {/* Smooth Gradient Transition - Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+      {/* Smooth Gradient Transition - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
       <div className="max-w-7xl mx-auto px-4 lg:px-20">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-20">

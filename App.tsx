@@ -5,18 +5,34 @@ import { AnimatePresence } from 'framer-motion';
 import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import JourneyPage from './pages/JourneyPage';
 import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
+import JourneyPage from './pages/JourneyPage';
 import BusinessesPage from './pages/BusinessesPage';
 import ContactPage from './pages/ContactPage';
 
-// Scroll to top component
+// Scroll to top component with improved reliability
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Force immediate scroll to top
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant' as ScrollBehavior
+    });
+
+    // Backup scroll after a short delay to handle race conditions
+    const timeoutId = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant' as ScrollBehavior
+      });
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
 
   return null;

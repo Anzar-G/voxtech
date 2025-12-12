@@ -34,9 +34,9 @@ const Projects: React.FC = () => {
           'LP Conversion Rate 60.07%',
         ],
         metrics: {
-          performance: '90+ Lighthouse Score',
-          advertising: 'RoAS Positif',
-          conversion: '60% LP Conv Rate',
+          performance: '32 Performance (v1.0)',
+          accessibility: '91 Accessibility',
+          seo: '100 SEO Score',
         },
       },
     },
@@ -65,8 +65,8 @@ const Projects: React.FC = () => {
           'Professional presentation untuk client pitching',
         ],
         metrics: {
-          performance: '95 Lighthouse Score',
-          accessibility: '100 Accessibility Score',
+          performance: '39 Performance (v1.0)',
+          accessibility: '87 Accessibility',
           seo: '100 SEO Score',
         },
       },
@@ -96,9 +96,9 @@ const Projects: React.FC = () => {
           'Fast loading untuk user experience optimal',
         ],
         metrics: {
-          performance: '92 Lighthouse Score',
-          loadTime: '< 2 detik',
-          mobileOptimized: 'Yes',
+          performance: '37 Performance (v1.0)',
+          accessibility: '87 Accessibility',
+          seo: '100 SEO Score',
         },
       },
     },
@@ -127,9 +127,9 @@ const Projects: React.FC = () => {
           'Responsive di semua devices',
         ],
         metrics: {
-          performance: '88 Lighthouse Score',
-          imageOptimization: 'WebP format',
-          responsive: 'Mobile-first',
+          performance: '69 Performance (v1.0)',
+          accessibility: '89 Accessibility',
+          bestPractices: '92 Best Practices',
         },
       },
     },
@@ -158,9 +158,9 @@ const Projects: React.FC = () => {
           'Mudah dikelola dan dikembangkan',
         ],
         metrics: {
-          performance: '95 Lighthouse Score',
-          techStack: 'Vanilla (No framework)',
-          seo: 'Optimized',
+          performance: '57 Performance (v1.0)',
+          accessibility: '84 Accessibility',
+          seo: '91 SEO Score',
         },
       },
     },
@@ -180,6 +180,12 @@ const Projects: React.FC = () => {
 
   return (
     <section className="relative min-h-screen pt-24 pb-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+      {/* Smooth Gradient Transition - Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
+
+      {/* Smooth Gradient Transition - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent z-0"></div>
+
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
           <motion.div
@@ -366,25 +372,33 @@ const Projects: React.FC = () => {
           ))}
         </StaggerContainer>
 
-        <div className="bg-gradient-to-br from-navy-900 to-electric-500 rounded-3xl p-10 text-white text-center">
-          <h3 className="text-3xl font-bold mb-8">Portfolio Statistics</h3>
+        <div className="bg-gradient-to-br from-navy-900 to-electric-500 rounded-3xl p-10 text-white">
+          <h3 className="text-3xl font-bold mb-4 text-center">Portfolio Statistics</h3>
+          <p className="text-sm text-white/60 text-center mb-8 max-w-2xl mx-auto">
+            🚀 All projects are in continuous development with ongoing performance optimization
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
+            <div className="text-center">
               <p className="text-5xl font-bold mb-2">5+</p>
               <p className="text-white/80">Proyek Selesai</p>
             </div>
-            <div>
+            <div className="text-center">
               <p className="text-5xl font-bold mb-2">100%</p>
               <p className="text-white/80">Client Satisfaction</p>
             </div>
-            <div>
-              <p className="text-5xl font-bold mb-2">90+</p>
-              <p className="text-white/80">Avg Lighthouse Score</p>
+            <div className="text-center">
+              <p className="text-5xl font-bold mb-2">93</p>
+              <p className="text-white/80">Avg Best Practices</p>
             </div>
-            <div>
-              <p className="text-5xl font-bold mb-2">3x</p>
-              <p className="text-white/80">Faster Development</p>
+            <div className="text-center">
+              <p className="text-5xl font-bold mb-2">98</p>
+              <p className="text-white/80">Avg SEO Score</p>
             </div>
+          </div>
+          <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
+            <p className="text-xs text-white/70 text-center">
+              <span className="font-semibold text-electric-300">Note:</span> Performance scores reflect v1.0 baseline. Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction.
+            </p>
           </div>
         </div>
       </div>
