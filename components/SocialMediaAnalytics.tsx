@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, Music, TrendingUp, Heart, Eye, Zap, Image as ImageIcon, Video, Share2, Grid, Calculator, UserCheck, Search, Flame } from 'lucide-react';
 import ScrollReveal from './animations/ScrollReveal';
+import StaggerContainer from './animations/StaggerContainer';
 import useCountUp from '../hooks/useCountUp';
+import { useTranslation } from 'react-i18next';
 
 // --- Interfaces ---
 interface MetricCardProps {
@@ -139,6 +141,7 @@ const AnalyticsPanel: React.FC<{
     platform: 'instagram' | 'tiktok';
     data: AnalyticsData;
 }> = ({ platform, data }) => {
+    const { t } = useTranslation();
     const isInsta = platform === 'instagram';
     const totalEngagement = (data.likes || 0) + (data.comments || 0) + (data.shares || 0);
 
@@ -150,8 +153,8 @@ const AnalyticsPanel: React.FC<{
                         {isInsta ? <Instagram className="text-white w-7 h-7" /> : <Music className="text-white w-7 h-7" />}
                     </div>
                     <div>
-                        <h3 className="text-2xl font-bold text-white capitalize tracking-tight">{platform} Analytics</h3>
-                        <p className="text-sm text-white/60 font-medium">Performance Overview</p>
+                        <h3 className="text-2xl font-bold text-white capitalize tracking-tight">{platform} {t('socialMediaAnalytics.panel.analytics')}</h3>
+                        <p className="text-sm text-white/60 font-medium">{t('socialMediaAnalytics.panel.overview')}</p>
                     </div>
                 </div>
 
@@ -161,7 +164,7 @@ const AnalyticsPanel: React.FC<{
                         <>
                             {/* Featured Metric */}
                             <MetricCard
-                                title="Total Engagement"
+                                title={t('socialMediaAnalytics.metrics.totalEngagement')}
                                 value={totalEngagement > 1000 ? (totalEngagement / 1000) : totalEngagement}
                                 suffix={totalEngagement > 1000 ? "K" : ""}
                                 change="+12.5%"
@@ -170,14 +173,14 @@ const AnalyticsPanel: React.FC<{
                                 icon={<Heart className="w-6 h-6" />}
                                 delay={0}
                             />
-                            <MetricCard title="Followers" value={data.followers || 0} change="+23" color="pink" icon={<UserCheck className="w-4 h-4" />} delay={1} />
-                            <MetricCard title="Reach" value={data.accountsReached || 0} change="+8%" color="yellow" icon={<Grid className="w-4 h-4" />} delay={2} />
+                            <MetricCard title={t('socialMediaAnalytics.metrics.followers')} value={data.followers || 0} change="+23" color="pink" icon={<UserCheck className="w-4 h-4" />} delay={1} />
+                            <MetricCard title={t('socialMediaAnalytics.metrics.reach')} value={data.accountsReached || 0} change="+8%" color="yellow" icon={<Grid className="w-4 h-4" />} delay={2} />
                         </>
                     ) : (
                         <>
                             {/* Featured Metric */}
                             <MetricCard
-                                title="Total Views"
+                                title={t('socialMediaAnalytics.metrics.totalViews')}
                                 value={data.views}
                                 change="+25.2%"
                                 color="cyan"
@@ -185,8 +188,8 @@ const AnalyticsPanel: React.FC<{
                                 icon={<Eye className="w-6 h-6" />}
                                 delay={0}
                             />
-                            <MetricCard title="Likes" value={data.likes} change="+18%" color="red" icon={<Heart className="w-4 h-4" />} delay={1} />
-                            <MetricCard title="Profile" value={data.profileViews || 0} change="+32%" color="emerald" icon={<TrendingUp className="w-4 h-4" />} delay={2} />
+                            <MetricCard title={t('socialMediaAnalytics.metrics.likes')} value={data.likes} change="+18%" color="red" icon={<Heart className="w-4 h-4" />} delay={1} />
+                            <MetricCard title={t('socialMediaAnalytics.metrics.profile')} value={data.profileViews || 0} change="+32%" color="emerald" icon={<TrendingUp className="w-4 h-4" />} delay={2} />
                         </>
                     )}
                 </div>
@@ -197,13 +200,13 @@ const AnalyticsPanel: React.FC<{
                         <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
                             <h5 className="text-sm font-bold text-white/90 mb-4 flex items-center gap-2">
                                 <Zap className="w-4 h-4 text-yellow-400" />
-                                Engagement Breakdown
+                                {t('socialMediaAnalytics.sections.engagement')}
                             </h5>
                             <div className="flex items-center justify-between gap-2 overflow-x-auto pb-2 scrollbar-none">
                                 {[
-                                    { label: 'Likes', count: data.likes, icon: <Heart className="w-5 h-5 text-red-400" /> },
-                                    { label: 'Comments', count: data.comments, icon: <Calculator className="w-5 h-5 text-blue-400" /> },
-                                    { label: 'Shares', count: data.shares, icon: <Share2 className="w-5 h-5 text-green-400" /> }
+                                    { label: t('socialMediaAnalytics.metrics.likes'), count: data.likes, icon: <Heart className="w-5 h-5 text-red-400" /> },
+                                    { label: t('socialMediaAnalytics.metrics.comments'), count: data.comments, icon: <Calculator className="w-5 h-5 text-blue-400" /> },
+                                    { label: t('socialMediaAnalytics.metrics.shares'), count: data.shares, icon: <Share2 className="w-5 h-5 text-green-400" /> }
                                 ].map((stat, i) => (
                                     <div key={i} className="flex-1 min-w-[80px] text-center bg-white/5 rounded-xl py-3 px-2 border border-white/5 hover:bg-white/10 transition-colors">
                                         <div className="flex justify-center mb-1">{stat.icon}</div>
@@ -217,12 +220,12 @@ const AnalyticsPanel: React.FC<{
                         <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
                             <h4 className="text-sm font-bold text-white/90 mb-4 flex items-center gap-2">
                                 <TrendingUp className="w-4 h-4 text-cyan-400" />
-                                Traffic Sources
+                                {t('socialMediaAnalytics.sections.traffic')}
                             </h4>
                             <div className="space-y-4">
                                 <div className="space-y-1.5">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-white/70 flex items-center gap-1.5"><Flame className="w-3 h-3 text-cyan-400" />For You Page</span>
+                                        <span className="text-white/70 flex items-center gap-1.5"><Flame className="w-3 h-3 text-cyan-400" />{t('socialMediaAnalytics.traffic.fyp')}</span>
                                         <span className="font-bold text-white">{data.fypPercentage}%</span>
                                     </div>
                                     <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
@@ -236,7 +239,7 @@ const AnalyticsPanel: React.FC<{
                                 </div>
                                 <div className="space-y-1.5">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-white/70 flex items-center gap-1.5"><Search className="w-3 h-3 text-purple-400" />Search</span>
+                                        <span className="text-white/70 flex items-center gap-1.5"><Search className="w-3 h-3 text-purple-400" />{t('socialMediaAnalytics.traffic.search')}</span>
                                         <span className="font-bold text-white">{data.searchPercentage}%</span>
                                     </div>
                                     <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
@@ -256,8 +259,8 @@ const AnalyticsPanel: React.FC<{
                 {/* Popular Content - Horizontal Scroll on Mobile */}
                 <div className="mt-auto relative group/content">
                     <h4 className="text-sm font-bold text-white/80 mb-4 uppercase tracking-wider flex items-center justify-between">
-                        Top Content
-                        <span className="text-[10px] text-white/40 lg:hidden">Swipe to see more →</span>
+                        {t('socialMediaAnalytics.sections.topContent')}
+                        <span className="text-[10px] text-white/40 lg:hidden">{t('socialMediaAnalytics.sections.swipe')}</span>
                     </h4>
 
                     <div className="relative">
@@ -278,6 +281,7 @@ const AnalyticsPanel: React.FC<{
 
 // Subcomponent for handling image states
 const ContentThumbnail: React.FC<{ post: { url: string; img: string; views: number }; idx: number }> = ({ post, idx }) => {
+    const { t } = useTranslation();
     const [imageError, setImageError] = useState(false);
 
     return (
@@ -298,7 +302,7 @@ const ContentThumbnail: React.FC<{ post: { url: string; img: string; views: numb
             ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 text-white/40 p-4 text-center">
                     <ImageIcon className="w-10 h-10 mb-2 opacity-50" />
-                    <span className="text-[10px] leading-tight">Image Unavailable</span>
+                    <span className="text-[10px] leading-tight">{t('socialMediaAnalytics.sections.imageUnavailable')}</span>
                 </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-3 flex flex-col justify-end">
@@ -318,6 +322,7 @@ const ContentThumbnail: React.FC<{ post: { url: string; img: string; views: numb
 
 // --- Main Component ---
 const SocialMediaAnalytics: React.FC = () => {
+    const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState<'instagram' | 'tiktok'>('instagram');
 
     const instagramData: AnalyticsData = {
@@ -394,7 +399,7 @@ const SocialMediaAnalytics: React.FC = () => {
                         <div className="p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
                             <TrendingUp className="text-electric-300 w-8 h-8" />
                         </div>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white">Performa Social Media</h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-white">{t('socialMediaAnalytics.title')}</h2>
                     </div>
                 </ScrollReveal>
 
@@ -404,14 +409,14 @@ const SocialMediaAnalytics: React.FC = () => {
                         className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'instagram' ? 'text-electric-300' : 'text-white/60'}`}
                         onClick={() => setActiveTab('instagram')}
                     >
-                        Instagram
+                        {t('socialMediaAnalytics.tabs.instagram')}
                         {activeTab === 'instagram' && <motion.div layoutId="socialTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-electric-500" />}
                     </button>
                     <button
                         className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'tiktok' ? 'text-electric-300' : 'text-white/60'}`}
                         onClick={() => setActiveTab('tiktok')}
                     >
-                        TikTok
+                        {t('socialMediaAnalytics.tabs.tiktok')}
                         {activeTab === 'tiktok' && <motion.div layoutId="socialTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-electric-500" />}
                     </button>
                 </div>

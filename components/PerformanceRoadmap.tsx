@@ -1,86 +1,69 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Target, Rocket, Sparkles, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-interface Milestone {
-    phase: string;
+interface MilestoneData {
     version: string;
-    date: string;
     performance: number;
     accessibility: number;
     bestPractices: number;
     seo: number;
     status: 'completed' | 'current' | 'planned' | 'target';
+}
+
+interface MilestoneTranslation {
+    phase: string;
+    date: string;
     actions: string[];
 }
 
+interface Milestone extends MilestoneData, MilestoneTranslation { }
+
 const PerformanceRoadmap: React.FC = () => {
-    // 📝 EDIT DATA INI SESUAI ROADMAP ANDA
-    const roadmap: Milestone[] = [
+    const { t } = useTranslation();
+
+    const staticData: MilestoneData[] = [
         {
-            phase: 'Current',
             version: 'v1.0',
-            date: 'Dec 2025',
             performance: 47,
             accessibility: 88,
             bestPractices: 93,
             seo: 98,
             status: 'completed',
-            actions: [
-                'Baseline measurement completed',
-                'Identified optimization targets',
-                'Strong SEO & Best Practices foundation'
-            ]
         },
         {
-            phase: 'Q1 2026',
             version: 'v1.5',
-            date: 'Jan-Mar 2026',
             performance: 70,
             accessibility: 92,
             bestPractices: 95,
             seo: 100,
             status: 'current',
-            actions: [
-                'Image optimization (WebP, lazy load)',
-                'Code splitting & tree shaking',
-                'Remove unused dependencies',
-                'Improve accessibility labels'
-            ]
         },
         {
-            phase: 'Q2 2026',
             version: 'v2.0',
-            date: 'Apr-Jun 2026',
             performance: 90,
             accessibility: 96,
             bestPractices: 98,
             seo: 100,
             status: 'planned',
-            actions: [
-                'CDN implementation',
-                'Advanced caching strategies',
-                'Server-side rendering (SSR)',
-                'Schema markup optimization'
-            ]
         },
         {
-            phase: 'Target',
             version: 'v2.5+',
-            date: 'Q3 2026',
             performance: 95,
             accessibility: 100,
             bestPractices: 100,
             seo: 100,
             status: 'target',
-            actions: [
-                'All Lighthouse metrics > 95',
-                'Perfect accessibility score',
-                'Industry-leading performance',
-                'Top search engine rankings'
-            ]
         }
     ];
+
+    const phases = t('performanceRoadmap.phases', { returnObjects: true }) as MilestoneTranslation[];
+
+    const roadmap: Milestone[] = staticData.map((data, index) => ({
+        ...data,
+        ...phases[index]
+    }));
 
     const getStatusColor = (status: string) => {
         switch (status) {
@@ -108,6 +91,7 @@ const PerformanceRoadmap: React.FC = () => {
         if (score >= 70) return 'text-electric-300';
         return 'text-white/60';
     };
+
     return (
         <div className="w-full max-w-7xl mx-auto py-16 px-6">
             <motion.div
@@ -117,13 +101,13 @@ const PerformanceRoadmap: React.FC = () => {
                 transition={{ duration: 0.6 }}
             >
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 text-center">
-                    🎯 Performance Optimization Roadmap
+                    🎯 {t('performanceRoadmap.title')}
                 </h2>
                 <p className="text-white/70 text-center mb-4 max-w-2xl mx-auto">
-                    Continuous improvement journey targeting 95+ across all Lighthouse metrics
+                    {t('performanceRoadmap.subtitle')}
                 </p>
                 <p className="text-sm text-electric-300 text-center mb-12">
-                    🚀 All projects are in active development with ongoing performance optimization
+                    {t('performanceRoadmap.statusMessage')}
                 </p>
 
                 {/* Desktop: Horizontal Timeline */}
@@ -133,7 +117,7 @@ const PerformanceRoadmap: React.FC = () => {
                         <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/20 -translate-y-1/2" />
                         <div className="relative flex justify-between">
                             {roadmap.map((milestone, index) => (
-                                <div key={milestone.phase} className="flex-1 relative">
+                                <div key={index} className="flex-1 relative">
                                     {/* Timeline Dot */}
                                     <motion.div
                                         className={`w-6 h-6 rounded-full bg-gradient-to-r ${getStatusColor(milestone.status)} mx-auto relative z-10 border-4 border-navy-900`}
@@ -151,7 +135,7 @@ const PerformanceRoadmap: React.FC = () => {
                     <div className="grid grid-cols-4 gap-6">
                         {roadmap.map((milestone, index) => (
                             <motion.div
-                                key={milestone.phase}
+                                key={index}
                                 className={`bg-gradient-to-br ${getStatusColor(milestone.status)}/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -177,25 +161,25 @@ const PerformanceRoadmap: React.FC = () => {
                                 {/* Metrics */}
                                 <div className="space-y-2 mb-4">
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">Performance</span>
+                                        <span className="text-white/70">{t('performanceRoadmap.metrics.performance')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.performance)}`}>
                                             {milestone.performance}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">Accessibility</span>
+                                        <span className="text-white/70">{t('performanceRoadmap.metrics.accessibility')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.accessibility)}`}>
                                             {milestone.accessibility}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">Best Practices</span>
+                                        <span className="text-white/70">{t('performanceRoadmap.metrics.bestPractices')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.bestPractices)}`}>
                                             {milestone.bestPractices}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">SEO</span>
+                                        <span className="text-white/70">{t('performanceRoadmap.metrics.seo')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.seo)}`}>
                                             {milestone.seo}
                                         </span>
@@ -204,7 +188,7 @@ const PerformanceRoadmap: React.FC = () => {
 
                                 {/* Actions */}
                                 <div>
-                                    <p className="text-xs font-semibold text-white/80 mb-2">Action Items:</p>
+                                    <p className="text-xs font-semibold text-white/80 mb-2">{t('performanceRoadmap.actionItems')}</p>
                                     <ul className="space-y-1">
                                         {milestone.actions.map((action, i) => (
                                             <li key={i} className="flex items-start gap-2 text-xs text-white/70">
@@ -223,7 +207,7 @@ const PerformanceRoadmap: React.FC = () => {
                 <div className="lg:hidden space-y-8">
                     {roadmap.map((milestone, index) => (
                         <motion.div
-                            key={milestone.phase}
+                            key={index}
                             className="relative"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -254,25 +238,25 @@ const PerformanceRoadmap: React.FC = () => {
                                     {/* Metrics Grid */}
                                     <div className="grid grid-cols-2 gap-2 mb-3">
                                         <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">Perf</p>
+                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.perf')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.performance)}`}>
                                                 {milestone.performance}
                                             </p>
                                         </div>
                                         <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">A11y</p>
+                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.a11y')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.accessibility)}`}>
                                                 {milestone.accessibility}
                                             </p>
                                         </div>
                                         <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">BP</p>
+                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.bp')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.bestPractices)}`}>
                                                 {milestone.bestPractices}
                                             </p>
                                         </div>
                                         <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">SEO</p>
+                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.seo')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.seo)}`}>
                                                 {milestone.seo}
                                             </p>
@@ -297,8 +281,7 @@ const PerformanceRoadmap: React.FC = () => {
                 {/* Footer Note */}
                 <div className="mt-12 p-4 bg-white/5 rounded-xl border border-white/10 text-center">
                     <p className="text-sm text-white/70">
-                        <span className="font-semibold text-electric-300">Note:</span> Performance scores reflect v1.0 baseline.
-                        Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction.
+                        <span className="font-semibold text-electric-300">{t('performanceRoadmap.note.label')}</span> {t('performanceRoadmap.note.text')}
                     </p>
                 </div>
             </motion.div>

@@ -1,37 +1,50 @@
 import React from 'react';
 import { Code, Bot, Cloud, BarChart3, Palette, TrendingUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const TechStack: React.FC = () => {
+  const { t } = useTranslation();
+
   const categories = [
     {
       icon: <Code className="w-12 h-12" />,
-      title: 'Frontend Development',
+      title: t('techStackPage.categories.frontend'),
       tools: ['React.js', 'Next.js', 'TypeScript', 'HTML5/CSS3', 'Tailwind CSS', 'JavaScript'],
     },
     {
       icon: <Bot className="w-12 h-12" />,
-      title: 'AI Development Tools',
+      title: t('techStackPage.categories.ai'),
       tools: ['Claude AI', 'Qwen Coder', 'Cascade Windsurf', 'Anti-Gravity', 'Stitch by Google', 'Google AI Studio', 'Magnus', 'Jules'],
     },
     {
       icon: <Cloud className="w-12 h-12" />,
-      title: 'Deployment & Infrastructure',
+      title: t('techStackPage.categories.infra'),
       tools: ['Vercel', 'GitHub Pages', 'Git/GitHub', 'CI/CD'],
     },
     {
       icon: <BarChart3 className="w-12 h-12" />,
-      title: 'Digital Marketing',
+      title: t('techStackPage.categories.marketing'),
       tools: ['Meta Ads Manager', 'Meta Pixel', 'Canva', 'Google Analytics', 'Facebook Business Suite'],
     },
     {
       icon: <Palette className="w-12 h-12" />,
-      title: 'Design & Collaboration',
-      tools: ['Figma', 'Canva', 'AI-assisted design tools', 'Photopea'],
+      title: t('techStackPage.categories.design'),
+      tools: [
+        'Figma',
+        'Canva',
+        t('techStackPage.tools.aiDesign'),
+        'Photopea'
+      ],
     },
     {
       icon: <TrendingUp className="w-12 h-12" />,
-      title: 'Data & Analytics',
-      tools: ['Google Analytics', 'Meta Pixel', 'Conversion tracking', 'A/B Testing tools'],
+      title: t('techStackPage.categories.data'),
+      tools: [
+        'Google Analytics',
+        'Meta Pixel',
+        t('techStackPage.tools.convTracking'),
+        'A/B Testing tools'
+      ],
     },
   ];
 
@@ -47,10 +60,10 @@ const TechStack: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Technology Arsenal
+            {t('techStackPage.title')}
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Comprehensive toolkit for modern AI-powered development
+            {t('techStackPage.subtitle')}
           </p>
         </div>
 

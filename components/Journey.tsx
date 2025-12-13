@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BookOpen, Rocket, TrendingUp, Award, Target, ChevronDown, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 // Simple debounce utility
 const debounce = (func: Function, wait: number) => {
@@ -16,62 +17,46 @@ const debounce = (func: Function, wait: number) => {
 };
 
 const Journey: React.FC = () => {
+  const { t } = useTranslation();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const events = [
     {
-      date: 'Agustus 2025',
+      date: t('journey.events.learning.date'),
       icon: <BookOpen className="w-5 h-5" />,
-      title: 'Awal Mula Belajar',
-      description: 'Memulai perjalanan digital dengan bootcamp RevoU & mentoring intensif.',
-      achievements: [
-        'Fundamental Digital Marketing',
-        'Krenovator Digital Tribe',
-        'Adaptasi Mindset Entrepreneur',
-      ],
+      title: t('journey.events.learning.title'),
+      description: t('journey.events.learning.description'),
+      achievements: t('journey.events.learning.achievements', { returnObjects: true }) as string[],
       type: 'learning'
     },
     {
-      date: 'Oktober 2025',
+      date: t('journey.events.business.date'),
       icon: <Rocket className="w-5 h-5" />,
-      title: 'Peluncuran Bisnis',
-      description: 'Mendirikan Feyd Store (Commerce) & Frontworks (Web Dev Service).',
-      achievements: [
-        'Rilis Feyd Store v1.0',
-        'Research Market Fit',
-        'Setup Operational Workflow',
-        'Initial Revenue Stream',
-      ],
+      title: t('journey.events.business.title'),
+      description: t('journey.events.business.description'),
+      achievements: t('journey.events.business.achievements', { returnObjects: true }) as string[],
       type: 'business'
     },
     {
-      date: 'November 2025',
+      date: t('journey.events.marketing.date'),
       icon: <TrendingUp className="w-5 h-5" />,
-      title: 'Growth & Ads',
-      description: 'Scaling bisnis dengan Facebook Ads (32k/day) & Organic Content.',
-      achievements: [
-        'Winning Campaign Found',
-        'Audience Testing Strategy',
-        'Integrasi AI untuk Konten',
-        'ROI Positive in 2 Weeks',
-      ],
+      title: t('journey.events.marketing.title'),
+      description: t('journey.events.marketing.description'),
+      achievements: t('journey.events.marketing.achievements', { returnObjects: true }) as string[],
       type: 'marketing'
     },
     {
-      date: '2025 - 2026',
+      date: t('journey.events.expansion.date'),
       icon: <Award className="w-5 h-5" />,
-      title: 'Expansion & Scale',
-      description: 'Target ekspansi layanan dan otomatisasi sistem bisnis.',
-      achievements: [
-        '5+ Sertifikasi Profesional',
-        'Target 5 Klien/Bulan',
-        'Membangun Tim Inti',
-        'Systematizing Operations',
-      ],
+      title: t('journey.events.expansion.title'),
+      description: t('journey.events.expansion.description'),
+      achievements: t('journey.events.expansion.achievements', { returnObjects: true }) as string[],
       type: 'achievement'
     },
   ];
+
+  const goals = t('journey.goals.items', { returnObjects: true }) as string[];
 
   // Neon Cyber Theme: Distinct but Cohesive
   const eventColors: { [key: string]: string } = {
@@ -183,10 +168,10 @@ const Journey: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl lg:text-5xl font-bold text-white mb-4">
-              Digital Entrepreneurship Journey
+              {t('journey.title')}
             </h2>
             <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto">
-              My path from learning to building successful digital businesses
+              {t('journey.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -335,17 +320,12 @@ const Journey: React.FC = () => {
                 <Target className="w-10 h-10 text-electric-300" />
               </div>
               <div className="flex-grow text-center lg:text-left">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Goals & Aspirasi 2025 - 2026</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">{t('journey.goals.title')}</h3>
                 <p className="text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Fokus utama tahun depan adalah skalabilitas bisnis dan ekspansi layanan untuk memberikan dampak yang lebih luas kepada klien dan komunitas.
+                  {t('journey.goals.description')}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    'Scale Feyd Store Revenue',
-                    'Establish Frontworks Agency',
-                    'Build Operational Team',
-                    'AI-Driven Content Strategy'
-                  ].map((goal, i) => (
+                  {goals.map((goal, i) => (
                     <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors border border-white/5">
                       <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                         <span className="text-green-400 text-xs">✓</span>
@@ -365,6 +345,7 @@ const Journey: React.FC = () => {
 
 // Sub-component for Collapsible Achievements
 const CollapsibleAchievements: React.FC<{ achievements: string[], color: string, checkColor?: string }> = ({ achievements, color, checkColor }) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const displayedAchievements = isExpanded ? achievements : achievements.slice(0, 2);
   const hasMore = achievements.length > 2;
@@ -396,9 +377,9 @@ const CollapsibleAchievements: React.FC<{ achievements: string[], color: string,
           className="flex items-center gap-1 text-[10px] font-bold text-white/60 hover:text-white uppercase tracking-wider transition-colors w-full pt-2 border-t border-white/5"
         >
           {isExpanded ? (
-            <>Show Less <ChevronDown className="w-3 h-3 rotate-180 transition-transform" /></>
+            <>{t('journey.controls.showLess')} <ChevronDown className="w-3 h-3 rotate-180 transition-transform" /></>
           ) : (
-            <>Show {achievements.length - 2} More <ChevronDown className="w-3 h-3 transition-transform" /></>
+            <>{t('journey.controls.showMore', { count: achievements.length - 2 })} <ChevronDown className="w-3 h-3 transition-transform" /></>
           )}
         </button>
       )}

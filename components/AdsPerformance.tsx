@@ -1,16 +1,19 @@
 import React from 'react';
 import { MousePointer, Eye, Target, Repeat, TrendingUp, DollarSign, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const AdsPerformance: React.FC = () => {
+  const { t } = useTranslation();
+
   const metrics = [
-    { icon: <MousePointer />, value: '823', label: 'Total Link Clicks', sub: 'Across all campaigns' },
-    { icon: <Eye />, value: '26,653', label: 'Video Views', sub: 'Engaging audience content' },
-    { icon: <Target />, value: '32,496', label: 'Total Impressions', sub: 'Reaching target audience' },
-    { icon: <Repeat />, value: '1.14x', label: 'Average Frequency', sub: 'Optimal ad exposure' },
-    { icon: <TrendingUp />, value: '4.62%', label: 'Highest CTR', sub: 'Campaign: KM/Leads/Tsabit' },
-    { icon: <DollarSign />, value: 'Rp 165', label: 'Lowest CPC ⭐', sub: 'Campaign: Traffic Tsabit' },
-    { icon: <CheckCircle />, value: '62.90%', label: 'Best LC to LP', sub: 'Landing page conversion' },
-    { icon: <TrendingUp />, value: '3.23%', label: 'Best Lead Rate', sub: 'Campaign: TB/Leads' },
+    { icon: <MousePointer />, value: '823', label: t('adsPerformance.metrics.clicks.label'), sub: t('adsPerformance.metrics.clicks.sub') },
+    { icon: <Eye />, value: '26,653', label: t('adsPerformance.metrics.views.label'), sub: t('adsPerformance.metrics.views.sub') },
+    { icon: <Target />, value: '32,496', label: t('adsPerformance.metrics.impressions.label'), sub: t('adsPerformance.metrics.impressions.sub') },
+    { icon: <Repeat />, value: '1.14x', label: t('adsPerformance.metrics.frequency.label'), sub: t('adsPerformance.metrics.frequency.sub') },
+    { icon: <TrendingUp />, value: '4.62%', label: t('adsPerformance.metrics.ctr.label'), sub: t('adsPerformance.metrics.ctr.sub') },
+    { icon: <DollarSign />, value: 'Rp 165', label: t('adsPerformance.metrics.cpc.label'), sub: t('adsPerformance.metrics.cpc.sub') },
+    { icon: <CheckCircle />, value: '62.90%', label: t('adsPerformance.metrics.lcToLp.label'), sub: t('adsPerformance.metrics.lcToLp.sub') },
+    { icon: <TrendingUp />, value: '3.23%', label: t('adsPerformance.metrics.leadRate.label'), sub: t('adsPerformance.metrics.leadRate.sub') },
   ];
 
   const campaigns = [
@@ -56,20 +59,9 @@ const AdsPerformance: React.FC = () => {
     },
   ];
 
-  const insights = [
-    'Berhasil mengoptimalkan CPC hingga Rp 165 (50% lebih murah dari rata-rata industri)',
-    'Mencapai CTR 4.62% (3x lebih tinggi dari benchmark Facebook Ads 1.5%)',
-    'Landing page conversion rate mencapai 62.90% dengan LC to LP optimization',
-    'Mengelola 4 kampanye simultan dengan total budget Rp 298K untuk testing & scaling',
-    'Video completion rate tinggi: 359 penonton menonton 100% konten video',
-  ];
+  const insights = t('adsPerformance.insights.items', { returnObjects: true }) as string[];
 
-  const products = [
-    '📖 Al-Qur\'an Kharisma (Tajwid Berwarna)',
-    '📚 Novel: Melawan Kemustahilan',
-    '📚 Novel: Titik Balik',
-    '📚 Novel: Sebelum Aku Tiada',
-  ];
+  const products = t('adsPerformance.products.items', { returnObjects: true }) as string[];
 
   return (
     <section id="ads-performance" className="relative py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500">
@@ -83,10 +75,10 @@ const AdsPerformance: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Data-Driven Marketing Results
+            {t('adsPerformance.title')}
           </h2>
           <p className="text-lg text-white/70 max-w-3xl mx-auto">
-            Mengelola campaign Facebook Ads dengan pendekatan data-driven untuk mengoptimalkan ROI dan conversion rate
+            {t('adsPerformance.subtitle')}
           </p>
         </div>
 
@@ -96,22 +88,22 @@ const AdsPerformance: React.FC = () => {
             <div className="flex items-center gap-3">
               <span className="text-2xl">📅</span>
               <div>
-                <p className="text-sm text-white/60">Campaign Period</p>
-                <p className="text-lg font-semibold text-white">Nov 10 - Dec 4, 2024</p>
+                <p className="text-sm text-white/60">{t('adsPerformance.period.label')}</p>
+                <p className="text-lg font-semibold text-white">{t('adsPerformance.period.value')}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">💰</span>
               <div>
-                <p className="text-sm text-white/60">Total Ad Spend</p>
-                <p className="text-lg font-semibold text-white">Rp 298.643</p>
+                <p className="text-sm text-white/60">{t('adsPerformance.spend.label')}</p>
+                <p className="text-lg font-semibold text-white">{t('adsPerformance.spend.value')}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">📊</span>
               <div>
-                <p className="text-sm text-white/60">Budget Strategy</p>
-                <p className="text-lg font-semibold text-white">Rp 32.000/hari per campaign</p>
+                <p className="text-sm text-white/60">{t('adsPerformance.budget.label')}</p>
+                <p className="text-lg font-semibold text-white">{t('adsPerformance.budget.value')}</p>
               </div>
             </div>
           </div>
@@ -137,19 +129,19 @@ const AdsPerformance: React.FC = () => {
         {/* Campaign Breakdown Table */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl mb-16 border border-white/20">
           <div className="bg-electric-500/20 text-white px-6 py-4 border-b border-white/10">
-            <h3 className="text-xl font-bold">Campaign Breakdown</h3>
+            <h3 className="text-xl font-bold">{t('adsPerformance.table.title')}</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-white/5 border-b border-white/10">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Campaign</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Link Clicks</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">CTR</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">CPC</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Impressions</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Results</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.campaign')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.status')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.clicks')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.ctr')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.cpc')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.impressions')}</th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.results')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
@@ -181,7 +173,7 @@ const AdsPerformance: React.FC = () => {
 
         {/* Key Insights */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6">Key Insights</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t('adsPerformance.insights.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map((insight, index) => (
               <div key={index} className="flex items-start gap-3">
@@ -194,15 +186,19 @@ const AdsPerformance: React.FC = () => {
 
         {/* Products Advertised */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-6">Products Advertised</h3>
+          <h3 className="text-xl font-bold text-white mb-6">{t('adsPerformance.products.title')}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {products.map((product, index) => (
               <div
                 key={index}
                 className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
               >
-                <span className="text-2xl">{product.split(' ')[0]}</span>
-                <p className="text-sm font-medium text-white/90">{product.substring(3)}</p>
+                <div className="flex-1">
+                  <span className="text-2xl mr-2">{product.match(/^\S+/)?.[0]}</span>
+                  <span className="text-sm font-medium text-white/90">
+                    {product.replace(/^\S+\s*/, '')}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

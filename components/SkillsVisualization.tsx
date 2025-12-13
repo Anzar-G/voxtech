@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, BarChart, Zap, Palette } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Skill {
     name: string;
@@ -10,48 +11,50 @@ interface Skill {
 }
 
 const SkillsVisualization: React.FC = () => {
+    const { t } = useTranslation();
+
     // 📝 EDIT DATA INI SESUAI SKILLS ANDA
     const skillsData: Skill[] = [
         {
             name: 'React & Next.js',
             level: 85,
-            category: 'Frontend Development',
+            category: 'frontend',
             icon: <Code className="w-5 h-5" />
         },
         {
             name: 'TypeScript',
             level: 75,
-            category: 'Frontend Development',
+            category: 'frontend',
             icon: <Code className="w-5 h-5" />
         },
         {
             name: 'Tailwind CSS',
             level: 90,
-            category: 'Frontend Development',
+            category: 'frontend',
             icon: <Palette className="w-5 h-5" />
         },
         {
             name: 'Facebook Ads',
-            level: 80,
-            category: 'Digital Marketing',
+            level: 70,
+            category: 'marketing',
             icon: <BarChart className="w-5 h-5" />
         },
         {
             name: 'SEO & Analytics',
             level: 70,
-            category: 'Digital Marketing',
+            category: 'marketing',
             icon: <BarChart className="w-5 h-5" />
         },
         {
             name: 'AI Tools (Claude, Windsurf)',
             level: 92,
-            category: 'AI & Automation',
+            category: 'ai',
             icon: <Zap className="w-5 h-5" />
         },
         {
             name: 'Prompt Engineering',
             level: 88,
-            category: 'AI & Automation',
+            category: 'ai',
             icon: <Zap className="w-5 h-5" />
         },
     ];
@@ -81,16 +84,16 @@ const SkillsVisualization: React.FC = () => {
                 transition={{ duration: 0.6 }}
             >
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 text-center">
-                    Skills & Expertise
+                    {t('skillsVisualization.title')}
                 </h2>
                 <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
-                    Tingkat keahlian berdasarkan pengalaman proyek dan jam terbang
+                    {t('skillsVisualization.subtitle')}
                 </p>
 
                 <div className="space-y-12">
-                    {Object.entries(groupedSkills).map(([category, skills], categoryIndex) => (
+                    {Object.entries(groupedSkills).map(([categoryKey, skills], categoryIndex) => (
                         <motion.div
-                            key={category}
+                            key={categoryKey}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -100,7 +103,7 @@ const SkillsVisualization: React.FC = () => {
                                 <div className="p-2 rounded-lg bg-electric-500/10 border border-electric-500/20 text-electric-300">
                                     {skills[0].icon}
                                 </div>
-                                {category}
+                                {t(`skillsVisualization.categories.${categoryKey}`)}
                             </h3>
 
                             <div className="space-y-6">
@@ -135,9 +138,9 @@ const SkillsVisualization: React.FC = () => {
                                         {/* Hover tooltip */}
                                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
                                             <p className="text-xs text-white/50">
-                                                {skill.level >= 85 && 'Expert Level'}
-                                                {skill.level >= 70 && skill.level < 85 && 'Advanced Level'}
-                                                {skill.level < 70 && 'Intermediate Level'}
+                                                {skill.level >= 85 && t('skillsVisualization.levels.expert')}
+                                                {skill.level >= 70 && skill.level < 85 && t('skillsVisualization.levels.advanced')}
+                                                {skill.level < 70 && t('skillsVisualization.levels.intermediate')}
                                             </p>
                                         </div>
                                     </div>
@@ -151,15 +154,15 @@ const SkillsVisualization: React.FC = () => {
                 <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm border-t border-white/5 pt-8">
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-2 rounded-full bg-gradient-to-r from-electric-400 to-cyan-400 shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-                        <span className="text-white/70">Expert (85%+)</span>
+                        <span className="text-white/70">{t('skillsVisualization.legend.expert')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-2 rounded-full bg-gradient-to-r from-electric-600 to-electric-400" />
-                        <span className="text-white/70">Advanced (70-84%)</span>
+                        <span className="text-white/70">{t('skillsVisualization.legend.advanced')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-2 rounded-full bg-gradient-to-r from-navy-600 to-electric-700" />
-                        <span className="text-white/70">Intermediate (&lt;70%)</span>
+                        <span className="text-white/70">{t('skillsVisualization.legend.intermediate')}</span>
                     </div>
                 </div>
             </motion.div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { X, Linkedin, Github, Download, Home, User, Briefcase, FolderOpen, TrendingUp, Building2, Mail } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -11,15 +13,16 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
   const location = useLocation();
   const [desktopOpen, setDesktopOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navItems = [
-    { path: '/', label: 'Beranda', icon: Home },
-    { path: '/about', label: 'Tentang Saya', icon: User },
-    { path: '/journey', label: 'Perjalanan & Pencapaian', icon: TrendingUp },
-      { path: '/projects', label: 'Proyek', icon: FolderOpen },
-    { path: '/services', label: 'Layanan', icon: Briefcase },
-    { path: '/businesses', label: 'Bisnis Saya', icon: Building2 },
-    { path: '/contact', label: 'Kontak', icon: Mail },
+    { path: '/', label: t('navigation.home'), icon: Home },
+    { path: '/about', label: t('navigation.about'), icon: User },
+    { path: '/journey', label: t('navigation.journey'), icon: TrendingUp },
+    { path: '/projects', label: t('navigation.projects'), icon: FolderOpen },
+    { path: '/services', label: t('navigation.services'), icon: Briefcase },
+    { path: '/businesses', label: t('navigation.businesses'), icon: Building2 },
+    { path: '/contact', label: t('navigation.contact'), icon: Mail },
   ];
 
   const handleNavClick = () => {
@@ -49,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             className="whitespace-nowrap"
           >
             <h2 className="text-white text-sm font-bold">Muhammad Nizar</h2>
-            <p className="text-white/70 text-xs">AI Engineer</p>
+            <p className="text-white/70 text-xs">{t('sidebar.roleShort')}</p>
           </motion.div>
         </div>
 
@@ -80,6 +83,20 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             );
           })}
         </nav>
+
+        {/* Desktop Language Switcher - Only visible when open */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{
+            opacity: desktopOpen ? 1 : 0,
+            height: desktopOpen ? 'auto' : 0
+          }}
+          className="px-4 pb-2"
+        >
+          <div className="flex justify-center">
+            <LanguageSwitcher />
+          </div>
+        </motion.div>
 
         {/* Footer */}
         <div className="p-4 border-t border-white/10 space-y-3">
@@ -114,7 +131,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-xs font-semibold transition-colors overflow-hidden"
           >
             <Download size={14} />
-            <span>Download CV</span>
+            <span>{t('about.downloadCV')}</span>
           </motion.button>
         </div>
       </motion.aside>
@@ -150,7 +167,12 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                 </button>
               </div>
               <h2 className="text-white text-lg font-bold leading-tight">Muhammad Nizar</h2>
-              <p className="text-white/70 text-sm mt-1">AI Engineer & Digital Marketer</p>
+              <p className="text-white/70 text-sm mt-1">{t('sidebar.role')}</p>
+
+              {/* Mobile Language Switcher in Header */}
+              <div className="mt-4 flex justify-start">
+                <LanguageSwitcher />
+              </div>
             </div>
 
             {/* Navigation */}
@@ -199,7 +221,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
               </div>
               <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <Download size={16} />
-                <span>Download CV</span>
+                <span>{t('about.downloadCV')}</span>
               </button>
             </div>
           </motion.aside>

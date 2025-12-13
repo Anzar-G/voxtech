@@ -1,7 +1,10 @@
 import React from 'react';
 import { GraduationCap, Award, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Education: React.FC = () => {
+  const { t } = useTranslation();
+
   const certificates = [
     {
       name: 'Software Engineering - Week 1',
@@ -33,10 +36,7 @@ const Education: React.FC = () => {
     },
   ];
 
-  const bootcamps = [
-    'RevoU - Full-Stack Development & Digital Marketing',
-    'Krenovator Digital Tribe - Entrepreneurship Program',
-  ];
+  const bootcamps = t('educationPage.bootcamps.items', { returnObjects: true }) as string[];
 
   return (
     <section id="education" className="px-6 lg:px-20 py-20">
@@ -44,10 +44,10 @@ const Education: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Education & Credentials
+            {t('educationPage.title')}
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Continuous learning and professional development
+            {t('educationPage.subtitle')}
           </p>
         </div>
 
@@ -65,21 +65,21 @@ const Education: React.FC = () => {
                   />
                 </div>
                 <div className="flex-1 lg:text-center lg:mt-6">
-                  <p className="hidden lg:block text-sm uppercase tracking-wide opacity-80 mb-2 text-white/70">Currently</p>
-                  <h3 className="text-lg lg:text-2xl font-bold mb-1 lg:mb-4 text-white leading-tight">Pondok Abdurrahman Bin Auf</h3>
-                  <p className="text-sm lg:text-lg text-electric-300 font-semibold">SMA Kelas 10 (2025)</p>
+                  <p className="hidden lg:block text-sm uppercase tracking-wide opacity-80 mb-2 text-white/70">{t('educationPage.school.currently')}</p>
+                  <h3 className="text-lg lg:text-2xl font-bold mb-1 lg:mb-4 text-white leading-tight">{t('educationPage.school.name')}</h3>
+                  <p className="text-sm lg:text-lg text-electric-300 font-semibold">{t('educationPage.school.grade')}</p>
                 </div>
               </div>
 
               <div className="block lg:hidden mb-4">
-                <p className="text-xs uppercase tracking-wide opacity-80 text-white/70">Currently Studying</p>
+                <p className="text-xs uppercase tracking-wide opacity-80 text-white/70">{t('educationPage.school.currentlyStudying')}</p>
               </div>
 
-              <p className="text-sm lg:text-base opacity-90 mb-4 lg:mb-4 lg:text-center text-white/90 leading-relaxed">Fokus: Pendidikan Umum, Agama, & Digitalpreneur/Digital Marketing</p>
+              <p className="text-sm lg:text-base opacity-90 mb-4 lg:mb-4 lg:text-center text-white/90 leading-relaxed">{t('educationPage.school.focus')}</p>
 
               <div className="flex items-start lg:justify-center gap-2 mt-4 lg:mt-6 mb-6 lg:mb-8 text-white/80 lg:text-center">
                 <span className="text-lg lg:text-xl mt-0.5">📍</span>
-                <p className="text-xs lg:text-sm leading-relaxed max-w-[250px] lg:mx-auto">Jl. Mulya 2, RT.005/RW.006, Karyamulya, Cirebon</p>
+                <p className="text-xs lg:text-sm leading-relaxed max-w-[250px] lg:mx-auto">{t('educationPage.school.address')}</p>
               </div>
 
               {/* Pondok Image Placeholder */}
@@ -96,7 +96,7 @@ const Education: React.FC = () => {
 
           {/* Right: Certifications */}
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-bold text-white mb-8">Certifications</h3>
+            <h3 className="text-3xl font-bold text-white mb-8">{t('educationPage.certificates.title')}</h3>
             <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 lg:gap-6 mb-12">
               {certificates.map((cert, index) => (
                 <div
@@ -115,7 +115,7 @@ const Education: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-electric-300 font-semibold text-xs lg:text-sm flex items-center justify-center gap-1.5 lg:gap-2 mx-auto hover:gap-3 transition-all hover:text-electric-200"
                   >
-                    <span>View</span>
+                    <span>{t('educationPage.certificates.view')}</span>
                     <ExternalLink size={12} className="lg:w-3.5 lg:h-3.5" />
                   </a>
                 </div>
@@ -126,7 +126,7 @@ const Education: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
               <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
                 <Award className="w-6 h-6 text-electric-300" />
-                <span>Bootcamp & Training</span>
+                <span>{t('educationPage.bootcamps.title')}</span>
               </h4>
               <div className="space-y-4">
                 {bootcamps.map((bootcamp, index) => (

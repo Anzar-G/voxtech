@@ -3,21 +3,23 @@ import { Store, Target, TrendingUp, CheckCircle, Lightbulb, MousePointer, Eye, D
 import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
+import { useTranslation } from 'react-i18next';
 
 const CaseStudy: React.FC = () => {
+    const { t } = useTranslation();
+
+    const strategyItems = t('caseStudy.strategy.items', { returnObjects: true }) as string[];
+    const learningsItems = t('caseStudy.learnings.items', { returnObjects: true }) as string[];
+
     const feydStoreCaseStudy = {
-        challenge: "Memperkenalkan Al-Qur'an Kharisma ke pasar yang lebih luas secara online dan bersaing dengan produk sejenis untuk menarik minat pembaca novel islami.",
-        strategy: [
-            "Fokus pada keunggulan produk (tajwid warna, terjemahan, kisah inspiratif)",
-            "Target audience spesifik yang tertarik dengan Al-Qur'an dan bacaan Islami",
-            "Penggunaan Facebook Ads untuk mendatangkan traffic berkualitas ke landing page Feyd Store"
-        ],
+        challenge: t('caseStudy.challenge.description'),
+        strategy: strategyItems,
         execution: {
             campaignName: "Traffic Tsabit",
-            objective: "Traffic",
-            creative: "Video pendek menampilkan tampilan Novel Islami",
-            copy: "Novel Islami yang mudah dibaca",
-            targeting: "Interest: Novel Islami, Agama Islam"
+            objective: t('caseStudy.execution.objectiveVal'),
+            creative: t('caseStudy.execution.creativeVal'),
+            copy: t('caseStudy.execution.copyVal'),
+            targeting: t('caseStudy.execution.targetingVal')
         },
         results: {
             linkClicks: 566,
@@ -27,17 +29,14 @@ const CaseStudy: React.FC = () => {
             lpConversion: "60.07%",
             costPerResult: "Rp 276"
         },
-        learnings: [
-            "Berhasil: Audience targeting yang spesifik dan creative video pendek sangat efektif untuk niche ini",
-            "Perlu Ditingkatkan: Konversi dari landing page ke pembelian masih menjadi fokus utama. Perlu optimasi lebih lanjut pada landing page dan strategi penjualan"
-        ]
+        learnings: learningsItems
     };
 
     const keyMetrics = [
-        { icon: <MousePointer className="w-6 h-6" />, value: '566', label: 'Link Clicks', highlight: true },
-        { icon: <Eye className="w-6 h-6" />, value: '340', label: 'Landing Page Views', highlight: true },
-        { icon: <TrendingUp className="w-6 h-6" />, value: '2.37%', label: 'CTR', highlight: true },
-        { icon: <DollarSign className="w-6 h-6" />, value: 'Rp 165', label: 'CPC', highlight: true },
+        { icon: <MousePointer className="w-6 h-6" />, value: '566', label: t('caseStudy.results.metrics.clicks'), highlight: true },
+        { icon: <Eye className="w-6 h-6" />, value: '340', label: t('caseStudy.results.metrics.views'), highlight: true },
+        { icon: <TrendingUp className="w-6 h-6" />, value: '2.37%', label: t('caseStudy.results.metrics.ctr'), highlight: true },
+        { icon: <DollarSign className="w-6 h-6" />, value: 'Rp 165', label: t('caseStudy.results.metrics.cpc'), highlight: true },
     ];
 
     return (
@@ -88,10 +87,10 @@ const CaseStudy: React.FC = () => {
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Case Study: Feyd Store
+                        {t('caseStudy.title')}
                     </h2>
                     <p className="text-lg text-white/80 max-w-3xl mx-auto">
-                        Contoh nyata penerapan digital marketing untuk bisnis e-commerce Al-Qur'an dan Novel
+                        {t('caseStudy.subtitle')}
                     </p>
                 </ScrollReveal>
 
@@ -104,7 +103,7 @@ const CaseStudy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
                                     <Target className="text-red-400 w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">Tantangan</h3>
+                                <h3 className="text-2xl font-bold text-white">{t('caseStudy.challenge.title')}</h3>
                             </div>
                             <p className="text-base text-white/80 leading-relaxed">
                                 {feydStoreCaseStudy.challenge}
@@ -119,7 +118,7 @@ const CaseStudy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-cyan-400/20 flex items-center justify-center">
                                     <Lightbulb className="text-cyan-300 w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">Strategi</h3>
+                                <h3 className="text-2xl font-bold text-white">{t('caseStudy.strategy.title')}</h3>
                             </div>
                             <ul className="space-y-3">
                                 {feydStoreCaseStudy.strategy.map((item, index) => (
@@ -137,23 +136,23 @@ const CaseStudy: React.FC = () => {
                 <ScrollReveal variant="fade-up" delay={0.2} className="mb-16">
                     <div className="bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-2xl border border-white/10">
                         <h3 className="text-3xl font-bold text-white mb-8 text-center">
-                            Eksekusi: Kampanye "{feydStoreCaseStudy.execution.campaignName}"
+                            {t('caseStudy.execution.title')}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">Objective</p>
+                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.objective')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.objective}</p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">Creative</p>
+                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.creative')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.creative}</p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">Copy</p>
+                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.copy')}</p>
                                 <p className="text-xl font-bold text-white">"{feydStoreCaseStudy.execution.copy}"</p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 md:col-span-2 lg:col-span-3">
-                                <p className="text-sm text-white/70 mb-2">Targeting</p>
+                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.targeting')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.targeting}</p>
                             </div>
                         </div>
@@ -162,7 +161,7 @@ const CaseStudy: React.FC = () => {
 
                 {/* Results - Key Metrics */}
                 <ScrollReveal variant="fade-up" delay={0.3} className="mb-16">
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Hasil Kampanye</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('caseStudy.results.title')}</h3>
                     <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                         {keyMetrics.map((metric, index) => (
                             <motion.div
@@ -185,14 +184,14 @@ const CaseStudy: React.FC = () => {
                     {/* Additional Metrics */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 text-center">
-                            <p className="text-sm text-white/70 mb-2">LP Conversion Rate</p>
+                            <p className="text-sm text-white/70 mb-2">{t('caseStudy.results.lpConversion.label')}</p>
                             <p className="text-4xl font-bold text-green-400 mb-1">{feydStoreCaseStudy.results.lpConversion}</p>
-                            <p className="text-sm text-white/60">Traffic berkualitas tinggi</p>
+                            <p className="text-sm text-white/60">{t('caseStudy.results.lpConversion.desc')}</p>
                         </div>
                         <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 text-center">
-                            <p className="text-sm text-white/70 mb-2">Cost Per Result</p>
+                            <p className="text-sm text-white/70 mb-2">{t('caseStudy.results.costResult.label')}</p>
                             <p className="text-4xl font-bold text-electric-300 mb-1">{feydStoreCaseStudy.results.costPerResult}</p>
-                            <p className="text-sm text-white/60">Efisiensi biaya optimal</p>
+                            <p className="text-sm text-white/60">{t('caseStudy.results.costResult.desc')}</p>
                         </div>
                     </div>
                 </ScrollReveal>
@@ -202,7 +201,7 @@ const CaseStudy: React.FC = () => {
                     <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border-l-4 border-electric-500 shadow-xl">
                         <div className="flex items-center gap-3 mb-6">
                             <CheckCircle className="text-electric-300 w-8 h-8" />
-                            <h3 className="text-2xl font-bold text-white">Key Learnings</h3>
+                            <h3 className="text-2xl font-bold text-white">{t('caseStudy.learnings.title')}</h3>
                         </div>
                         <div className="space-y-4">
                             {feydStoreCaseStudy.learnings.map((learning, index) => (

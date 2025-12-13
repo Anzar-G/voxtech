@@ -1,0 +1,1283 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "projects": "Projects",
+        "journey": "Journey",
+        "businesses": "Businesses",
+        "contact": "Contact"
+    },
+    "sidebar": {
+        "role": "AI Engineer & Digital Marketer",
+        "roleShort": "AI Engineer"
+    },
+    "meta": {
+        "defaultTitle": "Muhammad Nizar Al-Faris - Portfolio",
+        "defaultDescription": "Professional portfolio of Muhammad Nizar Al-Faris, AI Engineer and Digital Marketer.",
+        "home": {
+            "title": "Home",
+            "description": "Welcome to the portfolio of Muhammad Nizar Al-Faris."
+        },
+        "about": {
+            "title": "About Me",
+            "description": "Learn more about my journey and skills."
+        },
+        "services": {
+            "title": "Services",
+            "description": "Professional AI and digital marketing services."
+        },
+        "projects": {
+            "title": "Projects",
+            "description": "Check out my latest projects."
+        },
+        "journey": {
+            "title": "Journey",
+            "description": "My career path and achievements."
+        },
+        "contact": {
+            "title": "Contact",
+            "description": "Get in touch for collaboration."
+        }
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "title": "Muhammad Nizar Al-Faris",
+        "subtitle": "AI Engineer & Tech Provider",
+        "intro": "Mastering Digital Entrepreneurship through Measurable Facebook Ads",
+        "description": "Building innovative digital solutions with modern technology and data-driven approach.",
+        "cta": {
+            "primary": "View Projects",
+            "secondary": "Contact Me"
+        },
+        "stats": [
+            {
+                "label": "AI Experience",
+                "num": "8+",
+                "sub": "Months"
+            },
+            {
+                "label": "Projects Completed",
+                "num": "5+",
+                "sub": "Projects"
+            },
+            {
+                "label": "Active Businesses",
+                "num": "2",
+                "sub": "Running"
+            }
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "intro": "Full-stack developer with passion in AI and digital marketing",
+        "downloadCV": "Download CV",
+        "location": {
+            "label": "Location",
+            "value": "Semarang, Central Java"
+        },
+        "education": {
+            "label": "Education",
+            "value": "11th Grade High School",
+            "certifications": "Certifications"
+        },
+        "business": {
+            "label": "Business",
+            "value": "2 Running"
+        },
+        "experience": {
+            "label": "AI Exp.",
+            "value": "8 Months"
+        },
+        "stats": {
+            "aiMonths": "Months AI",
+            "projects": "Projects",
+            "businesses": "Businesses",
+            "success": "Successful",
+            "running": "Running"
+        },
+        "bio": {
+            "title": "Who Am I?",
+            "p1": "I am Muhammad Nizar Al-Faris, a 16-year-old <1>AI Engineer and Digital Marketing Specialist</1> passionate about delivering innovative digital solutions. With 8 months of experience in AI-based web development, I help businesses turn ideas into functional and attractive professional websites.",
+            "p2": "What sets me apart is the <1>AI-first development</1> approach using various intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, and other modern tools) to accelerate the development process up to <1>3x faster</1> without sacrificing quality.",
+            "p3": "\"Better to hire AI than be hired by AI\" - this motto reflects my spirit to master technology. Currently, I am also deepening digital entrepreneurship, mastering Facebook Ads and digital marketing strategies for business growth."
+        },
+        "skills": {
+            "title": "Core Skills",
+            "core": "Core Skill",
+            "frontend": "Frontend & Deployment",
+            "growth": "Growth & Strategy",
+            "productivity": "Productivity",
+            "list": {
+                "aiEngineering": {
+                    "name": "AI Engineering",
+                    "items": [
+                        "No-Code/Low-Code",
+                        "AI-Assisted Coding",
+                        "Rapid Prototyping"
+                    ]
+                },
+                "techStack": {
+                    "name": "Tech Stack",
+                    "items": [
+                        "Next.js, React, TS",
+                        "Tailwind CSS",
+                        "Vercel"
+                    ]
+                },
+                "digitalMarketing": {
+                    "name": "Digital Marketing",
+                    "items": [
+                        "FB Ads",
+                        "Content Strategy",
+                        "SEO & Analytics"
+                    ]
+                },
+                "productivity": {
+                    "name": "Productivity",
+                    "items": [
+                        "8+ AI Tools",
+                        "Claude & Qwen",
+                        "Multi-AI Workflow"
+                    ]
+                }
+            }
+        },
+        "techAndEdu": {
+            "title": "Technology & Education",
+            "tools": "Core Tools",
+            "toolsList": [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+                "Claude AI",
+                "Vercel",
+                "Meta Ads Manager",
+                "Google Analytics"
+            ]
+        },
+        "whyChoose": {
+            "title": "Why Choose Me?",
+            "subtitle": "Unique combination of technical AI development skills and deep understanding of digital marketing",
+            "speed": {
+                "title": "3x Faster Development",
+                "desc": "Using AI-assisted development to speed up the process without sacrificing quality"
+            },
+            "result": {
+                "title": "focused on Results",
+                "desc": "Every project is designed with clear business goals and measurable metrics"
+            },
+            "quality": {
+                "title": "Guaranteed Quality",
+                "desc": "Clean code, responsive design, and optimal performance (90+ Lighthouse score)"
+            },
+            "communication": {
+                "title": "Transparent Communication",
+                "desc": "Regular progress updates and close collaboration with clients"
+            }
+        },
+        "workflow": {
+            "title": "My Workflow",
+            "subtitle": "Structured methodology to ensure the best results in every project",
+            "step1": {
+                "title": "Consultation & Discovery",
+                "desc": "Understanding business needs, target audience, and goals to be achieved",
+                "duration": "1-2 days"
+            },
+            "step2": {
+                "title": "Planning & Design",
+                "desc": "Creating wireframes, mockups, and tech stack planning that fits the needs",
+                "duration": "2-3 days"
+            },
+            "step3": {
+                "title": "Development",
+                "desc": "Coding with AI-assisted development, regular updates, and iterations based on feedback",
+                "duration": "5-14 days"
+            },
+            "step4": {
+                "title": "Testing & QA",
+                "desc": "Thorough testing to ensure all features function properly",
+                "duration": "1-2 days"
+            },
+            "step5": {
+                "title": "Deployment & Support",
+                "desc": "Deploy to production and support to ensure the website runs smoothly",
+                "duration": "Ongoing"
+            }
+        },
+        "testimonials": {
+            "title": "Testimonials",
+            "subtitle": "Feedback from satisfied clients with my work",
+            "placeholder": "* The above testimonial is a placeholder. Actual data will be filled after receiving client feedback."
+        }
+    },
+    "projects": {
+        "title": "Latest Projects",
+        "viewAll": "View All",
+        "techStack": "Tech Stack",
+        "livePreview": "Live Preview",
+        "visitSite": "Visit Site",
+        "page": {
+            "title": "Featured Projects",
+            "subtitle": "Showcase of latest work and successfully completed projects with measurable results",
+            "filters": {
+                "all": "All Projects",
+                "webDev": "Web Development",
+                "ecommerce": "E-commerce",
+                "landingPage": "Landing Pages",
+                "personal": "Personal Projects"
+            },
+            "card": {
+                "featured": "FEATURED",
+                "keyResults": "Key Results:",
+                "viewWebsite": "View Website"
+            },
+            "modal": {
+                "detailTitle": "Case Study Detail",
+                "challenge": "Challenge",
+                "solution": "Solution",
+                "results": "Results",
+                "metrics": "Key Metrics"
+            },
+            "stats": {
+                "title": "Portfolio Statistics",
+                "subtitle": "🚀 All projects are in continuous development with ongoing performance optimization",
+                "completed": "Projects Completed",
+                "satisfaction": "Client Satisfaction",
+                "bestPractices": "Avg Best Practices",
+                "seo": "Avg SEO Score",
+                "note": "<0>Note:</0> Performance scores reflect v1.0 baseline. Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction."
+            },
+            "items": {
+                "feyd": {
+                    "title": "Feyd Store - Islamic E-commerce Platform",
+                    "category": "E-commerce",
+                    "description": "E-commerce platform for selling Kharisma Qur'an with color-coded tajweed & translation. Built with Next.js + AI-based development.",
+                    "features": [
+                        "Functional E-commerce with modern UI/UX",
+                        "Integrated payment system (BSI, E-wallet)",
+                        "Running Facebook Ads (budget 32k/day)",
+                        "Mobile responsive & SEO optimized"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Determining and integrating various essential features in one complex e-commerce platform. Introducing Kharisma Qur'an to a wider online market and competing with similar products.",
+                        "solution": "Using a combination of Cascade Windsurf, Claude, and Qwen to enable customization and efficiency in development. Focusing on product advantages (color tajweed, translation) and using Facebook Ads (Traffic Tsabit) to drive quality traffic.",
+                        "results": [
+                            "566 Link Clicks from Traffic Tsabit campaign",
+                            "CTR 2.37% (above industry average)",
+                            "CPC Rp 165 (highly efficient)",
+                            "LP Conversion Rate 60.07%"
+                        ]
+                    }
+                },
+                "frontworks": {
+                    "title": "Frontworks - AI Frontend Engineer Portfolio",
+                    "category": "Personal",
+                    "description": "Professional portfolio website showcasing expertise as an AI Frontend Engineer with modern design & interactive elements.",
+                    "features": [
+                        "AI-generated design system",
+                        "Smooth animations & micro-interactions",
+                        "Project showcase with case studies",
+                        "Optimal performance (90+ Lighthouse score)"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Designing a UI/UX and layout that is not only attractive but also functional and easy to navigate.",
+                        "solution": "Leveraging Cascade Windsurf and Claude to explore design approaches, and conducting thorough research on other professional websites. AI was used as a powerful tool while prioritizing a human creative touch.",
+                        "results": [
+                            "Modern and professional portfolio",
+                            "95+ performance on all Lighthouse metrics",
+                            "Showcase of AI-First Development expertise",
+                            "Professional presentation for client pitching"
+                        ]
+                    }
+                },
+                "tilawah": {
+                    "title": "Program Tilawah 40 Hari - Education Landing Page",
+                    "category": "Landing Page",
+                    "description": "Landing page for tajweed education program with AI-optimized copywriting for conversion.",
+                    "features": [
+                        "Engaging landing page design",
+                        "Clear program information architecture",
+                        "Increasing enrollment rates",
+                        "Fast loading time (<2s)"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Creating an effective landing page for an educational program with a specific target audience (Muslims wanting to learn tajweed).",
+                        "solution": "Persuasive copywriting with AIDA structure, clear visual hierarchy, and prominent CTAs across multiple sections.",
+                        "results": [
+                            "Conversion-focused landing page",
+                            "Clear value proposition",
+                            "Mobile-first responsive design",
+                            "Fast loading for optimal user experience"
+                        ]
+                    }
+                },
+                "dapur": {
+                    "title": "Dapur Ummu Kamila - Home Bakery Website",
+                    "category": "Web Development",
+                    "description": "Showcase website for a home bakery business with product catalog & ordering system.",
+                    "features": [
+                        "Attractive product showcase",
+                        "Image optimization",
+                        "Contact integration (WhatsApp)",
+                        "Mobile-first design"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Creating a showcase website for an MSME bakery with a limited budget but remaining professional and functional.",
+                        "solution": "Focusing on product visuals with image optimization, WhatsApp integration for easy ordering, and a warm & inviting design.",
+                        "results": [
+                            "Professional website for MSME",
+                            "WhatsApp integration for ordering",
+                            "Image optimization for fast loading",
+                            "Responsive on all devices"
+                        ]
+                    }
+                },
+                "khoiru": {
+                    "title": "Khoiru Ummah - Educational Institution Website",
+                    "category": "Web Development",
+                    "description": "School profile website focusing on information about educational excellence & facilities.",
+                    "features": [
+                        "Professional institutional design",
+                        "Responsive layout",
+                        "SEO-friendly structure",
+                        "Fast & lightweight"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Balancing an Islamic design approach with an international and universal nuance.",
+                        "solution": "Taking inspiration from renowned educational institution websites (UI, Oxford, Edinburgh) and combining design elements from various references to create a digital identity that is strong, inclusive, yet Islamic.",
+                        "results": [
+                            "Professional & modern website design",
+                            "Strong but universal Islamic visual identity",
+                            "Clear and organized information structure",
+                            "Easy to manage and develop"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "journey": {
+        "title": "Digital Entrepreneurship Journey",
+        "subtitle": "My path from learning to building successful digital businesses",
+        "events": {
+            "learning": {
+                "date": "August 2025",
+                "title": "The Beginning of Learning",
+                "description": "Started digital journey with RevoU bootcamp & intensive mentoring.",
+                "achievements": [
+                    "Digital Marketing Fundamentals",
+                    "Krenovator Digital Tribe",
+                    "Entrepreneur Mindset Adaptation"
+                ]
+            },
+            "business": {
+                "date": "October 2025",
+                "title": "Business Launch",
+                "description": "Founded Feyd Store (Commerce) & Frontworks (Web Dev Service).",
+                "achievements": [
+                    "Released Feyd Store v1.0",
+                    "Research Market Fit",
+                    "Setup Operational Workflow",
+                    "Initial Revenue Stream"
+                ]
+            },
+            "marketing": {
+                "date": "November 2025",
+                "title": "Growth & Ads",
+                "description": "Scaling business with Facebook Ads (32k/day) & Organic Content.",
+                "achievements": [
+                    "Winning Campaign Found",
+                    "Audience Testing Strategy",
+                    "AI Integration for Content",
+                    "ROI Positive in 2 Weeks"
+                ]
+            },
+            "expansion": {
+                "date": "2025 - 2026",
+                "title": "Expansion & Scale",
+                "description": "Targeting service expansion and business system automation.",
+                "achievements": [
+                    "5+ Professional Certifications",
+                    "Target 5 Clients/Month",
+                    "Building Core Team",
+                    "Systematizing Operations"
+                ]
+            }
+        },
+        "goals": {
+            "title": "Goals & Aspirations 2025 - 2026",
+            "description": "Main focus for next year is business scalability and service expansion to deliver broader impact to clients and community.",
+            "items": [
+                "Scale Feyd Store Revenue",
+                "Establish Frontworks Agency",
+                "Build Operational Team",
+                "AI-Driven Content Strategy"
+            ]
+        },
+        "controls": {
+            "showLess": "Show Less",
+            "showMore": "Show {{count}} More"
+        }
+    },
+    "contact": {
+        "title": "Let's Connect",
+        "subtitle": "Have a project or idea? I'm ready to help!",
+        "page": {
+            "heading": "Ready to Transform Your Digital Presence?",
+            "subheading": "Let's discuss how we can bring your ideas to life with AI-based solutions."
+        },
+        "info": {
+            "title": "Contact Me",
+            "emailDesc": "Response within 24 hours",
+            "linkedinDesc": "Professional networking",
+            "githubDesc": "Portfolio & code samples",
+            "whatsappDesc": "Fast response (preferred)",
+            "location": "Location",
+            "locationDesc": "Indonesia (WIB/UTC+7)",
+            "hoursTitle": "Business Hours",
+            "availability": {
+                "weekdays": "Monday - Friday",
+                "weekend": "Saturday - Sunday"
+            }
+        },
+        "form": {
+            "title": "Send Message",
+            "name": "Full Name",
+            "email": "Email Address",
+            "service": "Service of Interest",
+            "message": "Message",
+            "placeholders": {
+                "name": "Your full name",
+                "email": "email@example.com",
+                "message": "Tell me about your project..."
+            },
+            "services": {
+                "placeholder": "Select service",
+                "webDev": "Web Development",
+                "ecommerce": "E-commerce Platform",
+                "landingPage": "Landing Page",
+                "digitalMarketing": "Digital Marketing Consultation",
+                "other": "Other Services"
+            },
+            "submit": "Send Message",
+            "success": "Message sent successfully! I will contact you soon.",
+            "error": "Please fill in all required fields."
+        },
+        "preferences": {
+            "title": "Best Communication Methods",
+            "whatsapp": {
+                "method": "WhatsApp",
+                "speed": "Fastest",
+                "responseTime": "< 2 hours",
+                "bestFor": "Urgent inquiries, quick questions"
+            },
+            "email": {
+                "method": "Email",
+                "speed": "Fast",
+                "responseTime": "< 24 hours",
+                "bestFor": "Detailed proposals, project briefs"
+            },
+            "linkedin": {
+                "method": "LinkedIn",
+                "speed": "Moderate",
+                "responseTime": "1-2 days",
+                "bestFor": "Professional networking, collaborations"
+            }
+        },
+        "process": {
+            "title": "Process After You Contact",
+            "steps": {
+                "consultation": {
+                    "title": "Free Consultation",
+                    "desc": "Discuss your project needs and goals"
+                },
+                "proposal": {
+                    "title": "Proposal & Quote",
+                    "desc": "Detailed proposal with timeline and pricing"
+                },
+                "kickoff": {
+                    "title": "Kick-off Meeting",
+                    "desc": "Finalize requirements and start development"
+                }
+            }
+        },
+        "cta": {
+            "title": "Need a Fast Response?",
+            "desc": "Contact me via WhatsApp for direct discussion and response within hours",
+            "button": "Chat on WhatsApp"
+        },
+        "whatsapp": {
+            "header": "New Message from Website",
+            "nameLabel": "Name",
+            "emailLabel": "Email",
+            "serviceLabel": "Service",
+            "messageLabel": "Message",
+            "notSpecified": "Not specified"
+        }
+    },
+    "businesses": {
+        "title": "My Businesses",
+        "subtitle": "Active digital businesses delivering value to customers",
+        "items": {
+            "feyd": {
+                "name": "Feyd Store",
+                "category": "Islamic Product E-commerce",
+                "description": "Providing Kharisma Qur'an with color tajweed & translation, as well as inspiring Islamic novels.",
+                "products": [
+                    "Kharisma Qur'an",
+                    "Novel Melawan Kemustahilan",
+                    "Novel Titik Balik",
+                    "Novel Sebelum Aku Tiada"
+                ],
+                "platforms": [
+                    "Website",
+                    "Facebook",
+                    "Instagram",
+                    "WhatsApp"
+                ],
+                "payment": [
+                    "BSI",
+                    "Dana",
+                    "Ovo",
+                    "Gopay"
+                ]
+            },
+            "frontworks": {
+                "name": "Frontworks",
+                "category": "AI-Based Web Development Services",
+                "description": "Professional website creation service using AI-based development for fast delivery and high quality.",
+                "services": [
+                    "Landing Page Creation",
+                    "E-commerce Solutions",
+                    "Company Profile Websites",
+                    "Website Optimization"
+                ],
+                "specialization": [
+                    "AI-First Development",
+                    "Rapid Prototyping",
+                    "Modern Tech Stack"
+                ],
+                "stats": [
+                    "5+ Projects Completed",
+                    "100% Client Satisfaction"
+                ]
+            }
+        },
+        "labels": {
+            "products": "Products:",
+            "services": "Services:",
+            "platforms": "Platforms:",
+            "specialization": "Specialization:",
+            "payment": "Payment:",
+            "portfolio": "Portfolio:",
+            "visitStore": "Visit Store",
+            "viewPortfolio": "View Portfolio"
+        }
+    },
+    "performanceRoadmap": {
+        "title": "Performance Optimization Roadmap",
+        "subtitle": "Continuous improvement journey targeting 95+ across all Lighthouse metrics",
+        "note": {
+            "label": "Note:",
+            "text": "Performance scores reflect v1.0 baseline. Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction."
+        },
+        "statusMessage": "🚀 All projects are in active development with ongoing performance optimization",
+        "phases": [
+            {
+                "phase": "Current",
+                "date": "Dec 2025",
+                "actions": [
+                    "Baseline measurement completed",
+                    "Identified optimization targets",
+                    "Strong SEO & Best Practices foundation"
+                ]
+            },
+            {
+                "phase": "Q1 2026",
+                "date": "Jan-Mar 2026",
+                "actions": [
+                    "Image optimization (WebP, lazy load)",
+                    "Code splitting & tree shaking",
+                    "Remove unused dependencies",
+                    "Improve accessibility labels"
+                ]
+            },
+            {
+                "phase": "Q2 2026",
+                "date": "Apr-Jun 2026",
+                "actions": [
+                    "CDN implementation",
+                    "Advanced caching strategies",
+                    "Server-side rendering (SSR)",
+                    "Schema markup optimization"
+                ]
+            },
+            {
+                "phase": "Target",
+                "date": "Q3 2026",
+                "actions": [
+                    "All Lighthouse metrics > 95",
+                    "Perfect accessibility score",
+                    "Industry-leading performance",
+                    "Top search engine rankings"
+                ]
+            }
+        ],
+        "metrics": {
+            "perf": "Perf",
+            "a11y": "A11y",
+            "bp": "BP",
+            "seo": "SEO",
+            "performance": "Performance",
+            "accessibility": "Accessibility",
+            "bestPractices": "Best Practices"
+        },
+        "actionItems": "Action Items:"
+    },
+    "adsPerformance": {
+        "title": "Data-Driven Marketing Results",
+        "subtitle": "Managing Facebook Ads campaigns with data-driven approach to optimize ROI and conversion rate",
+        "period": {
+            "label": "Campaign Period",
+            "value": "Nov 10 - Dec 4, 2024"
+        },
+        "spend": {
+            "label": "Total Ad Spend",
+            "value": "Rp 298.643"
+        },
+        "budget": {
+            "label": "Budget Strategy",
+            "value": "Rp 32.000/day per campaign"
+        },
+        "metrics": {
+            "clicks": {
+                "label": "Total Link Clicks",
+                "sub": "Across all campaigns"
+            },
+            "views": {
+                "label": "Video Views",
+                "sub": "Engaging audience content"
+            },
+            "impressions": {
+                "label": "Total Impressions",
+                "sub": "Reaching target audience"
+            },
+            "frequency": {
+                "label": "Average Frequency",
+                "sub": "Optimal ad exposure"
+            },
+            "ctr": {
+                "label": "Highest CTR",
+                "sub": "Campaign: KM/Leads/Tsabit"
+            },
+            "cpc": {
+                "label": "Lowest CPC ⭐",
+                "sub": "Campaign: Traffic Tsabit"
+            },
+            "lcToLp": {
+                "label": "Best LC to LP",
+                "sub": "Landing page conversion"
+            },
+            "leadRate": {
+                "label": "Best Lead Rate",
+                "sub": "Campaign: TB/Leads"
+            }
+        },
+        "table": {
+            "title": "Campaign Breakdown",
+            "headers": {
+                "campaign": "Campaign",
+                "status": "Status",
+                "clicks": "Link Clicks",
+                "ctr": "CTR",
+                "cpc": "CPC",
+                "impressions": "Impressions",
+                "results": "Results"
+            }
+        },
+        "insights": {
+            "title": "Key Insights",
+            "items": [
+                "Successfully optimized CPC to Rp 165 (50% cheaper than industry average)",
+                "Achieved 4.62% CTR (3x higher than Facebook Ads benchmark 1.5%)",
+                "Landing page conversion rate reached 62.90% with LC to LP optimization",
+                "Managed 4 simultaneous campaigns with total budget Rp 298K for testing & scaling",
+                "High video completion rate: 359 viewers watched 100% of video content"
+            ]
+        },
+        "products": {
+            "title": "Products Advertised",
+            "items": [
+                "📖 Al-Qur'an Kharisma (Colored Tajwid)",
+                "📚 Novel: Melawan Kemustahilan",
+                "📚 Novel: Titik Balik",
+                "📚 Novel: Sebelum Aku Tiada"
+            ]
+        }
+    },
+    "techStackPage": {
+        "title": "Technology Arsenal",
+        "subtitle": "Comprehensive toolkit for modern AI-powered development",
+        "categories": {
+            "frontend": "Frontend Development",
+            "ai": "AI Development Tools",
+            "infra": "Deployment & Infrastructure",
+            "marketing": "Digital Marketing",
+            "design": "Design & Collaboration",
+            "data": "Data & Analytics"
+        },
+        "tools": {
+            "aiDesign": "AI-assisted design tools",
+            "convTracking": "Conversion tracking"
+        }
+    },
+    "educationPage": {
+        "title": "Education & Credentials",
+        "subtitle": "Continuous learning and professional development",
+        "school": {
+            "name": "Pondok Abdurrahman Bin Auf",
+            "grade": "High School Grade 10 (2025)",
+            "currently": "Currently",
+            "currentlyStudying": "Currently Studying",
+            "focus": "Focus: General Education, Religion, & Digitalpreneur/Digital Marketing",
+            "address": "Jl. Mulya 2, RT.005/RW.006, Karyamulya, Cirebon"
+        },
+        "certificates": {
+            "title": "Certifications",
+            "view": "View"
+        },
+        "bootcamps": {
+            "title": "Bootcamp & Training",
+            "items": [
+                "RevoU - Full-Stack Development & Digital Marketing",
+                "Krenovator Digital Tribe - Entrepreneurship Program"
+            ]
+        }
+    },
+    "servicesPage": {
+        "title": "Services Offered",
+        "subtitle": "Comprehensive digital solutions powered by AI technology",
+        "labels": {
+            "techStack": "Technology:",
+            "process": "Workflow:",
+            "deliverables": "What You Get:",
+            "startingFrom": "Starting from:",
+            "consultationButton": "Free Consultation"
+        },
+        "items": {
+            "webDev": {
+                "title": "AI-Based Web Development",
+                "shortTitle": "Web Development",
+                "description": "Modern website creation with AI technology for up to 3x faster development. From landing pages to complete e-commerce platforms.",
+                "techStack": [
+                    "Next.js",
+                    "React",
+                    "Tailwind",
+                    "Vercel"
+                ],
+                "pricing": "Custom Price",
+                "process": [
+                    "Consultation on needs and goals",
+                    "Wireframe & mockup design",
+                    "AI-assisted development",
+                    "Testing & quality assurance",
+                    "Deployment & training"
+                ],
+                "deliverables": [
+                    "Complete source code",
+                    "Technical documentation",
+                    "Hosting setup (Vercel/Netlify)",
+                    "Basic SEO optimization",
+                    "30 days free support"
+                ]
+            },
+            "ecommerce": {
+                "title": "E-commerce Solutions",
+                "shortTitle": "E-commerce",
+                "description": "Complete e-commerce platform with payment integration, inventory management, and SEO optimization to maximize your online sales.",
+                "techStack": [
+                    "Next.js",
+                    "Payment Gateway",
+                    "Meta Pixel"
+                ],
+                "pricing": "Custom Price",
+                "process": [
+                    "Product & target market analysis",
+                    "E-commerce UI/UX design",
+                    "Payment gateway integration",
+                    "Inventory management setup",
+                    "Marketing pixel integration"
+                ],
+                "deliverables": [
+                    "Complete e-commerce platform",
+                    "Admin dashboard",
+                    "Active payment gateway",
+                    "Meta Pixel tracking",
+                    "System usage training"
+                ]
+            },
+            "landingPage": {
+                "title": "Landing Page Creation",
+                "shortTitle": "Landing Page",
+                "description": "Conversion-focused landing page with modern design and fast loading. Perfect for marketing campaigns, product launches, or company profiles.",
+                "techStack": [
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Analytics"
+                ],
+                "pricing": "Custom Price",
+                "process": [
+                    "Campaign objective briefing",
+                    "Copywriting & design",
+                    "Development & optimization",
+                    "Analytics setup",
+                    "A/B testing preparation"
+                ],
+                "deliverables": [
+                    "Responsive landing page",
+                    "Google Analytics setup",
+                    "Form submission handling",
+                    "Performance optimization",
+                    "Conversion tracking"
+                ]
+            },
+            "digitalMarketing": {
+                "title": "Digital Marketing Consultation",
+                "shortTitle": "Digital Marketing",
+                "description": "Facebook Ads strategy and digital marketing to increase reach and conversions. Data-driven approach with clear ROI measurement.",
+                "techStack": [
+                    "Meta Ads Manager",
+                    "Analytics",
+                    "Meta Pixel"
+                ],
+                "pricing": "Custom Price",
+                "process": [
+                    "Current marketing audit",
+                    "Campaign strategy & planning",
+                    "Ads setup & optimization",
+                    "Monitoring & reporting",
+                    "Data-driven iteration"
+                ],
+                "deliverables": [
+                    "Complete marketing strategy",
+                    "Campaign setup & management",
+                    "Weekly performance reports",
+                    "Audience insights",
+                    "Optimization recommendations"
+                ]
+            }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "Answers to common questions about services and workflow",
+            "items": [
+                {
+                    "question": "How long does a project take?",
+                    "answer": "Project time varies depending on complexity. A simple landing page can be done in 5-7 days, while an e-commerce platform takes 10-14 days. I always provide a realistic timeline at the start."
+                },
+                {
+                    "question": "Do I get source code after completion?",
+                    "answer": "Yes, you will get full source code and complete documentation. You have 100% ownership of the code created for your project."
+                },
+                {
+                    "question": "What is the payment system?",
+                    "answer": "Flexible payment system: 50% upfront as down payment, 50% after project completion and satisfaction. For large projects, can be paid per milestone."
+                },
+                {
+                    "question": "Is there post-launch support?",
+                    "answer": "Yes, every project gets 30 days of free support for bug fixes and minor adjustments. After that, monthly maintenance packages are available if needed."
+                },
+                {
+                    "question": "Can I request revisions?",
+                    "answer": "Of course! There are review and feedback sessions at every development stage. Minor revisions are unlimited during development phase. Major revisions will be discussed first."
+                },
+                {
+                    "question": "What technologies are used?",
+                    "answer": "I use modern tech stacks like Next.js, React, TypeScript, and Tailwind CSS. All selected based on best practices and your project needs for optimal performance."
+                }
+            ]
+        },
+        "cta": {
+            "title": "Ready to Start Your Project?",
+            "desc": "Let's discuss your needs and find the best solution for your business",
+            "button": "Contact Me Now"
+        }
+    },
+    "common": {
+        "readMore": "Read More",
+        "learnMore": "Learn More",
+        "backToTop": "Back to Top"
+    },
+    "websiteAnalytics": {
+        "title": "Website Launch Performance",
+        "subtitle": "Average daily metrics within the first 24 hours of website launch with Google Analytics",
+        "launchContext": {
+            "title": "Website Launch Performance",
+            "date": "Dec 10, 2025 • 24 Hours Tracking",
+            "live": "Live"
+        },
+        "metrics": {
+            "activeUsers": {
+                "label": "Active Users",
+                "sub": "First 24 Hours"
+            },
+            "interactions": {
+                "label": "Interactions",
+                "sub": "User Actions"
+            },
+            "avgSession": {
+                "label": "Avg Session",
+                "sub": "2x Industry Avg"
+            },
+            "cities": {
+                "label": "Cities Reached",
+                "sub": "Nationwide"
+            }
+        },
+        "velocity": {
+            "title": "Launch Velocity Metrics",
+            "usersDay": "Users/Day",
+            "eventsDay": "Events/Day",
+            "engagementRate": "Engagement Rate"
+        },
+        "traffic": {
+            "title": "Traffic Source Mix",
+            "direct": {
+                "name": "Direct Traffic",
+                "context": "Strong brand recall"
+            },
+            "paid": {
+                "name": "Paid Advertising",
+                "context": "Quick campaign validation"
+            },
+            "social": {
+                "name": "Social Referral",
+                "context": "Organic virality"
+            }
+        },
+        "geo": {
+            "title": "Geographic Reach (24h)",
+            "primary": "Primary Markets",
+            "expanding": "Expanding To"
+        },
+        "views": {
+            "title": "Analytics Dashboard Views",
+            "items": {
+                "pages": "Pages & Screens Overview",
+                "events": "Event Analytics",
+                "users": "User Demographics",
+                "engagement": "Engagement & Retention"
+            },
+            "comingSoon": "Coming Soon"
+        },
+        "insights": {
+            "title": "Launch Insights & Learnings",
+            "items": [
+                {
+                    "category": "Launch Velocity",
+                    "headline": "Rapid Initial Adoption",
+                    "description": "8.3 users per day shows strong immediate market interest and product-market fit validation."
+                },
+                {
+                    "category": "Engagement Quality",
+                    "headline": "High User Activity",
+                    "description": "6.8 events per user (2x industry avg) proves content relevance and compelling user experience."
+                },
+                {
+                    "category": "Channel Diversification",
+                    "headline": "Multi-Source Success",
+                    "description": "3 active traffic channels from day one validate diversified acquisition strategy effectiveness."
+                },
+                {
+                    "category": "Geographic Validation",
+                    "headline": "Nationwide Appeal",
+                    "description": "7 cities reached in 24 hours shows scalable reach beyond local network and organic virality."
+                },
+                {
+                    "category": "Session Quality",
+                    "headline": "Meaningful Interactions",
+                    "description": "8s average session (2x portfolio benchmark) indicates visitors engaging deeply with content and offerings."
+                },
+                {
+                    "category": "Launch Strategy",
+                    "headline": "Execution Excellence",
+                    "description": "Multi-channel soft launch with immediate tracking demonstrates professional approach and data-driven mindset."
+                }
+            ]
+        }
+    },
+    "dataAnalysis": {
+        "title": "Data Analysis & Learnings",
+        "subtitle": "Extracting valuable insights from campaign data for better decision making",
+        "campaignSection": "Campaign Analysis",
+        "learningSection": "Key Learnings",
+        "actionSection": "Optimization Actions",
+        "campaigns": {
+            "tsabit": {
+                "name": "Traffic Tsabit",
+                "analysis": "High CTR (2.37%) and low CPC (Rp 165) indicate that audience targeting and creative (short video) were very effective.",
+                "conclusion": "Benchmark for other campaigns"
+            },
+            "leads": {
+                "name": "11/11-KM/Leads/Tsabit",
+                "analysis": "Very high CTR (4.62%) but Cost per Result is very expensive (Rp 94.372). Shows high clicks but very low conversion (leads).",
+                "conclusion": "Landing page or lead form needs optimization"
+            },
+            "highCpc": {
+                "name": "High CPC Campaigns",
+                "analysis": "Campaigns with high CPC indicate that audience or creative is less relevant.",
+                "conclusion": "Needs targeting/creative adjustment"
+            }
+        },
+        "learnings": [
+            {
+                "title": "Audience Targeting is Key",
+                "description": "The more specific and relevant the targeting, the higher the engagement and conversion rate."
+            },
+            {
+                "title": "Creative & Copy Must Be Relevant",
+                "description": "Attractive creative and clear copy greatly affect CTR and CPC. Short videos proved most effective."
+            },
+            {
+                "title": "Regular Data Analysis",
+                "description": "Regular monitoring allows for real-time optimization and prevents budget wastage."
+            },
+            {
+                "title": "Landing Page Needs Optimization",
+                "description": "High CTR but low conversion indicates the landing page is not yet optimal. Needs A/B testing and improvement."
+            }
+        ],
+        "actions": [
+            "Stop poor performing campaigns",
+            "Allocate more budget to \"Traffic Tsabit\"",
+            "Optimization plan for Feyd Store landing page",
+            "Design new creative & copy based on insights"
+        ]
+    },
+    "socialMediaAnalytics": {
+        "title": "Social Media Performance",
+        "tabs": {
+            "instagram": "Instagram",
+            "tiktok": "TikTok"
+        },
+        "panel": {
+            "analytics": "Analytics",
+            "overview": "Performance Overview"
+        },
+        "metrics": {
+            "totalEngagement": "Total Engagement",
+            "totalViews": "Total Views",
+            "followers": "Followers",
+            "reach": "Reach",
+            "likes": "Likes",
+            "comments": "Comments",
+            "shares": "Shares",
+            "profile": "Profile"
+        },
+        "sections": {
+            "engagement": "Engagement Breakdown",
+            "traffic": "Traffic Sources",
+            "topContent": "Top Content",
+            "swipe": "Swipe to see more →",
+            "imageUnavailable": "Image Unavailable"
+        },
+        "traffic": {
+            "fyp": "For You Page",
+            "search": "Search"
+        }
+    },
+    "marketingStrategy": {
+        "title": "Digital Marketing Strategy & Process",
+        "subtitle": "Implementing a data-driven approach in digital marketing, focusing on precise audience targeting, compelling creatives, and continuous analysis for campaign optimization",
+        "platformsTitle": "Key Platforms & Tools",
+        "platforms": [
+            {
+                "name": "Facebook Ads",
+                "description": "Main platform for digital ads"
+            },
+            {
+                "name": "Canva",
+                "description": "Visual content design"
+            },
+            {
+                "name": "Meta Pixel",
+                "description": "Conversion analysis"
+            },
+            {
+                "name": "Landing Page",
+                "description": "Next.js/Vercel"
+            }
+        ],
+        "processTitle": "5-Step Working Process",
+        "process": [
+            {
+                "title": "Research & Targeting",
+                "description": "Determining audience based on interest (Quran, Islam, Child Education) and visitor behavior using Meta Pixel to understand customer journey."
+            },
+            {
+                "title": "Creative & Copy",
+                "description": "Creating short attention-grabbing videos with copywriting focused on product advantages (colored tajwid, translation) and solutions (learning Quran made easy)."
+            },
+            {
+                "title": "Setup & Launch",
+                "description": "Defining objective (Traffic to landing page, Leads), setting daily budget Rp 32,000 for testing various audiences and creatives."
+            },
+            {
+                "title": "Monitoring & Optimization",
+                "description": "Analyzing key metrics: CTR (creative quality), CPC (cost efficiency), Link Click to LP Rate (traffic quality). Stopping bad campaigns, allocating to best ones."
+            },
+            {
+                "title": "Reporting",
+                "description": "Presenting campaign results from Ads Manager in tables, charts, and insight summaries for decision making."
+            }
+        ],
+        "deepDiveTitle": "Deep Dive: Structured Marketing Strategy",
+        "deepDive": {
+            "research": {
+                "title": "Market Research",
+                "purpose": "Purpose",
+                "purposeText": "Understanding target audience, pain points, and competitors",
+                "app": "Application at Feyd Store",
+                "appText": "Analyzing audience interested in Quran Kharisma and Islamic novels through Meta Pixel and Facebook Audience Insights",
+                "result": "Result",
+                "resultText": "Specific interest targeting: Islam, Quran, Child Education"
+            },
+            "content": {
+                "title": "Content Planning & Strategy",
+                "purpose": "Purpose",
+                "purposeText": "Defining brand positioning and content pillars",
+                "brandPos": "Brand Positioning",
+                "brandPosText": "Quran Kharisma with colored tajwid and translation",
+                "pillars": "Content Pillars",
+                "pillarsList": [
+                    "Product",
+                    "Education",
+                    "Testimonial",
+                    "Promotion"
+                ]
+            },
+            "execution": {
+                "title": "Production & Execution",
+                "purpose": "Purpose",
+                "purposeText": "Creating and running effective campaigns",
+                "app": "Application",
+                "appText": "Creating short video ads highlighting Quran Kharisma features with copy emphasizing ease of learning",
+                "tools": "Tools",
+                "toolsText": "Canva (design), Facebook Ads Manager (execution)"
+            },
+            "analysis": {
+                "title": "Analysis & Evaluation",
+                "purpose": "Purpose",
+                "purposeText": "Measuring performance and finding areas for improvement",
+                "app": "Application",
+                "appText": "Analyzing metrics such as CTR, CPC, Link Click to LP Rate, Cost per Result from Facebook Ads campaigns",
+                "action": "Action",
+                "actionText": "Stopping poor performing campaigns, allocating budget to best campaigns like \"Traffic Tsabit\""
+            }
+        }
+    },
+    "certificates": {
+        "title": "Certifications & Awards",
+        "subtitle": "Validating expertise through official professional certifications",
+        "close": "Close [Esc]",
+        "items": [
+            {
+                "title": "RevoU Software Engineering (Fundamental)",
+                "category": "Software Engineering",
+                "description": "Mastering software engineering fundamentals and web development. (19 Sep 2025)"
+            },
+            {
+                "title": "RevoU Software Engineering (Advanced)",
+                "category": "Software Engineering",
+                "description": "Understanding system architecture and advanced software development techniques. (3 Oct 2025)"
+            },
+            {
+                "title": "RevoU Digital Marketing (Strategy)",
+                "category": "Digital Marketing",
+                "description": "Formulating and implementing digital marketing strategies effectively. (10 Oct 2025)"
+            },
+            {
+                "title": "RevoU Digital Marketing (Advanced)",
+                "category": "Digital Marketing",
+                "description": "Analyzing data and optimizing marketing campaign performance in depth. (17 Oct 2025)"
+            },
+            {
+                "title": "Universitas Satya Negara Indonesia - Frame to Fame",
+                "category": "Creative",
+                "description": "Understanding animation production process and opening career opportunities as animation-based creator. (15 Jul 2025)"
+            }
+        ]
+    },
+    "caseStudy": {
+        "title": "Case Study: Feyd Store",
+        "subtitle": "Real-world application of digital marketing for Quran and Novel e-commerce business",
+        "challenge": {
+            "title": "Challenge",
+            "description": "Introducing Quran Kharisma to a wider online market and competing with similar products to attract Islamic novel readers."
+        },
+        "strategy": {
+            "title": "Strategy",
+            "items": [
+                "Focusing on product advantages (colored tajwid, translation, inspiring stories)",
+                "Specific target audience interested in Quran and Islamic readings",
+                "Using Facebook Ads to drive quality traffic to Feyd Store landing page"
+            ]
+        },
+        "execution": {
+            "title": "Execution: \"Traffic Tsabit\" Campaign",
+            "objective": "Objective",
+            "objectiveVal": "Traffic",
+            "creative": "Creative",
+            "creativeVal": "Short video displaying Islamic Novel features",
+            "copy": "Copy",
+            "copyVal": "Easy-to-read Islamic Novel",
+            "targeting": "Targeting",
+            "targetingVal": "Interest: Islamic Novel, Islamic Religion"
+        },
+        "results": {
+            "title": "Campaign Results",
+            "metrics": {
+                "clicks": "Link Clicks",
+                "views": "Landing Page Views",
+                "ctr": "CTR",
+                "cpc": "CPC"
+            },
+            "lpConversion": {
+                "label": "LP Conversion Rate",
+                "desc": "High quality traffic"
+            },
+            "costResult": {
+                "label": "Cost Per Result",
+                "desc": "Optimal cost efficiency"
+            }
+        },
+        "learnings": {
+            "title": "Key Learnings",
+            "items": [
+                "Success: Specific audience targeting and short video creatives are very effective for this niche",
+                "To Improve: Conversion from landing page to purchase remains a key focus. Further optimization on landing page and sales strategy is needed"
+            ]
+        }
+    },
+    "skillsVisualization": {
+        "title": "Skills & Expertise",
+        "subtitle": "Skill level based on project experience and flight hours",
+        "categories": {
+            "frontend": "Frontend Development",
+            "marketing": "Digital Marketing",
+            "ai": "AI & Automation"
+        },
+        "levels": {
+            "expert": "Expert Level",
+            "advanced": "Advanced Level",
+            "intermediate": "Intermediate Level"
+        },
+        "legend": {
+            "expert": "Expert (85%+)",
+            "advanced": "Advanced (70-84%)",
+            "intermediate": "Intermediate (<70%)"
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation, Trans } from 'react-i18next';
 import {
   Code,
   BarChart,
@@ -20,90 +21,92 @@ import Education from './Education';
 import SkillsVisualization from './SkillsVisualization';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
+
   const skills = [
     {
       icon: <Code className="w-8 h-8" />,
-      name: 'AI Engineering',
+      name: t('about.skills.list.aiEngineering.name'),
       level: 95,
-      category: 'Core Skill',
-      items: ['No-Code/Low-Code', 'AI-Assisted Coding', 'Rapid Prototyping'],
+      category: t('about.skills.core'),
+      items: t('about.skills.list.aiEngineering.items', { returnObjects: true }) as string[],
     },
     {
       icon: <Code className="w-8 h-8" />,
-      name: 'Tech Stack',
+      name: t('about.skills.list.techStack.name'),
       level: 90,
-      category: 'Frontend & Deployment',
-      items: ['Next.js, React, TS', 'Tailwind CSS', 'Vercel'],
+      category: t('about.skills.frontend'),
+      items: t('about.skills.list.techStack.items', { returnObjects: true }) as string[],
     },
     {
       icon: <BarChart className="w-8 h-8" />,
-      name: 'Digital Marketing',
+      name: t('about.skills.list.digitalMarketing.name'),
       level: 85,
-      category: 'Growth & Strategy',
-      items: ['FB Ads', 'Content Strategy', 'SEO & Analytics'],
+      category: t('about.skills.growth'),
+      items: t('about.skills.list.digitalMarketing.items', { returnObjects: true }) as string[],
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      name: 'Penguasaan Tools',
+      name: t('about.skills.list.productivity.name'),
       level: 98,
-      category: 'Productivity',
-      items: ['8+ AI Tools', 'Claude & Qwen', 'Multi-AI Workflow'],
+      category: t('about.skills.productivity'),
+      items: t('about.skills.list.productivity.items', { returnObjects: true }) as string[],
     },
   ];
 
   const whyChooseMe = [
     {
       icon: <Zap className="w-6 h-6" />,
-      title: 'Pengembangan 3x Lebih Cepat',
-      description: 'Menggunakan AI-assisted development untuk mempercepat proses tanpa mengorbankan kualitas',
+      title: t('about.whyChoose.speed.title'),
+      description: t('about.whyChoose.speed.desc'),
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: 'Fokus pada Hasil',
-      description: 'Setiap proyek dirancang dengan tujuan bisnis yang jelas dan metrics yang terukur',
+      title: t('about.whyChoose.result.title'),
+      description: t('about.whyChoose.result.desc'),
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
-      title: 'Kualitas Terjamin',
-      description: 'Code yang clean, responsive design, dan performa optimal (90+ Lighthouse score)',
+      title: t('about.whyChoose.quality.title'),
+      description: t('about.whyChoose.quality.desc'),
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: 'Komunikasi Transparan',
-      description: 'Update progress berkala dan kolaborasi yang erat dengan client',
+      title: t('about.whyChoose.communication.title'),
+      description: t('about.whyChoose.communication.desc'),
     },
   ];
 
   const workflowSteps = [
     {
       number: '01',
-      title: 'Konsultasi & Discovery',
-      description: 'Memahami kebutuhan bisnis, target audience, dan goals yang ingin dicapai',
-      duration: '1-2 hari',
+      title: t('about.workflow.step1.title'),
+      description: t('about.workflow.step1.desc'),
+      duration: t('about.workflow.step1.duration'),
     },
     {
       number: '02',
-      title: 'Planning & Design',
-      description: 'Membuat wireframe, mockup, dan tech stack planning yang sesuai dengan kebutuhan',
-      duration: '2-3 hari',
+      title: t('about.workflow.step2.title'),
+      description: t('about.workflow.step2.desc'),
+      duration: t('about.workflow.step2.duration'),
     },
     {
       number: '03',
-      title: 'Development',
-      description: 'Coding dengan AI-assisted development, regular updates, dan iterasi berdasarkan feedback',
-      duration: '5-14 hari',
+      title: t('about.workflow.step3.title'),
+      description: t('about.workflow.step3.desc'),
+      duration: t('about.workflow.step3.duration'),
     },
     {
       number: '04',
-      title: 'Testing & QA',
-      description: 'Testing menyeluruh untuk memastikan semua fitur berfungsi dengan baik',
-      duration: '1-2 hari',
+      title: t('about.workflow.step4.title'),
+      description: t('about.workflow.step4.desc'),
+      duration: t('about.workflow.step4.duration'),
     },
     {
       number: '05',
-      title: 'Deployment & Support',
-      description: 'Deploy ke production dan support untuk memastikan website berjalan lancar',
-      duration: 'Ongoing',
+      title: t('about.workflow.step5.title'),
+      description: t('about.workflow.step5.desc'),
+      duration: t('about.workflow.step5.duration'),
     },
   ];
 
@@ -112,21 +115,21 @@ const About: React.FC = () => {
       name: '[Nama Client]',
       position: '[Posisi/Perusahaan]',
       rating: 5,
-      text: 'Placeholder untuk testimonial client. Hasil kerja sangat memuaskan, komunikasi lancar, dan delivery tepat waktu.',
+      text: t('about.testimonials.placeholder'),
       project: '[Nama Proyek]',
     },
     {
       name: '[Nama Client]',
       position: '[Posisi/Perusahaan]',
       rating: 5,
-      text: 'Placeholder untuk testimonial client. Website yang dihasilkan sangat profesional dan sesuai dengan ekspektasi.',
+      text: t('about.testimonials.placeholder'),
       project: '[Nama Proyek]',
     },
     {
       name: '[Nama Client]',
       position: '[Posisi/Perusahaan]',
       rating: 5,
-      text: 'Placeholder untuk testimonial client. Proses pengerjaan cepat dan hasilnya melampaui harapan.',
+      text: t('about.testimonials.placeholder'),
       project: '[Nama Proyek]',
     },
   ];
@@ -175,12 +178,11 @@ const About: React.FC = () => {
         <div>
           <ScrollReveal>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16 text-center lg:text-left">
-              Tentang Saya
+              {t('about.title')}
             </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
-            {/* Left Column - 40% */}
             {/* Left Column - 40% */}
             <ScrollReveal variant="fade-right" className="lg:col-span-2 space-y-6">
               {/* Mobile: Photo + Info Side by Side / Desktop: Standard */}
@@ -205,29 +207,29 @@ const About: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm lg:text-base">Lokasi</p>
-                        <p className="text-xs lg:text-sm text-white/90">Semarang, Jateng</p>
+                        <p className="font-semibold text-sm lg:text-base">{t('about.location.label')}</p>
+                        <p className="text-xs lg:text-sm text-white/90">{t('about.location.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <GraduationCap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm lg:text-base">Pendidikan</p>
-                        <p className="text-xs lg:text-sm text-white/90">SMA Kelas 1</p>
+                        <p className="font-semibold text-sm lg:text-base">{t('about.education.label')}</p>
+                        <p className="text-xs lg:text-sm text-white/90">{t('about.education.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Briefcase className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm lg:text-base">Bisnis</p>
-                        <p className="text-xs lg:text-sm text-white/90">2 Berjalan</p>
+                        <p className="font-semibold text-sm lg:text-base">{t('about.business.label')}</p>
+                        <p className="text-xs lg:text-sm text-white/90">{t('about.business.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Zap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm lg:text-base">Exp. AI</p>
-                        <p className="text-xs lg:text-sm text-white/90">8 Bulan</p>
+                        <p className="font-semibold text-sm lg:text-base">{t('about.experience.label')}</p>
+                        <p className="text-xs lg:text-sm text-white/90">{t('about.experience.value')}</p>
                       </div>
                     </div>
                   </div>
@@ -238,15 +240,15 @@ const About: React.FC = () => {
               <div className="grid grid-cols-3 gap-3">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">8+</p>
-                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Bulan AI</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">{t('about.stats.aiMonths')}</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">5+</p>
-                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Proyek</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">{t('about.stats.projects')}</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-white/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">2</p>
-                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">Bisnis</p>
+                  <p className="text-[10px] lg:text-xs text-white/70 mt-1">{t('about.stats.businesses')}</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -254,24 +256,26 @@ const About: React.FC = () => {
             {/* Right Column - 60% */}
             <ScrollReveal variant="fade-left" delay={0.2} className="lg:col-span-3 space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Siapa Saya?</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">{t('about.bio.title')}</h3>
                 <div className="space-y-4 text-white/90 leading-relaxed">
                   <p className="text-lg">
-                    Saya Muhammad Nizar Al-Faris, seorang <strong className="text-electric-500 font-semibold">AI Engineer dan Spesialis Digital Marketing</strong> berusia 16 tahun yang passionate dalam menghadirkan solusi digital inovatif. Dengan pengalaman 8 bulan di bidang pengembangan web berbasis AI, saya membantu bisnis mengubah ide menjadi website profesional yang fungsional dan menarik.
+                    <Trans i18nKey="about.bio.p1" components={{ 1: <strong className="text-electric-500 font-semibold" /> }} />
                   </p>
                   <p className="text-lg">
-                    Yang membedakan saya adalah pendekatan <strong className="text-electric-500 font-semibold">AI-first development</strong> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <strong className="text-electric-500 font-semibold">3x lebih cepat</strong> tanpa mengorbankan kualitas.</p>
+                    <Trans i18nKey="about.bio.p2" components={{ 1: <strong className="text-electric-500 font-semibold" /> }} />
+                  </p>
                   <p className="text-lg">
-                    "Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis.</p>
+                    {t('about.bio.p3')}
+                  </p>
                 </div>
               </div>
 
               {/* Stats Cards */}
               <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                 {[
-                  { label: 'AI Engineering', value: '8+', sub: 'Bulan Pengalaman' },
-                  { label: 'Berhasil', value: '5+', sub: 'Proyek Selesai' },
-                  { label: 'Berjalan', value: '2', sub: 'Bisnis Aktif' }
+                  { label: t('about.skills.core'), value: '8+', sub: t('about.stats.aiMonths') },
+                  { label: t('about.stats.success'), value: '5+', sub: t('about.stats.projects') },
+                  { label: t('about.stats.running'), value: '2', sub: t('about.stats.businesses') }
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
@@ -290,7 +294,7 @@ const About: React.FC = () => {
 
               {/* Skills Highlight */}
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Keahlian Utama</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">{t('about.skills.title')}</h3>
                 <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 gap-4 lg:gap-6">
                   {skills.map((skill, index) => (
                     <motion.div
@@ -303,7 +307,6 @@ const About: React.FC = () => {
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div className="bg-white/10 p-1.5 lg:p-2 rounded-lg">
-                          {/* Icon styling handled by Lucide defaults, usually 24px which is fine, but maybe scale down slightly if needed */}
                           {React.cloneElement(skill.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6 text-electric-300" })}
                         </div>
                         <span className="text-[10px] lg:text-xs font-mono text-electric-300 bg-electric-300/10 px-1.5 py-0.5 rounded">
@@ -319,12 +322,12 @@ const About: React.FC = () => {
 
               {/* Tech Stack & Education Combined */}
               <ScrollReveal variant="fade-up" delay={0.3} className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 lg:p-8 shadow-md">
-                <h3 className="text-xl font-bold text-white mb-6">Teknologi & Pendidikan</h3>
+                <h3 className="text-xl font-bold text-white mb-6">{t('about.techAndEdu.title')}</h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">Tools Utama</h4>
+                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">{t('about.techAndEdu.tools')}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Claude AI', 'Vercel', 'Meta Ads Manager', 'Google Analytics'].map((tool, i) => (
+                      {(t('about.techAndEdu.toolsList', { returnObjects: true }) as string[]).map((tool, i) => (
                         <span
                           key={i}
                           className="px-3 py-1.5 bg-white/10 text-white/90 rounded-lg text-sm font-medium hover:bg-electric-500 hover:text-white transition-colors border border-white/10"
@@ -335,7 +338,7 @@ const About: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">Sertifikasi</h4>
+                    <h4 className="text-sm font-semibold text-white/70 mb-3 uppercase">{t('about.education.certifications')}</h4>
                     <ul className="space-y-2">
                       <li className="text-sm text-white/80">• Software Engineering - RevoU (2025)</li>
                       <li className="text-sm text-white/80">• Digital Marketing - RevoU (2025)</li>
@@ -362,10 +365,10 @@ const About: React.FC = () => {
       <div className="bg-white/10 backdrop-blur-lg py-16 px-8 rounded-3xl border border-white/20 my-16">
         <ScrollReveal>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-            Mengapa Memilih Saya?
+            {t('about.whyChoose.title')}
           </h2>
           <p className="text-center text-white mb-12 max-w-2xl mx-auto">
-            Kombinasi unik antara keahlian teknis AI development dan pemahaman mendalam tentang digital marketing
+            {t('about.whyChoose.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -395,10 +398,10 @@ const About: React.FC = () => {
       <div className="my-16">
         <ScrollReveal>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-            Proses Kerja Saya
+            {t('about.workflow.title')}
           </h2>
           <p className="text-center text-white mb-16 max-w-2xl mx-auto">
-            Metodologi yang terstruktur untuk memastikan hasil terbaik di setiap proyek
+            {t('about.workflow.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -441,10 +444,10 @@ const About: React.FC = () => {
       <div className="bg-gradient-to-br from-navy-900 to-electric-500 py-16 px-8 rounded-3xl my-16">
         <ScrollReveal>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-            Apa Kata Mereka?
+            {t('about.testimonials.title')}
           </h2>
           <p className="text-center text-white/80 mb-12 max-w-2xl mx-auto">
-            Feedback dari client yang puas dengan hasil kerja saya
+            {t('about.testimonials.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -506,7 +509,7 @@ const About: React.FC = () => {
 
         <ScrollReveal variant="fade-up" delay={0.3} className="text-center mt-12">
           <p className="text-white/60 text-sm italic">
-            * Testimonial di atas adalah placeholder. Data asli akan diisi setelah mendapat feedback dari client.
+            {t('about.testimonials.placeholder')}
           </p>
         </ScrollReveal>
       </div>

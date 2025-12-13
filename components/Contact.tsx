@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Github, MapPin, Phone, Clock, Calendar, MessageCircle, Zap, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,11 +20,11 @@ const Contact: React.FC = () => {
 
     if (formData.name && formData.email && formData.service && formData.message) {
       // Format WhatsApp message
-      const whatsappMessage = `*Pesan Baru dari Website*%0A%0A` +
-        `*Nama:* ${formData.name}%0A` +
-        `*Email:* ${formData.email}%0A` +
-        `*Layanan:* ${formData.service || 'Tidak disebutkan'}%0A%0A` +
-        `*Pesan:*%0A${formData.message}`;
+      const whatsappMessage = `*${t('contact.whatsapp.header')}*%0A%0A` +
+        `*${t('contact.whatsapp.nameLabel')}:* ${formData.name}%0A` +
+        `*${t('contact.whatsapp.emailLabel')}:* ${formData.email}%0A` +
+        `*${t('contact.whatsapp.serviceLabel')}:* ${formData.service || t('contact.whatsapp.notSpecified')}%0A%0A` +
+        `*${t('contact.whatsapp.messageLabel')}:* %0A${formData.message}`;
 
       // WhatsApp number (without + and spaces)
       const whatsappNumber = '6282221025449';
@@ -48,84 +50,84 @@ const Contact: React.FC = () => {
       label: 'Email',
       value: 'muhammadniyar282@gmail.com',
       link: 'mailto:muhammadniyar282@gmail.com',
-      description: 'Respon dalam 24 jam',
+      description: t('contact.info.emailDesc'),
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       label: 'LinkedIn',
       value: 'linkedin.com/in/muhammad-niyar',
       link: 'https://www.linkedin.com/in/muhammad-niyar-49272339a',
-      description: 'Professional networking',
+      description: t('contact.info.linkedinDesc'),
     },
     {
       icon: <Github className="w-6 h-6" />,
       label: 'GitHub',
       value: 'github.com/Anzar-G',
       link: 'https://github.com/Anzar-G',
-      description: 'Portfolio & code samples',
+      description: t('contact.info.githubDesc'),
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: 'WhatsApp',
       value: '+62 822-2102-5449',
       link: 'https://wa.me/6282221025449',
-      description: 'Fast response (preferred)',
+      description: t('contact.info.whatsappDesc'),
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      label: 'Lokasi',
+      label: t('contact.info.location'),
       value: 'Perum Klipang Permai Blok H-349 5/23,Sendangmulyo, Tembalang, Semarang, Jawa Tengah',
       link: null,
-      description: 'Indonesia (WIB/UTC+7)',
+      description: t('contact.info.locationDesc'),
     },
   ];
 
   const availability = [
-    { day: 'Senin - Jumat', hours: '09:00 - 21:00 WIB', status: 'available' },
-    { day: 'Sabtu - Minggu', hours: '10:00 - 18:00 WIB', status: 'limited' },
+    { day: t('contact.info.availability.weekdays'), hours: '09:00 - 21:00 WIB', status: 'available' },
+    { day: t('contact.info.availability.weekend'), hours: '10:00 - 18:00 WIB', status: 'limited' },
   ];
 
   const communicationPreferences = [
     {
-      method: 'WhatsApp',
+      method: t('contact.preferences.whatsapp.method'),
       icon: <MessageCircle className="w-5 h-5" />,
-      speed: 'Fastest',
-      bestFor: 'Urgent inquiries, quick questions',
-      responseTime: '< 2 jam',
+      speed: t('contact.preferences.whatsapp.speed'),
+      bestFor: t('contact.preferences.whatsapp.bestFor'),
+      responseTime: t('contact.preferences.whatsapp.responseTime'),
     },
     {
-      method: 'Email',
+      method: t('contact.preferences.email.method'),
       icon: <Mail className="w-5 h-5" />,
-      speed: 'Fast',
-      bestFor: 'Detailed proposals, project briefs',
-      responseTime: '< 24 jam',
+      speed: t('contact.preferences.email.speed'),
+      bestFor: t('contact.preferences.email.bestFor'),
+      responseTime: t('contact.preferences.email.responseTime'),
     },
     {
-      method: 'LinkedIn',
+      method: t('contact.preferences.linkedin.method'),
       icon: <Linkedin className="w-5 h-5" />,
-      speed: 'Moderate',
-      bestFor: 'Professional networking, collaborations',
-      responseTime: '1-2 hari',
+      speed: t('contact.preferences.linkedin.speed'),
+      bestFor: t('contact.preferences.linkedin.bestFor'),
+      responseTime: t('contact.preferences.linkedin.responseTime'),
     },
   ];
 
   const workProcess = [
     {
       step: '1',
-      title: 'Konsultasi Gratis',
-      description: 'Diskusi kebutuhan dan goals proyek Anda',
+      title: t('contact.process.steps.consultation.title'),
+      description: t('contact.process.steps.consultation.desc'),
       duration: '30-60 menit',
     },
     {
       step: '2',
-      title: 'Proposal & Quote',
-      description: 'Proposal detail dengan timeline dan pricing',
+      title: t('contact.process.steps.proposal.title'),
+      description: t('contact.process.steps.proposal.desc'),
       duration: '1-2 hari',
     },
     {
       step: '3',
-      title: 'Kick-off Meeting',
-      description: 'Finalisasi requirements dan mulai development',
+      title: t('contact.process.steps.kickoff.title'),
+      description: t('contact.process.steps.kickoff.desc'),
       duration: '1 hari',
     },
   ];
@@ -147,10 +149,10 @@ const Contact: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-6xl font-bold mb-6">
-            Siap Transformasi Kehadiran Digital Anda?
+            {t('contact.page.heading')}
           </h2>
           <p className="text-lg lg:text-xl text-white/90 max-w-2xl mx-auto">
-            Mari diskusikan bagaimana kami dapat mewujudkan ide Anda dengan solusi berbasis AI.
+            {t('contact.page.subheading')}
           </p>
         </ScrollReveal>
 
@@ -159,7 +161,7 @@ const Contact: React.FC = () => {
           {/* Left: Contact Info */}
           <ScrollReveal variant="fade-right" delay={0.2}>
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20 shadow-2xl space-y-8">
-              <h3 className="text-2xl font-bold mb-8">Hubungi Saya</h3>
+              <h3 className="text-2xl font-bold mb-8">{t('contact.info.title')}</h3>
 
               {/* Contact Items */}
               <StaggerContainer className="space-y-4">
@@ -193,7 +195,7 @@ const Contact: React.FC = () => {
               <div className="pt-8 border-t border-white/20">
                 <div className="flex items-center gap-3 mb-4">
                   <Clock className="w-5 h-5" />
-                  <h4 className="text-lg font-semibold">Jam Kerja</h4>
+                  <h4 className="text-lg font-semibold">{t('contact.info.hoursTitle')}</h4>
                 </div>
                 <div className="space-y-3">
                   {availability.map((schedule, index) => (
@@ -233,19 +235,19 @@ const Contact: React.FC = () => {
           {/* Right: Contact Form */}
           <ScrollReveal variant="fade-left" delay={0.4}>
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-8">Kirim Pesan</h3>
+              <h3 className="text-2xl font-bold text-white mb-8">{t('contact.form.title')}</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
                   <label className="block text-sm font-semibold text-white/90 mb-2">
-                    Nama Lengkap
+                    {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Nama lengkap Anda"
+                    placeholder={t('contact.form.placeholders.name')}
                     className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
                     required
                   />
@@ -254,13 +256,13 @@ const Contact: React.FC = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-semibold text-white/90 mb-2">
-                    Alamat Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="email@contoh.com"
+                    placeholder={t('contact.form.placeholders.email')}
                     className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
                     required
                   />
@@ -269,7 +271,7 @@ const Contact: React.FC = () => {
                 {/* Service Interest */}
                 <div>
                   <label className="block text-sm font-semibold text-white/90 mb-2">
-                    Layanan yang Diminati
+                    {t('contact.form.service')}
                   </label>
                   <select
                     value={formData.service}
@@ -277,24 +279,24 @@ const Contact: React.FC = () => {
                     className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
                     required
                   >
-                    <option value="">Pilih layanan</option>
-                    <option value="web-development">Pengembangan Web</option>
-                    <option value="e-commerce">Platform E-commerce</option>
-                    <option value="landing-page">Landing Page</option>
-                    <option value="digital-marketing">Konsultasi Digital Marketing</option>
-                    <option value="other">Layanan Lainnya</option>
+                    <option value="">{t('contact.form.services.placeholder')}</option>
+                    <option value="web-development">{t('contact.form.services.webDev')}</option>
+                    <option value="e-commerce">{t('contact.form.services.ecommerce')}</option>
+                    <option value="landing-page">{t('contact.form.services.landingPage')}</option>
+                    <option value="digital-marketing">{t('contact.form.services.digitalMarketing')}</option>
+                    <option value="other">{t('contact.form.services.other')}</option>
                   </select>
                 </div>
 
                 {/* Message */}
                 <div>
                   <label className="block text-sm font-semibold text-white/90 mb-2">
-                    Pesan
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Ceritakan tentang proyek Anda..."
+                    placeholder={t('contact.form.placeholders.message')}
                     rows={5}
                     className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-white/30"
                     required
@@ -308,7 +310,7 @@ const Contact: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full px-8 py-4 bg-electric-500 hover:bg-electric-600 text-white rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Kirim Pesan
+                  {t('contact.form.submit')}
                 </motion.button>
 
                 {/* Status Messages */}
@@ -319,7 +321,7 @@ const Contact: React.FC = () => {
                     className="flex items-center gap-3 p-4 bg-green-100 border border-green-300 text-green-800 rounded-lg"
                   >
                     <CheckCircle2 className="w-5 h-5" />
-                    <p className="text-sm font-medium">Pesan berhasil dikirim! Saya akan segera menghubungi Anda.</p>
+                    <p className="text-sm font-medium">{t('contact.form.success')}</p>
                   </motion.div>
                 )}
                 {status === 'error' && (
@@ -329,7 +331,7 @@ const Contact: React.FC = () => {
                     className="flex items-center gap-3 p-4 bg-red-100 border border-red-300 text-red-800 rounded-lg"
                   >
                     <span className="text-xl">✗</span>
-                    <p className="text-sm font-medium">Mohon lengkapi semua field yang diperlukan.</p>
+                    <p className="text-sm font-medium">{t('contact.form.error')}</p>
                   </motion.div>
                 )}
               </form>
@@ -339,7 +341,7 @@ const Contact: React.FC = () => {
 
         {/* Communication Preferences */}
         <ScrollReveal variant="fade-up" className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20">
-          <h3 className="text-2xl font-bold mb-8 text-center">Metode Komunikasi Terbaik</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">{t('contact.preferences.title')}</h3>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {communicationPreferences.map((pref, index) => (
               <motion.div
@@ -371,7 +373,7 @@ const Contact: React.FC = () => {
 
         {/* Work Process */}
         <ScrollReveal className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">Proses Setelah Anda Menghubungi</h3>
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('contact.process.title')}</h3>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             {workProcess.map((process, index) => (
               <motion.div
@@ -404,9 +406,9 @@ const Contact: React.FC = () => {
         {/* Quick CTA */}
         <ScrollReveal variant="scale-up" className="bg-gradient-to-r from-electric-500 to-navy-900 rounded-3xl p-10 text-center">
           <Zap className="w-16 h-16 mx-auto mb-4 text-white" />
-          <h3 className="text-3xl font-bold mb-4">Butuh Respon Cepat?</h3>
+          <h3 className="text-3xl font-bold mb-4">{t('contact.cta.title')}</h3>
           <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
-            Hubungi saya via WhatsApp untuk diskusi langsung dan respon dalam hitungan jam
+            {t('contact.cta.desc')}
           </p>
           <motion.a
             href="https://wa.me/6282221025449"
@@ -417,7 +419,7 @@ const Contact: React.FC = () => {
             className="inline-flex items-center gap-3 px-10 py-4 bg-white text-navy-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             <MessageCircle className="w-6 h-6" />
-            <span>Chat di WhatsApp</span>
+            <span>{t('contact.cta.button')}</span>
           </motion.a>
         </ScrollReveal>
       </div >

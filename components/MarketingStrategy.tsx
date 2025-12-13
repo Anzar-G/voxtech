@@ -3,42 +3,42 @@ import { Facebook, Palette, Target, FileText, Search, Rocket, BarChart3, Lightbu
 import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
+import { useTranslation } from 'react-i18next';
+
+interface Platform {
+    name: string;
+    description: string;
+    icon: React.ReactNode;
+}
+
+interface ProcessStep {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+}
 
 const MarketingStrategy: React.FC = () => {
-    const platforms = [
-        { name: 'Facebook Ads', icon: <Facebook className="w-8 h-8" />, description: 'Platform utama untuk iklan digital' },
-        { name: 'Canva', icon: <Palette className="w-8 h-8" />, description: 'Desain konten visual' },
-        { name: 'Meta Pixel', icon: <Target className="w-8 h-8" />, description: 'Analisis konversi' },
-        { name: 'Landing Page', icon: <FileText className="w-8 h-8" />, description: 'Next.js/Vercel' },
+    const { t } = useTranslation();
+
+    const platformsRaw = t('marketingStrategy.platforms', { returnObjects: true }) as { name: string; description: string }[];
+    const platforms: Platform[] = [
+        { ...platformsRaw[0], icon: <Facebook className="w-8 h-8" /> },
+        { ...platformsRaw[1], icon: <Palette className="w-8 h-8" /> },
+        { ...platformsRaw[2], icon: <Target className="w-8 h-8" /> },
+        { ...platformsRaw[3], icon: <FileText className="w-8 h-8" /> },
     ];
 
-    const marketingProcess = [
-        {
-            icon: <Search className="w-6 h-6" />,
-            title: "Research & Targeting",
-            description: "Menentukan audience berdasarkan interest (Al-Qur'an, Agama Islam, Pendidikan Anak) dan perilaku pengunjung menggunakan Meta Pixel untuk memahami customer journey."
-        },
-        {
-            icon: <Palette className="w-6 h-6" />,
-            title: "Creative & Copy",
-            description: "Membuat video pendek yang menarik perhatian dengan copywriting yang fokus pada keunggulan produk (tajwid warna, terjemahan) dan solusi (belajar Al-Qur'an jadi mudah)."
-        },
-        {
-            icon: <Rocket className="w-6 h-6" />,
-            title: "Setup & Launch",
-            description: "Menentukan objective (Traffic ke landing page, Leads), mengatur budget harian Rp 32.000 untuk testing berbagai audience dan creative."
-        },
-        {
-            icon: <BarChart3 className="w-6 h-6" />,
-            title: "Monitoring & Optimization",
-            description: "Menganalisis metrik utama: CTR (kualitas creative), CPC (efisiensi biaya), Link Click to LP Rate (kualitas traffic). Menghentikan kampanye buruk, alokasi ke yang terbaik."
-        },
-        {
-            icon: <FileText className="w-6 h-6" />,
-            title: "Reporting",
-            description: "Menyajikan data hasil kampanye dari Ads Manager dalam bentuk tabel, grafik, dan ringkasan insight untuk pengambilan keputusan."
-        }
+    const processRaw = t('marketingStrategy.process', { returnObjects: true }) as { title: string; description: string }[];
+    const marketingProcess: ProcessStep[] = [
+        { ...processRaw[0], icon: <Search className="w-6 h-6" /> },
+        { ...processRaw[1], icon: <Palette className="w-6 h-6" /> },
+        { ...processRaw[2], icon: <Rocket className="w-6 h-6" /> },
+        { ...processRaw[3], icon: <BarChart3 className="w-6 h-6" /> },
+        { ...processRaw[4], icon: <FileText className="w-6 h-6" /> }
     ];
+
+    // Helper for deep dive pillars
+    const deepDiveContentPillars = t('marketingStrategy.deepDive.content.pillarsList', { returnObjects: true }) as string[];
 
     return (
         <section className="relative min-h-screen py-20 lg:py-32 px-6 lg:px-20 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
@@ -88,16 +88,16 @@ const MarketingStrategy: React.FC = () => {
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Strategi & Proses Digital Marketing
+                        {t('marketingStrategy.title')}
                     </h2>
                     <p className="text-lg text-white/80 max-w-3xl mx-auto">
-                        Menerapkan pendekatan data-driven dalam pemasaran digital, fokus pada audience targeting yang tepat, creative yang menarik, dan analisis berkelanjutan untuk optimasi kampanye
+                        {t('marketingStrategy.subtitle')}
                     </p>
                 </ScrollReveal>
 
                 {/* Platform Showcase */}
                 <ScrollReveal variant="fade-up" delay={0.1} className="mb-20">
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Platform & Tools Utama</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('marketingStrategy.platformsTitle')}</h3>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                         {platforms.map((platform, index) => (
                             <motion.div
@@ -121,7 +121,7 @@ const MarketingStrategy: React.FC = () => {
 
                 {/* 5-Step Process */}
                 <ScrollReveal variant="fade-up" delay={0.2}>
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Proses Kerja 5 Langkah</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('marketingStrategy.processTitle')}</h3>
                     <StaggerContainer className="space-y-6">
                         {marketingProcess.map((step, index) => (
                             <motion.div
@@ -167,7 +167,7 @@ const MarketingStrategy: React.FC = () => {
 
                 {/* Detailed Sub-Sections */}
                 <ScrollReveal variant="fade-up" delay={0.3} className="mt-20">
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Deep Dive: Strategi Pemasaran Terstruktur</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('marketingStrategy.deepDiveTitle')}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Market Research */}
                         <motion.div
@@ -180,20 +180,20 @@ const MarketingStrategy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                                     <Search className="text-cyan-300 w-6 h-6" />
                                 </div>
-                                <h4 className="text-xl font-bold text-white">Riset Pasar</h4>
+                                <h4 className="text-xl font-bold text-white">{t('marketingStrategy.deepDive.research.title')}</h4>
                             </div>
                             <div className="space-y-3">
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Tujuan</p>
-                                    <p className="text-sm text-white/80">Memahami target audience, pain points, dan kompetitor</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.purpose')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.purposeText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Aplikasi di Feyd Store</p>
-                                    <p className="text-sm text-white/80">Menganalisis audience yang tertarik dengan Al-Qur'an Kharisma dan novel islami melalui Meta Pixel dan Facebook Audience Insights</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.app')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.appText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Hasil</p>
-                                    <p className="text-sm text-white/80">Interest targeting spesifik: Agama Islam, Al-Qur'an, Pendidikan Anak</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.result')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.resultText')}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -210,21 +210,21 @@ const MarketingStrategy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                                     <Palette className="text-violet-300 w-6 h-6" />
                                 </div>
-                                <h4 className="text-xl font-bold text-white">Perencanaan & Strategi Konten</h4>
+                                <h4 className="text-xl font-bold text-white">{t('marketingStrategy.deepDive.content.title')}</h4>
                             </div>
                             <div className="space-y-3">
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Tujuan</p>
-                                    <p className="text-sm text-white/80">Menentukan brand positioning dan content pillars</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.purpose')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.content.purposeText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Brand Positioning</p>
-                                    <p className="text-sm text-white/80">Al-Qur'an Kharisma dengan tajwid berwarna dan terjemahan</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.brandPos')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.content.brandPosText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Content Pillars</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.pillars')}</p>
                                     <div className="flex flex-wrap gap-2 mt-2">
-                                        {['Produk', 'Edukasi', 'Testimoni', 'Promosi'].map((pillar, i) => (
+                                        {deepDiveContentPillars.map((pillar, i) => (
                                             <span key={i} className="bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
                                                 {pillar}
                                             </span>
@@ -246,20 +246,20 @@ const MarketingStrategy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                                     <Rocket className="text-emerald-300 w-6 h-6" />
                                 </div>
-                                <h4 className="text-xl font-bold text-white">Produksi & Eksekusi</h4>
+                                <h4 className="text-xl font-bold text-white">{t('marketingStrategy.deepDive.execution.title')}</h4>
                             </div>
                             <div className="space-y-3">
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Tujuan</p>
-                                    <p className="text-sm text-white/80">Membuat dan menjalankan kampanye yang efektif</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.purpose')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.purposeText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Aplikasi</p>
-                                    <p className="text-sm text-white/80">Membuat iklan video pendek yang menonjolkan keunggulan Al-Qur'an Kharisma dengan copy yang menekankan kemudahan belajar</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.app')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.appText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Tools</p>
-                                    <p className="text-sm text-white/80">Canva (desain), Facebook Ads Manager (eksekusi)</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.tools')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.toolsText')}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -276,20 +276,20 @@ const MarketingStrategy: React.FC = () => {
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.3)]">
                                     <BarChart3 className="text-amber-300 w-6 h-6" />
                                 </div>
-                                <h4 className="text-xl font-bold text-white">Analisis & Evaluasi</h4>
+                                <h4 className="text-xl font-bold text-white">{t('marketingStrategy.deepDive.analysis.title')}</h4>
                             </div>
                             <div className="space-y-3">
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Tujuan</p>
-                                    <p className="text-sm text-white/80">Mengukur performa dan menemukan area untuk perbaikan</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.purpose')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.purposeText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Aplikasi</p>
-                                    <p className="text-sm text-white/80">Menganalisis metrik seperti CTR, CPC, Link Click to LP Rate, Cost per Result dari kampanye Facebook Ads</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.app')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.appText')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-electric-300 font-semibold mb-1">Aksi</p>
-                                    <p className="text-sm text-white/80">Menghentikan kampanye performa buruk, alokasi budget ke kampanye terbaik seperti "Traffic Tsabit"</p>
+                                    <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.action')}</p>
+                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.actionText')}</p>
                                 </div>
                             </div>
                         </motion.div>

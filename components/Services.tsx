@@ -9,10 +9,12 @@ import {
   ChevronDown,
   ChevronRight
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 
 const Services: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -22,120 +24,52 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Code className="w-12 h-12" />,
-      title: 'Pengembangan Web Berbasis AI',
-      shortTitle: 'Web Development',
-      description: 'Pembuatan website modern dengan teknologi AI untuk percepatan development hingga 3x lipat. Dari landing page hingga platform e-commerce yang lengkap.',
-      techStack: ['Next.js', 'React', 'Tailwind', 'Vercel'],
-      pricing: 'Harga Custom',
-      process: [
-        'Konsultasi kebutuhan dan goals',
-        'Wireframe & mockup design',
-        'AI-assisted development',
-        'Testing & quality assurance',
-        'Deployment & training',
-      ],
-      deliverables: [
-        'Source code lengkap',
-        'Dokumentasi teknis',
-        'Hosting setup (Vercel/Netlify)',
-        'Basic SEO optimization',
-        '30 hari support gratis',
-      ],
+      title: t('servicesPage.items.webDev.title'),
+      shortTitle: t('servicesPage.items.webDev.shortTitle'),
+      description: t('servicesPage.items.webDev.description'),
+      techStack: t('servicesPage.items.webDev.techStack', { returnObjects: true }) as string[],
+      pricing: t('servicesPage.items.webDev.pricing'),
+      process: t('servicesPage.items.webDev.process', { returnObjects: true }) as string[],
+      deliverables: t('servicesPage.items.webDev.deliverables', { returnObjects: true }) as string[],
     },
     {
       icon: <ShoppingCart className="w-12 h-12" />,
-      title: 'Solusi E-commerce',
-      shortTitle: 'E-commerce',
-      description: 'Platform e-commerce lengkap dengan integrasi pembayaran, manajemen inventory, dan optimasi SEO untuk memaksimalkan penjualan online Anda.',
-      techStack: ['Next.js', 'Payment Gateway', 'Meta Pixel'],
-      pricing: 'Harga Custom',
-      process: [
-        'Analisis produk & target market',
-        'Design UI/UX e-commerce',
-        'Integrasi payment gateway',
-        'Setup inventory management',
-        'Marketing pixel integration',
-      ],
-      deliverables: [
-        'Platform e-commerce lengkap',
-        'Admin dashboard',
-        'Payment gateway aktif',
-        'Meta Pixel tracking',
-        'Training penggunaan sistem',
-      ],
+      title: t('servicesPage.items.ecommerce.title'),
+      shortTitle: t('servicesPage.items.ecommerce.shortTitle'),
+      description: t('servicesPage.items.ecommerce.description'),
+      techStack: t('servicesPage.items.ecommerce.techStack', { returnObjects: true }) as string[],
+      pricing: t('servicesPage.items.ecommerce.pricing'),
+      process: t('servicesPage.items.ecommerce.process', { returnObjects: true }) as string[],
+      deliverables: t('servicesPage.items.ecommerce.deliverables', { returnObjects: true }) as string[],
     },
     {
       icon: <Rocket className="w-12 h-12" />,
-      title: 'Pembuatan Landing Page',
-      shortTitle: 'Landing Page',
-      description: 'Landing page yang fokus pada konversi dengan desain modern dan loading cepat. Sempurna untuk kampanye marketing, peluncuran produk, atau profil perusahaan.',
-      techStack: ['Next.js', 'Tailwind CSS', 'Analytics'],
-      pricing: 'Harga Custom',
-      process: [
-        'Briefing tujuan kampanye',
-        'Copywriting & design',
-        'Development & optimization',
-        'Analytics setup',
-        'A/B testing preparation',
-      ],
-      deliverables: [
-        'Landing page responsif',
-        'Google Analytics setup',
-        'Form submission handling',
-        'Performance optimization',
-        'Conversion tracking',
-      ],
+      title: t('servicesPage.items.landingPage.title'),
+      shortTitle: t('servicesPage.items.landingPage.shortTitle'),
+      description: t('servicesPage.items.landingPage.description'),
+      techStack: t('servicesPage.items.landingPage.techStack', { returnObjects: true }) as string[],
+      pricing: t('servicesPage.items.landingPage.pricing'),
+      process: t('servicesPage.items.landingPage.process', { returnObjects: true }) as string[],
+      deliverables: t('servicesPage.items.landingPage.deliverables', { returnObjects: true }) as string[],
     },
     {
       icon: <Megaphone className="w-12 h-12" />,
-      title: 'Konsultasi Digital Marketing',
-      shortTitle: 'Digital Marketing',
-      description: 'Strategi Facebook Ads dan digital marketing untuk meningkatkan jangkauan dan konversi. Pendekatan berbasis data dengan pengukuran ROI yang jelas.',
-      techStack: ['Meta Ads Manager', 'Analytics', 'Meta Pixel'],
-      pricing: 'Harga Custom',
-      process: [
-        'Audit marketing saat ini',
-        'Strategi & planning kampanye',
-        'Setup & optimization ads',
-        'Monitoring & reporting',
-        'Iterasi berdasarkan data',
-      ],
-      deliverables: [
-        'Strategi marketing lengkap',
-        'Campaign setup & management',
-        'Weekly performance reports',
-        'Audience insights',
-        'Rekomendasi optimization',
-      ],
+      title: t('servicesPage.items.digitalMarketing.title'),
+      shortTitle: t('servicesPage.items.digitalMarketing.shortTitle'),
+      description: t('servicesPage.items.digitalMarketing.description'),
+      techStack: t('servicesPage.items.digitalMarketing.techStack', { returnObjects: true }) as string[],
+      pricing: t('servicesPage.items.digitalMarketing.pricing'),
+      process: t('servicesPage.items.digitalMarketing.process', { returnObjects: true }) as string[],
+      deliverables: t('servicesPage.items.digitalMarketing.deliverables', { returnObjects: true }) as string[],
     },
   ];
 
-  const faqs = [
-    {
-      question: 'Berapa lama waktu pengerjaan untuk sebuah proyek?',
-      answer: 'Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Landing page sederhana bisa selesai dalam 5-7 hari, sementara e-commerce platform membutuhkan 10-14 hari. Saya selalu memberikan timeline yang realistis di awal proyek.',
-    },
-    {
-      question: 'Apakah saya mendapat source code setelah proyek selesai?',
-      answer: 'Ya, Anda akan mendapatkan full source code dan dokumentasi lengkap. Anda memiliki 100% ownership atas code yang dibuat untuk proyek Anda.',
-    },
-    {
-      question: 'Bagaimana sistem pembayaran yang diterapkan?',
-      answer: 'Sistem pembayaran fleksibel: 50% di awal sebagai down payment, 50% setelah proyek selesai dan Anda puas dengan hasilnya. Untuk proyek besar, bisa dicicil per milestone.',
-    },
-    {
-      question: 'Apakah ada support setelah website launch?',
-      answer: 'Ya, setiap proyek mendapat 30 hari support gratis untuk bug fixes dan minor adjustments. Setelah itu, tersedia paket maintenance bulanan jika diperlukan.',
-    },
-    {
-      question: 'Apakah bisa request revisi?',
-      answer: 'Tentu! Setiap tahap development ada review dan feedback session. Revisi minor unlimited selama development phase. Revisi major akan didiskusikan terlebih dahulu.',
-    },
-    {
-      question: 'Teknologi apa yang digunakan?',
-      answer: 'Saya menggunakan tech stack modern seperti Next.js, React, TypeScript, dan Tailwind CSS. Semua dipilih berdasarkan best practices dan kebutuhan proyek Anda untuk performa optimal.',
-    },
-  ];
+  type FAQItem = {
+    question: string;
+    answer: string;
+  };
+
+  const faqs = t('servicesPage.faq.items', { returnObjects: true }) as FAQItem[];
 
   const activeServiceData = services[activeService];
 
@@ -182,10 +116,10 @@ const Services: React.FC = () => {
         {/* Header */}
         <ScrollReveal className="text-center">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Layanan yang Ditawarkan
+            {t('servicesPage.title')}
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Solusi digital komprehensif yang didukung teknologi AI
+            {t('servicesPage.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -274,7 +208,7 @@ const Services: React.FC = () => {
 
             {/* Tech Stack */}
             <div className="mb-8">
-              <p className="text-sm font-semibold text-white/70 mb-4 text-center">Teknologi:</p>
+              <p className="text-sm font-semibold text-white/70 mb-4 text-center">{t('servicesPage.labels.techStack')}</p>
               <div className="flex flex-wrap justify-center gap-3">
                 {activeServiceData.techStack.map((tech, i) => (
                   <motion.span
@@ -296,7 +230,7 @@ const Services: React.FC = () => {
                 onClick={() => setShowProcess(!showProcess)}
                 className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-white/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
               >
-                <p className="text-sm font-semibold text-white/90">Proses Pengerjaan:</p>
+                <p className="text-sm font-semibold text-white/90">{t('servicesPage.labels.process')}</p>
                 <ChevronDown className={`w-5 h-5 text-electric-300 lg:hidden transition-transform ${showProcess ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
@@ -334,7 +268,7 @@ const Services: React.FC = () => {
                 onClick={() => setShowDeliverables(!showDeliverables)}
                 className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-white/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
               >
-                <p className="text-sm font-semibold text-white/90">Yang Anda Dapatkan:</p>
+                <p className="text-sm font-semibold text-white/90">{t('servicesPage.labels.deliverables')}</p>
                 <ChevronDown className={`w-5 h-5 text-electric-300 lg:hidden transition-transform ${showDeliverables ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
@@ -367,7 +301,7 @@ const Services: React.FC = () => {
             {/* Pricing + CTA */}
             <div className="text-center pt-6 border-t border-white/10">
               <p className="text-white/60 mb-6">
-                Mulai dari: <span className="font-bold text-white text-xl">{activeServiceData.pricing}</span>
+                {t('servicesPage.labels.startingFrom')} <span className="font-bold text-white text-xl">{activeServiceData.pricing}</span>
               </p>
               <motion.button
                 onClick={() => navigate('/contact')}
@@ -375,7 +309,7 @@ const Services: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-electric-500 hover:bg-electric-600 text-white rounded-xl font-bold shadow-xl transition-all"
               >
-                <span>Konsultasi Gratis</span>
+                <span>{t('servicesPage.labels.consultationButton')}</span>
                 <ChevronRight className="w-5 h-5" />
               </motion.button>
             </div>
@@ -386,10 +320,10 @@ const Services: React.FC = () => {
         <div className="bg-white/10 backdrop-blur-lg py-12 px-6 lg:px-12 rounded-3xl shadow-xl border border-white/20">
           <ScrollReveal className="text-center mb-8 max-w-2xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Pertanyaan yang Sering Diajukan
+              {t('servicesPage.faq.title')}
             </h2>
             <p className="text-white/70">
-              Jawaban untuk pertanyaan umum seputar layanan dan proses kerja
+              {t('servicesPage.faq.subtitle')}
             </p>
           </ScrollReveal>
 
@@ -438,10 +372,10 @@ const Services: React.FC = () => {
         {/* CTA Section */}
         <ScrollReveal variant="scale-up" className="bg-gradient-to-br from-electric-500 to-navy-900 py-12 lg:py-16 px-8 rounded-3xl text-center text-white">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Siap Memulai Proyek Anda?
+            {t('servicesPage.cta.title')}
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Mari diskusikan kebutuhan Anda dan temukan solusi terbaik untuk bisnis Anda
+            {t('servicesPage.cta.desc')}
           </p>
           <motion.button
             onClick={() => navigate('/contact')}
@@ -449,7 +383,7 @@ const Services: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             className="px-10 py-4 bg-white text-navy-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
           >
-            Hubungi Saya Sekarang
+            {t('servicesPage.cta.button')}
           </motion.button>
         </ScrollReveal>
       </div>

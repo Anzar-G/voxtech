@@ -1,178 +1,141 @@
 import React, { useState } from 'react';
 import { ExternalLink, FileText, TrendingUp, Zap, Target, CheckCircle, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation, Trans } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import PerformanceRoadmap from './PerformanceRoadmap';
 
 const Projects: React.FC = () => {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  /* 
+     Helper to map category IDs to translation keys.
+     IDs match the 'category' property in project objects.
+  */
+  const categoryMap: Record<string, string> = {
+    'Web Development': 'webDev',
+    'E-commerce': 'ecommerce',
+    'Landing Page': 'landingPage',
+    'Personal': 'personal'
+  };
 
   const projects = [
     {
       id: 1,
-      title: 'Feyd Store - Platform E-commerce Islami',
+      title: t('projects.page.items.feyd.title'),
       category: 'E-commerce',
-      description: 'Platform e-commerce untuk penjualan Al-Qur\'an Kharisma dengan tajwid berwarna & terjemahan. Dibangun dengan Next.js + pengembangan berbasis AI.',
+      description: t('projects.page.items.feyd.description'),
       techStack: ['Next.js', 'React', 'Tailwind CSS', 'Meta Pixel'],
-      features: [
-        'E-commerce fungsional dengan UI/UX modern',
-        'Sistem pembayaran terintegrasi (BSI, E-wallet)',
-        'Menjalankan Facebook Ads (budget 32k/hari)',
-        'Responsif mobile & SEO optimized',
-      ],
+      features: t('projects.page.items.feyd.features', { returnObjects: true }) as string[],
       liveUrl: 'https://feyd-store.vercel.app',
       featured: true,
       image: '/website/feyd-store.png',
       caseStudy: {
-        challenge: 'Menentukan dan mengintegrasikan berbagai fitur penting dalam satu platform e-commerce yang kompleks. Memperkenalkan Al-Qur\'an Kharisma ke pasar yang lebih luas secara online dan bersaing dengan produk sejenis.',
-        solution: 'Menggunakan kombinasi Cascade Windsurf, Claude, dan Qwen untuk memungkinkan kustomisasi dan efisiensi dalam pengembangan. Fokus pada keunggulan produk (tajwid warna, terjemahan) dan penggunaan Facebook Ads (Traffic Tsabit) untuk mendatangkan traffic berkualitas.',
-        results: [
-          '566 Link Clicks dari kampanye Traffic Tsabit',
-          'CTR 2.37% (di atas rata-rata industri)',
-          'CPC Rp 165 (sangat efisien)',
-          'LP Conversion Rate 60.07%',
-        ],
+        challenge: t('projects.page.items.feyd.caseStudy.challenge'),
+        solution: t('projects.page.items.feyd.caseStudy.solution'),
+        results: t('projects.page.items.feyd.caseStudy.results', { returnObjects: true }) as string[],
         metrics: {
-          performance: '32 Performance (v1.0)',
-          accessibility: '91 Accessibility',
-          seo: '100 SEO Score',
+          performance: 32,
+          accessibility: 91,
+          seo: 100,
         },
       },
     },
     {
       id: 2,
-      title: 'Frontworks - Portfolio AI Frontend Engineer',
+      title: t('projects.page.items.frontworks.title'),
       category: 'Personal',
-      description: 'Website portfolio profesional yang menampilkan keahlian sebagai AI Frontend Engineer dengan desain modern & elemen interaktif.',
+      description: t('projects.page.items.frontworks.description'),
       techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-      features: [
-        'Sistem desain yang dihasilkan AI',
-        'Animasi halus & micro-interactions',
-        'Showcase proyek dengan case studies',
-        'Performa optimal (90+ Lighthouse score)',
-      ],
+      features: t('projects.page.items.frontworks.features', { returnObjects: true }) as string[],
       liveUrl: 'https://frontworks.vercel.app',
       featured: true,
       image: '/website/frontworks.png',
       caseStudy: {
-        challenge: 'Merancang UI/UX dan tata letak yang tidak hanya menarik, tetapi juga fungsional dan mudah dinavigasi.',
-        solution: 'Memanfaatkan Cascade Windsurf dan Claude untuk mengeksplorasi pendekatan desain, serta melakukan riset menyeluruh terhadap website profesional lainnya. AI digunakan sebagai alat bantu powerful namun tetap mengutamakan sentuhan kreatif humanis.',
-        results: [
-          'Portfolio modern dan profesional',
-          'Performa 95+ di semua metrics Lighthouse',
-          'Showcase keahlian AI-First Development',
-          'Professional presentation untuk client pitching',
-        ],
+        challenge: t('projects.page.items.frontworks.caseStudy.challenge'),
+        solution: t('projects.page.items.frontworks.caseStudy.solution'),
+        results: t('projects.page.items.frontworks.caseStudy.results', { returnObjects: true }) as string[],
         metrics: {
-          performance: '39 Performance (v1.0)',
-          accessibility: '87 Accessibility',
-          seo: '100 SEO Score',
+          performance: 39,
+          accessibility: 87,
+          seo: 100,
         },
       },
     },
     {
       id: 3,
-      title: 'Program Tilawah 40 Hari - Landing Page Edukasi',
+      title: t('projects.page.items.tilawah.title'),
       category: 'Landing Page',
-      description: 'Landing page untuk program edukasi tilawah dengan copywriting yang dioptimalkan AI untuk konversi.',
+      description: t('projects.page.items.tilawah.description'),
       techStack: ['Next.js', 'React', 'CSS'],
-      features: [
-        'Desain landing page yang engaging',
-        'Arsitektur informasi program yang jelas',
-        'Meningkatkan tingkat pendaftaran',
-        'Waktu loading cepat (<2s)',
-      ],
+      features: t('projects.page.items.tilawah.features', { returnObjects: true }) as string[],
       liveUrl: 'https://program-tilawah-40-hari.vercel.app',
       featured: false,
       image: '/website/program-tilawah.png',
       caseStudy: {
-        challenge: 'Membuat landing page yang efektif untuk program edukasi dengan target audience yang spesifik (muslim yang ingin belajar tilawah).',
-        solution: 'Copywriting yang persuasif dengan struktur AIDA, visual hierarchy yang jelas, dan CTA yang prominent di multiple sections.',
-        results: [
-          'Landing page yang conversion-focused',
-          'Clear value proposition',
-          'Mobile-first responsive design',
-          'Fast loading untuk user experience optimal',
-        ],
+        challenge: t('projects.page.items.tilawah.caseStudy.challenge'),
+        solution: t('projects.page.items.tilawah.caseStudy.solution'),
+        results: t('projects.page.items.tilawah.caseStudy.results', { returnObjects: true }) as string[],
         metrics: {
-          performance: '37 Performance (v1.0)',
-          accessibility: '87 Accessibility',
-          seo: '100 SEO Score',
+          performance: 37,
+          accessibility: 87,
+          seo: 100,
         },
       },
     },
     {
       id: 4,
-      title: 'Dapur Ummu Kamila - Website Bakery Rumahan',
+      title: t('projects.page.items.dapur.title'),
       category: 'Web Development',
-      description: 'Website showcase untuk usaha bakery rumahan dengan katalog produk & sistem pemesanan.',
+      description: t('projects.page.items.dapur.description'),
       techStack: ['Next.js', 'Styled Components'],
-      features: [
-        'Showcase produk yang menarik',
-        'Optimasi gambar',
-        'Integrasi kontak (WhatsApp)',
-        'Desain mobile-first',
-      ],
+      features: t('projects.page.items.dapur.features', { returnObjects: true }) as string[],
       liveUrl: 'https://dapurkamila.vercel.app',
       featured: false,
       image: '/website/dapurkamila.png',
       caseStudy: {
-        challenge: 'Membuat website showcase untuk UMKM bakery dengan budget terbatas namun tetap profesional dan fungsional.',
-        solution: 'Fokus pada visual produk dengan image optimization, integrasi WhatsApp untuk kemudahan pemesanan, dan design yang warm & inviting.',
-        results: [
-          'Website profesional untuk UMKM',
-          'WhatsApp integration untuk pemesanan',
-          'Image optimization untuk loading cepat',
-          'Responsive di semua devices',
-        ],
+        challenge: t('projects.page.items.dapur.caseStudy.challenge'),
+        solution: t('projects.page.items.dapur.caseStudy.solution'),
+        results: t('projects.page.items.dapur.caseStudy.results', { returnObjects: true }) as string[],
         metrics: {
-          performance: '69 Performance (v1.0)',
-          accessibility: '89 Accessibility',
-          bestPractices: '92 Best Practices',
+          performance: 69,
+          accessibility: 89,
+          bestPractices: 92,
         },
       },
     },
     {
       id: 5,
-      title: 'Khoiru Ummah - Website Institusi Pendidikan',
+      title: t('projects.page.items.khoiru.title'),
       category: 'Web Development',
-      description: 'Website profil sekolah dengan fokus informasi keunggulan pendidikan & fasilitas.',
+      description: t('projects.page.items.khoiru.description'),
       techStack: ['HTML5', 'CSS3', 'JavaScript'],
-      features: [
-        'Desain institusional profesional',
-        'Layout responsif',
-        'Struktur SEO-friendly',
-        'Cepat & ringan',
-      ],
+      features: t('projects.page.items.khoiru.features', { returnObjects: true }) as string[],
       liveUrl: 'https://anzar-g.github.io/khoiruummah/',
       featured: false,
       image: '/website/khoiruummah.png',
       caseStudy: {
-        challenge: 'Menyeimbangkan pendekatan desain yang islami dengan nuansa internasional dan universal.',
-        solution: 'Mengambil inspirasi dari website institusi pendidikan ternama (UI, Oxford, Edinburgh) dan menggabungkan elemen desain dari berbagai referensi untuk menciptakan identitas digital yang kuat, inklusif, namun tetap islami.',
-        results: [
-          'Desain website yang profesional & modern',
-          'Identitas visual islami yang kuat namun universal',
-          'Struktur informasi yang jelas dan rapi',
-          'Mudah dikelola dan dikembangkan',
-        ],
+        challenge: t('projects.page.items.khoiru.caseStudy.challenge'),
+        solution: t('projects.page.items.khoiru.caseStudy.solution'),
+        results: t('projects.page.items.khoiru.caseStudy.results', { returnObjects: true }) as string[],
         metrics: {
-          performance: '57 Performance (v1.0)',
-          accessibility: '84 Accessibility',
-          seo: '91 SEO Score',
+          performance: 57,
+          accessibility: 84,
+          seo: 91,
         },
       },
     },
   ];
 
   const filters = [
-    { id: 'all', label: 'Semua Proyek' },
-    { id: 'Web Development', label: 'Web Development' },
-    { id: 'E-commerce', label: 'E-commerce' },
-    { id: 'Landing Page', label: 'Landing Pages' },
-    { id: 'Personal', label: 'Proyek Personal' },
+    { id: 'all', label: t('projects.page.filters.all') },
+    { id: 'Web Development', label: t('projects.page.filters.webDev') },
+    { id: 'E-commerce', label: t('projects.page.filters.ecommerce') },
+    { id: 'Landing Page', label: t('projects.page.filters.landingPage') },
+    { id: 'Personal', label: t('projects.page.filters.personal') },
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -219,10 +182,10 @@ const Projects: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto space-y-20">
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Proyek Unggulan
+            {t('projects.page.title')}
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Showcase karya terbaru dan proyek yang berhasil diselesaikan dengan hasil terukur
+            {t('projects.page.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -255,7 +218,7 @@ const Projects: React.FC = () => {
                   {project.featured && (
                     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
                       className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg">
-                      UNGGULAN
+                      {t('projects.page.card.featured')}
                     </motion.div>
                   )}
                 </div>
@@ -272,12 +235,12 @@ const Projects: React.FC = () => {
 
                   <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{project.title}</h3>
                   <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-xs font-semibold mb-4 border border-electric-300/30">
-                    {project.category}
+                    {t(`projects.page.filters.${categoryMap[project.category] || 'other'}`)}
                   </span>
                   <p className="text-sm text-white/80 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
 
                   <div className="mb-6">
-                    <p className="text-xs font-semibold text-white/70 mb-2">Hasil Utama:</p>
+                    <p className="text-xs font-semibold text-white/70 mb-2">{t('projects.page.card.keyResults')}</p>
                     <ul className="space-y-1">
                       {project.features.slice(0, 2).map((feature, i) => (
                         <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + 0.1 * i }}
@@ -293,7 +256,7 @@ const Projects: React.FC = () => {
                     <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold transition-all duration-300">
                       <ExternalLink size={16} />
-                      <span>Lihat Website</span>
+                      <span>{t('projects.page.card.viewWebsite')}</span>
                     </motion.a>
                     <motion.button onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
                       whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}
@@ -311,7 +274,7 @@ const Projects: React.FC = () => {
                     <div className="flex items-start justify-between">
                       <div>
                         <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-                        <p className="text-white/70">Case Study Detail</p>
+                        <p className="text-white/70">{t('projects.page.modal.detailTitle')}</p>
                       </div>
                       <button onClick={() => setSelectedProject(null)} className="text-white/60 hover:text-white text-2xl font-bold">×</button>
                     </div>
@@ -322,7 +285,7 @@ const Projects: React.FC = () => {
                           <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                             <Target className="w-5 h-5 text-electric-300" />
                           </div>
-                          <h4 className="text-lg font-bold text-white">Challenge</h4>
+                          <h4 className="text-lg font-bold text-white">{t('projects.page.modal.challenge')}</h4>
                         </div>
                         <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.challenge}</p>
                       </div>
@@ -332,7 +295,7 @@ const Projects: React.FC = () => {
                           <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                             <Zap className="w-5 h-5 text-blue-500" />
                           </div>
-                          <h4 className="text-lg font-bold text-white">Solution</h4>
+                          <h4 className="text-lg font-bold text-white">{t('projects.page.modal.solution')}</h4>
                         </div>
                         <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.solution}</p>
                       </div>
@@ -342,7 +305,7 @@ const Projects: React.FC = () => {
                           <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
                             <Rocket className="w-5 h-5 text-cyan-300" />
                           </div>
-                          <h4 className="text-lg font-bold text-white">Results</h4>
+                          <h4 className="text-lg font-bold text-white">{t('projects.page.modal.results')}</h4>
                         </div>
                         <ul className="space-y-2">
                           {project.caseStudy.results.map((result, i) => (
@@ -356,12 +319,17 @@ const Projects: React.FC = () => {
                     </div>
 
                     <div className="bg-gradient-to-r from-electric-500 to-navy-900 rounded-xl p-6 text-white">
-                      <h4 className="text-xl font-bold mb-4">Key Metrics</h4>
+                      <h4 className="text-xl font-bold mb-4">{t('projects.page.modal.metrics')}</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {Object.entries(project.caseStudy.metrics).map(([key, value], i) => (
                           <div key={i} className="text-center">
-                            <p className="text-sm text-white/70 mb-1 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
-                            <p className="text-2xl font-bold">{value}</p>
+                            <p className="text-sm text-white/70 mb-1 capitalize">
+                              {t(`performanceRoadmap.metrics.${key}`) || key}
+                            </p>
+                            <p className="text-2xl font-bold">
+                              {value}
+                              <span className="text-xs font-normal text-white/50 ml-1">(v1.0)</span>
+                            </p>
                           </div>
                         ))}
                       </div>
@@ -374,31 +342,31 @@ const Projects: React.FC = () => {
         </StaggerContainer>
 
         <div className="bg-gradient-to-br from-navy-900 to-electric-500 rounded-3xl p-10 text-white">
-          <h3 className="text-3xl font-bold mb-4 text-center">Portfolio Statistics</h3>
+          <h3 className="text-3xl font-bold mb-4 text-center">{t('projects.page.stats.title')}</h3>
           <p className="text-sm text-white/60 text-center mb-8 max-w-2xl mx-auto">
-            🚀 All projects are in continuous development with ongoing performance optimization
+            {t('projects.page.stats.subtitle')}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">5+</p>
-              <p className="text-white/80">Proyek Selesai</p>
+              <p className="text-white/80">{t('projects.page.stats.completed')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">100%</p>
-              <p className="text-white/80">Client Satisfaction</p>
+              <p className="text-white/80">{t('projects.page.stats.satisfaction')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">93</p>
-              <p className="text-white/80">Avg Best Practices</p>
+              <p className="text-white/80">{t('projects.page.stats.bestPractices')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">98</p>
-              <p className="text-white/80">Avg SEO Score</p>
+              <p className="text-white/80">{t('projects.page.stats.seo')}</p>
             </div>
           </div>
           <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
             <p className="text-xs text-white/70 text-center">
-              <span className="font-semibold text-electric-300">Note:</span> Performance scores reflect v1.0 baseline. Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction.
+              <Trans i18nKey="projects.page.stats.note" components={{ 0: <span className="font-semibold text-electric-300" /> }} />
             </p>
           </div>
         </div>

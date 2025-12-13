@@ -3,11 +3,14 @@ import { TrendingUp, TrendingDown, AlertCircle, CheckCircle, BarChart3, Target, 
 import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
+import { useTranslation } from 'react-i18next';
 
 const DataAnalysis: React.FC = () => {
+    const { t } = useTranslation();
+
     const campaignAnalysis = [
         {
-            name: 'Traffic Tsabit',
+            name: t('dataAnalysis.campaigns.tsabit.name'),
             status: 'success',
             metrics: {
                 ctr: '2.37%',
@@ -15,13 +18,13 @@ const DataAnalysis: React.FC = () => {
                 clicks: 566,
                 lpViews: 340
             },
-            analysis: 'CTR tinggi (2.37%) dan CPC rendah (Rp 165) menunjukkan bahwa audience targeting dan creative (video pendek) sangat efektif.',
-            conclusion: 'Benchmark untuk kampanye lain',
+            analysis: t('dataAnalysis.campaigns.tsabit.analysis'),
+            conclusion: t('dataAnalysis.campaigns.tsabit.conclusion'),
             icon: <CheckCircle className="w-6 h-6" />,
             color: 'green'
         },
         {
-            name: '11/11-KM/Leads/Tsabit',
+            name: t('dataAnalysis.campaigns.leads.name'),
             status: 'warning',
             metrics: {
                 ctr: '4.62%',
@@ -29,58 +32,59 @@ const DataAnalysis: React.FC = () => {
                 clicks: 124,
                 leads: 1
             },
-            analysis: 'CTR sangat tinggi (4.62%) tapi Cost per Result sangat mahal (Rp 94.372). Ini menunjukkan click banyak, tapi conversion (lead) sangat sedikit.',
-            conclusion: 'Landing page atau lead form perlu dioptimasi',
+            analysis: t('dataAnalysis.campaigns.leads.analysis'),
+            conclusion: t('dataAnalysis.campaigns.leads.conclusion'),
             icon: <AlertCircle className="w-6 h-6" />,
             color: 'yellow'
         },
         {
-            name: 'High CPC Campaigns',
+            name: t('dataAnalysis.campaigns.highCpc.name'),
             status: 'error',
             metrics: {
                 avgCpc: '> Rp 700',
                 performance: 'Below Average'
             },
-            analysis: 'Kampanye dengan CPC tinggi menunjukkan bahwa audience atau creative kurang relevan.',
-            conclusion: 'Perlu adjustment targeting/creative',
+            analysis: t('dataAnalysis.campaigns.highCpc.analysis'),
+            conclusion: t('dataAnalysis.campaigns.highCpc.conclusion'),
             icon: <TrendingDown className="w-6 h-6" />,
             color: 'red'
         }
     ];
 
+    const keyLearningsRaw = t('dataAnalysis.learnings', { returnObjects: true }) as any[];
     const keyLearnings = [
         {
             icon: <Target className="w-6 h-6" />,
-            title: 'Audience Targeting adalah Kunci',
-            description: 'Semakin spesifik dan relevan targeting, semakin tinggi engagement dan conversion rate.',
             color: 'blue'
         },
         {
             icon: <BarChart3 className="w-6 h-6" />,
-            title: 'Creative & Copy Harus Relevan',
-            description: 'Creative yang menarik dan copy yang jelas sangat mempengaruhi CTR dan CPC. Video pendek terbukti paling efektif.',
             color: 'purple'
         },
         {
             icon: <TrendingUp className="w-6 h-6" />,
-            title: 'Analisis Data Harus Berkala',
-            description: 'Regular monitoring memungkinkan optimasi real-time dan mencegah pemborosan budget.',
             color: 'green'
         },
         {
             icon: <CheckCircle className="w-6 h-6" />,
-            title: 'Landing Page Perlu Optimasi',
-            description: 'High CTR tapi low conversion menunjukkan landing page belum optimal. Perlu A/B testing dan improvement.',
             color: 'orange'
         }
-    ];
+    ].map((item, index) => ({
+        ...item,
+        title: keyLearningsRaw[index]?.title || '',
+        description: keyLearningsRaw[index]?.description || ''
+    }));
 
+    const actionsRaw = t('dataAnalysis.actions', { returnObjects: true }) as string[];
     const optimizationActions = [
-        { action: 'Menghentikan kampanye performa buruk', status: 'done' },
-        { action: 'Alokasi budget lebih ke "Traffic Tsabit"', status: 'done' },
-        { action: 'Rencana optimasi landing page Feyd Store', status: 'in-progress' },
-        { action: 'Merancang creative & copy baru berdasarkan insight', status: 'in-progress' }
-    ];
+        { status: 'done' },
+        { status: 'done' },
+        { status: 'in-progress' },
+        { status: 'in-progress' }
+    ].map((item, index) => ({
+        ...item,
+        action: actionsRaw[index] || ''
+    }));
 
     const getColorClasses = (color: string) => {
         const colors: Record<string, { bg: string; text: string; border: string }> = {
@@ -167,16 +171,16 @@ const DataAnalysis: React.FC = () => {
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Analisis & Pembelajaran dari Data
+                        {t('dataAnalysis.title')}
                     </h2>
                     <p className="text-lg text-white/80 max-w-3xl mx-auto">
-                        Mengambil insight berharga dari data kampanye untuk pengambilan keputusan yang lebih baik
+                        {t('dataAnalysis.subtitle')}
                     </p>
                 </ScrollReveal>
 
                 {/* Campaign Analysis */}
                 <ScrollReveal variant="fade-up" delay={0.1} className="mb-16">
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Analisis Kampanye</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('dataAnalysis.campaignSection')}</h3>
                     <StaggerContainer className="space-y-6">
                         {campaignAnalysis.map((campaign, index) => {
                             const colorClasses = getColorClasses(campaign.color);
@@ -218,7 +222,7 @@ const DataAnalysis: React.FC = () => {
 
                 {/* Key Learnings */}
                 <ScrollReveal variant="fade-up" delay={0.2} className="mb-16">
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Pembelajaran Utama</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('dataAnalysis.learningSection')}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {keyLearnings.map((learning, index) => {
                             const colorClasses = getColorClasses(learning.color);
@@ -249,7 +253,7 @@ const DataAnalysis: React.FC = () => {
                 {/* Optimization Actions */}
                 <ScrollReveal variant="fade-up" delay={0.3}>
                     <div className="bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-2xl border border-white/10">
-                        <h3 className="text-2xl font-bold text-white mb-6 text-center">Tindakan Optimalisasi</h3>
+                        <h3 className="text-2xl font-bold text-white mb-6 text-center">{t('dataAnalysis.actionSection')}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {optimizationActions.map((item, index) => (
                                 <div key={index} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">

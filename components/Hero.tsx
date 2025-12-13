@@ -2,15 +2,19 @@ import React from 'react';
 import { ArrowDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const stats = [
-    { label: 'Pengalaman AI', num: '8+', sub: 'Bulan' },
-    { label: 'Proyek Selesai', num: '5+', sub: 'Projects' },
-    { label: 'Bisnis Aktif', num: '2', sub: 'Running' },
-  ];
+  type Stat = {
+    label: string;
+    num: string;
+    sub: string;
+  };
+
+  const stats = t('hero.stats', { returnObjects: true }) as Stat[];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 px-6 pt-20 pb-12 lg:pt-0 overflow-hidden">
@@ -58,7 +62,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tighter"
         >
-          Muhammad Nizar Al-Faris
+          {t('hero.greeting')} <br className="sm:hidden" /> {t('hero.title')}
         </motion.h1>
 
         <motion.h2
@@ -67,7 +71,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl md:text-3xl text-electric-300 font-semibold mb-6"
         >
-          AI Engineer & Spesialis Digital Marketing
+          {t('hero.subtitle')}
         </motion.h2>
 
         <motion.p
@@ -76,7 +80,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg sm:text-xl text-white/90 font-normal mb-4 max-w-3xl mx-auto"
         >
-          Menguasai Digital Entrepreneurship melalui Facebook Ads yang Terukur
+          {t('hero.intro')}
         </motion.p>
 
         <motion.p
@@ -85,7 +89,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Membangun solusi web cerdas dengan pengembangan berbasis AI sambil mengoptimalkan kampanye digital untuk ROI maksimal. Spesialisasi dalam rapid prototyping, platform e-commerce, dan performance marketing.
+          {t('hero.description')}
         </motion.p>
 
         <motion.div
@@ -100,7 +104,7 @@ const Hero: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 sm:px-10 sm:py-4 bg-white text-navy-900 rounded-lg font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
           >
-            Lihat Proyek
+            {t('hero.cta.primary')}
           </motion.button>
           <motion.button
             onClick={() => navigate('/contact')}
@@ -108,7 +112,7 @@ const Hero: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 sm:px-10 sm:py-4 bg-transparent border-2 border-white/50 hover:bg-white/10 text-white rounded-lg font-bold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto"
           >
-            Hubungi Saya
+            {t('hero.cta.secondary')}
           </motion.button>
         </motion.div>
 

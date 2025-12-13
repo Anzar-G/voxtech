@@ -23,6 +23,7 @@ import {
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import useCountUp from '../hooks/useCountUp';
+import { useTranslation } from 'react-i18next';
 
 // --- Interfaces ---
 interface HeroMetric {
@@ -63,142 +64,6 @@ interface AnalyticsImage {
     alt: string;
     label: string;
 }
-
-// --- Data ---
-const heroMetrics: HeroMetric[] = [
-    {
-        icon: Rocket,
-        label: "Active Users",
-        value: "25+",
-        sublabel: "First 24 Hours",
-        color: "electric",
-        featured: true,
-    },
-    {
-        icon: Zap,
-        label: "Interactions",
-        value: "170+",
-        sublabel: "User Actions",
-        color: "purple",
-    },
-    {
-        icon: Clock,
-        label: "Avg Session",
-        value: "8s",
-        sublabel: "2x Industry Avg",
-        color: "yellow",
-    },
-    {
-        icon: MapPin,
-        label: "Cities Reached",
-        value: "7+",
-        sublabel: "Nationwide",
-        color: "green",
-    }
-];
-
-const velocityMetrics: VelocityMetric[] = [
-    { label: "Users/Day", value: 8.3, suffix: "", trend: "+15%", icon: Users },
-    { label: "Events/Day", value: 56, suffix: "", trend: "Steady", icon: Activity },
-    { label: "Engagement Rate", value: 6.8, suffix: "x", trend: "2x Avg", icon: TrendingUp }
-];
-
-const trafficSources: TrafficSource[] = [
-    {
-        name: "Direct Traffic",
-        percentage: 80,
-        color: "blue",
-        icon: LinkIcon,
-        context: "Strong brand recall"
-    },
-    {
-        name: "Paid Advertising",
-        percentage: 12,
-        color: "purple",
-        icon: BarChart3,
-        context: "Quick campaign validation"
-    },
-    {
-        name: "Social Referral",
-        percentage: 8,
-        color: "pink",
-        icon: Share2,
-        context: "Organic virality"
-    }
-];
-
-const cities = {
-    primary: ["Jakarta", "Surabaya", "Brebes"],
-    expanding: ["Cirebon", "Jambi", "Kupang", "Manado"]
-};
-
-const analyticsImages: AnalyticsImage[] = [
-    {
-        src: "/analytics/Pages_and_screens_Page_path_and_screen_class (1)_page-0001.jpg",
-        alt: "Pages and screens analytics showing page paths and screen classes",
-        label: "Pages & Screens Overview",
-    },
-    {
-        src: "/analytics/Events_Event_name_page-0001.jpg",
-        alt: "Event tracking showing user interactions and event names",
-        label: "Event Analytics",
-    },
-    {
-        src: "/analytics/User_attributes_overview_page-0001.jpg",
-        alt: "User attributes overview showing demographic data",
-        label: "User Demographics",
-    },
-    {
-        src: "/analytics/View_user_engagement_&_retention_overview_page-0001.jpg",
-        alt: "User engagement and retention metrics overview",
-        label: "Engagement & Retention",
-    }
-];
-
-const launchInsights: LaunchInsight[] = [
-    {
-        icon: Target,
-        category: "Launch Velocity",
-        headline: "Rapid Initial Adoption",
-        description: "8.3 users per hari menunjukkan strong immediate market interest dan product-market fit validation.",
-        color: "electric"
-    },
-    {
-        icon: Zap,
-        category: "Engagement Quality",
-        headline: "High User Activity",
-        description: "6.8 events per user (2x industry avg) membuktikan content relevance dan user experience yang compelling.",
-        color: "purple"
-    },
-    {
-        icon: TrendingUp,
-        category: "Channel Diversification",
-        headline: "Multi-Source Success",
-        description: "3 active traffic channels sejak hari pertama validate diversified acquisition strategy effectiveness.",
-        color: "yellow"
-    },
-    {
-        icon: MapPin,
-        category: "Geographic Validation",
-        headline: "Nationwide Appeal",
-        description: "7 kota tercapai dalam 24 jam menunjukkan scalable reach beyond local network dan organic virality.",
-        color: "green"
-    },
-    {
-        icon: Clock,
-        category: "Session Quality",
-        headline: "Meaningful Interactions",
-        description: "8s average session (2x portfolio benchmark) indicates visitors engaging deeply with content and offerings.",
-        color: "blue"
-    },
-    {
-        icon: Award,
-        category: "Launch Strategy",
-        headline: "Execution Excellence",
-        description: "Multi-channel soft launch dengan immediate tracking demonstrates professional approach dan data-driven mindset.",
-        color: "pink"
-    }
-];
 
 // --- Helper Components ---
 const MetricCard: React.FC<{ metric: HeroMetric; index: number }> = ({ metric, index }) => {
@@ -303,6 +168,7 @@ const ProgressBar: React.FC<{ source: TrafficSource; index: number }> = ({ sourc
 };
 
 const ImagePlaceholder: React.FC<{ image: AnalyticsImage; index: number; onClick: () => void }> = ({ image, index, onClick }) => {
+    const { t } = useTranslation();
     const [imageError, setImageError] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -336,8 +202,8 @@ const ImagePlaceholder: React.FC<{ image: AnalyticsImage; index: number; onClick
             ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-white/5 text-white/40 p-4 text-center">
                     <ImageIcon className="w-10 h-10 mb-2 opacity-50" />
-                    <span className="text-xs leading-tight">Analytics Dashboard</span>
-                    <span className="text-[10px] mt-1 text-white/30">Coming Soon</span>
+                    <span className="text-xs leading-tight">{t('websiteAnalytics.views.title')}</span>
+                    <span className="text-[10px] mt-1 text-white/30">{t('websiteAnalytics.views.comingSoon')}</span>
                 </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition-opacity">
@@ -355,7 +221,114 @@ const ImagePlaceholder: React.FC<{ image: AnalyticsImage; index: number; onClick
 
 // --- Main Component ---
 const WebsiteAnalytics: React.FC = () => {
+    const { t } = useTranslation();
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+    // --- Data ---
+    const heroMetrics: HeroMetric[] = [
+        {
+            icon: Rocket,
+            label: t('websiteAnalytics.metrics.activeUsers.label'),
+            value: "25+",
+            sublabel: t('websiteAnalytics.metrics.activeUsers.sub'),
+            color: "electric",
+            featured: true,
+        },
+        {
+            icon: Zap,
+            label: t('websiteAnalytics.metrics.interactions.label'),
+            value: "170+",
+            sublabel: t('websiteAnalytics.metrics.interactions.sub'),
+            color: "purple",
+        },
+        {
+            icon: Clock,
+            label: t('websiteAnalytics.metrics.avgSession.label'),
+            value: "8s",
+            sublabel: t('websiteAnalytics.metrics.avgSession.sub'),
+            color: "yellow",
+        },
+        {
+            icon: MapPin,
+            label: t('websiteAnalytics.metrics.cities.label'),
+            value: "7+",
+            sublabel: t('websiteAnalytics.metrics.cities.sub'),
+            color: "green",
+        }
+    ];
+
+    const velocityMetrics: VelocityMetric[] = [
+        { label: t('websiteAnalytics.velocity.usersDay'), value: 8.3, suffix: "", trend: "+15%", icon: Users },
+        { label: t('websiteAnalytics.velocity.eventsDay'), value: 56, suffix: "", trend: "Steady", icon: Activity },
+        { label: t('websiteAnalytics.velocity.engagementRate'), value: 6.8, suffix: "x", trend: "2x Avg", icon: TrendingUp }
+    ];
+
+    const trafficSources: TrafficSource[] = [
+        {
+            name: t('websiteAnalytics.traffic.direct.name'),
+            percentage: 80,
+            color: "blue",
+            icon: LinkIcon,
+            context: t('websiteAnalytics.traffic.direct.context')
+        },
+        {
+            name: t('websiteAnalytics.traffic.paid.name'),
+            percentage: 12,
+            color: "purple",
+            icon: BarChart3,
+            context: t('websiteAnalytics.traffic.paid.context')
+        },
+        {
+            name: t('websiteAnalytics.traffic.social.name'),
+            percentage: 8,
+            color: "pink",
+            icon: Share2,
+            context: t('websiteAnalytics.traffic.social.context')
+        }
+    ];
+
+    const cities = {
+        primary: ["Jakarta", "Surabaya", "Brebes"],
+        expanding: ["Cirebon", "Jambi", "Kupang", "Manado"]
+    };
+
+    const analyticsImages: AnalyticsImage[] = [
+        {
+            src: "/analytics/Pages_and_screens_Page_path_and_screen_class (1)_page-0001.jpg",
+            alt: "Pages and screens analytics",
+            label: t('websiteAnalytics.views.items.pages'),
+        },
+        {
+            src: "/analytics/Events_Event_name_page-0001.jpg",
+            alt: "Event tracking analytics",
+            label: t('websiteAnalytics.views.items.events'),
+        },
+        {
+            src: "/analytics/User_attributes_overview_page-0001.jpg",
+            alt: "User user demographics",
+            label: t('websiteAnalytics.views.items.users'),
+        },
+        {
+            src: "/analytics/View_user_engagement_&_retention_overview_page-0001.jpg",
+            alt: "User engagement and retention",
+            label: t('websiteAnalytics.views.items.engagement'),
+        }
+    ];
+
+    const launchInsightsRaw = t('websiteAnalytics.insights.items', { returnObjects: true }) as any[];
+    const launchInsights: LaunchInsight[] = [
+        { icon: Target, color: "electric" },
+        { icon: Zap, color: "purple" },
+        { icon: TrendingUp, color: "yellow" },
+        { icon: MapPin, color: "green" },
+        { icon: Clock, color: "blue" },
+        { icon: Award, color: "pink" }
+    ].map((item, index) => ({
+        ...item,
+        category: launchInsightsRaw[index]?.category || '',
+        headline: launchInsightsRaw[index]?.headline || '',
+        description: launchInsightsRaw[index]?.description || ''
+    }));
 
     // Keyboard navigation for modal
     useEffect(() => {
@@ -434,10 +407,10 @@ const WebsiteAnalytics: React.FC = () => {
                 {/* Section Title */}
                 <ScrollReveal className="text-center mb-12">
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Website Launch Performance
+                        {t('websiteAnalytics.title')}
                     </h2>
                     <p className="text-lg text-white/80 max-w-3xl mx-auto">
-                        Metrik harian rata-rata dalam 24 jam pertama sejak website launch dengan Google Analytics
+                        {t('websiteAnalytics.subtitle')}
                     </p>
                 </ScrollReveal>
 
@@ -454,10 +427,10 @@ const WebsiteAnalytics: React.FC = () => {
                             <div className="flex-1 text-center">
                                 <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-2 flex items-center justify-center gap-2 lg:gap-0">
                                     <Rocket className="w-6 h-6 lg:hidden text-electric-300" />
-                                    Website Launch Performance
+                                    {t('websiteAnalytics.launchContext.title')}
                                 </h3>
                                 <p className="text-sm lg:text-base text-white/70">
-                                    Dec 10, 2025 • 24 Hours Tracking
+                                    {t('websiteAnalytics.launchContext.date')}
                                 </p>
                             </div>
 
@@ -468,7 +441,7 @@ const WebsiteAnalytics: React.FC = () => {
                                     animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
-                                <span className="text-electric-300 text-xs font-bold uppercase tracking-wide">Live</span>
+                                <span className="text-electric-300 text-xs font-bold uppercase tracking-wide">{t('websiteAnalytics.launchContext.live')}</span>
                             </div>
                         </div>
                     </div>
@@ -487,7 +460,7 @@ const WebsiteAnalytics: React.FC = () => {
                         <div className="flex items-center gap-2 mb-6">
                             <Zap className="w-5 h-5 text-electric-300" />
                             <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
-                                Launch Velocity Metrics
+                                {t('websiteAnalytics.velocity.title')}
                             </h3>
                         </div>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -506,7 +479,7 @@ const WebsiteAnalytics: React.FC = () => {
                             <div className="flex items-center gap-2 mb-6">
                                 <BarChart3 className="w-5 h-5 text-electric-300" />
                                 <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
-                                    Traffic Source Mix
+                                    {t('websiteAnalytics.traffic.title')}
                                 </h3>
                             </div>
                             <div>
@@ -523,14 +496,14 @@ const WebsiteAnalytics: React.FC = () => {
                             <div className="flex items-center gap-2 mb-6">
                                 <Globe className="w-5 h-5 text-electric-300" />
                                 <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
-                                    Geographic Reach (24h)
+                                    {t('websiteAnalytics.geo.title')}
                                 </h3>
                             </div>
 
                             {/* Mobile: Vertical List */}
                             <div className="lg:hidden space-y-4">
                                 <div>
-                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">Primary Markets</p>
+                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">{t('websiteAnalytics.geo.primary')}</p>
                                     {cities.primary.map((city, idx) => (
                                         <div key={idx} className="flex items-center gap-2 mb-2">
                                             <MapPin className="w-4 h-4 text-green-400" />
@@ -539,7 +512,7 @@ const WebsiteAnalytics: React.FC = () => {
                                     ))}
                                 </div>
                                 <div className="border-t border-white/10 pt-4">
-                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">Expanding To</p>
+                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">{t('websiteAnalytics.geo.expanding')}</p>
                                     {cities.expanding.map((city, idx) => (
                                         <div key={idx} className="flex items-center gap-2 mb-2">
                                             <MapPin className="w-4 h-4 text-green-400" />
@@ -572,7 +545,7 @@ const WebsiteAnalytics: React.FC = () => {
                     <div className="mb-12">
                         <h3 className="text-xl lg:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                             <BarChart3 className="w-6 h-6 text-electric-300" />
-                            Analytics Dashboard Views
+                            {t('websiteAnalytics.views.title')}
                         </h3>
 
                         {/* Mobile: Horizontal Scroll */}
@@ -602,9 +575,8 @@ const WebsiteAnalytics: React.FC = () => {
                     </div>
                 </ScrollReveal>
 
-                {/* Key Insights */}
                 <ScrollReveal variant="fade-up" delay={0.6}>
-                    <h3 className="text-2xl font-bold text-white mb-8 text-center">Launch Insights & Learnings</h3>
+                    <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('websiteAnalytics.insights.title')}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                         {launchInsights.map((insight, index) => {
                             const Icon = insight.icon;

@@ -14,6 +14,7 @@ const AboutPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const timer = setTimeout(() => setIsLoading(false), 1200);
         return () => clearTimeout(timer);
     }, []);

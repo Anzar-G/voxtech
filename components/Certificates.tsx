@@ -4,8 +4,17 @@ import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import { Award, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+interface Certificate {
+    title: string;
+    image: string;
+    category: string;
+    description: string;
+}
 
 const Certificates: React.FC = () => {
+    const { t } = useTranslation();
     const [selectedCert, setSelectedCert] = React.useState<string | null>(null);
     const scrollPositionRef = React.useRef(0);
 
@@ -44,38 +53,19 @@ const Certificates: React.FC = () => {
         };
     }, [selectedCert]);
 
-    const certificates = [
-        {
-            title: "RevoU Software Engineering (Fundamental)",
-            image: "/sertifikat/Sertifikat RevoU Software Enginering 1.jpg",
-            category: "Software Engineering",
-            description: "Menguasai dasar-dasar pengembangan perangkat lunak dan web development. (19 Sep 2025)"
-        },
-        {
-            title: "RevoU Software Engineering (Advanced)",
-            image: "/sertifikat/Sertifikat RevoU Software Enginering 2.jpg",
-            category: "Software Engineering",
-            description: "Memahami arsitektur sistem dan teknik pengembangan perangkat lunak tingkat lanjut. (3 Okt 2025)"
-        },
-        {
-            title: "RevoU Digital Marketing (Strategy)",
-            image: "/sertifikat/Sertifikat RevoU Digital Marketing 1.jpg",
-            category: "Digital Marketing",
-            description: "Menyusun dan menerapkan strategi pemasaran digital secara efektif. (10 Okt 2025)"
-        },
-        {
-            title: "RevoU Digital Marketing (Advanced)",
-            image: "/sertifikat/Sertifikat RevoU Digital Marketing 2.jpg",
-            category: "Digital Marketing",
-            description: "Menganalisis data dan mengoptimalkan kinerja kampanye pemasaran secara mendalam. (17 Okt 2025)"
-        },
-        {
-            title: "Universitas Satya Negara Indonesia - Frame to Fame",
-            image: "/sertifikat/Sertifikat Frame to Fame.png",
-            category: "Creative",
-            description: "Memahami proses pembuatan animasi dan membuka peluang karier sebagai creator berbasis animasi. (15 Jul 2025)"
-        }
-    ];
+    const certificatesRaw = t('certificates.items', { returnObjects: true }) as any[];
+    const certificates: Certificate[] = [
+        { image: "/sertifikat/Sertifikat RevoU Software Enginering 1.jpg" },
+        { image: "/sertifikat/Sertifikat RevoU Software Enginering 2.jpg" },
+        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 1.jpg" },
+        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 2.jpg" },
+        { image: "/sertifikat/Sertifikat Frame to Fame.png" }
+    ].map((item, index) => ({
+        ...item,
+        title: certificatesRaw[index]?.title || '',
+        category: certificatesRaw[index]?.category || '',
+        description: certificatesRaw[index]?.description || ''
+    }));
 
     return (
         <section className="py-20 px-6 lg:px-20 bg-white/5 backdrop-blur-sm border-y border-white/10">
@@ -84,11 +74,11 @@ const Certificates: React.FC = () => {
                     <div className="flex items-center justify-center gap-3 mb-4">
                         <Award className="w-8 h-8 text-electric-300" />
                         <h2 className="text-3xl lg:text-4xl font-bold text-white">
-                            Sertifikasi & Penghargaan
+                            {t('certificates.title')}
                         </h2>
                     </div>
                     <p className="text-white/70 max-w-2xl mx-auto">
-                        Validasi keahlian melalui sertifikasi profesional resmi
+                        {t('certificates.subtitle')}
                     </p>
                 </ScrollReveal>
 
@@ -159,7 +149,7 @@ const Certificates: React.FC = () => {
                             onClick={() => setSelectedCert(null)}
                             className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors"
                         >
-                            Tutup [Esc]
+                            {t('certificates.close')}
                         </button>
                         <img
                             src={selectedCert}

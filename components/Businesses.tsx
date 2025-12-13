@@ -1,44 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Instagram, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 
 const Businesses: React.FC = () => {
+  const { t } = useTranslation();
+
   const businesses = [
     {
-      name: 'Feyd Store',
+      name: t('businesses.items.feyd.name'),
       url: 'feyd-store.vercel.app',
       logo: '/ipm.png',
-      category: 'E-commerce Produk Islami',
-      description: 'Menyediakan Al-Qur\'an Kharisma dengan tajwid berwarna & terjemahan, serta novel-novel inspiratif islami.',
-      products: [
-        'Al-Qur\'an Kharisma',
-        'Novel Melawan Kemustahilan',
-        'Novel Titik Balik',
-        'Novel Sebelum Aku Tiada',
-      ],
-      platforms: ['Website', 'Facebook', 'Instagram', 'WhatsApp'],
-      payment: ['BSI', 'Dana', 'Ovo', 'Gopay'],
+      category: t('businesses.items.feyd.category'),
+      description: t('businesses.items.feyd.description'),
+      products: t('businesses.items.feyd.products', { returnObjects: true }) as string[],
+      platforms: t('businesses.items.feyd.platforms', { returnObjects: true }) as string[],
+      payment: t('businesses.items.feyd.payment', { returnObjects: true }) as string[],
       links: {
         website: 'https://feyd-store.vercel.app',
         instagram: 'https://instagram.com/islamicproductmarket',
       },
     },
     {
-      name: 'Frontworks',
+      name: t('businesses.items.frontworks.name'),
       url: 'frontworks.vercel.app',
       logo: '/favicon.svg',
-      category: 'Layanan Web Development Berbasis AI',
-      description: 'Jasa pembuatan website profesional menggunakan pengembangan berbasis AI untuk delivery cepat dan kualitas tinggi.',
-      services: [
-        'Pembuatan Landing Page',
-        'Solusi E-commerce',
-        'Website Profil Perusahaan',
-        'Optimasi Website',
-      ],
-      specialization: ['AI-First Development', 'Rapid Prototyping', 'Modern Tech Stack'],
-      stats: ['5+ Proyek Selesai', '100% Kepuasan Klien'],
+      category: t('businesses.items.frontworks.category'),
+      description: t('businesses.items.frontworks.description'),
+      services: t('businesses.items.frontworks.services', { returnObjects: true }) as string[],
+      specialization: t('businesses.items.frontworks.specialization', { returnObjects: true }) as string[],
+      stats: t('businesses.items.frontworks.stats', { returnObjects: true }) as string[],
       links: {
         website: 'https://frontworks.vercel.app',
         linkedin: 'https://www.linkedin.com/in/muhammad-niyar-49272339a',
@@ -89,10 +82,10 @@ const Businesses: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Bisnis Saya
+            {t('businesses.title')}
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Bisnis digital aktif yang memberikan nilai kepada pelanggan
+            {t('businesses.subtitle')}
           </p>
         </ScrollReveal>
 
@@ -142,7 +135,7 @@ const Businesses: React.FC = () => {
               {/* Products/Services */}
               <div className="mb-6">
                 <p className="text-sm font-semibold text-white mb-3">
-                  {business.products ? 'Produk:' : 'Layanan:'}
+                  {business.products ? t('businesses.labels.products') : t('businesses.labels.services')}
                 </p>
                 <ul className="space-y-2">
                   {(business.products || business.services)?.map((item, i) => (
@@ -157,7 +150,7 @@ const Businesses: React.FC = () => {
               {/* Platforms or Specialization */}
               {business.platforms && (
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">Platform:</p>
+                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.platforms')}</p>
                   <div className="flex flex-wrap gap-2">
                     {business.platforms.map((platform, i) => (
                       <span
@@ -173,7 +166,7 @@ const Businesses: React.FC = () => {
 
               {business.specialization && (
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">Spesialisasi:</p>
+                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.specialization')}</p>
                   <div className="flex flex-wrap gap-2">
                     {business.specialization.map((spec, i) => (
                       <span
@@ -190,7 +183,7 @@ const Businesses: React.FC = () => {
               {/* Payment Methods or Stats */}
               {business.payment && (
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">Pembayaran:</p>
+                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.payment')}</p>
                   <div className="flex flex-wrap gap-2">
                     {business.payment.map((method, i) => (
                       <span
@@ -206,7 +199,7 @@ const Businesses: React.FC = () => {
 
               {business.stats && (
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">Portfolio:</p>
+                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.portfolio')}</p>
                   <div className="space-y-2">
                     {business.stats.map((stat, i) => (
                       <p key={i} className="text-sm text-white/90">• {stat}</p>
@@ -226,7 +219,7 @@ const Businesses: React.FC = () => {
                   className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-electric-500 hover:bg-electric-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg"
                 >
                   <Globe size={18} />
-                  <span>{business.products ? 'Kunjungi Toko' : 'Lihat Portfolio'}</span>
+                  <span>{business.products ? t('businesses.labels.visitStore') : t('businesses.labels.viewPortfolio')}</span>
                 </motion.a>
                 <motion.a
                   href={business.links.instagram || business.links.linkedin}
