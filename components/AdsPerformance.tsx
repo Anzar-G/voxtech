@@ -1,5 +1,5 @@
 import React from 'react';
-import { MousePointer, Eye, Target, Repeat, TrendingUp, DollarSign, BarChart, Check, CheckCircle, CalendarDays, Package } from 'lucide-react';
+import { MousePointer, Eye, Target, Repeat, TrendingUp, DollarSign, BarChart, Check, CheckCircle, CalendarDays, Package, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
@@ -194,10 +194,10 @@ const AdsPerformance: React.FC = () => {
                 key={index}
                 className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
               >
+                <BookOpen className="w-6 h-6 text-electric-300 flex-shrink-0" />
                 <div className="flex-1">
-                  <span className="text-2xl mr-2">{product.match(/^\S+/)?.[0]}</span>
                   <span className="text-sm font-medium text-white/90">
-                    {product.replace(/^\S+\s*/, '')}
+                    {product}
                   </span>
                 </div>
               </div>
