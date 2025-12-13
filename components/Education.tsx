@@ -39,7 +39,7 @@ const Education: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="px-6 lg:px-20">
+    <section id="education" className="px-6 lg:px-20 py-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

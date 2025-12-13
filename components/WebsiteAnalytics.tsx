@@ -462,13 +462,13 @@ const WebsiteAnalytics: React.FC = () => {
                             </div>
 
                             {/* Live Badge */}
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 border border-green-500/40">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-500/20 border border-electric-500/40">
                                 <motion.div
-                                    className="w-2 h-2 rounded-full bg-green-400"
-                                    animate={{ opacity: [1, 0.3, 1] }}
+                                    className="w-2 h-2 rounded-full bg-electric-400"
+                                    animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
-                                <span className="text-green-300 text-xs font-bold uppercase tracking-wide">Live</span>
+                                <span className="text-electric-300 text-xs font-bold uppercase tracking-wide">Live</span>
                             </div>
                         </div>
                     </div>

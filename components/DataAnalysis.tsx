@@ -84,12 +84,37 @@ const DataAnalysis: React.FC = () => {
 
     const getColorClasses = (color: string) => {
         const colors: Record<string, { bg: string; text: string; border: string }> = {
-            green: { bg: 'bg-green-500/20', text: 'text-green-400', border: 'border-green-500/50' },
-            yellow: { bg: 'bg-yellow-500/20', text: 'text-yellow-400', border: 'border-yellow-500/50' },
-            red: { bg: 'bg-red-500/20', text: 'text-red-400', border: 'border-red-500/50' },
-            blue: { bg: 'bg-cyan-400/20', text: 'text-cyan-300', border: 'border-cyan-400/50' },
-            purple: { bg: 'bg-purple-500/20', text: 'text-purple-400', border: 'border-purple-500/50' },
-            orange: { bg: 'bg-orange-500/20', text: 'text-orange-400', border: 'border-orange-500/50' }
+            // Neon Cyber Palette: Vibrant, Glowing, Alive
+            green: {
+                bg: 'bg-gradient-to-br from-emerald-500/20 to-cyan-500/20',
+                text: 'text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]',
+                border: 'border-emerald-500/50'
+            },
+            yellow: {
+                bg: 'bg-gradient-to-br from-amber-500/20 to-orange-500/20',
+                text: 'text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]',
+                border: 'border-amber-500/50'
+            },
+            red: {
+                bg: 'bg-gradient-to-br from-rose-500/20 to-pink-500/20',
+                text: 'text-rose-300 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]',
+                border: 'border-rose-500/50'
+            },
+            blue: {
+                bg: 'bg-gradient-to-br from-cyan-500/20 to-blue-500/20',
+                text: 'text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]',
+                border: 'border-cyan-500/50'
+            },
+            purple: {
+                bg: 'bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20',
+                text: 'text-fuchsia-300 drop-shadow-[0_0_8px_rgba(232,121,249,0.5)]',
+                border: 'border-fuchsia-500/50'
+            },
+            orange: {
+                bg: 'bg-gradient-to-br from-orange-500/20 to-red-500/20',
+                text: 'text-orange-300 drop-shadow-[0_0_8px_rgba(251,146,60,0.5)]',
+                border: 'border-orange-500/50'
+            }
         };
         return colors[color] || colors.blue;
     };
@@ -228,7 +253,7 @@ const DataAnalysis: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {optimizationActions.map((item, index) => (
                                 <div key={index} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${item.status === 'done' ? 'bg-green-500' : 'bg-yellow-500'
+                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${item.status === 'done' ? 'bg-electric-500' : 'bg-navy-700 border border-white/20'
                                         }`}>
                                         {item.status === 'done' ? (
                                             <CheckCircle className="w-4 h-4 text-white" />

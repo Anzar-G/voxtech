@@ -73,47 +73,47 @@ const Journey: React.FC = () => {
     },
   ];
 
-  // Specific event colors
+  // Neon Cyber Theme: Distinct but Cohesive
   const eventColors: { [key: string]: string } = {
-    learning: 'blue',
-    business: 'purple',
-    marketing: 'pink',
-    achievement: 'yellow'
+    learning: 'cyan',     // Growth / Tech -> Cyan/Teal
+    business: 'violet',   // Premium / Enterprise -> Violet/Purple
+    marketing: 'blue',    // Trust / Professional -> Blue/Indigo
+    achievement: 'amber'  // Trophy / Gold -> Amber/Orange
   };
 
   const colorStyles: { [key: string]: string } = {
-    blue: "bg-blue-500",
-    purple: "bg-purple-500",
-    pink: "bg-pink-500",
-    yellow: "bg-yellow-500",
+    cyan: "bg-gradient-to-br from-cyan-500/20 to-teal-500/20 shadow-[0_0_15px_rgba(34,211,238,0.3)] border-cyan-400/50",
+    violet: "bg-gradient-to-br from-violet-500/20 to-purple-500/20 shadow-[0_0_15px_rgba(139,92,246,0.3)] border-violet-400/50",
+    blue: "bg-gradient-to-br from-blue-500/20 to-indigo-500/20 shadow-[0_0_15px_rgba(59,130,246,0.3)] border-blue-400/50",
+    amber: "bg-gradient-to-br from-amber-500/20 to-orange-500/20 shadow-[0_0_15px_rgba(251,191,36,0.3)] border-amber-400/50",
   };
 
   const textColorStyles: { [key: string]: string } = {
+    cyan: "text-cyan-300",
+    violet: "text-violet-300",
     blue: "text-blue-300",
-    purple: "text-purple-300",
-    pink: "text-pink-300",
-    yellow: "text-yellow-300",
+    amber: "text-amber-300",
   };
 
   const checkColorStyles: { [key: string]: string } = {
+    cyan: "text-cyan-400",
+    violet: "text-violet-400",
     blue: "text-blue-400",
-    purple: "text-purple-400",
-    pink: "text-pink-400",
-    yellow: "text-yellow-400",
+    amber: "text-amber-400",
   };
 
   const glowStyles: { [key: string]: string } = {
-    blue: "shadow-[0_0_20px_rgba(59,130,246,0.3)] border-blue-500/30",
-    purple: "shadow-[0_0_20px_rgba(168,85,247,0.3)] border-purple-500/30",
-    pink: "shadow-[0_0_20px_rgba(236,72,153,0.3)] border-pink-500/30",
-    yellow: "shadow-[0_0_20px_rgba(234,179,8,0.3)] border-yellow-500/30",
+    cyan: "shadow-[0_0_25px_rgba(6,182,212,0.4)] border-cyan-400/50",
+    violet: "shadow-[0_0_25px_rgba(139,92,246,0.4)] border-violet-400/50",
+    blue: "shadow-[0_0_25px_rgba(59,130,246,0.4)] border-blue-400/50",
+    amber: "shadow-[0_0_25px_rgba(251,191,36,0.4)] border-amber-400/50",
   };
 
   const gradientStyles: { [key: string]: string } = {
+    cyan: "from-cyan-500/20 to-cyan-600/5",
+    violet: "from-violet-500/20 to-violet-600/5",
     blue: "from-blue-500/20 to-blue-600/5",
-    purple: "from-purple-500/20 to-purple-600/5",
-    pink: "from-pink-500/20 to-pink-600/5",
-    yellow: "from-yellow-500/20 to-yellow-600/5",
+    amber: "from-amber-500/20 to-amber-600/5",
   };
 
   // Debounced scroll handler

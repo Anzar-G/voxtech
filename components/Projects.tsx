@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ExternalLink, FileText, TrendingUp, Zap, Target, CheckCircle } from 'lucide-react';
+import { ExternalLink, FileText, TrendingUp, Zap, Target, CheckCircle, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
+import PerformanceRoadmap from './PerformanceRoadmap';
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -318,8 +319,8 @@ const Projects: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                       <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
-                            <Target className="w-5 h-5 text-red-500" />
+                          <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                            <Target className="w-5 h-5 text-electric-300" />
                           </div>
                           <h4 className="text-lg font-bold text-white">Challenge</h4>
                         </div>
@@ -338,8 +339,8 @@ const Projects: React.FC = () => {
 
                       <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                            <TrendingUp className="w-5 h-5 text-green-500" />
+                          <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                            <Rocket className="w-5 h-5 text-cyan-300" />
                           </div>
                           <h4 className="text-lg font-bold text-white">Results</h4>
                         </div>
@@ -401,6 +402,9 @@ const Projects: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {/* Performance Roadmap Section */}
+        <PerformanceRoadmap />
       </div>
     </section>
   );

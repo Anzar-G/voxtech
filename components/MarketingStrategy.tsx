@@ -177,7 +177,7 @@ const MarketingStrategy: React.FC = () => {
                             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-cyan-400/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                                     <Search className="text-cyan-300 w-6 h-6" />
                                 </div>
                                 <h4 className="text-xl font-bold text-white">Riset Pasar</h4>
@@ -207,8 +207,8 @@ const MarketingStrategy: React.FC = () => {
                             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                                    <Palette className="text-purple-400 w-6 h-6" />
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                                    <Palette className="text-violet-300 w-6 h-6" />
                                 </div>
                                 <h4 className="text-xl font-bold text-white">Perencanaan & Strategi Konten</h4>
                             </div>
@@ -225,7 +225,7 @@ const MarketingStrategy: React.FC = () => {
                                     <p className="text-sm text-electric-300 font-semibold mb-1">Content Pillars</p>
                                     <div className="flex flex-wrap gap-2 mt-2">
                                         {['Produk', 'Edukasi', 'Testimoni', 'Promosi'].map((pillar, i) => (
-                                            <span key={i} className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-xs font-medium">
+                                            <span key={i} className="bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
                                                 {pillar}
                                             </span>
                                         ))}
@@ -243,8 +243,8 @@ const MarketingStrategy: React.FC = () => {
                             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-                                    <Rocket className="text-green-400 w-6 h-6" />
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                    <Rocket className="text-emerald-300 w-6 h-6" />
                                 </div>
                                 <h4 className="text-xl font-bold text-white">Produksi & Eksekusi</h4>
                             </div>
@@ -273,8 +273,8 @@ const MarketingStrategy: React.FC = () => {
                             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
-                                    <BarChart3 className="text-orange-400 w-6 h-6" />
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                                    <BarChart3 className="text-amber-300 w-6 h-6" />
                                 </div>
                                 <h4 className="text-xl font-bold text-white">Analisis & Evaluasi</h4>
                             </div>

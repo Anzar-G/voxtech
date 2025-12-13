@@ -52,15 +52,15 @@ const MetricCard: React.FC<MetricCardProps> = ({
 
     // Precise color mapping
     const colorStyles: { [key: string]: string } = {
-        purple: "bg-purple-500/10 border-purple-500/20 text-purple-300 hover:border-purple-400/40 hover:bg-purple-500/20",
-        pink: "bg-pink-500/10 border-pink-500/20 text-pink-300 hover:border-pink-400/40 hover:bg-pink-500/20",
-        blue: "bg-blue-500/10 border-blue-500/20 text-blue-300 hover:border-blue-400/40 hover:bg-blue-500/20",
-        green: "bg-green-500/10 border-green-500/20 text-green-300 hover:border-green-400/40 hover:bg-green-500/20",
-        yellow: "bg-yellow-500/10 border-yellow-500/20 text-yellow-300 hover:border-yellow-400/40 hover:bg-yellow-500/20",
-        cyan: "bg-cyan-500/10 border-cyan-500/20 text-cyan-300 hover:border-cyan-400/40 hover:bg-cyan-500/20",
+        purple: "bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border-violet-500/20 text-fuchsia-300 hover:border-violet-500/40 hover:bg-violet-500/20",
+        pink: "bg-gradient-to-br from-pink-500/10 to-rose-500/10 border-pink-500/20 text-pink-300 hover:border-pink-500/40 hover:bg-pink-500/20",
+        blue: "bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border-blue-500/20 text-blue-300 hover:border-blue-500/40 hover:bg-blue-500/20",
+        green: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-300 hover:border-emerald-500/50",
+        yellow: "bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-500/30 text-amber-300 hover:border-amber-500/50",
+        cyan: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20 text-cyan-300 hover:border-cyan-500/40 hover:bg-cyan-500/20",
         gray: "bg-gray-700/30 border-gray-600/30 text-gray-300 hover:border-gray-500/40 hover:bg-gray-700/40",
-        red: "bg-red-500/10 border-red-500/20 text-red-300 hover:border-red-400/40 hover:bg-red-500/20",
-        emerald: "bg-emerald-500/10 border-emerald-500/20 text-emerald-300 hover:border-emerald-400/40 hover:bg-emerald-500/20",
+        red: "bg-gradient-to-br from-rose-500/10 to-red-500/10 border-rose-500/20 text-rose-300 hover:border-rose-500/40 hover:bg-rose-500/20",
+        emerald: "bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 text-emerald-300 hover:border-emerald-500/40 hover:bg-emerald-500/20",
     };
 
     const styleClass = colorStyles[color] || colorStyles.gray;

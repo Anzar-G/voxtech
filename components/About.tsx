@@ -17,6 +17,7 @@ import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import Certificates from './Certificates';
 import Education from './Education';
+import SkillsVisualization from './SkillsVisualization';
 
 const About: React.FC = () => {
   const skills = [
@@ -346,159 +347,168 @@ const About: React.FC = () => {
             </ScrollReveal>
           </div>
         </div>
+      </div>
 
+      {/* Skills Visualization Section */}
+      <div className="my-16">
+        <SkillsVisualization />
+      </div>
+
+      <div className="my-16">
         <Education />
+      </div>
 
-        {/* Why Choose Me Section */}
-        <div className="bg-white/10 backdrop-blur-lg py-16 px-8 rounded-3xl border border-white/20">
-          <ScrollReveal>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-              Mengapa Memilih Saya?
-            </h2>
-            <p className="text-center text-white mb-12 max-w-2xl mx-auto">
-              Kombinasi unik antara keahlian teknis AI development dan pemahaman mendalam tentang digital marketing
-            </p>
-          </ScrollReveal>
+      {/* Why Choose Me Section */}
+      <div className="bg-white/10 backdrop-blur-lg py-16 px-8 rounded-3xl border border-white/20 my-16">
+        <ScrollReveal>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+            Mengapa Memilih Saya?
+          </h2>
+          <p className="text-center text-white mb-12 max-w-2xl mx-auto">
+            Kombinasi unik antara keahlian teknis AI development dan pemahaman mendalam tentang digital marketing
+          </p>
+        </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {whyChooseMe.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-4 lg:p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10 hover:border-electric-500/30 flex flex-col h-full"
-              >
-                <div className="bg-gradient-to-br from-electric-500/20 to-navy-800/50 w-10 h-10 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center mb-3 lg:mb-4 text-electric-300 border border-electric-500/20 flex-shrink-0">
-                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6" })}
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+          {whyChooseMe.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="bg-white/10 backdrop-blur-lg rounded-xl p-4 lg:p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-electric-500/10 hover:border-electric-500/30 flex flex-col h-full"
+            >
+              <div className="bg-gradient-to-br from-electric-500/20 to-navy-800/50 w-10 h-10 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center mb-3 lg:mb-4 text-electric-300 border border-electric-500/20 flex-shrink-0">
+                {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6" })}
+              </div>
+              <h4 className="text-sm lg:text-lg font-bold text-white mb-1 lg:mb-2 leading-tight">{item.title}</h4>
+              <p className="text-xs lg:text-sm text-white/70 leading-relaxed flex-grow">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+      </div>
+
+      {/* Workflow/Process Section */}
+      <div className="my-16">
+        <ScrollReveal>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+            Proses Kerja Saya
+          </h2>
+          <p className="text-center text-white mb-16 max-w-2xl mx-auto">
+            Metodologi yang terstruktur untuk memastikan hasil terbaik di setiap proyek
+          </p>
+        </ScrollReveal>
+
+        <StaggerContainer className="max-w-4xl mx-auto space-y-6">
+          {workflowSteps.map((step, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, x: index % 2 === 0 ? -20 : 20 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              className={`flex gap-4 lg:gap-6 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-white/20`}
+            >
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-lg lg:text-xl border-2 border-white/20 shadow-lg">
+                  {step.number}
                 </div>
-                <h4 className="text-sm lg:text-lg font-bold text-white mb-1 lg:mb-2 leading-tight">{item.title}</h4>
-                <p className="text-xs lg:text-sm text-white/70 leading-relaxed flex-grow">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerContainer>
-        </div>
-
-        {/* Workflow/Process Section */}
-        <div>
-          <ScrollReveal>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-              Proses Kerja Saya
-            </h2>
-            <p className="text-center text-white mb-16 max-w-2xl mx-auto">
-              Metodologi yang terstruktur untuk memastikan hasil terbaik di setiap proyek
-            </p>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-4xl mx-auto space-y-6">
-            {workflowSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, x: index % 2 === 0 ? -20 : 20 },
-                  visible: { opacity: 1, x: 0 }
-                }}
-                className={`flex gap-4 lg:gap-6 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-white/20`}
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-electric-500 to-navy-900 flex items-center justify-center text-white font-bold text-lg lg:text-xl border-2 border-white/20 shadow-lg">
-                    {step.number}
+              </div>
+              <div className={`flex-1 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                <div className={`flex flex-col ${index % 2 === 0 ? 'items-start' : 'items-end'} mb-2`}>
+                  <h3 className="text-lg lg:text-xl font-bold text-white leading-tight">{step.title}</h3>
+                  <div className="flex items-center gap-2 text-xs lg:text-sm text-white/60 mt-1">
+                    <Clock className="w-3 h-3 lg:w-4 lg:h-4" />
+                    <span>{step.duration}</span>
                   </div>
                 </div>
-                <div className={`flex-1 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                  <div className={`flex flex-col ${index % 2 === 0 ? 'items-start' : 'items-end'} mb-2`}>
-                    <h3 className="text-lg lg:text-xl font-bold text-white leading-tight">{step.title}</h3>
-                    <div className="flex items-center gap-2 text-xs lg:text-sm text-white/60 mt-1">
-                      <Clock className="w-3 h-3 lg:w-4 lg:h-4" />
-                      <span>{step.duration}</span>
-                    </div>
-                  </div>
-                  <p className="text-sm lg:text-base text-white/70 leading-relaxed">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </StaggerContainer>
-        </div>
+                <p className="text-sm lg:text-base text-white/70 leading-relaxed">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+      </div>
 
-        {/* Certificates Section */}
+      {/* Certificates Section */}
+      <div className="my-16">
         <Certificates />
+      </div>
 
-        {/* Testimonials Section */}
-        <div className="bg-gradient-to-br from-navy-900 to-electric-500 py-16 px-8 rounded-3xl">
-          <ScrollReveal>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
-              Apa Kata Mereka?
-            </h2>
-            <p className="text-center text-white/80 mb-12 max-w-2xl mx-auto">
-              Feedback dari client yang puas dengan hasil kerja saya
-            </p>
-          </ScrollReveal>
+      {/* Testimonials Section */}
+      <div className="bg-gradient-to-br from-navy-900 to-electric-500 py-16 px-8 rounded-3xl my-16">
+        <ScrollReveal>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center">
+            Apa Kata Mereka?
+          </h2>
+          <p className="text-center text-white/80 mb-12 max-w-2xl mx-auto">
+            Feedback dari client yang puas dengan hasil kerja saya
+          </p>
+        </ScrollReveal>
 
-          {/* Desktop Grid */}
-          <StaggerContainer className="hidden lg:grid lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        {/* Desktop Grid */}
+        <StaggerContainer className="hidden lg:grid lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, scale: 0.9 },
+                visible: { opacity: 1, scale: 1 }
+              }}
+              className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-white/90 italic mb-6 leading-relaxed">"{testimonial.text}"</p>
+              <div className="border-t border-white/20 pt-4">
+                <p className="text-white font-semibold">{testimonial.name}</p>
+                <p className="text-white/70 text-sm">{testimonial.position}</p>
+                <p className="text-electric-300 text-sm mt-2">Proyek: {testimonial.project}</p>
+              </div>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+
+        {/* Mobile Horizontal Scroll */}
+        <div className="lg:hidden">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide px-4 -mx-4">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.9 },
-                  visible: { opacity: 1, scale: 1 }
-                }}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                className="snap-center flex-shrink-0 w-[85%] bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-white/90 italic mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <p className="text-white/90 italic mb-6 text-sm leading-relaxed">"{testimonial.text}"</p>
                 <div className="border-t border-white/20 pt-4">
-                  <p className="text-white font-semibold">{testimonial.name}</p>
-                  <p className="text-white/70 text-sm">{testimonial.position}</p>
-                  <p className="text-electric-300 text-sm mt-2">Proyek: {testimonial.project}</p>
+                  <p className="text-white font-semibold text-sm">{testimonial.name}</p>
+                  <p className="text-white/70 text-xs">{testimonial.position}</p>
+                  <p className="text-electric-300 text-xs mt-1">Proyek: {testimonial.project}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </StaggerContainer>
-
-          {/* Mobile Horizontal Scroll */}
-          <div className="lg:hidden">
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide px-4 -mx-4">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="snap-center flex-shrink-0 w-[85%] bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-white/90 italic mb-6 text-sm leading-relaxed">"{testimonial.text}"</p>
-                  <div className="border-t border-white/20 pt-4">
-                    <p className="text-white font-semibold text-sm">{testimonial.name}</p>
-                    <p className="text-white/70 text-xs">{testimonial.position}</p>
-                    <p className="text-electric-300 text-xs mt-1">Proyek: {testimonial.project}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* Dots Indicator */}
-            <div className="flex justify-center gap-2">
-              {testimonials.map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/30" />
-              ))}
-            </div>
           </div>
-
-          <ScrollReveal variant="fade-up" delay={0.3} className="text-center mt-12">
-            <p className="text-white/60 text-sm italic">
-              * Testimonial di atas adalah placeholder. Data asli akan diisi setelah mendapat feedback dari client.
-            </p>
-          </ScrollReveal>
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2">
+            {testimonials.map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/30" />
+            ))}
+          </div>
         </div>
+
+        <ScrollReveal variant="fade-up" delay={0.3} className="text-center mt-12">
+          <p className="text-white/60 text-sm italic">
+            * Testimonial di atas adalah placeholder. Data asli akan diisi setelah mendapat feedback dari client.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
