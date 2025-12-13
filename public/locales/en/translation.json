@@ -242,7 +242,7 @@
             },
             "stats": {
                 "title": "Portfolio Statistics",
-                "subtitle": "🚀 All projects are in continuous development with ongoing performance optimization",
+                "subtitle": "All projects are in continuous development with ongoing performance optimization",
                 "completed": "Projects Completed",
                 "satisfaction": "Client Satisfaction",
                 "bestPractices": "Avg Best Practices",
@@ -583,7 +583,7 @@
             "label": "Note:",
             "text": "Performance scores reflect v1.0 baseline. Active optimization in progress targeting 90+ across all metrics through image optimization, code splitting, and bundle size reduction."
         },
-        "statusMessage": "🚀 All projects are in active development with ongoing performance optimization",
+        "statusMessage": "All projects are in active development with ongoing performance optimization",
         "phases": [
             {
                 "phase": "Current",
@@ -710,10 +710,10 @@
         "products": {
             "title": "Products Advertised",
             "items": [
-                "📖 Al-Qur'an Kharisma (Colored Tajwid)",
-                "📚 Novel: Melawan Kemustahilan",
-                "📚 Novel: Titik Balik",
-                "📚 Novel: Sebelum Aku Tiada"
+                "Al-Qur'an Kharisma (Colored Tajwid)",
+                "Novel: Melawan Kemustahilan",
+                "Novel: Titik Balik",
+                "Novel: Sebelum Aku Tiada"
             ]
         }
     },

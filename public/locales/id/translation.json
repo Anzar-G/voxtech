@@ -242,7 +242,7 @@
             },
             "stats": {
                 "title": "Statistik Portfolio",
-                "subtitle": "🚀 Semua proyek dalam pengembangan berkelanjutan dengan optimasi performa terus menerus",
+                "subtitle": "Semua proyek dalam pengembangan berkelanjutan dengan optimasi performa terus menerus",
                 "completed": "Proyek Selesai",
                 "satisfaction": "Kepuasan Klien",
                 "bestPractices": "Rata-rata Best Practices",
@@ -583,7 +583,7 @@
             "label": "Catatan:",
             "text": "Skor performa mencerminkan baseline v1.0. Optimasi aktif sedang berlangsung menargetkan 90+ di semua metrik melalui optimasi gambar, code splitting, dan pengurangan ukuran bundle."
         },
-        "statusMessage": "🚀 Semua proyek dalam pengembangan aktif dengan optimasi performa berkelanjutan",
+        "statusMessage": "Semua proyek dalam pengembangan aktif dengan optimasi performa berkelanjutan",
         "phases": [
             {
                 "phase": "Saat Ini",
@@ -710,10 +710,10 @@
         "products": {
             "title": "Produk yang Diiklankan",
             "items": [
-                "📖 Al-Qur'an Kharisma (Tajwid Berwarna)",
-                "📚 Novel: Melawan Kemustahilan",
-                "📚 Novel: Titik Balik",
-                "📚 Novel: Sebelum Aku Tiada"
+                "Al-Qur'an Kharisma (Tajwid Berwarna)",
+                "Novel: Melawan Kemustahilan",
+                "Novel: Titik Balik",
+                "Novel: Sebelum Aku Tiada"
             ]
         }
     },
