@@ -87,7 +87,7 @@ const App: React.FC = () => {
             <AnimatedRoutes />
 
             <footer className="bg-navy-900 text-white py-6 text-center border-t border-white/10">
-              <p className="text-sm opacity-60">© 2025 Muhammad Nizar Al-Faris. Hak Cipta Dilindungi.</p>
+              <p className="text-sm opacity-60">© 2025 Muhammad Nizar Al-Faris | Vox Tech. Hak Cipta Dilindungi.</p>
             </footer>
           </main>
         </div>
