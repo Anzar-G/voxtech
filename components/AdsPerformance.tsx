@@ -1,6 +1,7 @@
 import React from 'react';
-import { MousePointer, Eye, Target, Repeat, TrendingUp, DollarSign, CheckCircle } from 'lucide-react';
+import { MousePointer, Eye, Target, Repeat, TrendingUp, DollarSign, BarChart, Check, CheckCircle, CalendarDays, Package } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const AdsPerformance: React.FC = () => {
   const { t } = useTranslation();
@@ -93,14 +94,14 @@ const AdsPerformance: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">💰</span>
+              <DollarSign className="w-6 h-6 text-green-400" />
               <div>
                 <p className="text-sm text-white/60">{t('adsPerformance.spend.label')}</p>
                 <p className="text-lg font-semibold text-white">{t('adsPerformance.spend.value')}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">📊</span>
+              <BarChart className="w-6 h-6 text-electric-300" />
               <div>
                 <p className="text-sm text-white/60">{t('adsPerformance.budget.label')}</p>
                 <p className="text-lg font-semibold text-white">{t('adsPerformance.budget.value')}</p>
@@ -177,7 +178,7 @@ const AdsPerformance: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map((insight, index) => (
               <div key={index} className="flex items-start gap-3">
-                <span className="text-electric-300 text-xl font-bold mt-1">✅</span>
+                <Check className="w-5 h-5 text-electric-300 mt-1" />
                 <p className="text-base text-white/90 leading-relaxed">{insight}</p>
               </div>
             ))}
