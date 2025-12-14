@@ -2,14 +2,17 @@
 
 /**
  * Image Optimization Script
- * Generates responsive WebP images for mobile performance
- * 
- * Run: node scripts/optimize-images.js
+ * Generates WebP versions and responsive sizes for all images
+ * Run: npm run optimize-images
  */
 
-const sharp = require('sharp');
-const fs = require('fs').promises;
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration
 const CONFIG = {
