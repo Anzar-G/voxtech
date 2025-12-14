@@ -19,6 +19,7 @@ import StaggerContainer from './animations/StaggerContainer';
 import Certificates from './Certificates';
 import Education from './Education';
 import SkillsVisualization from './SkillsVisualization';
+import OptimizedImage from './OptimizedImage';
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -190,13 +191,11 @@ const About: React.FC = () => {
                 {/* Profile Photo */}
                 <div className="w-full lg:max-w-xs lg:mx-auto">
                   <div className="aspect-square rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 shadow-lg overflow-hidden backdrop-blur-sm">
-                    <img
+                    <OptimizedImage
                       src="/profile.jpg"
                       alt="Muhammad Nizar Al-Faris"
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/1e293b/white?text=MN';
-                      }}
+                      priority={true}
                     />
                   </div>
                 </div>

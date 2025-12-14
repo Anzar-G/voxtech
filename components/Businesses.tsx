@@ -4,6 +4,7 @@ import { Globe, Instagram, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
+import OptimizedImage from './OptimizedImage';
 
 const Businesses: React.FC = () => {
   const { t } = useTranslation();
@@ -104,7 +105,7 @@ const Businesses: React.FC = () => {
               {/* Logo Placeholder */}
               <div className="w-16 h-16 rounded-2xl bg-white/90 border-2 border-white/30 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-md overflow-hidden">
                 {business.logo.includes('/') || business.logo.includes('.') ? (
-                  <img
+                  <OptimizedImage
                     src={business.logo}
                     alt={`${business.name} logo`}
                     className="w-full h-full object-contain"

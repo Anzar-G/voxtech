@@ -5,6 +5,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import PerformanceRoadmap from './PerformanceRoadmap';
+import OptimizedImage from './OptimizedImage';
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -213,8 +214,11 @@ const Projects: React.FC = () => {
               >
                 <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
                   <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top"
-                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1e293b/white?text=Project'; }} />
+                  <OptimizedImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top"
+                  />
                   {project.featured && (
                     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
                       className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg">

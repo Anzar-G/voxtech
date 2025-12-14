@@ -5,6 +5,7 @@ import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import { Award, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import OptimizedImage from './OptimizedImage';
 
 interface Certificate {
     title: string;
@@ -96,7 +97,7 @@ const Certificates: React.FC = () => {
                         >
                             {/* Image Container */}
                             <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
-                                <img
+                                <OptimizedImage
                                     src={cert.image}
                                     alt={cert.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
