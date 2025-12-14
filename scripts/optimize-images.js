@@ -178,11 +178,11 @@ async function main() {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] === __filename) {
     main().catch(error => {
         console.error('Fatal error:', error);
         process.exit(1);
     });
 }
 
-module.exports = { processImage, processDirectory };
+export { processImage, processDirectory };
