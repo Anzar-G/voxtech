@@ -39,6 +39,8 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         onMouseEnter={() => setDesktopOpen(true)}
         onMouseLeave={() => setDesktopOpen(false)}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
+        role="navigation"
+        aria-label="Main navigation"
       >
         {/* Logo */}
         <div className="p-4 border-b border-white/10 flex items-center gap-3 overflow-hidden">
@@ -57,7 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 py-4 overflow-y-auto no-scrollbar">
+        <nav className="flex-1 py-4 overflow-y-auto no-scrollbar" role="menu" aria-label="Main menu">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
@@ -69,6 +71,9 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                   ? 'bg-electric-500/15 text-electric-500 border-l-4 border-electric-500'
                   : 'text-white/70 hover:bg-white/5 hover:text-white border-l-4 border-transparent'
                   }`}
+                role="menuitem"
+                aria-label={`Navigate to ${item.label}`}
+                aria-current={isActive ? 'page' : undefined}
               >
                 <Icon size={20} className="flex-shrink-0" />
                 <motion.span
