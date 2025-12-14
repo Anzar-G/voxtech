@@ -28,7 +28,6 @@ export default function OptimizedImage({
     ...props
 }: OptimizedImageProps) {
     const [isLoaded, setIsLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState<string>('');
 
     // Generate responsive image sources
     const getImageSources = (baseSrc: string) => {
@@ -64,13 +63,6 @@ export default function OptimizedImage({
         };
     };
 
-    useEffect(() => {
-        // For priority images, load immediately
-        if (priority && src) {
-            setImgSrc(src);
-        }
-    }, [src, priority]);
-
     const sources = getImageSources(src || '');
     const hasSrcSet = sources.srcset && sources.srcsetWebp;
 
@@ -105,7 +97,7 @@ export default function OptimizedImage({
             {/* Actual img tag */}
             <img
                 {...props}
-                src={imgSrc || sources.original}
+                src={sources.original}
                 alt={alt}
                 sizes={sizes}
                 className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}

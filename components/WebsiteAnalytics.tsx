@@ -305,7 +305,7 @@ const WebsiteAnalytics: React.FC = () => {
         },
         {
             src: "/analytics/User_attributes_overview_page-0001.jpg",
-            alt: "User user demographics",
+            alt: "User demographics",
             label: t('websiteAnalytics.views.items.users'),
         },
         {
