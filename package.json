@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run optimize-images && vite build",
+    "build": "vite build",
     "build:quick": "vite build",
     "preview": "vite preview",
-    "optimize-images": "node scripts/optimize-images.js",
     "analyze": "vite-bundle-visualizer",
     "lighthouse": "lighthouse https://voxtech-weld.vercel.app --view --preset=desktop",
     "lighthouse:mobile": "lighthouse https://voxtech-weld.vercel.app --view --preset=mobile",
