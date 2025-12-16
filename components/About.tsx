@@ -23,6 +23,7 @@ import SkillsVisualization from './SkillsVisualization';
 
 const About: React.FC = () => {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = React.useState(false);
 
   const skills = [
     {
@@ -186,7 +187,7 @@ const About: React.FC = () => {
             {/* Left Column - 40% */}
             <ScrollReveal variant="fade-right" className="lg:col-span-2 space-y-6">
               {/* Mobile: Photo + Info Side by Side / Desktop: Standard */}
-              <div className="grid grid-cols-[45%_1fr] lg:grid-cols-1 gap-4 mb-6 lg:mb-0 lg:space-y-6">
+              <div className="grid grid-cols-[45%_1fr] lg:grid-cols-1 gap-6 mb-6 lg:mb-0 lg:space-y-6">
                 {/* Profile Photo */}
                 <div className="w-full lg:max-w-xs lg:mx-auto">
                   <div className="aspect-square rounded-3xl bg-gradient-to-br from-electric-500 via-cyan-400 to-purple-500 p-1 shadow-2xl overflow-hidden backdrop-blur-sm">
@@ -208,28 +209,28 @@ const About: React.FC = () => {
                       <MapPin className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-sm lg:text-base">{t('about.location.label')}</p>
-                        <p className="text-xs lg:text-sm text-blue-50">{t('about.location.value')}</p>
+                        <p className="text-sm lg:text-base text-blue-50">{t('about.location.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <GraduationCap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-sm lg:text-base">{t('about.education.label')}</p>
-                        <p className="text-xs lg:text-sm text-blue-50">{t('about.education.value')}</p>
+                        <p className="text-sm lg:text-base text-blue-50">{t('about.education.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Briefcase className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-sm lg:text-base">{t('about.business.label')}</p>
-                        <p className="text-xs lg:text-sm text-blue-50">{t('about.business.value')}</p>
+                        <p className="text-sm lg:text-base text-blue-50">{t('about.business.value')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Zap className="w-5 h-5 lg:w-6 lg:h-6 mt-0.5 lg:mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-semibold text-sm lg:text-base">{t('about.experience.label')}</p>
-                        <p className="text-xs lg:text-sm text-blue-50">{t('about.experience.value')}</p>
+                        <p className="text-sm lg:text-base text-blue-50">{t('about.experience.value')}</p>
                       </div>
                     </div>
                   </div>
@@ -237,37 +238,56 @@ const About: React.FC = () => {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-4 lg:gap-8">
                 <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-electric-500/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">8+</p>
-                  <p className="text-[10px] lg:text-xs text-blue-200 mt-1">{t('about.stats.aiMonths')}</p>
+                  <p className="text-xs lg:text-sm text-blue-200 mt-1">{t('about.stats.aiMonths')}</p>
                 </div>
                 <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-electric-500/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">5+</p>
-                  <p className="text-[10px] lg:text-xs text-blue-200 mt-1">{t('about.stats.projects')}</p>
+                  <p className="text-xs lg:text-sm text-blue-200 mt-1">{t('about.stats.projects')}</p>
                 </div>
                 <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-electric-500/20">
                   <p className="text-2xl lg:text-3xl font-bold text-electric-300">2</p>
-                  <p className="text-[10px] lg:text-xs text-blue-200 mt-1">{t('about.stats.businesses')}</p>
+                  <p className="text-xs lg:text-sm text-blue-200 mt-1">{t('about.stats.businesses')}</p>
                 </div>
               </div>
             </ScrollReveal>
 
             {/* Right Column - 60% */}
             <ScrollReveal variant="fade-left" delay={0.2} className="lg:col-span-3 space-y-8">
-              <div>
+              <div className="relative">
                 <h3 className="text-2xl font-bold text-white mb-6">{t('about.bio.title')}</h3>
+
                 <div className="space-y-4 text-blue-50 leading-relaxed">
                   <p className="text-lg">
                     <Trans i18nKey="about.bio.p1" components={{ 1: <strong className="text-electric-500 font-semibold" /> }} />
                   </p>
-                  <p className="text-lg">
-                    <Trans i18nKey="about.bio.p2" components={{ 1: <strong className="text-electric-500 font-semibold" /> }} />
-                  </p>
-                  <p className="text-lg">
-                    {t('about.bio.p3')}
-                  </p>
+
+                  {/* Collapsible Content */}
+                  <div className={`space-y-4 overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 lg:max-h-full lg:opacity-100'}`}>
+                    <p className="text-lg">
+                      <Trans i18nKey="about.bio.p2" components={{ 1: <strong className="text-electric-500 font-semibold" /> }} />
+                    </p>
+                    <p className="text-lg">
+                      {t('about.bio.p3')}
+                    </p>
+                  </div>
                 </div>
+
+                {/* Read More Button (Mobile Only) */}
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="lg:hidden mt-4 w-full py-2 text-sm font-medium text-electric-300 hover:text-white flex items-center justify-center gap-2 border-t border-electric-500/10"
+                >
+                  <span>{isExpanded ? 'Show Less' : 'Read More'}</span>
+                  <motion.span
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    ↓
+                  </motion.span>
+                </button>
               </div>
 
               {/* Stats Cards */}
@@ -295,7 +315,7 @@ const About: React.FC = () => {
               {/* Skills Highlight */}
               <div>
                 <h3 className="text-2xl font-bold text-white mb-6">{t('about.skills.title')}</h3>
-                <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 gap-4 lg:gap-6">
+                <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 gap-4 lg:gap-8">
                   {skills.map((skill, index) => (
                     <motion.div
                       key={index}
@@ -309,12 +329,12 @@ const About: React.FC = () => {
                         <div className="bg-electric-500/10 p-1.5 lg:p-2 rounded-lg">
                           {React.cloneElement(skill.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6 text-electric-300" })}
                         </div>
-                        <span className="text-[10px] lg:text-xs font-mono text-electric-300 bg-electric-300/10 px-1.5 py-0.5 rounded">
+                        <span className="text-xs lg:text-sm font-mono text-electric-300 bg-electric-300/10 px-1.5 py-0.5 rounded">
                           {skill.level}%
                         </span>
                       </div>
                       <h4 className="text-sm lg:text-xl font-bold text-white mb-0.5 lg:mb-1 truncate">{skill.name}</h4>
-                      <p className="text-xs lg:text-sm text-blue-200 line-clamp-2">{skill.category}</p>
+                      <p className="text-sm lg:text-base text-blue-200 line-clamp-2">{skill.category}</p>
                     </motion.div>
                   ))}
                 </StaggerContainer>
@@ -350,12 +370,12 @@ const About: React.FC = () => {
             </ScrollReveal>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* Skills Visualization Section */}
-      <div className="my-16">
+      < div className="my-16" >
         <SkillsVisualization />
-      </div>
+      </div >
 
       <div className="my-16">
         <Education />
@@ -372,7 +392,7 @@ const About: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8 max-w-6xl mx-auto">
           {whyChooseMe.map((item, index) => (
             <motion.div
               key={index}
@@ -386,7 +406,7 @@ const About: React.FC = () => {
                 {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5 lg:w-6 lg:h-6" })}
               </div>
               <h4 className="text-sm lg:text-lg font-bold text-white mb-1 lg:mb-2 leading-tight">{item.title}</h4>
-              <p className="text-xs lg:text-sm text-blue-200 leading-relaxed flex-grow">
+              <p className="text-sm lg:text-base text-blue-200 leading-relaxed flex-grow">
                 {item.description}
               </p>
             </motion.div>
@@ -513,7 +533,7 @@ const About: React.FC = () => {
           </p>
         </ScrollReveal>
       </div>
-    </section>
+    </section >
   );
 };
 

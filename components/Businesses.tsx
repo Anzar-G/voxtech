@@ -8,6 +8,11 @@ import StaggerContainer from './animations/StaggerContainer';
 
 const Businesses: React.FC = () => {
   const { t } = useTranslation();
+  const [expandedId, setExpandedId] = React.useState<number | null>(null);
+
+  const toggleExpand = (index: number) => {
+    setExpandedId(expandedId === index ? null : index);
+  };
 
   const businesses = [
     {
@@ -90,7 +95,7 @@ const Businesses: React.FC = () => {
         </ScrollReveal>
 
         {/* Businesses Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 max-w-7xl mx-auto">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 max-w-7xl mx-auto">
           {businesses.map((business, index) => (
             <motion.div
               key={index}
@@ -134,81 +139,103 @@ const Businesses: React.FC = () => {
                 {business.description}
               </p>
 
-              {/* Products/Services */}
-              <div className="mb-6">
-                <p className="text-sm font-semibold text-white mb-3">
-                  {business.products ? t('businesses.labels.products') : t('businesses.labels.services')}
-                </p>
-                <ul className="space-y-2">
-                  {(business.products || business.services)?.map((item, i) => (
-                    <li key={i} className="text-sm text-blue-50 flex items-start gap-2">
-                      <span className="text-electric-300 mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Platforms or Specialization */}
-              {business.platforms && (
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.platforms')}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {business.platforms.map((platform, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
-                      >
-                        {platform}
-                      </span>
+              {/* Collapsible Details */}
+              <motion.div
+                initial={false}
+                animate={{ height: expandedId === index ? 'auto' : 0, opacity: expandedId === index ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                {/* Products/Services */}
+                <div className="mb-6 pt-4 border-t border-electric-500/10">
+                  <p className="text-sm font-semibold text-white mb-3">
+                    {business.products ? t('businesses.labels.products') : t('businesses.labels.services')}
+                  </p>
+                  <ul className="space-y-2">
+                    {(business.products || business.services)?.map((item, i) => (
+                      <li key={i} className="text-sm text-blue-50 flex items-start gap-2">
+                        <span className="text-electric-300 mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-              )}
 
-              {business.specialization && (
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.specialization')}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {business.specialization.map((spec, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
-                      >
-                        {spec}
-                      </span>
-                    ))}
+                {/* Platforms or Specialization */}
+                {business.platforms && (
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.platforms')}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {business.platforms.map((platform, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-sm font-medium border border-electric-500/10"
+                        >
+                          {platform}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Payment Methods or Stats */}
-              {business.payment && (
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.payment')}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {business.payment.map((method, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
-                      >
-                        {method}
-                      </span>
-                    ))}
+                {business.specialization && (
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.specialization')}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {business.specialization.map((spec, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-sm font-medium border border-electric-500/10"
+                        >
+                          {spec}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {business.stats && (
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.portfolio')}</p>
-                  <div className="space-y-2">
-                    {business.stats.map((stat, i) => (
-                      <p key={i} className="text-sm text-blue-50">• {stat}</p>
-                    ))}
+                {/* Payment Methods or Stats */}
+                {business.payment && (
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.payment')}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {business.payment.map((method, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-sm font-medium border border-electric-500/10"
+                        >
+                          {method}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+
+                {business.stats && (
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.portfolio')}</p>
+                    <div className="space-y-2">
+                      {business.stats.map((stat, i) => (
+                        <p key={i} className="text-sm text-blue-50">• {stat}</p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* Toggle Button */}
+              <button
+                onClick={() => toggleExpand(index)}
+                className="w-full py-2 mb-6 flex items-center justify-center gap-2 text-sm font-medium text-electric-300 hover:text-white transition-colors border-t border-b border-electric-500/10 hover:bg-electric-500/5 group"
+              >
+                <span>{expandedId === index ? 'Hide Details' : 'View Details'}</span>
+                <motion.span
+                  animate={{ rotate: expandedId === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  ↓
+                </motion.span>
+              </button>
 
               {/* CTA Buttons */}
               <div className="flex gap-3">

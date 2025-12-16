@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import PageWrapper from '../components/animations/PageWrapper';
-import PageSkeleton from '../components/loaders/PageSkeleton';
+// import PageSkeleton from '../components/loaders/PageSkeleton';
 import MarketingStrategy from '../components/MarketingStrategy';
 import CaseStudy from '../components/CaseStudy';
 import DataAnalysis from '../components/DataAnalysis';
@@ -13,14 +13,9 @@ import SEO from '../components/SEO';
 
 const JourneyPage: React.FC = () => {
     const { t } = useTranslation();
-    const [isLoading, setIsLoading] = useState(true);
-
     useEffect(() => {
-        const timer = setTimeout(() => setIsLoading(false), 1500);
-        return () => clearTimeout(timer);
+        window.scrollTo(0, 0);
     }, []);
-
-    if (isLoading) return <PageSkeleton />;
 
     return (
         <PageWrapper>

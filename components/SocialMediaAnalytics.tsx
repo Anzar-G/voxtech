@@ -112,7 +112,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
             className={`rounded-2xl p-4 lg:p-5 border transition-all duration-300 ${styleClass} ${isLarge ? 'col-span-2' : ''} shadow-lg backdrop-blur-sm`}
         >
             <div className="flex items-center justify-between mb-3">
-                <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-blue-100' : 'text-[10px] text-blue-300'}`}>
+                <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-blue-100' : 'text-xs text-blue-300'}`}>
                     {title}
                 </p>
                 {change && (

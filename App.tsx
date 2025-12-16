@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 import Sidebar from './components/Sidebar';
 import ScrollToTop from './components/ScrollToTop';
+import GlobalLoader from './components/loaders/GlobalLoader';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -20,6 +21,7 @@ const App: React.FC = () => {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
+        <GlobalLoader />
         <div className="relative">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
@@ -30,7 +32,7 @@ const App: React.FC = () => {
               className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Open navigation menu"
               // eslint-disable-next-line jsx-a11y/aria-proptypes
-              aria-expanded={sidebarOpen}
+              aria-expanded={sidebarOpen ? 'true' : 'false'}
               aria-controls="sidebar-navigation"
             >
               <Menu size={24} aria-hidden="true" />

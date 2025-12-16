@@ -132,7 +132,7 @@ const AdsPerformance: React.FC = () => {
               </div>
               <p className="text-3xl font-bold text-white mb-2">{metric.value}</p>
               <p className="text-sm font-semibold text-white mb-1">{metric.label}</p>
-              <p className="text-xs text-blue-300">{metric.sub}</p>
+              <p className="text-sm text-blue-300">{metric.sub}</p>
             </div>
           ))}
         </div>
@@ -146,13 +146,13 @@ const AdsPerformance: React.FC = () => {
             <table className="w-full">
               <thead className="bg-electric-500/5 border-b border-electric-500/10">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.campaign')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.status')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.clicks')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.ctr')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.cpc')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.impressions')}</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.results')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.campaign')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.status')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.clicks')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.ctr')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.cpc')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.impressions')}</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.results')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
@@ -160,7 +160,7 @@ const AdsPerformance: React.FC = () => {
                   <tr key={index} className="hover:bg-electric-500/5 transition-colors">
                     <td className="px-6 py-4 text-sm font-medium text-white">{campaign.name}</td>
                     <td className="px-6 py-4">
-                      <span className="px-3 py-1 bg-electric-500/10 text-blue-100 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-electric-500/10 text-blue-100 rounded-full text-sm font-medium">
                         {campaign.status}
                       </span>
                     </td>

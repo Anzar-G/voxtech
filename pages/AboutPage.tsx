@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import About from '../components/About';
-import PageSkeleton from '../components/loaders/PageSkeleton';
 import { motion } from 'framer-motion';
 import PageWrapper from '../components/animations/PageWrapper';
 import SEO from '../components/SEO';
@@ -13,17 +12,11 @@ const pageVariants = {
 };
 
 const AboutPage: React.FC = () => {
-    const [isLoading, setIsLoading] = useState(true);
-
     useEffect(() => {
         window.scrollTo(0, 0);
-        const timer = setTimeout(() => setIsLoading(false), 1200);
-        return () => clearTimeout(timer);
     }, []);
 
     const { t } = useTranslation();
-
-    if (isLoading) return <PageSkeleton />;
 
     return (
         <PageWrapper>

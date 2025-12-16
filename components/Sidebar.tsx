@@ -112,7 +112,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
               href="https://www.linkedin.com/in/muhammad-niyar-49272339a"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-electric-500 transition-colors"
+              className="w-10 h-10 flex items-center justify-center text-white/70 hover:text-electric-500 transition-colors hover:bg-white/5 rounded-lg"
               title="LinkedIn"
             >
               <Linkedin size={20} />
@@ -121,7 +121,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
               href="https://github.com/Anzar-G"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-electric-500 transition-colors"
+              className="w-10 h-10 flex items-center justify-center text-white/70 hover:text-electric-500 transition-colors hover:bg-white/5 rounded-lg"
               title="GitHub"
               initial={{ opacity: 0 }}
               animate={{ opacity: desktopOpen ? 1 : 0 }}
@@ -169,7 +169,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                 </div>
                 <button
                   onClick={() => setSidebarOpen(false)}
-                  className="text-white/70 hover:text-white p-1 hover:bg-electric-500/10 rounded transition-colors"
+                  className="w-11 h-11 flex items-center justify-center text-white/70 hover:text-white bg-transparent hover:bg-electric-500/10 rounded-lg transition-colors"
                   aria-label="Close menu"
                 >
                   <X size={24} />

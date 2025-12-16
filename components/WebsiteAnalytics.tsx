@@ -289,8 +289,8 @@ const WebsiteAnalytics: React.FC = () => {
     ];
 
     const cities = {
-        primary: ["Jakarta", "Surabaya", "Brebes"],
-        expanding: ["Cirebon", "Jambi", "Kupang", "Manado"]
+        primary: ["Jakarta", "Surabaya", "Brebes", "Semarang", "United States", "Bandar Lampung", "Bima"],
+        expanding: ["Cirebon", "Jambi", "Kupang", "Manado", "Gunung Jati", "Bergas",]
     };
 
     const analyticsImages: AnalyticsImage[] = [

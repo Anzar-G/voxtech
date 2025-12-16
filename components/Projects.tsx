@@ -203,7 +203,7 @@ const Projects: React.FC = () => {
           </div>
         </div>
 
-        <StaggerContainer key={activeFilter} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+        <StaggerContainer key={activeFilter} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12">
           {filteredProjects.map((project) => (
             <React.Fragment key={project.id}>
               <motion.div
@@ -222,7 +222,7 @@ const Projects: React.FC = () => {
                   />
                   {project.featured && (
                     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-                      className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-xs font-semibold z-20 shadow-lg">
+                      className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-sm font-semibold z-20 shadow-lg">
                       {t('projects.page.card.featured')}
                     </motion.div>
                   )}
@@ -239,7 +239,7 @@ const Projects: React.FC = () => {
                   </div>
 
                   <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{project.title}</h3>
-                  <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-xs font-semibold mb-4 border border-electric-300/30">
+                  <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-sm font-semibold mb-4 border border-electric-300/30">
                     {t(`projects.page.filters.${categoryMap[project.category] || 'other'}`)}
                   </span>
                   <p className="text-sm text-blue-100 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
@@ -248,7 +248,7 @@ const Projects: React.FC = () => {
                     <p className="text-xs font-semibold text-blue-200 mb-2">{t('projects.page.card.keyResults')}</p>
                     <ul className="space-y-1">
                       {project.features.slice(0, 2).map((feature, i) => (
-                        <li key={i} className="text-xs text-blue-100 flex items-start gap-2">
+                        <li key={i} className="text-sm text-blue-100 flex items-start gap-2">
                           <span className="text-electric-300 mt-0.5">✓</span>
                           <span>{feature}</span>
                         </li>
@@ -283,7 +283,7 @@ const Projects: React.FC = () => {
                       <button onClick={() => setSelectedProject(null)} className="text-blue-300 hover:text-white text-2xl font-bold">×</button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div className="bg-electric-500/5 border border-electric-500/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-10 h-10 rounded-lg bg-electric-500/10 flex items-center justify-center">

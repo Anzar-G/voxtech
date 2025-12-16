@@ -248,7 +248,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t('contact.form.placeholders.name')}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-base text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
                     required
                   />
                 </div>
@@ -263,7 +263,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder={t('contact.form.placeholders.email')}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-base text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
                     required
                   />
                 </div>
@@ -277,7 +277,7 @@ const Contact: React.FC = () => {
                     id="service-select"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-base text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
                     required
                   >
                     <option value="">{t('contact.form.services.placeholder')}</option>
@@ -299,7 +299,7 @@ const Contact: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t('contact.form.placeholders.message')}
                     rows={5}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-blue-200/50"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-base text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-blue-200/50"
                     required
                   />
                 </div>
@@ -343,7 +343,7 @@ const Contact: React.FC = () => {
         {/* Communication Preferences */}
         <ScrollReveal variant="fade-up" className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-10 border border-electric-500/20">
           <h3 className="text-2xl font-bold mb-8 text-center">{t('contact.preferences.title')}</h3>
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {communicationPreferences.map((pref, index) => (
               <motion.div
                 key={index}

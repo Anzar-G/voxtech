@@ -152,7 +152,7 @@ const Journey: React.FC = () => {
   }, [activeIndex, events.length, scrollToIndex]);
 
   return (
-    <section id="journey" className="relative pt-24 pb-16 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
+    <section id="journey" className="relative pt-24 pb-20 lg:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-500 overflow-hidden">
       {/* Smooth Gradient Transition - Top */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-900 to-transparent z-0"></div>
 
@@ -323,7 +323,7 @@ const Journey: React.FC = () => {
                 <p className="text-blue-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                   {t('journey.goals.description')}
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {goals.map((goal, i) => (
                     <div key={i} className="flex items-center gap-3 bg-electric-500/5 rounded-lg p-3 hover:bg-electric-500/10 transition-colors border border-electric-500/5">
                       <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
