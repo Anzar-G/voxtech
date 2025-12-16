@@ -31,8 +31,7 @@ const App: React.FC = () => {
               onClick={() => setSidebarOpen(true)}
               className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Open navigation menu"
-              // eslint-disable-next-line jsx-a11y/aria-proptypes
-              aria-expanded={sidebarOpen ? 'true' : 'false'}
+              aria-expanded={sidebarOpen}
               aria-controls="sidebar-navigation"
             >
               <Menu size={24} aria-hidden="true" />

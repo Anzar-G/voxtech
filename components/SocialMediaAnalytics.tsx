@@ -65,8 +65,8 @@ const MetricCard: React.FC<MetricCardProps> = ({
         emerald: "bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 text-emerald-300 hover:border-emerald-500/40 hover:bg-emerald-500/20",
     };
 
-    const styleClass = colorStyles[color] || colorStyles.gray;
     const isLarge = size === 'large';
+    const styleClass = isLarge ? "premium-card-animated shadow-[0_0_30px_rgba(59,130,246,0.2)]" : (colorStyles[color] || colorStyles.gray);
 
     // Parse numeric value
     const numericValue = typeof value === 'number' ? value : parseFloat(value.toString().replace(/[^0-9.]/g, ''));
@@ -109,28 +109,30 @@ const MetricCard: React.FC<MetricCardProps> = ({
             viewport={{ once: true }}
             transition={{ delay: delay * 0.1 }}
             whileHover={{ y: -4 }}
-            className={`rounded-2xl p-4 lg:p-5 border transition-all duration-300 ${styleClass} ${isLarge ? 'col-span-2' : ''} shadow-lg backdrop-blur-sm`}
+            className={`rounded-2xl transition-all duration-300 ${styleClass} ${isLarge ? 'col-span-2 p-1' : 'p-4 lg:p-5 shadow-lg backdrop-blur-sm'}`}
         >
-            <div className="flex items-center justify-between mb-3">
-                <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-blue-100' : 'text-xs text-blue-300'}`}>
-                    {title}
-                </p>
-                {change && (
-                    <div className="flex items-center gap-1 bg-electric-500/5 px-2 py-0.5 rounded-full border border-electric-500/5">
-                        <TrendingUp className="w-3 h-3 text-green-400" />
-                        <span className="text-green-400 text-xs font-bold">{change}</span>
-                    </div>
-                )}
-            </div>
-            <div className="flex items-center gap-3">
-                {icon && (
-                    <div className={`${isLarge ? 'p-2 rounded-lg bg-electric-500/5' : ''} transition-transform group-hover:scale-110 duration-300`}>
-                        {icon}
-                    </div>
-                )}
-                <p className={`${isLarge ? 'text-4xl lg:text-5xl' : 'text-2xl lg:text-3xl'} font-bold text-white tracking-tight`}>
-                    {displayValue}{suffix}
-                </p>
+            <div className={`h-full flex flex-col justify-center ${isLarge ? 'premium-card-content px-5 py-4 lg:px-7 lg:py-6' : ''}`}>
+                <div className="flex items-center justify-between mb-3">
+                    <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-blue-100' : 'text-xs text-blue-300'}`}>
+                        {title}
+                    </p>
+                    {change && (
+                        <div className="flex items-center gap-1 bg-electric-500/5 px-2 py-0.5 rounded-full border border-electric-500/5">
+                            <TrendingUp className="w-3 h-3 text-green-400" />
+                            <span className="text-green-400 text-xs font-bold">{change}</span>
+                        </div>
+                    )}
+                </div>
+                <div className="flex items-center gap-3">
+                    {icon && (
+                        <div className={`${isLarge ? 'p-2 rounded-lg bg-electric-500/5' : ''} transition-transform group-hover:scale-110 duration-300`}>
+                            {icon}
+                        </div>
+                    )}
+                    <p className={`${isLarge ? 'text-4xl lg:text-5xl' : 'text-2xl lg:text-3xl'} font-bold text-white tracking-tight`}>
+                        {displayValue}{suffix}
+                    </p>
+                </div>
             </div>
         </motion.div>
     );

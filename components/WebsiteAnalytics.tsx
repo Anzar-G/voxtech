@@ -75,6 +75,10 @@ const MetricCard: React.FC<{ metric: HeroMetric; index: number }> = ({ metric, i
         green: "from-green-500 to-green-400",
     };
 
+    const baseClasses = "rounded-2xl transition-all duration-300 group";
+    const featuredClasses = "premium-card-animated p-6 lg:p-8 col-span-2 shadow-[0_0_30px_rgba(59,130,246,0.2)]";
+    const standardClasses = `bg-electric-500/5 backdrop-blur-lg p-5 lg:p-6 border border-${metric.color}-500/20 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-${metric.color}-500/10`;
+
     return (
         <motion.div
             variants={{
@@ -82,22 +86,26 @@ const MetricCard: React.FC<{ metric: HeroMetric; index: number }> = ({ metric, i
                 visible: { opacity: 1, scale: 1 }
             }}
             transition={{ delay: index * 0.1 }}
-            className={`bg-electric-500/5 backdrop-blur-lg rounded-2xl ${metric.featured ? 'p-6 lg:p-8 col-span-2' : 'p-5 lg:p-6'} border ${metric.featured ? `border-${metric.color}-500/40 shadow-[0_0_30px_rgba(59,130,246,0.2)]` : `border-${metric.color}-500/20`} shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:bg-${metric.color}-500/10 group`}
+            className={`${baseClasses} ${metric.featured ? featuredClasses : standardClasses}`}
         >
-            <div className="flex items-center justify-between mb-3">
-                <div className={`${metric.featured ? 'w-14 h-14' : 'w-10 h-10 lg:w-12 lg:h-12'} rounded-lg bg-${metric.color}-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`${metric.featured ? 'w-7 h-7' : 'w-5 h-5 lg:w-6 lg:h-6'} text-${metric.color}-500`} />
+            <div className="premium-card-content h-full flex flex-col justify-between">
+                <div className="flex items-center justify-between mb-3">
+                    <div className={`${metric.featured ? 'w-14 h-14' : 'w-10 h-10 lg:w-12 lg:h-12'} rounded-lg bg-${metric.color}-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className={`${metric.featured ? 'w-7 h-7' : 'w-5 h-5 lg:w-6 lg:h-6'} text-${metric.color}-500`} />
+                    </div>
+                    <p className="text-xs lg:text-sm text-blue-300 uppercase tracking-wider font-medium">
+                        {metric.label}
+                    </p>
                 </div>
-                <p className="text-xs lg:text-sm text-blue-300 uppercase tracking-wider font-medium">
-                    {metric.label}
-                </p>
+                <div>
+                    <p className={`${metric.featured ? 'text-4xl lg:text-5xl' : 'text-2xl lg:text-3xl'} font-bold text-white mb-1`}>
+                        {metric.value}
+                    </p>
+                    <p className="text-[10px] lg:text-xs text-blue-100/50 italic">
+                        {metric.sublabel}
+                    </p>
+                </div>
             </div>
-            <p className={`${metric.featured ? 'text-4xl lg:text-5xl' : 'text-2xl lg:text-3xl'} font-bold text-white mb-1`}>
-                {metric.value}
-            </p>
-            <p className="text-[10px] lg:text-xs text-blue-100/50 italic">
-                {metric.sublabel}
-            </p>
         </motion.div>
     );
 };

@@ -209,64 +209,69 @@ const Projects: React.FC = () => {
               <motion.div
                 variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-electric-500/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-electric-500/20 hover:border-electric-300/50"
+                className={`rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 group ${project.featured
+                  ? 'premium-card-animated border-0'
+                  : 'bg-electric-500/10 backdrop-blur-lg border border-electric-500/20 hover:border-electric-300/50'
+                  }`}
               >
-                <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  {project.featured && (
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-                      className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-sm font-semibold z-20 shadow-lg">
-                      {t('projects.page.card.featured')}
-                    </motion.div>
-                  )}
-                </div>
-
-                <div className="p-8">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.slice(0, 3).map((tech, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 * i }}
-                        whileHover={{ rotate: 360 }} className="w-8 h-8 rounded-lg bg-bg-light-blue flex items-center justify-center text-electric-500 text-xs font-bold">
-                        {tech.charAt(0)}
+                <div className={`${project.featured ? 'bg-navy-900 border-[2px] border-transparent rounded-2xl h-full' : ''}`}> {/* Inner wrapper for featured cards to match bg */}
+                  <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500 rounded-t-2xl">
+                    <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {project.featured && (
+                      <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+                        className="absolute top-4 right-4 bg-electric-500 text-white px-3 py-1 rounded-lg text-sm font-semibold z-20 shadow-lg">
+                        {t('projects.page.card.featured')}
                       </motion.div>
-                    ))}
+                    )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{project.title}</h3>
-                  <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-sm font-semibold mb-4 border border-electric-300/30">
-                    {t(`projects.page.filters.${categoryMap[project.category] || 'other'}`)}
-                  </span>
-                  <p className="text-sm text-blue-100 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
-
-                  <div className="mb-6">
-                    <p className="text-xs font-semibold text-blue-200 mb-2">{t('projects.page.card.keyResults')}</p>
-                    <ul className="space-y-1">
-                      {project.features.slice(0, 2).map((feature, i) => (
-                        <li key={i} className="text-sm text-blue-100 flex items-start gap-2">
-                          <span className="text-electric-300 mt-0.5">✓</span>
-                          <span>{feature}</span>
-                        </li>
+                  <div className="p-8">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.techStack.slice(0, 3).map((tech, i) => (
+                        <motion.div key={i} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 * i }}
+                          whileHover={{ rotate: 360 }} className="w-8 h-8 rounded-lg bg-bg-light-blue flex items-center justify-center text-electric-500 text-xs font-bold">
+                          {tech.charAt(0)}
+                        </motion.div>
                       ))}
-                    </ul>
-                  </div>
+                    </div>
 
-                  <div className="flex gap-3">
-                    <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold transition-all duration-300">
-                      <ExternalLink size={16} />
-                      <span>{t('projects.page.card.viewWebsite')}</span>
-                    </motion.a>
-                    <motion.button onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
-                      whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}
-                      className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id ? 'bg-electric-500 border-electric-500 text-white' : 'bg-electric-500/10 border-electric-500/30 hover:bg-electric-300/30 text-electric-300'}`}>
-                      <FileText size={16} />
-                    </motion.button>
+                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{project.title}</h3>
+                    <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-sm font-semibold mb-4 border border-electric-300/30">
+                      {t(`projects.page.filters.${categoryMap[project.category] || 'other'}`)}
+                    </span>
+                    <p className="text-sm text-blue-100 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
+
+                    <div className="mb-6">
+                      <p className="text-xs font-semibold text-blue-200 mb-2">{t('projects.page.card.keyResults')}</p>
+                      <ul className="space-y-1">
+                        {project.features.slice(0, 2).map((feature, i) => (
+                          <li key={i} className="text-sm text-blue-100 flex items-start gap-2">
+                            <span className="text-electric-300 mt-0.5">✓</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-electric-500 hover:bg-electric-600 text-white rounded-lg text-sm font-semibold transition-all duration-300">
+                        <ExternalLink size={16} />
+                        <span>{t('projects.page.card.viewWebsite')}</span>
+                      </motion.a>
+                      <motion.button onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
+                        whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}
+                        className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id ? 'bg-electric-500 border-electric-500 text-white' : 'bg-electric-500/10 border-electric-500/30 hover:bg-electric-300/30 text-electric-300'}`}>
+                        <FileText size={16} />
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
