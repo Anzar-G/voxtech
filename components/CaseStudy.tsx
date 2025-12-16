@@ -52,7 +52,7 @@ const CaseStudy: React.FC = () => {
                 {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="particle absolute rounded-full bg-white/20"
+                        className="particle absolute rounded-full bg-electric-300/30"
                         style={{
                             width: `${Math.random() * 4 + 2}px`,
                             height: `${Math.random() * 4 + 2}px`,
@@ -74,22 +74,21 @@ const CaseStudy: React.FC = () => {
             </div>
 
             {/* Diagonal Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+            <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Header */}
                 <ScrollReveal className="text-center mb-16">
                     <div className="flex justify-center mb-6">
-                        <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <div className="p-4 bg-electric-500/10 rounded-2xl backdrop-blur-sm border border-electric-500/20">
                             <Store className="text-electric-300 w-12 h-12" />
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         {t('caseStudy.title')}
                     </h2>
-                    <p className="text-lg text-white/80 max-w-3xl mx-auto">
+                    <p className="text-lg text-blue-100 max-w-3xl mx-auto">
                         {t('caseStudy.subtitle')}
                     </p>
                 </ScrollReveal>
@@ -98,14 +97,14 @@ const CaseStudy: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
                     {/* Challenge */}
                     <ScrollReveal variant="fade-right">
-                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 h-full shadow-xl">
+                        <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-8 border border-electric-500/20 h-full shadow-xl">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-xl bg-red-500/20/50 flex items-center justify-center">
                                     <Target className="text-red-400 w-6 h-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-white">{t('caseStudy.challenge.title')}</h3>
                             </div>
-                            <p className="text-base text-white/80 leading-relaxed">
+                            <p className="text-base text-blue-100 leading-relaxed">
                                 {feydStoreCaseStudy.challenge}
                             </p>
                         </div>
@@ -113,9 +112,9 @@ const CaseStudy: React.FC = () => {
 
                     {/* Strategy */}
                     <ScrollReveal variant="fade-left">
-                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 h-full shadow-xl">
+                        <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-8 border border-electric-500/20 h-full shadow-xl">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-cyan-400/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-xl bg-cyan-400/20/50 flex items-center justify-center">
                                     <Lightbulb className="text-cyan-300 w-6 h-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-white">{t('caseStudy.strategy.title')}</h3>
@@ -124,7 +123,7 @@ const CaseStudy: React.FC = () => {
                                 {feydStoreCaseStudy.strategy.map((item, index) => (
                                     <li key={index} className="flex items-start gap-3">
                                         <span className="text-electric-300 mt-1">✓</span>
-                                        <span className="text-base text-white/80">{item}</span>
+                                        <span className="text-base text-blue-100">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -134,25 +133,25 @@ const CaseStudy: React.FC = () => {
 
                 {/* Execution - Campaign Details */}
                 <ScrollReveal variant="fade-up" delay={0.2} className="mb-16">
-                    <div className="bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-2xl border border-white/10">
+                    <div className="bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-2xl border border-electric-500/10">
                         <h3 className="text-3xl font-bold text-white mb-8 text-center">
                             {t('caseStudy.execution.title')}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.objective')}</p>
+                            <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-6 border border-electric-500/20">
+                                <p className="text-sm text-blue-200 mb-2">{t('caseStudy.execution.objective')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.objective}</p>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.creative')}</p>
+                            <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-6 border border-electric-500/20">
+                                <p className="text-sm text-blue-200 mb-2">{t('caseStudy.execution.creative')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.creative}</p>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.copy')}</p>
+                            <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-6 border border-electric-500/20">
+                                <p className="text-sm text-blue-200 mb-2">{t('caseStudy.execution.copy')}</p>
                                 <p className="text-xl font-bold text-white">"{feydStoreCaseStudy.execution.copy}"</p>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 md:col-span-2 lg:col-span-3">
-                                <p className="text-sm text-white/70 mb-2">{t('caseStudy.execution.targeting')}</p>
+                            <div className="bg-electric-500/10 backdrop-blur-sm rounded-xl p-6 border border-electric-500/20 md:col-span-2 lg:col-span-3">
+                                <p className="text-sm text-blue-200 mb-2">{t('caseStudy.execution.targeting')}</p>
                                 <p className="text-xl font-bold text-white">{feydStoreCaseStudy.execution.targeting}</p>
                             </div>
                         </div>
@@ -170,35 +169,35 @@ const CaseStudy: React.FC = () => {
                                     hidden: { opacity: 0, scale: 0.9 },
                                     visible: { opacity: 1, scale: 1 }
                                 }}
-                                className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-electric-500/30 transition-all duration-300"
+                                className="bg-electric-500/5 border border-electric-500/20 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-electric-500/30 transition-all duration-300"
                             >
                                 <div className="flex justify-center text-electric-500 mb-3">
                                     {metric.icon}
                                 </div>
-                                <p className="text-3xl font-bold text-navy-900 mb-1">{metric.value}</p>
-                                <p className="text-sm font-semibold text-navy-900">{metric.label}</p>
+                                <p className="text-3xl font-bold text-blue-50 mb-1">{metric.value}</p>
+                                <p className="text-sm font-semibold text-blue-50">{metric.label}</p>
                             </motion.div>
                         ))}
                     </StaggerContainer>
 
                     {/* Additional Metrics */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 text-center">
-                            <p className="text-sm text-white/70 mb-2">{t('caseStudy.results.lpConversion.label')}</p>
+                        <div className="bg-electric-500/10 backdrop-blur-lg rounded-xl p-6 border border-electric-500/20 text-center">
+                            <p className="text-sm text-blue-200 mb-2">{t('caseStudy.results.lpConversion.label')}</p>
                             <p className="text-4xl font-bold text-green-400 mb-1">{feydStoreCaseStudy.results.lpConversion}</p>
-                            <p className="text-sm text-white/60">{t('caseStudy.results.lpConversion.desc')}</p>
+                            <p className="text-sm text-blue-300">{t('caseStudy.results.lpConversion.desc')}</p>
                         </div>
-                        <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 text-center">
-                            <p className="text-sm text-white/70 mb-2">{t('caseStudy.results.costResult.label')}</p>
+                        <div className="bg-electric-500/10 backdrop-blur-lg rounded-xl p-6 border border-electric-500/20 text-center">
+                            <p className="text-sm text-blue-200 mb-2">{t('caseStudy.results.costResult.label')}</p>
                             <p className="text-4xl font-bold text-electric-300 mb-1">{feydStoreCaseStudy.results.costPerResult}</p>
-                            <p className="text-sm text-white/60">{t('caseStudy.results.costResult.desc')}</p>
+                            <p className="text-sm text-blue-300">{t('caseStudy.results.costResult.desc')}</p>
                         </div>
                     </div>
                 </ScrollReveal>
 
                 {/* Learnings */}
                 <ScrollReveal variant="fade-up" delay={0.4}>
-                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border-l-4 border-electric-500 shadow-xl">
+                    <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-8 border-l-4 border-electric-500 shadow-xl">
                         <div className="flex items-center gap-3 mb-6">
                             <CheckCircle className="text-electric-300 w-8 h-8" />
                             <h3 className="text-2xl font-bold text-white">{t('caseStudy.learnings.title')}</h3>
@@ -207,7 +206,7 @@ const CaseStudy: React.FC = () => {
                             {feydStoreCaseStudy.learnings.map((learning, index) => (
                                 <div key={index} className="flex items-start gap-3">
                                     <span className="text-electric-300 text-xl font-bold mt-1">•</span>
-                                    <p className="text-base text-white/90 leading-relaxed">{learning}</p>
+                                    <p className="text-base text-blue-50 leading-relaxed">{learning}</p>
                                 </div>
                             ))}
                         </div>

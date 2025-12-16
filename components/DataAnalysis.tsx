@@ -136,7 +136,7 @@ const DataAnalysis: React.FC = () => {
                 {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="particle absolute rounded-full bg-white/20"
+                        className="particle absolute rounded-full bg-electric-300/30"
                         style={{
                             width: `${Math.random() * 4 + 2}px`,
                             height: `${Math.random() * 4 + 2}px`,
@@ -158,22 +158,21 @@ const DataAnalysis: React.FC = () => {
             </div>
 
             {/* Diagonal Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+            <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Header */}
                 <ScrollReveal className="text-center mb-16">
                     <div className="flex justify-center mb-6">
-                        <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <div className="p-4 bg-electric-500/10 rounded-2xl backdrop-blur-sm border border-electric-500/20">
                             <BarChart3 className="text-electric-300 w-12 h-12" />
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         {t('dataAnalysis.title')}
                     </h2>
-                    <p className="text-lg text-white/80 max-w-3xl mx-auto">
+                    <p className="text-lg text-blue-100 max-w-3xl mx-auto">
                         {t('dataAnalysis.subtitle')}
                     </p>
                 </ScrollReveal>
@@ -191,7 +190,7 @@ const DataAnalysis: React.FC = () => {
                                         hidden: { opacity: 0, x: -30 },
                                         visible: { opacity: 1, x: 0 }
                                     }}
-                                    className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border-l-4 ${colorClasses.border} border-white/20 hover:bg-white/15 transition-all duration-300 shadow-xl`}
+                                    className={`bg-electric-500/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border-l-4 ${colorClasses.border} border-electric-500/20 hover:bg-electric-500/15 transition-all duration-300 shadow-xl`}
                                 >
                                     <div className="flex items-start gap-4 mb-4">
                                         <div className={`w-12 h-12 rounded-xl ${colorClasses.bg} flex items-center justify-center ${colorClasses.text} flex-shrink-0`}>
@@ -201,15 +200,15 @@ const DataAnalysis: React.FC = () => {
                                             <h4 className="text-xl font-bold text-white mb-2">{campaign.name}</h4>
                                             <div className="flex flex-wrap gap-3 mb-3">
                                                 {Object.entries(campaign.metrics).map(([key, value], i) => (
-                                                    <div key={i} className="bg-white/10 rounded-lg px-3 py-1">
-                                                        <span className="text-xs text-white/60 uppercase">{key}: </span>
+                                                    <div key={i} className="bg-electric-500/10 rounded-lg px-3 py-1">
+                                                        <span className="text-xs text-blue-300 uppercase">{key}: </span>
                                                         <span className="text-sm font-semibold text-white">{value}</span>
                                                     </div>
                                                 ))}
                                             </div>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-white/80 mb-3 leading-relaxed">{campaign.analysis}</p>
+                                    <p className="text-sm text-blue-100 mb-3 leading-relaxed">{campaign.analysis}</p>
                                     <div className={`inline-flex items-center gap-2 ${colorClasses.bg} ${colorClasses.text} px-4 py-2 rounded-lg text-sm font-semibold`}>
                                         <Lightbulb className="w-4 h-4" />
                                         <span>{campaign.conclusion}</span>
@@ -233,7 +232,7 @@ const DataAnalysis: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                                    className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-6 border border-electric-500/20 hover:bg-electric-500/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                                 >
                                     <div className="flex items-start gap-4">
                                         <div className={`w-12 h-12 rounded-xl ${colorClasses.bg} flex items-center justify-center ${colorClasses.text} flex-shrink-0`}>
@@ -241,7 +240,7 @@ const DataAnalysis: React.FC = () => {
                                         </div>
                                         <div>
                                             <h4 className="text-lg font-bold text-white mb-2">{learning.title}</h4>
-                                            <p className="text-sm text-white/80 leading-relaxed">{learning.description}</p>
+                                            <p className="text-sm text-blue-100 leading-relaxed">{learning.description}</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -256,8 +255,8 @@ const DataAnalysis: React.FC = () => {
                         <h3 className="text-2xl font-bold text-white mb-6 text-center">{t('dataAnalysis.actionSection')}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {optimizationActions.map((item, index) => (
-                                <div key={index} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${item.status === 'done' ? 'bg-electric-500' : 'bg-navy-700 border border-white/20'
+                                <div key={index} className="flex items-center gap-3 bg-electric-500/10 backdrop-blur-sm rounded-xl p-4 border border-electric-500/20">
+                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${item.status === 'done' ? 'bg-electric-500' : 'bg-navy-700 border border-electric-500/20'
                                         }`}>
                                         {item.status === 'done' ? (
                                             <CheckCircle className="w-4 h-4 text-white" />

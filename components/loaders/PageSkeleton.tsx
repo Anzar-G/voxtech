@@ -19,7 +19,7 @@ const PageSkeleton: React.FC = () => {
                     {/* Mobile Horizontal Scroll Look */}
                     <div className="flex lg:hidden overflow-hidden gap-4">
                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="flex-shrink-0 w-[85vw] max-w-[320px] p-6 bg-white/5 border border-white/10 rounded-2xl">
+                            <div key={i} className="flex-shrink-0 w-[85vw] max-w-[320px] p-6 bg-electric-500/5 border border-electric-500/10 rounded-2xl">
                                 <div className="flex justify-between mb-4">
                                     <Skeleton width={80} height={24} className="rounded-full" />
                                     <Skeleton width={32} height={32} variant="circular" />
@@ -38,7 +38,7 @@ const PageSkeleton: React.FC = () => {
                     <div className="hidden lg:flex flex-col gap-12">
                         {[1, 2].map((i) => (
                             <div key={i} className={`flex gap-12 ${i % 2 === 0 ? '' : 'flex-row-reverse'}`}>
-                                <div className="w-1/2 bg-white/5 border border-white/10 rounded-2xl p-8 h-64">
+                                <div className="w-1/2 bg-electric-500/5 border border-electric-500/10 rounded-2xl p-8 h-64">
                                     <Skeleton width={48} height={48} className="mb-4" />
                                     <Skeleton width={200} height={32} className="mb-2" />
                                     <Skeleton width="100%" height={16} className="mb-1" />
@@ -59,7 +59,7 @@ const PageSkeleton: React.FC = () => {
 
                     <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                         {/* Panel 1 */}
-                        <div className="bg-white/5 border border-white/10 rounded-3xl p-6 lg:p-8 mb-8 lg:mb-0">
+                        <div className="bg-electric-500/5 border border-electric-500/10 rounded-3xl p-6 lg:p-8 mb-8 lg:mb-0">
                             <div className="flex gap-4 mb-8">
                                 <Skeleton width={56} height={56} className="rounded-2xl" />
                                 <div>
@@ -81,7 +81,7 @@ const PageSkeleton: React.FC = () => {
                         </div>
 
                         {/* Panel 2 (Hidden on mobile usually in skeleton or shown below) */}
-                        <div className="hidden lg:block bg-white/5 border border-white/10 rounded-3xl p-6 lg:p-8">
+                        <div className="hidden lg:block bg-electric-500/5 border border-electric-500/10 rounded-3xl p-6 lg:p-8">
                             <div className="flex gap-4 mb-8">
                                 <Skeleton width={56} height={56} className="rounded-2xl" />
                                 <div>

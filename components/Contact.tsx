@@ -151,7 +151,7 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl lg:text-6xl font-bold mb-6">
             {t('contact.page.heading')}
           </h2>
-          <p className="text-lg lg:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg lg:text-xl text-blue-50 max-w-2xl mx-auto">
             {t('contact.page.subheading')}
           </p>
         </ScrollReveal>
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left: Contact Info */}
           <ScrollReveal variant="fade-right" delay={0.2}>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20 shadow-2xl space-y-8">
+            <div className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-10 border border-electric-500/20 shadow-2xl space-y-8">
               <h3 className="text-2xl font-bold mb-8">{t('contact.info.title')}</h3>
 
               {/* Contact Items */}
@@ -176,23 +176,23 @@ const Contact: React.FC = () => {
                       visible: { opacity: 1, x: 0 }
                     }}
                     whileHover={{ x: 5 }}
-                    className={`w-full flex items-start gap-4 p-3 lg:p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 ${item.link ? 'cursor-pointer' : 'cursor-default'
+                    className={`w-full flex items-start gap-4 p-3 lg:p-4 rounded-xl bg-electric-500/5 hover:bg-electric-500/10 transition-all duration-300 ${item.link ? 'cursor-pointer' : 'cursor-default'
                       }`}
                   >
-                    <div className="w-12 h-12 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-electric-500/15 flex items-center justify-center flex-shrink-0">
                       {item.icon}
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-white/70 mb-1">{item.label}</p>
+                      <p className="text-sm text-blue-200 mb-1">{item.label}</p>
                       <p className="text-base font-medium break-all mb-1">{item.value}</p>
-                      <p className="text-xs text-white/60">{item.description}</p>
+                      <p className="text-xs text-blue-300">{item.description}</p>
                     </div>
                   </motion.a>
                 ))}
               </StaggerContainer>
 
               {/* Business Hours */}
-              <div className="pt-8 border-t border-white/20">
+              <div className="pt-8 border-t border-electric-500/20">
                 <div className="flex items-center gap-3 mb-4">
                   <Clock className="w-5 h-5" />
                   <h4 className="text-lg font-semibold">{t('contact.info.hoursTitle')}</h4>
@@ -200,7 +200,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-3">
                   {availability.map((schedule, index) => (
                     <div key={index} className="flex items-center justify-between">
-                      <span className="text-white/80">{schedule.day}</span>
+                      <span className="text-blue-100">{schedule.day}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-white font-medium">{schedule.hours}</span>
                         <span className={`w-2 h-2 rounded-full ${schedule.status === 'available' ? 'bg-green-400' : 'bg-yellow-400'
@@ -212,7 +212,7 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-white/20">
+              <div className="pt-8 border-t border-electric-500/20">
                 <div className="flex items-center justify-center gap-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
@@ -222,7 +222,7 @@ const Contact: React.FC = () => {
                       rel="noopener noreferrer"
                       title={social.label}
                       whileHover={{ scale: 1.1, y: -5 }}
-                      className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white hover:text-navy-900 flex items-center justify-center transition-all duration-300 shadow-lg"
+                      className="w-12 h-12 rounded-xl bg-electric-500/10 hover:bg-white hover:text-navy-900 flex items-center justify-center transition-all duration-300 shadow-lg"
                     >
                       {social.icon}
                     </motion.a>
@@ -234,13 +234,13 @@ const Contact: React.FC = () => {
 
           {/* Right: Contact Form */}
           <ScrollReveal variant="fade-left" delay={0.4}>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
+            <div className="bg-electric-500/5 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-electric-500/20">
               <h3 className="text-2xl font-bold text-white mb-8">{t('contact.form.title')}</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-semibold text-white/90 mb-2">
+                  <label className="block text-sm font-semibold text-blue-50 mb-2">
                     {t('contact.form.name')}
                   </label>
                   <input
@@ -248,14 +248,14 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t('contact.form.placeholders.name')}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
                     required
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-semibold text-white/90 mb-2">
+                  <label className="block text-sm font-semibold text-blue-50 mb-2">
                     {t('contact.form.email')}
                   </label>
                   <input
@@ -263,20 +263,21 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder={t('contact.form.placeholders.email')}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-white/30"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/20 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all placeholder:text-blue-200/50"
                     required
                   />
                 </div>
 
                 {/* Service Interest */}
                 <div>
-                  <label className="block text-sm font-semibold text-white/90 mb-2">
+                  <label htmlFor="service-select" className="block text-sm font-semibold text-blue-50 mb-2">
                     {t('contact.form.service')}
                   </label>
                   <select
+                    id="service-select"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all [&>option]:bg-navy-900"
                     required
                   >
                     <option value="">{t('contact.form.services.placeholder')}</option>
@@ -290,7 +291,7 @@ const Contact: React.FC = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm font-semibold text-white/90 mb-2">
+                  <label className="block text-sm font-semibold text-blue-50 mb-2">
                     {t('contact.form.message')}
                   </label>
                   <textarea
@@ -298,7 +299,7 @@ const Contact: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t('contact.form.placeholders.message')}
                     rows={5}
-                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-white/30"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-electric-500/5 border border-electric-500/10 rounded-lg text-white focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all resize-vertical placeholder:text-blue-200/50"
                     required
                   />
                 </div>
@@ -340,7 +341,7 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Communication Preferences */}
-        <ScrollReveal variant="fade-up" className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20">
+        <ScrollReveal variant="fade-up" className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-10 border border-electric-500/20">
           <h3 className="text-2xl font-bold mb-8 text-center">{t('contact.preferences.title')}</h3>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {communicationPreferences.map((pref, index) => (
@@ -350,7 +351,7 @@ const Contact: React.FC = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                className="bg-electric-500/5 rounded-xl p-6 hover:bg-electric-500/10 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-electric-500/20 flex items-center justify-center text-electric-300">
@@ -358,13 +359,13 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">{pref.method}</h4>
-                    <p className="text-xs text-white/60">{pref.speed} Response</p>
+                    <p className="text-xs text-blue-300">{pref.speed} Response</p>
                   </div>
                 </div>
-                <p className="text-sm text-white/80 mb-3">{pref.bestFor}</p>
+                <p className="text-sm text-blue-100 mb-3">{pref.bestFor}</p>
                 <div className="flex items-center gap-2 text-xs">
                   <Clock className="w-4 h-4 text-electric-300" />
-                  <span className="text-white/70">Response: {pref.responseTime}</span>
+                  <span className="text-blue-200">Response: {pref.responseTime}</span>
                 </div>
               </motion.div>
             ))}
@@ -372,7 +373,7 @@ const Contact: React.FC = () => {
         </ScrollReveal>
 
         {/* Work Process */}
-        <ScrollReveal className="bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
+        <ScrollReveal className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-electric-500/20">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">{t('contact.process.title')}</h3>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             {workProcess.map((process, index) => (
@@ -389,8 +390,8 @@ const Contact: React.FC = () => {
                     {process.step}
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2">{process.title}</h4>
-                  <p className="text-sm text-white/70 mb-3">{process.description}</p>
-                  <div className="flex items-center gap-2 text-xs text-white/60">
+                  <p className="text-sm text-blue-200 mb-3">{process.description}</p>
+                  <div className="flex items-center gap-2 text-xs text-blue-300">
                     <Calendar className="w-4 h-4" />
                     <span>{process.duration}</span>
                   </div>
@@ -407,7 +408,7 @@ const Contact: React.FC = () => {
         <ScrollReveal variant="scale-up" className="bg-gradient-to-r from-electric-500 to-navy-900 rounded-3xl p-10 text-center">
           <Zap className="w-16 h-16 mx-auto mb-4 text-white" />
           <h3 className="text-3xl font-bold mb-4">{t('contact.cta.title')}</h3>
-          <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-50 mb-6 max-w-2xl mx-auto">
             {t('contact.cta.desc')}
           </p>
           <motion.a

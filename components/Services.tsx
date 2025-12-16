@@ -86,7 +86,7 @@ const Services: React.FC = () => {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle absolute rounded-full bg-white/20"
+            className="particle absolute rounded-full bg-electric-300/30"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
@@ -108,8 +108,7 @@ const Services: React.FC = () => {
       </div>
 
       {/* Diagonal Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+      <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-16">
@@ -118,7 +117,7 @@ const Services: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             {t('servicesPage.title')}
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
             {t('servicesPage.subtitle')}
           </p>
         </ScrollReveal>
@@ -137,7 +136,7 @@ const Services: React.FC = () => {
                 }}
                 className={`snap-center flex-shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${activeService === index
                   ? 'bg-electric-500 text-white shadow-lg'
-                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+                  : 'bg-electric-500/10 text-blue-200 hover:bg-electric-300/30'
                   }`}
               >
                 <div className="w-8 h-8 flex items-center justify-center">
@@ -151,20 +150,20 @@ const Services: React.FC = () => {
           {/* Desktop: Fixed Tabs */}
           <div className="hidden lg:grid grid-cols-4 gap-4">
             {services.map((service, index) => (
-              <motion.button
+              <button
                 key={index}
                 onClick={() => setActiveService(index)}
-                whileHover={{ y: -5 }}
-                className={`relative p-6 rounded-2xl transition-all duration-300 ${activeService === index
-                  ? 'bg-white/15 border-2 border-electric-500 shadow-xl'
-                  : 'bg-white/5 border-2 border-white/10 hover:bg-white/10'
+                className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 text-left group ${activeService === index
+                  ? 'bg-electric-500/15 text-electric-500 border-l-4 border-electric-500'
+                  : 'bg-electric-500/5 text-blue-200 hover:bg-electric-500/10 hover:text-white'
                   }`}
               >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center ${activeService === index ? 'bg-electric-500/20 text-electric-300' : 'bg-white/10 text-white/60'
-                  }`}>
-                  {service.icon}
+                <div className={`p-2 rounded-lg ${activeService === index ? 'bg-electric-500/20' : 'bg-electric-500/10 group-hover:bg-electric-300/30'}`}>
+                  {React.cloneElement(service.icon as React.ReactElement, {
+                    className: `w-6 h-6 ${activeService === index ? 'text-electric-300' : 'text-electric-300'}`,
+                  })}
                 </div>
-                <h3 className={`font-bold text-center ${activeService === index ? 'text-white' : 'text-white/70'
+                <h3 className={`font-bold ${activeService === index ? 'text-white' : 'text-blue-200'
                   }`}>
                   {service.shortTitle}
                 </h3>
@@ -174,7 +173,7 @@ const Services: React.FC = () => {
                     className="absolute bottom-0 left-0 right-0 h-1 bg-electric-500 rounded-full"
                   />
                 )}
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>
@@ -187,7 +186,7 @@ const Services: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl"
+            className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-electric-500/20 shadow-2xl"
           >
             {/* Icon + Title + Description */}
             <div className="text-center mb-8">
@@ -201,14 +200,14 @@ const Services: React.FC = () => {
               <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 {activeServiceData.title}
               </h3>
-              <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed">
                 {activeServiceData.description}
               </p>
             </div>
 
             {/* Tech Stack */}
             <div className="mb-8">
-              <p className="text-sm font-semibold text-white/70 mb-4 text-center">{t('servicesPage.labels.techStack')}</p>
+              <p className="text-sm font-semibold text-blue-200 mb-4 text-center">{t('servicesPage.labels.techStack')}</p>
               <div className="flex flex-wrap justify-center gap-3">
                 {activeServiceData.techStack.map((tech, i) => (
                   <motion.span
@@ -216,7 +215,7 @@ const Services: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 * i }}
-                    className="px-4 py-2 bg-white/10 text-electric-300 rounded-lg text-sm font-medium border border-white/10"
+                    className="px-4 py-2 bg-electric-500/10 text-electric-300 rounded-lg text-sm font-medium border border-electric-500/10"
                   >
                     {tech}
                   </motion.span>
@@ -228,9 +227,9 @@ const Services: React.FC = () => {
             <div className="mb-6">
               <button
                 onClick={() => setShowProcess(!showProcess)}
-                className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-white/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
+                className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-electric-500/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
               >
-                <p className="text-sm font-semibold text-white/90">{t('servicesPage.labels.process')}</p>
+                <p className="text-sm font-semibold text-blue-50">{t('servicesPage.labels.process')}</p>
                 <ChevronDown className={`w-5 h-5 text-electric-300 lg:hidden transition-transform ${showProcess ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
@@ -248,12 +247,12 @@ const Services: React.FC = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.05 * i }}
-                          className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10"
+                          className="flex items-start gap-3 p-4 bg-electric-500/5 rounded-xl border border-electric-500/10"
                         >
                           <span className="flex-shrink-0 w-6 h-6 rounded-full bg-electric-500 text-white text-xs font-bold flex items-center justify-center">
                             {i + 1}
                           </span>
-                          <span className="text-sm text-white/80">{step}</span>
+                          <span className="text-sm text-blue-100">{step}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -266,9 +265,9 @@ const Services: React.FC = () => {
             <div className="mb-8">
               <button
                 onClick={() => setShowDeliverables(!showDeliverables)}
-                className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-white/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
+                className="w-full lg:pointer-events-none flex items-center justify-between p-4 lg:p-0 bg-electric-500/5 lg:bg-transparent rounded-xl lg:rounded-none mb-4"
               >
-                <p className="text-sm font-semibold text-white/90">{t('servicesPage.labels.deliverables')}</p>
+                <p className="text-sm font-semibold text-blue-50">{t('servicesPage.labels.deliverables')}</p>
                 <ChevronDown className={`w-5 h-5 text-electric-300 lg:hidden transition-transform ${showDeliverables ? 'rotate-180' : ''}`} />
               </button>
               <AnimatePresence>
@@ -286,10 +285,10 @@ const Services: React.FC = () => {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.05 * i }}
-                          className="flex items-center gap-3 p-3 bg-white/5 rounded-lg"
+                          className="flex items-center gap-3 p-3 bg-electric-500/5 rounded-lg"
                         >
                           <span className="text-electric-300 text-lg">✓</span>
-                          <span className="text-sm text-white/80">{item}</span>
+                          <span className="text-sm text-blue-100">{item}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -299,8 +298,8 @@ const Services: React.FC = () => {
             </div>
 
             {/* Pricing + CTA */}
-            <div className="text-center pt-6 border-t border-white/10">
-              <p className="text-white/60 mb-6">
+            <div className="text-center pt-6 border-t border-electric-500/10">
+              <p className="text-blue-300 mb-6">
                 {t('servicesPage.labels.startingFrom')} <span className="font-bold text-white text-xl">{activeServiceData.pricing}</span>
               </p>
               <motion.button
@@ -317,12 +316,12 @@ const Services: React.FC = () => {
         </AnimatePresence>
 
         {/* FAQ Section */}
-        <div className="bg-white/10 backdrop-blur-lg py-12 px-6 lg:px-12 rounded-3xl shadow-xl border border-white/20">
+        <div className="bg-electric-500/10 backdrop-blur-lg py-12 px-6 lg:px-12 rounded-3xl shadow-xl border border-electric-500/20">
           <ScrollReveal className="text-center mb-8 max-w-2xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               {t('servicesPage.faq.title')}
             </h2>
-            <p className="text-white/70">
+            <p className="text-blue-200">
               {t('servicesPage.faq.subtitle')}
             </p>
           </ScrollReveal>
@@ -335,11 +334,11 @@ const Services: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="border border-white/20 rounded-xl overflow-hidden"
+                className="border border-electric-500/20 rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full flex items-center justify-between p-4 lg:p-5 bg-white/5 hover:bg-white/10 transition-colors text-left"
+                  className="w-full flex items-center justify-between p-4 lg:p-5 bg-electric-500/5 hover:bg-electric-500/10 transition-colors text-left"
                 >
                   <span className="font-semibold text-white pr-4 text-sm lg:text-base">{faq.question}</span>
                   <motion.div
@@ -358,7 +357,7 @@ const Services: React.FC = () => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-5 pt-0 text-white/80 leading-relaxed text-sm lg:text-base">
+                      <div className="p-5 pt-0 text-blue-100 leading-relaxed text-sm lg:text-base">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -374,7 +373,7 @@ const Services: React.FC = () => {
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             {t('servicesPage.cta.title')}
           </h2>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-50 mb-8 max-w-2xl mx-auto">
             {t('servicesPage.cta.desc')}
           </p>
           <motion.button

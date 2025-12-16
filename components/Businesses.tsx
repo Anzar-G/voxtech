@@ -4,7 +4,7 @@ import { Globe, Instagram, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
-import OptimizedImage from './OptimizedImage';
+
 
 const Businesses: React.FC = () => {
   const { t } = useTranslation();
@@ -13,7 +13,7 @@ const Businesses: React.FC = () => {
     {
       name: t('businesses.items.feyd.name'),
       url: 'feyd-store.vercel.app',
-      logo: '/ipm.png',
+      logo: '/ipm-640w.webp',
       category: t('businesses.items.feyd.category'),
       description: t('businesses.items.feyd.description'),
       products: t('businesses.items.feyd.products', { returnObjects: true }) as string[],
@@ -53,7 +53,7 @@ const Businesses: React.FC = () => {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle absolute rounded-full bg-white/20"
+            className="particle absolute rounded-full bg-electric-300/30"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
@@ -75,8 +75,7 @@ const Businesses: React.FC = () => {
       </div>
 
       {/* Diagonal Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+      <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -85,7 +84,7 @@ const Businesses: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             {t('businesses.title')}
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
             {t('businesses.subtitle')}
           </p>
         </ScrollReveal>
@@ -100,15 +99,17 @@ const Businesses: React.FC = () => {
                 visible: { opacity: 1, scale: 1 }
               }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 lg:p-10 border-2 border-white/20 shadow-xl hover:shadow-2xl hover:border-electric-300/50 transition-all duration-400"
+              className="bg-electric-500/10 backdrop-blur-lg rounded-3xl p-6 lg:p-10 border-2 border-electric-500/20 shadow-xl hover:shadow-2xl hover:border-electric-300/50 transition-all duration-400"
             >
               {/* Logo Placeholder */}
-              <div className="w-16 h-16 rounded-2xl bg-white/90 border-2 border-white/30 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-md overflow-hidden">
+              <div className="w-16 h-16 rounded-2xl bg-white/90 border-2 border-electric-500/30 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-md overflow-hidden">
                 {business.logo.includes('/') || business.logo.includes('.') ? (
-                  <OptimizedImage
+                  <img
                     src={business.logo}
                     alt={`${business.name} logo`}
                     className="w-full h-full object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   <span>{business.logo}</span>
@@ -129,7 +130,7 @@ const Businesses: React.FC = () => {
               </span>
 
               {/* Description */}
-              <p className="text-base text-white/90 leading-relaxed mb-6">
+              <p className="text-base text-blue-50 leading-relaxed mb-6">
                 {business.description}
               </p>
 
@@ -140,7 +141,7 @@ const Businesses: React.FC = () => {
                 </p>
                 <ul className="space-y-2">
                   {(business.products || business.services)?.map((item, i) => (
-                    <li key={i} className="text-sm text-white/90 flex items-start gap-2">
+                    <li key={i} className="text-sm text-blue-50 flex items-start gap-2">
                       <span className="text-electric-300 mt-1">•</span>
                       <span>{item}</span>
                     </li>
@@ -156,7 +157,7 @@ const Businesses: React.FC = () => {
                     {business.platforms.map((platform, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 bg-white/10 text-white/90 rounded-lg text-xs font-medium border border-white/10"
+                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
                       >
                         {platform}
                       </span>
@@ -172,7 +173,7 @@ const Businesses: React.FC = () => {
                     {business.specialization.map((spec, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 bg-white/10 text-white/90 rounded-lg text-xs font-medium border border-white/10"
+                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
                       >
                         {spec}
                       </span>
@@ -189,7 +190,7 @@ const Businesses: React.FC = () => {
                     {business.payment.map((method, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 bg-white/10 text-white/90 rounded-lg text-xs font-medium border border-white/10"
+                        className="px-2 py-1 bg-electric-500/10 text-blue-50 rounded-lg text-xs font-medium border border-electric-500/10"
                       >
                         {method}
                       </span>
@@ -203,7 +204,7 @@ const Businesses: React.FC = () => {
                   <p className="text-sm font-semibold text-white mb-3">{t('businesses.labels.portfolio')}</p>
                   <div className="space-y-2">
                     {business.stats.map((stat, i) => (
-                      <p key={i} className="text-sm text-white/90">• {stat}</p>
+                      <p key={i} className="text-sm text-blue-50">• {stat}</p>
                     ))}
                   </div>
                 </div>
@@ -228,7 +229,7 @@ const Businesses: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="px-6 py-3 bg-white/10 border border-white/30 hover:bg-white/20 text-white rounded-lg font-semibold transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 bg-electric-500/10 border border-electric-500/30 hover:bg-electric-300/30 text-white rounded-lg font-semibold transition-all duration-300 flex items-center gap-2"
                 >
                   {business.links.instagram ? <Instagram size={18} /> : <ExternalLink size={18} />}
                 </motion.a>

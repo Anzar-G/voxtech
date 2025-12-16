@@ -1,0 +1,111 @@
+/* === RESET BROWSER DEFAULTS === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #0E162B;
+  /* Navy-900 */
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0E162B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F50D6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1941B8;
+}
+
+/* Focus Indicators for Accessibility */
+*:focus-visible {
+  outline: 3px solid #60A5FA;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+/* Screen Reader Only Class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1F50D6;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Fix for route transitions */
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* === FIX ROOT CONTAINER === */
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0E162B;
+}
+
+/* === SPECIFIC FIX FOR JOURNEY PAGE === */
+/* Ensure no unexpected margins on the journey page wrapper */
+#journey,
+.journey-wrapper {
+  margin-top: 0 !important;
+}
+
+/* === MAIN CONTAINER RESET === */
+main {
+  margin-top: 0;
+  padding-top: 0;
+}

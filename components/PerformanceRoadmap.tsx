@@ -69,7 +69,7 @@ const PerformanceRoadmap: React.FC = () => {
         switch (status) {
             case 'completed': return 'from-electric-500/20 to-navy-800/50 border-electric-500/30';
             case 'current': return 'from-electric-500 to-cyan-500 shadow-[0_0_30px_rgba(56,189,248,0.3)] border-cyan-400';
-            case 'planned': return 'from-white/5 to-white/5 border-white/10';
+            case 'planned': return 'from-white/5 to-white/5 border-electric-500/10';
             case 'target': return 'from-navy-800 to-navy-900 border-electric-500/20 dashed';
             default: return 'from-gray-500 to-gray-600';
         }
@@ -79,7 +79,7 @@ const PerformanceRoadmap: React.FC = () => {
         switch (status) {
             case 'completed': return <CheckCircle className="w-5 h-5 text-electric-300" />;
             case 'current': return <TrendingUp className="w-5 h-5 text-white" />;
-            case 'planned': return <Target className="w-5 h-5 text-white/50" />;
+            case 'planned': return <Target className="w-5 h-5 text-blue-100/50" />;
             case 'target': return <Rocket className="w-5 h-5 text-electric-500" />;
             default: return null;
         }
@@ -89,7 +89,7 @@ const PerformanceRoadmap: React.FC = () => {
         // Monochrome scale: Brighter = Better
         if (score >= 90) return 'text-cyan-300 drop-shadow-[0_0_5px_rgba(103,232,249,0.5)]';
         if (score >= 70) return 'text-electric-300';
-        return 'text-white/60';
+        return 'text-blue-300';
     };
 
     return (
@@ -103,7 +103,7 @@ const PerformanceRoadmap: React.FC = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3 text-center">
                     🎯 {t('performanceRoadmap.title')}
                 </h2>
-                <p className="text-white/70 text-center mb-4 max-w-2xl mx-auto">
+                <p className="text-blue-200 text-center mb-4 max-w-2xl mx-auto">
                     {t('performanceRoadmap.subtitle')}
                 </p>
                 <p className="text-sm text-electric-300 text-center mb-12">
@@ -114,7 +114,7 @@ const PerformanceRoadmap: React.FC = () => {
                 <div className="hidden lg:block">
                     {/* Timeline Line */}
                     <div className="relative mb-16">
-                        <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/20 -translate-y-1/2" />
+                        <div className="absolute top-1/2 left-0 right-0 h-1 bg-electric-300/30 -translate-y-1/2" />
                         <div className="relative flex justify-between">
                             {roadmap.map((milestone, index) => (
                                 <div key={index} className="flex-1 relative">
@@ -136,7 +136,7 @@ const PerformanceRoadmap: React.FC = () => {
                         {roadmap.map((milestone, index) => (
                             <motion.div
                                 key={index}
-                                className={`bg-gradient-to-br ${getStatusColor(milestone.status)}/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105`}
+                                className={`bg-gradient-to-br ${getStatusColor(milestone.status)}/10 backdrop-blur-sm rounded-2xl p-6 border border-electric-500/20 hover:border-electric-500/40 transition-all duration-300 hover:scale-105`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -146,7 +146,7 @@ const PerformanceRoadmap: React.FC = () => {
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
                                         <h3 className="text-xl font-bold text-white">{milestone.phase}</h3>
-                                        <p className="text-sm text-white/60">{milestone.date}</p>
+                                        <p className="text-sm text-blue-300">{milestone.date}</p>
                                     </div>
                                     <div className={`p-2 rounded-lg bg-gradient-to-r ${getStatusColor(milestone.status)}`}>
                                         {getStatusIcon(milestone.status)}
@@ -154,32 +154,32 @@ const PerformanceRoadmap: React.FC = () => {
                                 </div>
 
                                 {/* Version Badge */}
-                                <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-white mb-4">
+                                <div className="inline-block px-3 py-1 rounded-full bg-electric-500/10 text-xs font-semibold text-white mb-4">
                                     {milestone.version}
                                 </div>
 
                                 {/* Metrics */}
                                 <div className="space-y-2 mb-4">
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">{t('performanceRoadmap.metrics.performance')}</span>
+                                        <span className="text-blue-200">{t('performanceRoadmap.metrics.performance')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.performance)}`}>
                                             {milestone.performance}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">{t('performanceRoadmap.metrics.accessibility')}</span>
+                                        <span className="text-blue-200">{t('performanceRoadmap.metrics.accessibility')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.accessibility)}`}>
                                             {milestone.accessibility}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">{t('performanceRoadmap.metrics.bestPractices')}</span>
+                                        <span className="text-blue-200">{t('performanceRoadmap.metrics.bestPractices')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.bestPractices)}`}>
                                             {milestone.bestPractices}
                                         </span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-white/70">{t('performanceRoadmap.metrics.seo')}</span>
+                                        <span className="text-blue-200">{t('performanceRoadmap.metrics.seo')}</span>
                                         <span className={`font-bold ${getScoreColor(milestone.seo)}`}>
                                             {milestone.seo}
                                         </span>
@@ -188,10 +188,10 @@ const PerformanceRoadmap: React.FC = () => {
 
                                 {/* Actions */}
                                 <div>
-                                    <p className="text-xs font-semibold text-white/80 mb-2">{t('performanceRoadmap.actionItems')}</p>
+                                    <p className="text-xs font-semibold text-blue-100 mb-2">{t('performanceRoadmap.actionItems')}</p>
                                     <ul className="space-y-1">
                                         {milestone.actions.map((action, i) => (
-                                            <li key={i} className="flex items-start gap-2 text-xs text-white/70">
+                                            <li key={i} className="flex items-start gap-2 text-xs text-blue-200">
                                                 <span className="text-electric-300 mt-0.5">✓</span>
                                                 <span>{action}</span>
                                             </li>
@@ -216,7 +216,7 @@ const PerformanceRoadmap: React.FC = () => {
                         >
                             {/* Timeline Line */}
                             {index < roadmap.length - 1 && (
-                                <div className="absolute left-3 top-12 bottom-0 w-0.5 bg-white/20" />
+                                <div className="absolute left-3 top-12 bottom-0 w-0.5 bg-electric-300/30" />
                             )}
 
                             <div className="flex gap-4">
@@ -224,11 +224,11 @@ const PerformanceRoadmap: React.FC = () => {
                                 <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${getStatusColor(milestone.status)} flex-shrink-0 border-4 border-navy-900 relative z-10`} />
 
                                 {/* Card */}
-                                <div className={`flex-1 bg-gradient-to-br ${getStatusColor(milestone.status)}/10 backdrop-blur-sm rounded-xl p-4 border border-white/20`}>
+                                <div className={`flex-1 bg-gradient-to-br ${getStatusColor(milestone.status)}/10 backdrop-blur-sm rounded-xl p-4 border border-electric-500/20`}>
                                     <div className="flex items-start justify-between mb-3">
                                         <div>
                                             <h3 className="text-lg font-bold text-white">{milestone.phase}</h3>
-                                            <p className="text-xs text-white/60">{milestone.date} • {milestone.version}</p>
+                                            <p className="text-xs text-blue-300">{milestone.date} • {milestone.version}</p>
                                         </div>
                                         <div className={`p-1.5 rounded-lg bg-gradient-to-r ${getStatusColor(milestone.status)}`}>
                                             {getStatusIcon(milestone.status)}
@@ -237,26 +237,26 @@ const PerformanceRoadmap: React.FC = () => {
 
                                     {/* Metrics Grid */}
                                     <div className="grid grid-cols-2 gap-2 mb-3">
-                                        <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.perf')}</p>
+                                        <div className="text-center p-2 bg-electric-500/5 rounded-lg">
+                                            <p className="text-xs text-blue-300">{t('performanceRoadmap.metrics.perf')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.performance)}`}>
                                                 {milestone.performance}
                                             </p>
                                         </div>
-                                        <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.a11y')}</p>
+                                        <div className="text-center p-2 bg-electric-500/5 rounded-lg">
+                                            <p className="text-xs text-blue-300">{t('performanceRoadmap.metrics.a11y')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.accessibility)}`}>
                                                 {milestone.accessibility}
                                             </p>
                                         </div>
-                                        <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.bp')}</p>
+                                        <div className="text-center p-2 bg-electric-500/5 rounded-lg">
+                                            <p className="text-xs text-blue-300">{t('performanceRoadmap.metrics.bp')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.bestPractices)}`}>
                                                 {milestone.bestPractices}
                                             </p>
                                         </div>
-                                        <div className="text-center p-2 bg-white/5 rounded-lg">
-                                            <p className="text-xs text-white/60">{t('performanceRoadmap.metrics.seo')}</p>
+                                        <div className="text-center p-2 bg-electric-500/5 rounded-lg">
+                                            <p className="text-xs text-blue-300">{t('performanceRoadmap.metrics.seo')}</p>
                                             <p className={`text-lg font-bold ${getScoreColor(milestone.seo)}`}>
                                                 {milestone.seo}
                                             </p>
@@ -266,7 +266,7 @@ const PerformanceRoadmap: React.FC = () => {
                                     {/* Actions */}
                                     <ul className="space-y-1">
                                         {milestone.actions.map((action, i) => (
-                                            <li key={i} className="flex items-start gap-2 text-xs text-white/70">
+                                            <li key={i} className="flex items-start gap-2 text-xs text-blue-200">
                                                 <span className="text-electric-300 mt-0.5">✓</span>
                                                 <span>{action}</span>
                                             </li>
@@ -279,8 +279,8 @@ const PerformanceRoadmap: React.FC = () => {
                 </div>
 
                 {/* Footer Note */}
-                <div className="mt-12 p-4 bg-white/5 rounded-xl border border-white/10 text-center">
-                    <p className="text-sm text-white/70">
+                <div className="mt-12 p-4 bg-electric-500/5 rounded-xl border border-electric-500/10 text-center">
+                    <p className="text-sm text-blue-200">
                         <span className="font-semibold text-electric-300">{t('performanceRoadmap.note.label')}</span> {t('performanceRoadmap.note.text')}
                     </p>
                 </div>

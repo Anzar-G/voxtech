@@ -170,7 +170,7 @@ const Journey: React.FC = () => {
             <h2 className="text-3xl lg:text-5xl font-bold text-white mb-4">
               {t('journey.title')}
             </h2>
-            <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto">
+            <p className="text-base lg:text-lg text-blue-200 max-w-2xl mx-auto">
               {t('journey.subtitle')}
             </p>
           </motion.div>
@@ -187,8 +187,7 @@ const Journey: React.FC = () => {
               e.persist(); // React pooling
               handleScroll();
             }}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide touch-pan-x"
-            style={{ scrollBehavior: 'smooth' }}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide touch-pan-x scroll-smooth"
           >
             {events.map((event, index) => {
               // Determine expanded/color state
@@ -209,7 +208,7 @@ const Journey: React.FC = () => {
 
                   <div className={`
                         relative overflow-hidden rounded-2xl p-6 border transition-all duration-300 h-full
-                        ${isActive ? `${glowStyles[color]} bg-white/10 backdrop-blur-md` : 'border-white/5 bg-white/5 opacity-80 scale-95'}
+                        ${isActive ? `${glowStyles[color]} bg-electric-500/10 backdrop-blur-md` : 'border-electric-500/5 bg-electric-500/5 opacity-80 scale-95'}
                     `}>
                     {/* Dynamic Gradient Background for Active Card */}
                     {isActive && (
@@ -218,16 +217,16 @@ const Journey: React.FC = () => {
 
                     <div className="relative z-10">
                       <div className="flex items-center justify-between mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold bg-black/20 text-white backdrop-blur-sm border border-white/10`}>
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold bg-black/20 text-white backdrop-blur-sm border border-electric-500/10`}>
                           {event.date}
                         </span>
-                        <div className={`p-2 rounded-lg bg-white/10 text-white`}>
+                        <div className={`p-2 rounded-lg bg-electric-500/10 text-white`}>
                           {event.icon}
                         </div>
                       </div>
 
                       <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-                      <p className="text-sm text-white/70 mb-5 line-clamp-3">{event.description}</p>
+                      <p className="text-sm text-blue-200 mb-5 line-clamp-3">{event.description}</p>
 
                       {/* Collapsible Achievements */}
                       <CollapsibleAchievements achievements={event.achievements} color={color} checkColor={checkColorStyles[color]} />
@@ -246,7 +245,7 @@ const Journey: React.FC = () => {
                 <button
                   key={i}
                   onClick={() => scrollToIndex(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? `w-6 ${colorStyles[color]}` : 'w-1.5 bg-white/10 hover:bg-white/30'}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? `w-6 ${colorStyles[color]}` : 'w-1.5 bg-electric-500/10 hover:bg-electric-500/30'}`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               );
@@ -256,7 +255,7 @@ const Journey: React.FC = () => {
 
         {/* Desktop Vertical Timeline */}
         <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric-500 to-transparent -translate-x-1/2 opacity-30" />
+          <div className="absolute inset-0 opacity-5 bg-diagonal-electric"></div>
           <div className="space-y-24">
             {events.map((event, index) => {
               const color = eventColors[event.type];
@@ -275,9 +274,9 @@ const Journey: React.FC = () => {
                   <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-12' : 'pl-12'}`}>
                     <div className="group relative">
                       <div className={`absolute inset-0 bg-gradient-to-r ${gradientStyles[color]} opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`} />
-                      <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-white/30 transition-all duration-300">
+                      <div className="relative bg-electric-500/5 backdrop-blur-xl rounded-2xl p-8 border border-electric-500/10 hover:border-electric-500/20 transition-all duration-300">
                         <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                          <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white`}>
+                          <div className={`w-12 h-12 rounded-xl bg-electric-500/5 flex items-center justify-center text-white`}>
                             {event.icon}
                           </div>
                           <div>
@@ -285,11 +284,11 @@ const Journey: React.FC = () => {
                             <h3 className="text-2xl font-bold text-white">{event.title}</h3>
                           </div>
                         </div>
-                        <p className="text-white/70 mb-6">{event.description}</p>
+                        <p className="text-blue-200 mb-6">{event.description}</p>
 
                         <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
                           {event.achievements.map((acc, i) => (
-                            <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/80 flex items-center gap-1">
+                            <span key={i} className="px-3 py-1 rounded-full bg-electric-500/5 border border-electric-500/10 text-xs text-blue-100 flex items-center gap-1">
                               <span className={checkColorStyles[color]}>✓</span> {acc}
                             </span>
                           ))}
@@ -314,23 +313,23 @@ const Journey: React.FC = () => {
           className="mt-20 lg:mt-32 relative group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-electric-500/10 to-purple-500/10 blur-3xl opacity-50 group-hover:opacity-75 transition-opacity" />
-          <div className="relative bg-navy-900/40 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-white/10 overflow-hidden shadow-2xl">
+          <div className="relative bg-navy-900/40 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-electric-500/10 overflow-hidden shadow-2xl">
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
               <div className="flex-shrink-0 w-20 h-20 rounded-full bg-electric-500/20 flex items-center justify-center border border-electric-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                 <Target className="w-10 h-10 text-electric-300" />
               </div>
               <div className="flex-grow text-center lg:text-left">
                 <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">{t('journey.goals.title')}</h3>
-                <p className="text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-blue-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                   {t('journey.goals.description')}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {goals.map((goal, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors border border-white/5">
+                    <div key={i} className="flex items-center gap-3 bg-electric-500/5 rounded-lg p-3 hover:bg-electric-500/10 transition-colors border border-electric-500/5">
                       <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                         <span className="text-green-400 text-xs">✓</span>
                       </div>
-                      <span className="text-sm font-medium text-white/90">{goal}</span>
+                      <span className="text-sm font-medium text-blue-50">{goal}</span>
                     </div>
                   ))}
                 </div>
@@ -353,7 +352,7 @@ const CollapsibleAchievements: React.FC<{ achievements: string[], color: string,
   const checkClass = checkColor || (color === 'yellow' ? 'text-yellow-400' : color === 'pink' ? 'text-pink-400' : color === 'purple' ? 'text-purple-400' : 'text-blue-400');
 
   return (
-    <div className="bg-black/20 rounded-xl p-3 border border-white/5">
+    <div className="bg-black/20 rounded-xl p-3 border border-electric-500/5">
       <div className="space-y-2 mb-2">
         <AnimatePresence>
           {displayedAchievements.map((acc, i) => (
@@ -362,7 +361,7 @@ const CollapsibleAchievements: React.FC<{ achievements: string[], color: string,
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="flex items-start gap-2 text-xs text-white/80"
+              className="flex items-start gap-2 text-xs text-blue-100"
             >
               <span className={`${checkClass} mt-0.5 font-bold`}>✓</span>
               <span>{acc}</span>
@@ -374,7 +373,7 @@ const CollapsibleAchievements: React.FC<{ achievements: string[], color: string,
       {hasMore && (
         <button
           onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
-          className="flex items-center gap-1 text-[10px] font-bold text-white/60 hover:text-white uppercase tracking-wider transition-colors w-full pt-2 border-t border-white/5"
+          className="flex items-center gap-1 text-[10px] font-bold text-blue-300 hover:text-white uppercase tracking-wider transition-colors w-full pt-2 border-t border-electric-500/5"
         >
           {isExpanded ? (
             <>{t('journey.controls.showLess')} <ChevronDown className="w-3 h-3 rotate-180 transition-transform" /></>

@@ -62,7 +62,7 @@ const TechStack: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             {t('techStackPage.title')}
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-200 max-w-2xl mx-auto">
             {t('techStackPage.subtitle')}
           </p>
         </div>
@@ -72,10 +72,10 @@ const TechStack: React.FC = () => {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-8 border border-electric-500/20 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center text-electric-300 mb-6">
+              <div className="w-16 h-16 rounded-xl bg-electric-500/10 flex items-center justify-center text-electric-300 mb-6">
                 {category.icon}
               </div>
 
@@ -89,7 +89,7 @@ const TechStack: React.FC = () => {
                 {category.tools.map((tool, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 bg-white/10 text-white/90 rounded-lg text-sm font-medium hover:bg-electric-500 hover:text-white hover:scale-105 transition-all duration-300 cursor-default border border-white/10"
+                    className="px-4 py-2 bg-electric-500/10 text-blue-50 rounded-lg text-sm font-medium hover:bg-electric-500 hover:text-white hover:scale-105 transition-all duration-300 cursor-default border border-electric-500/10"
                   >
                     {tool}
                   </span>

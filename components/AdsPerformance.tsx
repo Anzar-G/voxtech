@@ -7,10 +7,10 @@ const AdsPerformance: React.FC = () => {
   const { t } = useTranslation();
 
   const metrics = [
-    { icon: <MousePointer />, value: '823', label: t('adsPerformance.metrics.clicks.label'), sub: t('adsPerformance.metrics.clicks.sub') },
-    { icon: <Eye />, value: '26,653', label: t('adsPerformance.metrics.views.label'), sub: t('adsPerformance.metrics.views.sub') },
-    { icon: <Target />, value: '32,496', label: t('adsPerformance.metrics.impressions.label'), sub: t('adsPerformance.metrics.impressions.sub') },
-    { icon: <Repeat />, value: '1.14x', label: t('adsPerformance.metrics.frequency.label'), sub: t('adsPerformance.metrics.frequency.sub') },
+    { icon: <MousePointer />, value: '909', label: t('adsPerformance.metrics.clicks.label'), sub: t('adsPerformance.metrics.clicks.sub') },
+    { icon: <Eye />, value: '65,257', label: t('adsPerformance.metrics.views.label'), sub: t('adsPerformance.metrics.views.sub') },
+    { icon: <Target />, value: '83,641', label: t('adsPerformance.metrics.impressions.label'), sub: t('adsPerformance.metrics.impressions.sub') },
+    { icon: <Repeat />, value: '1.09x', label: t('adsPerformance.metrics.frequency.label'), sub: t('adsPerformance.metrics.frequency.sub') },
     { icon: <TrendingUp />, value: '4.62%', label: t('adsPerformance.metrics.ctr.label'), sub: t('adsPerformance.metrics.ctr.sub') },
     { icon: <DollarSign />, value: 'Rp 165', label: t('adsPerformance.metrics.cpc.label'), sub: t('adsPerformance.metrics.cpc.sub') },
     { icon: <CheckCircle />, value: '62.90%', label: t('adsPerformance.metrics.lcToLp.label'), sub: t('adsPerformance.metrics.lcToLp.sub') },
@@ -21,11 +21,11 @@ const AdsPerformance: React.FC = () => {
     {
       name: 'Traffic Tsabit ⭐',
       status: 'Inactive',
-      linkClicks: 566,
-      ctr: '2.37%',
+      linkClicks: 578,
+      ctr: '2.40%',
       cpc: 'Rp 165',
-      impressions: '23,872',
-      results: '340 LPV',
+      impressions: '24,077',
+      results: '346 LPV',
       highlight: 'best',
     },
     {
@@ -58,6 +58,16 @@ const AdsPerformance: React.FC = () => {
       results: '0',
       highlight: 'worst',
     },
+    {
+      name: 'awareness #1',
+      status: 'Inactive',
+      linkClicks: 74,
+      ctr: '0.15%',
+      cpc: 'Rp 373',
+      impressions: '50,940',
+      results: '50,642 Reach',
+      highlight: null,
+    },
   ];
 
   const insights = t('adsPerformance.insights.items', { returnObjects: true }) as string[];
@@ -78,32 +88,32 @@ const AdsPerformance: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             {t('adsPerformance.title')}
           </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg text-blue-200 max-w-3xl mx-auto">
             {t('adsPerformance.subtitle')}
           </p>
         </div>
 
         {/* Campaign Period Card */}
-        <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 mb-16 shadow-md">
+        <div className="bg-electric-500/10 backdrop-blur-lg border border-electric-500/20 rounded-2xl p-8 mb-16 shadow-md">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <span className="text-2xl">📅</span>
               <div>
-                <p className="text-sm text-white/60">{t('adsPerformance.period.label')}</p>
+                <p className="text-sm text-blue-300">{t('adsPerformance.period.label')}</p>
                 <p className="text-lg font-semibold text-white">{t('adsPerformance.period.value')}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <DollarSign className="w-6 h-6 text-green-400" />
               <div>
-                <p className="text-sm text-white/60">{t('adsPerformance.spend.label')}</p>
+                <p className="text-sm text-blue-300">{t('adsPerformance.spend.label')}</p>
                 <p className="text-lg font-semibold text-white">{t('adsPerformance.spend.value')}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <BarChart className="w-6 h-6 text-electric-300" />
               <div>
-                <p className="text-sm text-white/60">{t('adsPerformance.budget.label')}</p>
+                <p className="text-sm text-blue-300">{t('adsPerformance.budget.label')}</p>
                 <p className="text-lg font-semibold text-white">{t('adsPerformance.budget.value')}</p>
               </div>
             </div>
@@ -115,26 +125,26 @@ const AdsPerformance: React.FC = () => {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-electric-500/10 backdrop-blur-lg border border-electric-500/20 rounded-xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex justify-center text-electric-300 mb-4">
                 {React.cloneElement(metric.icon, { size: 32 })}
               </div>
               <p className="text-3xl font-bold text-white mb-2">{metric.value}</p>
               <p className="text-sm font-semibold text-white mb-1">{metric.label}</p>
-              <p className="text-xs text-white/60">{metric.sub}</p>
+              <p className="text-xs text-blue-300">{metric.sub}</p>
             </div>
           ))}
         </div>
 
         {/* Campaign Breakdown Table */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl mb-16 border border-white/20">
-          <div className="bg-electric-500/20 text-white px-6 py-4 border-b border-white/10">
+        <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl mb-16 border border-electric-500/20">
+          <div className="bg-electric-500/20 text-white px-6 py-4 border-b border-electric-500/10">
             <h3 className="text-xl font-bold">{t('adsPerformance.table.title')}</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-white/5 border-b border-white/10">
+              <thead className="bg-electric-500/5 border-b border-electric-500/10">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.campaign')}</th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">{t('adsPerformance.table.headers.status')}</th>
@@ -147,10 +157,10 @@ const AdsPerformance: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-white/10">
                 {campaigns.map((campaign, index) => (
-                  <tr key={index} className="hover:bg-white/5 transition-colors">
+                  <tr key={index} className="hover:bg-electric-500/5 transition-colors">
                     <td className="px-6 py-4 text-sm font-medium text-white">{campaign.name}</td>
                     <td className="px-6 py-4">
-                      <span className="px-3 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-electric-500/10 text-blue-100 rounded-full text-xs font-medium">
                         {campaign.status}
                       </span>
                     </td>
@@ -173,13 +183,13 @@ const AdsPerformance: React.FC = () => {
         </div>
 
         {/* Key Insights */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 mb-12">
+        <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-8 border border-electric-500/20 mb-12">
           <h3 className="text-2xl font-bold text-white mb-6">{t('adsPerformance.insights.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map((insight, index) => (
               <div key={index} className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-electric-300 mt-1" />
-                <p className="text-base text-white/90 leading-relaxed">{insight}</p>
+                <p className="text-base text-blue-50 leading-relaxed">{insight}</p>
               </div>
             ))}
           </div>
@@ -192,11 +202,11 @@ const AdsPerformance: React.FC = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
+                className="bg-electric-500/10 backdrop-blur-lg border border-electric-500/20 rounded-xl p-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-all"
               >
                 <BookOpen className="w-6 h-6 text-electric-300 flex-shrink-0" />
                 <div className="flex-1">
-                  <span className="text-sm font-medium text-white/90">
+                  <span className="text-sm font-medium text-blue-50">
                     {product}
                   </span>
                 </div>

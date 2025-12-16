@@ -5,7 +5,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import PerformanceRoadmap from './PerformanceRoadmap';
-import OptimizedImage from './OptimizedImage';
+
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ const Projects: React.FC = () => {
       features: t('projects.page.items.feyd.features', { returnObjects: true }) as string[],
       liveUrl: 'https://feyd-store.vercel.app',
       featured: true,
-      image: '/website/feyd-store.png',
+      image: '/website/feyd-store-640w.webp',
       caseStudy: {
         challenge: t('projects.page.items.feyd.caseStudy.challenge'),
         solution: t('projects.page.items.feyd.caseStudy.solution'),
@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
       features: t('projects.page.items.frontworks.features', { returnObjects: true }) as string[],
       liveUrl: 'https://frontworks.vercel.app',
       featured: true,
-      image: '/website/frontworks.png',
+      image: '/website/frontworks-640w.webp',
       caseStudy: {
         challenge: t('projects.page.items.frontworks.caseStudy.challenge'),
         solution: t('projects.page.items.frontworks.caseStudy.solution'),
@@ -75,7 +75,7 @@ const Projects: React.FC = () => {
       features: t('projects.page.items.tilawah.features', { returnObjects: true }) as string[],
       liveUrl: 'https://program-tilawah-40-hari.vercel.app',
       featured: false,
-      image: '/website/program-tilawah.png',
+      image: '/website/program-tilawah-640w.webp',
       caseStudy: {
         challenge: t('projects.page.items.tilawah.caseStudy.challenge'),
         solution: t('projects.page.items.tilawah.caseStudy.solution'),
@@ -96,7 +96,7 @@ const Projects: React.FC = () => {
       features: t('projects.page.items.dapur.features', { returnObjects: true }) as string[],
       liveUrl: 'https://dapurkamila.vercel.app',
       featured: false,
-      image: '/website/dapurkamila.png',
+      image: '/website/dapurkamila-640w.webp',
       caseStudy: {
         challenge: t('projects.page.items.dapur.caseStudy.challenge'),
         solution: t('projects.page.items.dapur.caseStudy.solution'),
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
       features: t('projects.page.items.khoiru.features', { returnObjects: true }) as string[],
       liveUrl: 'https://anzar-g.github.io/khoiruummah/',
       featured: false,
-      image: '/website/khoiruummah.png',
+      image: '/website/khoiruummah-640w.webp',
       caseStudy: {
         challenge: t('projects.page.items.khoiru.caseStudy.challenge'),
         solution: t('projects.page.items.khoiru.caseStudy.solution'),
@@ -155,7 +155,7 @@ const Projects: React.FC = () => {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle absolute rounded-full bg-white/20"
+            className="particle absolute rounded-full bg-electric-300/30"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
@@ -176,8 +176,7 @@ const Projects: React.FC = () => {
         ))}
       </div>
 
-      <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+      <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-20">
@@ -185,7 +184,7 @@ const Projects: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             {t('projects.page.title')}
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
             {t('projects.page.subtitle')}
           </p>
         </ScrollReveal>
@@ -196,7 +195,7 @@ const Projects: React.FC = () => {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-2.5 rounded-full transition-all text-sm whitespace-nowrap ${activeFilter === filter.id ? 'bg-electric-500 text-white shadow-lg shadow-electric-500/25' : 'bg-white/10 text-white/70 hover:bg-white/20 backdrop-blur-sm'}`}
+                className={`px-6 py-2.5 rounded-full transition-all text-sm whitespace-nowrap ${activeFilter === filter.id ? 'bg-electric-500 text-white shadow-lg shadow-electric-500/25' : 'bg-electric-500/10 text-blue-200 hover:bg-electric-300/30 backdrop-blur-sm'}`}
               >
                 {filter.label}
               </button>
@@ -210,14 +209,16 @@ const Projects: React.FC = () => {
               <motion.div
                 variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-white/20 hover:border-electric-300/50"
+                className="bg-electric-500/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-electric-500/20 hover:border-electric-300/50"
               >
                 <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
                   <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors z-10" />
-                  <OptimizedImage
+                  <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {project.featured && (
                     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
@@ -241,17 +242,16 @@ const Projects: React.FC = () => {
                   <span className="inline-block px-3 py-1 bg-electric-500/20 text-electric-300 rounded-lg text-xs font-semibold mb-4 border border-electric-300/30">
                     {t(`projects.page.filters.${categoryMap[project.category] || 'other'}`)}
                   </span>
-                  <p className="text-sm text-white/80 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
+                  <p className="text-sm text-blue-100 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
 
                   <div className="mb-6">
-                    <p className="text-xs font-semibold text-white/70 mb-2">{t('projects.page.card.keyResults')}</p>
+                    <p className="text-xs font-semibold text-blue-200 mb-2">{t('projects.page.card.keyResults')}</p>
                     <ul className="space-y-1">
                       {project.features.slice(0, 2).map((feature, i) => (
-                        <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + 0.1 * i }}
-                          className="text-xs text-white/80 flex items-start gap-2">
+                        <li key={i} className="text-xs text-blue-100 flex items-start gap-2">
                           <span className="text-electric-300 mt-0.5">✓</span>
                           <span>{feature}</span>
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -264,7 +264,7 @@ const Projects: React.FC = () => {
                     </motion.a>
                     <motion.button onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
                       whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}
-                      className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id ? 'bg-electric-500 border-electric-500 text-white' : 'bg-white/10 border-white/30 hover:bg-white/20 text-electric-300'}`}>
+                      className={`px-4 py-2.5 border rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${selectedProject === project.id ? 'bg-electric-500 border-electric-500 text-white' : 'bg-electric-500/10 border-electric-500/30 hover:bg-electric-300/30 text-electric-300'}`}>
                       <FileText size={16} />
                     </motion.button>
                   </div>
@@ -273,38 +273,38 @@ const Projects: React.FC = () => {
 
               {selectedProject === project.id && (
                 <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-                  className="col-span-1 sm:col-span-2 lg:col-span-3 bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border-2 border-white/20">
+                  className="col-span-1 sm:col-span-2 lg:col-span-3 bg-electric-500/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border-2 border-electric-500/20">
                   <div className="space-y-8">
                     <div className="flex items-start justify-between">
                       <div>
                         <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-                        <p className="text-white/70">{t('projects.page.modal.detailTitle')}</p>
+                        <p className="text-blue-200">{t('projects.page.modal.detailTitle')}</p>
                       </div>
-                      <button onClick={() => setSelectedProject(null)} className="text-white/60 hover:text-white text-2xl font-bold">×</button>
+                      <button onClick={() => setSelectedProject(null)} className="text-blue-300 hover:text-white text-2xl font-bold">×</button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                      <div className="bg-electric-500/5 border border-electric-500/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-lg bg-electric-500/10 flex items-center justify-center">
                             <Target className="w-5 h-5 text-electric-300" />
                           </div>
                           <h4 className="text-lg font-bold text-white">{t('projects.page.modal.challenge')}</h4>
                         </div>
-                        <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.challenge}</p>
+                        <p className="text-sm text-blue-100 leading-relaxed">{project.caseStudy.challenge}</p>
                       </div>
 
-                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                      <div className="bg-electric-500/5 border border-electric-500/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                             <Zap className="w-5 h-5 text-blue-500" />
                           </div>
                           <h4 className="text-lg font-bold text-white">{t('projects.page.modal.solution')}</h4>
                         </div>
-                        <p className="text-sm text-white/80 leading-relaxed">{project.caseStudy.solution}</p>
+                        <p className="text-sm text-blue-100 leading-relaxed">{project.caseStudy.solution}</p>
                       </div>
 
-                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md">
+                      <div className="bg-electric-500/5 border border-electric-500/10 rounded-xl p-6 shadow-md">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
                             <Rocket className="w-5 h-5 text-cyan-300" />
@@ -313,7 +313,7 @@ const Projects: React.FC = () => {
                         </div>
                         <ul className="space-y-2">
                           {project.caseStudy.results.map((result, i) => (
-                            <li key={i} className="text-sm text-white/70 flex items-start gap-2">
+                            <li key={i} className="text-sm text-blue-200 flex items-start gap-2">
                               <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                               <span>{result}</span>
                             </li>
@@ -327,12 +327,12 @@ const Projects: React.FC = () => {
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {Object.entries(project.caseStudy.metrics).map(([key, value], i) => (
                           <div key={i} className="text-center">
-                            <p className="text-sm text-white/70 mb-1 capitalize">
+                            <p className="text-sm text-blue-200 mb-1 capitalize">
                               {t(`performanceRoadmap.metrics.${key}`) || key}
                             </p>
                             <p className="text-2xl font-bold">
                               {value}
-                              <span className="text-xs font-normal text-white/50 ml-1">(v1.0)</span>
+                              <span className="text-xs font-normal text-blue-300 ml-1">(v1.0)</span>
                             </p>
                           </div>
                         ))}
@@ -347,29 +347,29 @@ const Projects: React.FC = () => {
 
         <div className="bg-gradient-to-br from-navy-900 to-electric-500 rounded-3xl p-10 text-white">
           <h3 className="text-3xl font-bold mb-4 text-center">{t('projects.page.stats.title')}</h3>
-          <p className="text-sm text-white/60 text-center mb-8 max-w-2xl mx-auto">
+          <p className="text-sm text-blue-300 text-center mb-8 max-w-2xl mx-auto">
             {t('projects.page.stats.subtitle')}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">5+</p>
-              <p className="text-white/80">{t('projects.page.stats.completed')}</p>
+              <p className="text-blue-100">{t('projects.page.stats.completed')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">100%</p>
-              <p className="text-white/80">{t('projects.page.stats.satisfaction')}</p>
+              <p className="text-blue-100">{t('projects.page.stats.satisfaction')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">93</p>
-              <p className="text-white/80">{t('projects.page.stats.bestPractices')}</p>
+              <p className="text-blue-100">{t('projects.page.stats.bestPractices')}</p>
             </div>
             <div className="text-center">
               <p className="text-5xl font-bold mb-2">98</p>
-              <p className="text-white/80">{t('projects.page.stats.seo')}</p>
+              <p className="text-blue-100">{t('projects.page.stats.seo')}</p>
             </div>
           </div>
-          <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
-            <p className="text-xs text-white/70 text-center">
+          <div className="mt-8 p-4 bg-electric-500/5 rounded-xl border border-electric-500/10">
+            <p className="text-xs text-blue-200 text-center">
               <Trans i18nKey="projects.page.stats.note" components={{ 0: <span className="font-semibold text-electric-300" /> }} />
             </p>
           </div>

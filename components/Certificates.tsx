@@ -5,7 +5,7 @@ import ScrollReveal from './animations/ScrollReveal';
 import StaggerContainer from './animations/StaggerContainer';
 import { Award, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import OptimizedImage from './OptimizedImage';
+
 
 interface Certificate {
     title: string;
@@ -56,11 +56,11 @@ const Certificates: React.FC = () => {
 
     const certificatesRaw = t('certificates.items', { returnObjects: true }) as any[];
     const certificates: Certificate[] = [
-        { image: "/sertifikat/Sertifikat RevoU Software Enginering 1.jpg" },
-        { image: "/sertifikat/Sertifikat RevoU Software Enginering 2.jpg" },
-        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 1.jpg" },
-        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 2.jpg" },
-        { image: "/sertifikat/Sertifikat Frame to Fame.png" }
+        { image: "/sertifikat/Sertifikat RevoU Software Enginering 1-640w.webp" },
+        { image: "/sertifikat/Sertifikat RevoU Software Enginering 2-640w.webp" },
+        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 1-640w.webp" },
+        { image: "/sertifikat/Sertifikat RevoU Digital Marketing 2-640w.webp" },
+        { image: "/sertifikat/Sertifikat Frame to Fame-640w.webp" }
     ].map((item, index) => ({
         ...item,
         title: certificatesRaw[index]?.title || '',
@@ -69,7 +69,7 @@ const Certificates: React.FC = () => {
     }));
 
     return (
-        <section className="py-20 px-6 lg:px-20 bg-white/5 backdrop-blur-sm border-y border-white/10">
+        <section className="py-20 px-6 lg:px-20 bg-electric-500/5 backdrop-blur-sm border-y border-electric-500/10">
             <div className="max-w-7xl mx-auto">
                 <ScrollReveal className="text-center mb-16">
                     <div className="flex items-center justify-center gap-3 mb-4">
@@ -78,7 +78,7 @@ const Certificates: React.FC = () => {
                             {t('certificates.title')}
                         </h2>
                     </div>
-                    <p className="text-white/70 max-w-2xl mx-auto">
+                    <p className="text-blue-200 max-w-2xl mx-auto">
                         {t('certificates.subtitle')}
                     </p>
                 </ScrollReveal>
@@ -93,11 +93,11 @@ const Certificates: React.FC = () => {
                             }}
                             whileHover={{ y: -5 }}
                             onClick={() => setSelectedCert(cert.image)}
-                            className="group bg-white/10 rounded-2xl overflow-hidden border border-white/20 hover:border-electric-500/50 transition-all duration-300 shadow-lg cursor-pointer"
+                            className="group bg-electric-500/10 rounded-2xl overflow-hidden border border-electric-500/20 hover:border-electric-500/50 transition-all duration-300 shadow-lg cursor-pointer"
                         >
                             {/* Image Container */}
                             <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
-                                <OptimizedImage
+                                <img
                                     src={cert.image}
                                     alt={cert.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -124,7 +124,7 @@ const Certificates: React.FC = () => {
                                 <h3 className="text-sm lg:text-xl font-bold text-white mb-1 lg:mb-2 group-hover:text-electric-300 transition-colors line-clamp-2">
                                     {cert.title}
                                 </h3>
-                                <p className="text-[10px] lg:text-sm text-white/70 line-clamp-3 leading-relaxed">
+                                <p className="text-[10px] lg:text-sm text-blue-200 line-clamp-3 leading-relaxed">
                                     {cert.description}
                                 </p>
                             </div>
@@ -148,14 +148,14 @@ const Certificates: React.FC = () => {
                     >
                         <button
                             onClick={() => setSelectedCert(null)}
-                            className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors"
+                            className="absolute -top-12 right-0 text-blue-200 hover:text-white transition-colors"
                         >
                             {t('certificates.close')}
                         </button>
                         <img
                             src={selectedCert}
                             alt="Certificate Full View"
-                            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10"
+                            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-electric-500/10"
                         />
                     </motion.div>
                 </div>,

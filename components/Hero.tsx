@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle absolute rounded-full bg-white/20"
+            className="particle absolute rounded-full bg-electric-300/30"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
@@ -51,8 +51,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Diagonal Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+      <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -78,7 +77,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg sm:text-xl text-white/90 font-normal mb-4 max-w-3xl mx-auto"
+          className="text-lg sm:text-xl text-blue-100 font-normal mb-4 max-w-3xl mx-auto"
         >
           {t('hero.intro')}
         </motion.p>
@@ -87,7 +86,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg text-blue-50/80 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           {t('hero.description')}
         </motion.p>
@@ -102,15 +101,15 @@ const Hero: React.FC = () => {
             onClick={() => navigate('/projects')}
             whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 sm:px-10 sm:py-4 bg-white text-navy-900 rounded-lg font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            className="px-6 py-3 sm:px-10 sm:py-4 bg-electric-500 text-white rounded-lg font-bold text-sm sm:text-base shadow-lg hover:bg-electric-600 transition-all duration-300 w-full sm:w-auto"
           >
             {t('hero.cta.primary')}
           </motion.button>
           <motion.button
             onClick={() => navigate('/contact')}
-            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.15)' }}
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.15)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 sm:px-10 sm:py-4 bg-transparent border-2 border-white/50 hover:bg-white/10 text-white rounded-lg font-bold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto"
+            className="px-6 py-3 sm:px-10 sm:py-4 bg-transparent border-2 border-electric-500/50 hover:bg-electric-500/10 text-white rounded-lg font-bold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto"
           >
             {t('hero.cta.secondary')}
           </motion.button>
@@ -130,9 +129,9 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="p-4 sm:p-8 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-400 shadow-xl"
+              className="p-4 sm:p-8 rounded-2xl bg-electric-500/10 backdrop-blur-lg border border-electric-500/20 hover:bg-electric-500/20 hover:border-electric-500/50 transition-all duration-400 shadow-xl"
             >
-              <p className="text-white/70 text-sm font-medium uppercase tracking-wide mb-2">{stat.label}</p>
+              <p className="text-electric-200 text-sm font-medium uppercase tracking-wide mb-2">{stat.label}</p>
               <motion.p
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -141,7 +140,7 @@ const Hero: React.FC = () => {
               >
                 {stat.num}
               </motion.p>
-              <p className="text-white/90 text-base">{stat.sub}</p>
+              <p className="text-blue-100/90 text-base">{stat.sub}</p>
             </motion.div>
           ))}
         </motion.div>

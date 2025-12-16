@@ -53,7 +53,7 @@ const MarketingStrategy: React.FC = () => {
                 {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="particle absolute rounded-full bg-white/20"
+                        className="particle absolute rounded-full bg-electric-300/30"
                         style={{
                             width: `${Math.random() * 4 + 2}px`,
                             height: `${Math.random() * 4 + 2}px`,
@@ -75,22 +75,21 @@ const MarketingStrategy: React.FC = () => {
             </div>
 
             {/* Diagonal Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+            <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Header */}
                 <ScrollReveal className="text-center mb-16">
                     <div className="flex justify-center mb-6">
-                        <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <div className="p-4 bg-electric-500/10 rounded-2xl backdrop-blur-sm border border-electric-500/20">
                             <Lightbulb className="text-electric-300 w-12 h-12" />
                         </div>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         {t('marketingStrategy.title')}
                     </h2>
-                    <p className="text-lg text-white/80 max-w-3xl mx-auto">
+                    <p className="text-lg text-blue-100 max-w-3xl mx-auto">
                         {t('marketingStrategy.subtitle')}
                     </p>
                 </ScrollReveal>
@@ -107,13 +106,14 @@ const MarketingStrategy: React.FC = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ scale: 1.05, y: -5 }}
-                                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl text-center"
+                                className={`bg-electric-500/5 backdrop-blur-lg rounded-2xl p-6 border border-electric-500/20 hover:bg-electric-500/10 hover:border-electric-500/50 transition-all duration-300 shadow-xl text-center ${index === 1 ? 'lg:-translate-y-4' : ''
+                                    }`}
                             >
                                 <div className="flex justify-center text-electric-300 mb-4">
                                     {platform.icon}
                                 </div>
                                 <h4 className="text-lg font-bold text-white mb-2">{platform.name}</h4>
-                                <p className="text-sm text-white/70">{platform.description}</p>
+                                <p className="text-sm text-blue-200">{platform.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -132,7 +132,7 @@ const MarketingStrategy: React.FC = () => {
                                 }}
                                 className="relative"
                             >
-                                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl">
+                                <div className="bg-electric-500/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-electric-500/20 hover:bg-electric-500/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl">
                                     <div className="flex items-start gap-6">
                                         {/* Step Number */}
                                         <div className="flex-shrink-0">
@@ -144,12 +144,12 @@ const MarketingStrategy: React.FC = () => {
                                         {/* Content */}
                                         <div className="flex-1">
                                             <div className="flex items-center gap-3 mb-3">
-                                                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-electric-300">
+                                                <div className="w-10 h-10 rounded-lg bg-electric-500/10 flex items-center justify-center text-electric-300">
                                                     {step.icon}
                                                 </div>
                                                 <h4 className="text-xl font-bold text-white">{step.title}</h4>
                                             </div>
-                                            <p className="text-base text-white/80 leading-relaxed">
+                                            <p className="text-base text-blue-100 leading-relaxed">
                                                 {step.description}
                                             </p>
                                         </div>
@@ -174,7 +174,7 @@ const MarketingStrategy: React.FC = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                            className="bg-electric-500/5 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-electric-500/20 hover:bg-electric-500/10 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)]">
@@ -185,15 +185,15 @@ const MarketingStrategy: React.FC = () => {
                             <div className="space-y-3">
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.purpose')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.purposeText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.research.purposeText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.app')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.appText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.research.appText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.research.result')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.research.resultText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.research.resultText')}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -204,7 +204,7 @@ const MarketingStrategy: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                            className="bg-electric-500/5 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-electric-500/20 hover:bg-electric-500/10 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
@@ -215,11 +215,11 @@ const MarketingStrategy: React.FC = () => {
                             <div className="space-y-3">
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.purpose')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.content.purposeText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.content.purposeText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.brandPos')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.content.brandPosText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.content.brandPosText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.content.pillars')}</p>
@@ -240,7 +240,7 @@ const MarketingStrategy: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                            className="bg-electric-500/5 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-electric-500/20 hover:bg-electric-500/10 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
@@ -251,15 +251,15 @@ const MarketingStrategy: React.FC = () => {
                             <div className="space-y-3">
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.purpose')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.purposeText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.execution.purposeText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.app')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.appText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.execution.appText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.execution.tools')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.execution.toolsText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.execution.toolsText')}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -270,7 +270,7 @@ const MarketingStrategy: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                            className="bg-electric-500/5 backdrop-blur-lg rounded-2xl p-6 lg:p-8 border border-electric-500/20 hover:bg-electric-500/10 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.3)]">
@@ -281,15 +281,15 @@ const MarketingStrategy: React.FC = () => {
                             <div className="space-y-3">
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.purpose')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.purposeText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.analysis.purposeText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.app')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.appText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.analysis.appText')}</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-electric-300 font-semibold mb-1">{t('marketingStrategy.deepDive.analysis.action')}</p>
-                                    <p className="text-sm text-white/80">{t('marketingStrategy.deepDive.analysis.actionText')}</p>
+                                    <p className="text-sm text-blue-100">{t('marketingStrategy.deepDive.analysis.actionText')}</p>
                                 </div>
                             </div>
                         </motion.div>

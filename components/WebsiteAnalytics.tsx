@@ -69,7 +69,7 @@ interface AnalyticsImage {
 const MetricCard: React.FC<{ metric: HeroMetric; index: number }> = ({ metric, index }) => {
     const Icon = metric.icon;
     const colorMap: { [key: string]: string } = {
-        electric: "from-electric-500 to-electric-400",
+        electric: "from-electric-500 to-electric-500",
         purple: "from-purple-500 to-purple-400",
         yellow: "from-yellow-500 to-yellow-400",
         green: "from-green-500 to-green-400",
@@ -82,20 +82,20 @@ const MetricCard: React.FC<{ metric: HeroMetric; index: number }> = ({ metric, i
                 visible: { opacity: 1, scale: 1 }
             }}
             transition={{ delay: index * 0.1 }}
-            className={`bg-white/10 backdrop-blur-lg rounded-2xl ${metric.featured ? 'p-6 lg:p-8 col-span-2' : 'p-5 lg:p-6'} border ${metric.featured ? 'border-electric-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]' : 'border-white/20'} shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+            className={`bg-electric-500/5 backdrop-blur-lg rounded-2xl ${metric.featured ? 'p-6 lg:p-8 col-span-2' : 'p-5 lg:p-6'} border ${metric.featured ? `border-${metric.color}-500/40 shadow-[0_0_30px_rgba(59,130,246,0.2)]` : `border-${metric.color}-500/20`} shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:bg-${metric.color}-500/10 group`}
         >
             <div className="flex items-center justify-between mb-3">
-                <div className={`${metric.featured ? 'w-14 h-14' : 'w-10 h-10 lg:w-12 lg:h-12'} rounded-lg bg-white/10 flex items-center justify-center`}>
-                    <Icon className={`${metric.featured ? 'w-7 h-7' : 'w-5 h-5 lg:w-6 lg:h-6'} text-${metric.color}-300`} />
+                <div className={`${metric.featured ? 'w-14 h-14' : 'w-10 h-10 lg:w-12 lg:h-12'} rounded-lg bg-${metric.color}-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`${metric.featured ? 'w-7 h-7' : 'w-5 h-5 lg:w-6 lg:h-6'} text-${metric.color}-500`} />
                 </div>
-                <p className="text-xs lg:text-sm text-white/60 uppercase tracking-wider font-medium">
+                <p className="text-xs lg:text-sm text-blue-300 uppercase tracking-wider font-medium">
                     {metric.label}
                 </p>
             </div>
             <p className={`${metric.featured ? 'text-4xl lg:text-5xl' : 'text-2xl lg:text-3xl'} font-bold text-white mb-1`}>
                 {metric.value}
             </p>
-            <p className="text-[10px] lg:text-xs text-white/50 italic">
+            <p className="text-[10px] lg:text-xs text-blue-100/50 italic">
                 {metric.sublabel}
             </p>
         </motion.div>
@@ -124,7 +124,7 @@ const VelocityCard: React.FC<{ metric: VelocityMetric; index: number }> = ({ met
             <p className="text-3xl font-bold text-white mb-1">
                 {displayValue}{metric.suffix}
             </p>
-            <p className="text-xs text-white/60 uppercase tracking-wide mb-2">
+            <p className="text-xs text-blue-300 uppercase tracking-wide mb-2">
                 {metric.label}
             </p>
             <p className="text-xs text-green-400 flex items-center justify-center gap-1">
@@ -146,12 +146,12 @@ const ProgressBar: React.FC<{ source: TrafficSource; index: number }> = ({ sourc
         <div className="mb-6 last:mb-0">
             <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center gap-2">
-                    <Icon className="w-4 h-4 text-white/70" />
-                    <span className="text-sm text-white/80">{source.name}</span>
+                    <Icon className="w-4 h-4 text-blue-200" />
+                    <span className="text-sm text-blue-100">{source.name}</span>
                 </div>
                 <span className="text-sm font-bold text-white">{source.percentage}%</span>
             </div>
-            <div className="w-full h-3 rounded-full bg-white/10 overflow-hidden">
+            <div className="w-full h-3 rounded-full bg-electric-500/10 overflow-hidden">
                 <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${source.percentage}%` }}
@@ -160,7 +160,7 @@ const ProgressBar: React.FC<{ source: TrafficSource; index: number }> = ({ sourc
                     className={`h-full rounded-full bg-gradient-to-r ${colorMap[source.color]}`}
                 />
             </div>
-            <p className="text-xs text-white/50 italic mt-1 pl-2">
+            <p className="text-xs text-blue-100/50 italic mt-1 pl-2">
                 {source.context}
             </p>
         </div>
@@ -179,7 +179,7 @@ const ImagePlaceholder: React.FC<{ image: AnalyticsImage; index: number; onClick
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             onClick={!imageError ? onClick : undefined}
-            className={`relative group aspect-video rounded-xl overflow-hidden border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 ${!imageError ? 'cursor-pointer hover:scale-[1.02]' : ''
+            className={`relative group aspect-video rounded-xl overflow-hidden border border-electric-500/20 shadow-lg hover:shadow-2xl transition-all duration-300 ${!imageError ? 'cursor-pointer hover:scale-[1.02]' : ''
                 }`}
         >
             {!imageError ? (
@@ -194,16 +194,17 @@ const ImagePlaceholder: React.FC<{ image: AnalyticsImage; index: number; onClick
                         src={image.src}
                         alt={image.alt}
                         loading="lazy"
+                        decoding="async"
                         onError={() => setImageError(true)}
                         onLoad={() => setImageLoaded(true)}
                         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                 </>
             ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-white/5 text-white/40 p-4 text-center">
+                <div className="w-full h-full flex flex-col items-center justify-center bg-electric-500/5 text-blue-200/40 p-4 text-center">
                     <ImageIcon className="w-10 h-10 mb-2 opacity-50" />
                     <span className="text-xs leading-tight">{t('websiteAnalytics.views.title')}</span>
-                    <span className="text-[10px] mt-1 text-white/30">{t('websiteAnalytics.views.comingSoon')}</span>
+                    <span className="text-[10px] mt-1 text-blue-200/30">{t('websiteAnalytics.views.comingSoon')}</span>
                 </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition-opacity">
@@ -294,22 +295,22 @@ const WebsiteAnalytics: React.FC = () => {
 
     const analyticsImages: AnalyticsImage[] = [
         {
-            src: "/analytics/Pages_and_screens_Page_path_and_screen_class (1)_page-0001.jpg",
+            src: "/analytics/Pages_and_screens_Page_path_and_screen_class (1)_page-0001-1024w.webp",
             alt: "Pages and screens analytics",
             label: t('websiteAnalytics.views.items.pages'),
         },
         {
-            src: "/analytics/Events_Event_name_page-0001.jpg",
+            src: "/analytics/Events_Event_name_page-0001-1024w.webp",
             alt: "Event tracking analytics",
             label: t('websiteAnalytics.views.items.events'),
         },
         {
-            src: "/analytics/User_attributes_overview_page-0001.jpg",
+            src: "/analytics/User_attributes_overview_page-0001-1024w.webp",
             alt: "User demographics",
             label: t('websiteAnalytics.views.items.users'),
         },
         {
-            src: "/analytics/View_user_engagement_&_retention_overview_page-0001.jpg",
+            src: "/analytics/View_user_engagement_&_retention_overview_page-0001-1024w.webp",
             alt: "User engagement and retention",
             label: t('websiteAnalytics.views.items.engagement'),
         }
@@ -377,7 +378,7 @@ const WebsiteAnalytics: React.FC = () => {
                 {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="particle absolute rounded-full bg-white/20"
+                        className="particle absolute rounded-full bg-electric-300/30"
                         style={{
                             width: `${Math.random() * 4 + 2}px`,
                             height: `${Math.random() * 4 + 2}px`,
@@ -399,8 +400,7 @@ const WebsiteAnalytics: React.FC = () => {
             </div>
 
             {/* Diagonal Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+            <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
@@ -409,7 +409,7 @@ const WebsiteAnalytics: React.FC = () => {
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         {t('websiteAnalytics.title')}
                     </h2>
-                    <p className="text-lg text-white/80 max-w-3xl mx-auto">
+                    <p className="text-lg text-blue-100 max-w-3xl mx-auto">
                         {t('websiteAnalytics.subtitle')}
                     </p>
                 </ScrollReveal>
@@ -429,7 +429,7 @@ const WebsiteAnalytics: React.FC = () => {
                                     <Rocket className="w-6 h-6 lg:hidden text-electric-300" />
                                     {t('websiteAnalytics.launchContext.title')}
                                 </h3>
-                                <p className="text-sm lg:text-base text-white/70">
+                                <p className="text-sm lg:text-base text-blue-200">
                                     {t('websiteAnalytics.launchContext.date')}
                                 </p>
                             </div>
@@ -437,7 +437,7 @@ const WebsiteAnalytics: React.FC = () => {
                             {/* Live Badge */}
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-500/20 border border-electric-500/40">
                                 <motion.div
-                                    className="w-2 h-2 rounded-full bg-electric-400"
+                                    className="w-2 h-2 rounded-full bg-electric-500"
                                     animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
@@ -456,10 +456,10 @@ const WebsiteAnalytics: React.FC = () => {
 
                 {/* Velocity Insights */}
                 <ScrollReveal variant="fade-up" delay={0.2}>
-                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 mb-8">
+                    <div className="bg-electric-500/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-electric-500/10 mb-8">
                         <div className="flex items-center gap-2 mb-6">
                             <Zap className="w-5 h-5 text-electric-300" />
-                            <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
+                            <h3 className="text-sm lg:text-base font-bold text-blue-50 uppercase tracking-wide">
                                 {t('websiteAnalytics.velocity.title')}
                             </h3>
                         </div>
@@ -475,10 +475,10 @@ const WebsiteAnalytics: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
                     {/* Traffic Sources */}
                     <ScrollReveal variant="fade-up" delay={0.3}>
-                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 h-full">
+                        <div className="bg-electric-500/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-electric-500/10 h-full">
                             <div className="flex items-center gap-2 mb-6">
                                 <BarChart3 className="w-5 h-5 text-electric-300" />
-                                <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
+                                <h3 className="text-sm lg:text-base font-bold text-blue-50 uppercase tracking-wide">
                                     {t('websiteAnalytics.traffic.title')}
                                 </h3>
                             </div>
@@ -492,10 +492,10 @@ const WebsiteAnalytics: React.FC = () => {
 
                     {/* Geographic Reach */}
                     <ScrollReveal variant="fade-up" delay={0.4}>
-                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 h-full">
+                        <div className="bg-electric-500/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-electric-500/10 h-full">
                             <div className="flex items-center gap-2 mb-6">
                                 <Globe className="w-5 h-5 text-electric-300" />
-                                <h3 className="text-sm lg:text-base font-bold text-white/90 uppercase tracking-wide">
+                                <h3 className="text-sm lg:text-base font-bold text-blue-50 uppercase tracking-wide">
                                     {t('websiteAnalytics.geo.title')}
                                 </h3>
                             </div>
@@ -503,20 +503,20 @@ const WebsiteAnalytics: React.FC = () => {
                             {/* Mobile: Vertical List */}
                             <div className="lg:hidden space-y-4">
                                 <div>
-                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">{t('websiteAnalytics.geo.primary')}</p>
+                                    <p className="text-xs font-bold text-blue-300 uppercase mb-3">{t('websiteAnalytics.geo.primary')}</p>
                                     {cities.primary.map((city, idx) => (
                                         <div key={idx} className="flex items-center gap-2 mb-2">
                                             <MapPin className="w-4 h-4 text-green-400" />
-                                            <span className="text-sm text-white/80">{city}</span>
+                                            <span className="text-sm text-blue-100">{city}</span>
                                         </div>
                                     ))}
                                 </div>
-                                <div className="border-t border-white/10 pt-4">
-                                    <p className="text-xs font-bold text-white/60 uppercase mb-3">{t('websiteAnalytics.geo.expanding')}</p>
+                                <div className="border-t border-electric-500/10 pt-4">
+                                    <p className="text-xs font-bold text-blue-300 uppercase mb-3">{t('websiteAnalytics.geo.expanding')}</p>
                                     {cities.expanding.map((city, idx) => (
                                         <div key={idx} className="flex items-center gap-2 mb-2">
                                             <MapPin className="w-4 h-4 text-green-400" />
-                                            <span className="text-sm text-white/80">{city}</span>
+                                            <span className="text-sm text-blue-100">{city}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -528,10 +528,10 @@ const WebsiteAnalytics: React.FC = () => {
                                     {[...cities.primary, ...cities.expanding].map((city, idx) => (
                                         <div
                                             key={idx}
-                                            className="px-4 py-2 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition-colors flex items-center gap-2"
+                                            className="px-4 py-2 rounded-full bg-electric-500/10 border border-electric-500/10 hover:bg-electric-300/30 transition-colors flex items-center gap-2"
                                         >
                                             <MapPin className="w-3 h-3 text-green-400" />
-                                            <span className="text-sm text-white/80">{city}</span>
+                                            <span className="text-sm text-blue-100">{city}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -587,7 +587,7 @@ const WebsiteAnalytics: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="bg-white/10 backdrop-blur-lg rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-white/20 hover:bg-white/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
+                                    className="bg-electric-500/10 backdrop-blur-lg rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-electric-500/20 hover:bg-electric-500/15 hover:border-electric-500/50 transition-all duration-300 shadow-xl"
                                 >
                                     <div className="flex items-start gap-3 lg:gap-4 mb-3 lg:mb-4">
                                         <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-electric-500/20 flex items-center justify-center text-electric-300 flex-shrink-0">
@@ -602,7 +602,7 @@ const WebsiteAnalytics: React.FC = () => {
                                             </h4>
                                         </div>
                                     </div>
-                                    <p className="text-xs lg:text-sm text-white/80 leading-relaxed">
+                                    <p className="text-xs lg:text-sm text-blue-100 leading-relaxed">
                                         {insight.description}
                                     </p>
                                 </motion.div>
@@ -626,7 +626,7 @@ const WebsiteAnalytics: React.FC = () => {
                         {/* Close Button */}
                         <button
                             onClick={() => setSelectedImageIndex(null)}
-                            className="absolute top-4 right-4 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-colors group"
+                            className="absolute top-4 right-4 z-50 bg-electric-500/10 hover:bg-electric-300/30 backdrop-blur-sm rounded-full p-3 transition-colors group"
                             aria-label="Close modal"
                         >
                             <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
@@ -638,7 +638,7 @@ const WebsiteAnalytics: React.FC = () => {
                                 e.stopPropagation();
                                 handlePrevImage();
                             }}
-                            className="absolute left-4 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-colors hidden md:block"
+                            className="absolute left-4 z-50 bg-electric-500/10 hover:bg-electric-300/30 backdrop-blur-sm rounded-full p-3 transition-colors hidden md:block"
                             aria-label="Previous image"
                         >
                             <ChevronLeft className="w-6 h-6 text-white" />
@@ -650,7 +650,7 @@ const WebsiteAnalytics: React.FC = () => {
                                 e.stopPropagation();
                                 handleNextImage();
                             }}
-                            className="absolute right-4 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-colors hidden md:block"
+                            className="absolute right-4 z-50 bg-electric-500/10 hover:bg-electric-300/30 backdrop-blur-sm rounded-full p-3 transition-colors hidden md:block"
                             aria-label="Next image"
                         >
                             <ChevronRight className="w-6 h-6 text-white" />
@@ -678,7 +678,7 @@ const WebsiteAnalytics: React.FC = () => {
                                 <p className="text-white text-lg font-semibold mb-1">
                                     {analyticsImages[selectedImageIndex].label}
                                 </p>
-                                <p className="text-white/60 text-sm">
+                                <p className="text-blue-300 text-sm">
                                     {selectedImageIndex + 1} / {analyticsImages.length}
                                 </p>
                             </div>
@@ -687,14 +687,14 @@ const WebsiteAnalytics: React.FC = () => {
                             <div className="flex md:hidden justify-center gap-4 mt-4">
                                 <button
                                     onClick={handlePrevImage}
-                                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-colors"
+                                    className="bg-electric-500/10 hover:bg-electric-300/30 backdrop-blur-sm rounded-full p-3 transition-colors"
                                     aria-label="Previous image"
                                 >
                                     <ChevronLeft className="w-5 h-5 text-white" />
                                 </button>
                                 <button
                                     onClick={handleNextImage}
-                                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-colors"
+                                    className="bg-electric-500/10 hover:bg-electric-300/30 backdrop-blur-sm rounded-full p-3 transition-colors"
                                     aria-label="Next image"
                                 >
                                     <ChevronRight className="w-5 h-5 text-white" />

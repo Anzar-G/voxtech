@@ -60,7 +60,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         green: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-300 hover:border-emerald-500/50",
         yellow: "bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-500/30 text-amber-300 hover:border-amber-500/50",
         cyan: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20 text-cyan-300 hover:border-cyan-500/40 hover:bg-cyan-500/20",
-        gray: "bg-gray-700/30 border-gray-600/30 text-gray-300 hover:border-gray-500/40 hover:bg-gray-700/40",
+        gray: "bg-navy-700/30 border-navy-600/30 text-gray-300 hover:border-gray-500/40 hover:bg-gray-700/40",
         red: "bg-gradient-to-br from-rose-500/10 to-red-500/10 border-rose-500/20 text-rose-300 hover:border-rose-500/40 hover:bg-rose-500/20",
         emerald: "bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 text-emerald-300 hover:border-emerald-500/40 hover:bg-emerald-500/20",
     };
@@ -112,11 +112,11 @@ const MetricCard: React.FC<MetricCardProps> = ({
             className={`rounded-2xl p-4 lg:p-5 border transition-all duration-300 ${styleClass} ${isLarge ? 'col-span-2' : ''} shadow-lg backdrop-blur-sm`}
         >
             <div className="flex items-center justify-between mb-3">
-                <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-white/80' : 'text-[10px] text-white/60'}`}>
+                <p className={`uppercase tracking-wide font-medium ${isLarge ? 'text-sm text-blue-100' : 'text-[10px] text-blue-300'}`}>
                     {title}
                 </p>
                 {change && (
-                    <div className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded-full border border-white/5">
+                    <div className="flex items-center gap-1 bg-electric-500/5 px-2 py-0.5 rounded-full border border-electric-500/5">
                         <TrendingUp className="w-3 h-3 text-green-400" />
                         <span className="text-green-400 text-xs font-bold">{change}</span>
                     </div>
@@ -124,7 +124,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
             </div>
             <div className="flex items-center gap-3">
                 {icon && (
-                    <div className={`${isLarge ? 'p-2 rounded-lg bg-white/5' : ''} transition-transform group-hover:scale-110 duration-300`}>
+                    <div className={`${isLarge ? 'p-2 rounded-lg bg-electric-500/5' : ''} transition-transform group-hover:scale-110 duration-300`}>
                         {icon}
                     </div>
                 )}
@@ -147,14 +147,14 @@ const AnalyticsPanel: React.FC<{
 
     return (
         <div className="space-y-8 h-full flex flex-col">
-            <ScrollReveal variant={isInsta ? "fade-right" : "fade-left"} className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/10 flex-1 flex flex-col">
+            <ScrollReveal variant={isInsta ? "fade-right" : "fade-left"} className="bg-electric-500/5 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-electric-500/10 flex-1 flex flex-col">
                 <div className="flex items-center gap-4 mb-8">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg ${isInsta ? 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600' : 'bg-black border border-white/10'}`}>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg ${isInsta ? 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600' : 'bg-black border border-electric-500/10'}`}>
                         {isInsta ? <Instagram className="text-white w-7 h-7" /> : <Music className="text-white w-7 h-7" />}
                     </div>
                     <div>
                         <h3 className="text-2xl font-bold text-white capitalize tracking-tight">{platform} {t('socialMediaAnalytics.panel.analytics')}</h3>
-                        <p className="text-sm text-white/60 font-medium">{t('socialMediaAnalytics.panel.overview')}</p>
+                        <p className="text-sm text-blue-300 font-medium">{t('socialMediaAnalytics.panel.overview')}</p>
                     </div>
                 </div>
 
@@ -197,8 +197,8 @@ const AnalyticsPanel: React.FC<{
                 {/* Engagement / Traffic Source */}
                 <div className="mb-8">
                     {isInsta ? (
-                        <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
-                            <h5 className="text-sm font-bold text-white/90 mb-4 flex items-center gap-2">
+                        <div className="bg-electric-500/5 rounded-2xl p-5 border border-electric-500/5">
+                            <h5 className="text-sm font-bold text-blue-50 mb-4 flex items-center gap-2">
                                 <Zap className="w-4 h-4 text-yellow-400" />
                                 {t('socialMediaAnalytics.sections.engagement')}
                             </h5>
@@ -208,27 +208,27 @@ const AnalyticsPanel: React.FC<{
                                     { label: t('socialMediaAnalytics.metrics.comments'), count: data.comments, icon: <Calculator className="w-5 h-5 text-blue-400" /> },
                                     { label: t('socialMediaAnalytics.metrics.shares'), count: data.shares, icon: <Share2 className="w-5 h-5 text-green-400" /> }
                                 ].map((stat, i) => (
-                                    <div key={i} className="flex-1 min-w-[80px] text-center bg-white/5 rounded-xl py-3 px-2 border border-white/5 hover:bg-white/10 transition-colors">
+                                    <div key={i} className="flex-1 min-w-[80px] text-center bg-electric-500/5 rounded-xl py-3 px-2 border border-electric-500/5 hover:bg-electric-500/10 transition-colors">
                                         <div className="flex justify-center mb-1">{stat.icon}</div>
                                         <p className="text-lg font-bold text-white">{stat.count}</p>
-                                        <p className="text-[10px] text-white/50 uppercase tracking-wider">{stat.label}</p>
+                                        <p className="text-[10px] text-blue-300/50 uppercase tracking-wider">{stat.label}</p>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     ) : (
-                        <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
-                            <h4 className="text-sm font-bold text-white/90 mb-4 flex items-center gap-2">
+                        <div className="bg-electric-500/5 rounded-2xl p-6 border border-electric-500/5">
+                            <h4 className="text-sm font-bold text-blue-50 mb-4 flex items-center gap-2">
                                 <TrendingUp className="w-4 h-4 text-cyan-400" />
                                 {t('socialMediaAnalytics.sections.traffic')}
                             </h4>
                             <div className="space-y-4">
                                 <div className="space-y-1.5">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-white/70 flex items-center gap-1.5"><Flame className="w-3 h-3 text-cyan-400" />{t('socialMediaAnalytics.traffic.fyp')}</span>
+                                        <span className="text-blue-200 flex items-center gap-1.5"><Flame className="w-3 h-3 text-cyan-400" />{t('socialMediaAnalytics.traffic.fyp')}</span>
                                         <span className="font-bold text-white">{data.fypPercentage}%</span>
                                     </div>
-                                    <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
+                                    <div className="w-full bg-electric-500/5 rounded-full h-2 overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: `${data.fypPercentage}%` }}
@@ -239,10 +239,10 @@ const AnalyticsPanel: React.FC<{
                                 </div>
                                 <div className="space-y-1.5">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-white/70 flex items-center gap-1.5"><Search className="w-3 h-3 text-purple-400" />{t('socialMediaAnalytics.traffic.search')}</span>
+                                        <span className="text-blue-200 flex items-center gap-1.5"><Search className="w-3 h-3 text-purple-400" />{t('socialMediaAnalytics.traffic.search')}</span>
                                         <span className="font-bold text-white">{data.searchPercentage}%</span>
                                     </div>
-                                    <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
+                                    <div className="w-full bg-electric-500/5 rounded-full h-2 overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: `${data.searchPercentage}%` }}
@@ -258,9 +258,9 @@ const AnalyticsPanel: React.FC<{
 
                 {/* Popular Content - Horizontal Scroll on Mobile */}
                 <div className="mt-auto relative group/content">
-                    <h4 className="text-sm font-bold text-white/80 mb-4 uppercase tracking-wider flex items-center justify-between">
+                    <h4 className="text-sm font-bold text-blue-100 mb-4 uppercase tracking-wider flex items-center justify-between">
                         {t('socialMediaAnalytics.sections.topContent')}
-                        <span className="text-[10px] text-white/40 lg:hidden">{t('socialMediaAnalytics.sections.swipe')}</span>
+                        <span className="text-[10px] text-blue-200 lg:hidden">{t('socialMediaAnalytics.sections.swipe')}</span>
                     </h4>
 
                     <div className="relative">
@@ -289,18 +289,19 @@ const ContentThumbnail: React.FC<{ post: { url: string; img: string; views: numb
             href={post.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 w-[180px] lg:w-auto snap-center group relative aspect-[4/5] rounded-xl overflow-hidden bg-gray-900 border border-white/10 hover:border-white/30 transition-all"
+            className="flex-shrink-0 w-[180px] lg:w-auto snap-center group relative aspect-[4/5] rounded-xl overflow-hidden bg-navy-900 border border-electric-500/10 hover:border-white/30 transition-all"
         >
             {!imageError ? (
                 <img
                     src={post.img}
                     alt={`Top ${idx}`}
                     loading="lazy"
+                    decoding="async"
                     onError={() => setImageError(true)}
                     className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
             ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 text-white/40 p-4 text-center">
+                <div className="w-full h-full flex flex-col items-center justify-center bg-navy-800 text-blue-200 p-4 text-center">
                     <ImageIcon className="w-10 h-10 mb-2 opacity-50" />
                     <span className="text-[10px] leading-tight">{t('socialMediaAnalytics.sections.imageUnavailable')}</span>
                 </div>
@@ -308,10 +309,10 @@ const ContentThumbnail: React.FC<{ post: { url: string; img: string; views: numb
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-3 flex flex-col justify-end">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-white font-medium">
-                        <Eye className="w-3.5 h-3.5 text-white/70" />
+                        <Eye className="w-3.5 h-3.5 text-blue-200" />
                         {post.views > 1000 ? `${(post.views / 1000).toFixed(1)}k` : post.views}
                     </div>
-                    <div className="w-6 h-6 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-6 h-6 rounded-full bg-electric-500/10 backdrop-blur-sm flex items-center justify-center opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
                         <Share2 className="w-3 h-3 text-white" />
                     </div>
                 </div>
@@ -334,9 +335,9 @@ const SocialMediaAnalytics: React.FC = () => {
         nonFollowers: 9,
         accountsReached: 308,
         topContent: [
-            { url: 'https://www.instagram.com/p/DQ-qCniD6Cn/', img: '/placeholder-image/Instagram/Top1.png', views: 93, interactions: 4 },
-            { url: 'https://www.instagram.com/p/DRLpeWTCP9U/', img: '/placeholder-image/Instagram/Top2.png', views: 78, interactions: 3 },
-            { url: 'https://www.instagram.com/p/DRI6OdPDyDB/', img: '/placeholder-image/Instagram/Top3.png', views: 86, interactions: 5 }
+            { url: 'https://www.instagram.com/p/DQ-qCniD6Cn/', img: '/placeholder-image/Instagram/Top1-640w.webp', views: 93, interactions: 4 },
+            { url: 'https://www.instagram.com/p/DRLpeWTCP9U/', img: '/placeholder-image/Instagram/Top2-640w.webp', views: 78, interactions: 3 },
+            { url: 'https://www.instagram.com/p/DRI6OdPDyDB/', img: '/placeholder-image/Instagram/Top3-640w.webp', views: 86, interactions: 5 }
         ]
     };
 
@@ -350,9 +351,9 @@ const SocialMediaAnalytics: React.FC = () => {
         fypPercentage: 75.4,
         searchPercentage: 22.3,
         topContent: [
-            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572406798485916936', img: '/placeholder-image/Tiktok/Top1.png', views: 1890, interactions: 42 },
-            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7570100135565348103', img: '/placeholder-image/Tiktok/Top2.png', views: 758, interactions: 41 },
-            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572018045439331592', img: '/placeholder-image/Tiktok/Top3.png', views: 834, interactions: 50 }
+            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572406798485916936', img: '/placeholder-image/Tiktok/Top1-640w.webp', views: 1890, interactions: 42 },
+            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7570100135565348103', img: '/placeholder-image/Tiktok/Top2-640w.webp', views: 758, interactions: 41 },
+            { url: 'https://www.tiktok.com/@studifiqh.id/photo/7572018045439331592', img: '/placeholder-image/Tiktok/Top3-640w.webp', views: 834, interactions: 50 }
         ]
     };
 
@@ -369,7 +370,7 @@ const SocialMediaAnalytics: React.FC = () => {
                 {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="particle absolute rounded-full bg-white/20"
+                        className="particle absolute rounded-full bg-electric-300/30"
                         style={{
                             width: `${Math.random() * 4 + 2}px`,
                             height: `${Math.random() * 4 + 2}px`,
@@ -389,14 +390,13 @@ const SocialMediaAnalytics: React.FC = () => {
                     />
                 ))}
             </div>
-            <div className="absolute inset-0 opacity-5"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)' }}>
+            <div className="absolute inset-0 opacity-5 bg-diagonal-electric">
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 <ScrollReveal variant="fade-up" className="mb-12">
                     <div className="flex items-center gap-4 mb-8">
-                        <div className="p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                        <div className="p-3 bg-electric-500/10 rounded-xl backdrop-blur-sm border border-electric-500/20">
                             <TrendingUp className="text-electric-300 w-8 h-8" />
                         </div>
                         <h2 className="text-3xl lg:text-4xl font-bold text-white">{t('socialMediaAnalytics.title')}</h2>
@@ -404,16 +404,16 @@ const SocialMediaAnalytics: React.FC = () => {
                 </ScrollReveal>
 
                 {/* Mobile Tabs */}
-                <div className="lg:hidden flex border-b border-white/10 mb-8 sticky top-20 z-20 bg-navy-900/80 backdrop-blur-md">
+                <div className="lg:hidden flex border-b border-electric-500/10 mb-8 sticky top-20 z-20 bg-navy-900/80 backdrop-blur-md">
                     <button
-                        className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'instagram' ? 'text-electric-300' : 'text-white/60'}`}
+                        className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'instagram' ? 'text-electric-300' : 'text-blue-300'}`}
                         onClick={() => setActiveTab('instagram')}
                     >
                         {t('socialMediaAnalytics.tabs.instagram')}
                         {activeTab === 'instagram' && <motion.div layoutId="socialTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-electric-500" />}
                     </button>
                     <button
-                        className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'tiktok' ? 'text-electric-300' : 'text-white/60'}`}
+                        className={`flex-1 py-3 text-center font-medium text-sm transition-all relative ${activeTab === 'tiktok' ? 'text-electric-300' : 'text-blue-300'}`}
                         onClick={() => setActiveTab('tiktok')}
                     >
                         {t('socialMediaAnalytics.tabs.tiktok')}

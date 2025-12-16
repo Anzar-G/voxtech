@@ -13,7 +13,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
     width,
     height
 }) => {
-    const baseClasses = "bg-white/10 animate-pulse";
+    const baseClasses = "bg-electric-500/10 animate-pulse";
 
     const variantClasses = {
         text: "rounded h-4 w-full",
@@ -21,15 +21,11 @@ const Skeleton: React.FC<SkeletonProps> = ({
         circular: "rounded-full"
     };
 
-    const style = {
-        width: width,
-        height: height
-    };
+
 
     return (
         <div
-            className={`${baseClasses} ${variantClasses[variant]} ${className}`}
-            style={style}
+            className={`${baseClasses} ${variantClasses[variant]} ${width ? `w-[${width}]` : ''} ${height ? `h-[${height}]` : ''} ${className}`}
         />
     );
 };

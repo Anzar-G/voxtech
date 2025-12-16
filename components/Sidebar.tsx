@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     <>
       {/* Desktop Sidebar - Hover Expand */}
       <motion.aside
-        className="hidden lg:flex fixed left-0 top-0 h-screen bg-navy-900 shadow-2xl z-50 flex-col border-r border-white/10"
+        className="hidden lg:flex fixed left-0 top-0 h-screen bg-navy-900 shadow-2xl z-50 flex-col border-r border-electric-500/20"
         initial={{ width: '60px' }}
         animate={{ width: desktopOpen ? '280px' : '60px' }}
         onMouseEnter={() => setDesktopOpen(true)}
@@ -43,8 +43,8 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <div className="p-4 border-b border-white/10 flex items-center gap-3 overflow-hidden">
-          <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center flex-shrink-0 p-1.5">
+        <div className="p-4 border-b border-electric-500/20 flex items-center gap-3 overflow-hidden">
+          <div className="w-8 h-8 rounded-lg bg-electric-500/10 border border-electric-500/20 flex items-center justify-center flex-shrink-0 p-1.5">
             <img src="/favicon.svg" alt="MN" className="w-full h-full object-contain" />
           </div>
           <motion.div
@@ -59,34 +59,36 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 py-4 overflow-y-auto no-scrollbar" role="menu" aria-label="Main menu">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = location.pathname === item.path;
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`w-full flex items-center gap-3 px-4 py-3 transition-all duration-200 ${isActive
-                  ? 'bg-electric-500/15 text-electric-500 border-l-4 border-electric-500'
-                  : 'text-white/70 hover:bg-white/5 hover:text-white border-l-4 border-transparent'
-                  }`}
-                role="menuitem"
-                aria-label={`Navigate to ${item.label}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <Icon size={20} className="flex-shrink-0" />
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: desktopOpen ? 1 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-sm whitespace-nowrap"
-                >
-                  {item.label}
-                </motion.span>
-              </Link>
-            );
-          })}
+        <nav className="flex-1 py-4 overflow-y-auto no-scrollbar" aria-label="Main menu">
+          <ul className="flex flex-col">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              return (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className={`w-full flex items-center gap-3 px-4 py-3 transition-all duration-200 ${isActive
+                      ? 'bg-electric-500/15 text-electric-500 border-l-4 border-electric-500'
+                      : 'text-white/70 hover:bg-electric-500/10 hover:text-white border-l-4 border-transparent'
+                      }`}
+                    aria-label={`Navigate to ${item.label}`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <Icon size={20} className="flex-shrink-0" />
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: desktopOpen ? 1 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-sm whitespace-nowrap"
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
 
         {/* Desktop Language Switcher - Only visible when open */}
@@ -104,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </motion.div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-white/10 space-y-3">
+        <div className="p-4 border-t border-electric-500/20 space-y-3">
           <div className="flex items-center justify-center gap-3">
             <a
               href="https://www.linkedin.com/in/muhammad-niyar-49272339a"
@@ -152,6 +154,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
 
           {/* Sidebar Content */}
           <motion.aside
+            id="sidebar-navigation"
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
@@ -159,14 +162,15 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             className="absolute left-0 top-0 h-full w-[70%] max-w-[280px] bg-navy-900 shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="p-6 border-b border-white/10">
+            <div className="p-6 border-b border-electric-500/20">
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center flex-shrink-0 p-2.5">
+                <div className="w-12 h-12 rounded-lg bg-electric-500/10 border border-electric-500/20 flex items-center justify-center flex-shrink-0 p-2.5">
                   <img src="/favicon.svg" alt="MN" className="w-full h-full object-contain" />
                 </div>
                 <button
                   onClick={() => setSidebarOpen(false)}
-                  className="text-white/70 hover:text-white p-1 hover:bg-white/10 rounded transition-colors"
+                  className="text-white/70 hover:text-white p-1 hover:bg-electric-500/10 rounded transition-colors"
+                  aria-label="Close menu"
                 >
                   <X size={24} />
                 </button>
@@ -192,7 +196,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                     onClick={handleNavClick}
                     className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-all duration-200 ${isActive
                       ? 'bg-electric-500/15 text-electric-500 border-l-4 border-electric-500 font-semibold'
-                      : 'text-white/70 hover:bg-white/5 hover:text-white border-l-4 border-transparent'
+                      : 'text-white/70 hover:bg-electric-500/10 hover:text-white border-l-4 border-transparent'
                       }`}
                   >
                     <Icon size={20} />
@@ -203,7 +207,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             </nav>
 
             {/* Social Links & Download CV */}
-            <div className="p-5 border-t border-white/10 space-y-3">
+            <div className="p-5 border-t border-electric-500/20 space-y-3">
               <div className="flex items-center justify-center gap-4">
                 <a
                   href="https://www.linkedin.com/in/muhammad-niyar-49272339a"

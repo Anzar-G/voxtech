@@ -10,12 +10,12 @@ const LanguageSwitcher = () => {
     };
 
     return (
-        <div className="flex items-center gap-2 p-1 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+        <div className="flex items-center gap-2 p-1 bg-electric-500/10 backdrop-blur-sm rounded-full border border-electric-500/20">
             <button
                 onClick={() => changeLanguage('id')}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${i18n.language === 'id' || i18n.language.startsWith('id')
-                        ? 'bg-electric-500 text-white shadow-lg'
-                        : 'text-white/60 hover:text-white'
+                    ? 'bg-electric-500 text-white shadow-lg'
+                    : 'text-blue-300 hover:text-white'
                     }`}
                 aria-label="Switch to Indonesian"
             >
@@ -24,8 +24,8 @@ const LanguageSwitcher = () => {
             <button
                 onClick={() => changeLanguage('en')}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${i18n.language === 'en' || i18n.language.startsWith('en')
-                        ? 'bg-electric-500 text-white shadow-lg'
-                        : 'text-white/60 hover:text-white'
+                    ? 'bg-electric-500 text-white shadow-lg'
+                    : 'text-blue-300 hover:text-white'
                     }`}
                 aria-label="Switch to English"
             >

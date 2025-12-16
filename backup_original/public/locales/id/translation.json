@@ -1,0 +1,1283 @@
+{
+    "navigation": {
+        "home": "Beranda",
+        "about": "Tentang",
+        "services": "Layanan",
+        "projects": "Projek",
+        "journey": "Perjalanan",
+        "businesses": "Bisnis",
+        "contact": "Kontak"
+    },
+    "sidebar": {
+        "role": "AI Engineer & Digital Marketer",
+        "roleShort": "AI Engineer"
+    },
+    "meta": {
+        "defaultTitle": "Muhammad Nizar Al-Faris - Portfolio",
+        "defaultDescription": "Portfolio profesional Muhammad Nizar Al-Faris, AI Engineer dan Digital Marketer.",
+        "home": {
+            "title": "Beranda",
+            "description": "Selamat datang di portfolio Muhammad Nizar Al-Faris."
+        },
+        "about": {
+            "title": "Tentang Saya",
+            "description": "Pelajari lebih lanjut tentang perjalanan dan keahlian saya."
+        },
+        "services": {
+            "title": "Layanan",
+            "description": "Layanan profesional AI dan pemasaran digital."
+        },
+        "projects": {
+            "title": "Proyek",
+            "description": "Lihat proyek-proyek terbaru yang telah saya kerjakan."
+        },
+        "journey": {
+            "title": "Perjalanan",
+            "description": "Jejak langkah karir dan pencapaian saya."
+        },
+        "contact": {
+            "title": "Kontak",
+            "description": "Hubungi saya untuk kolaborasi."
+        }
+    },
+    "hero": {
+        "greeting": "Halo, Saya",
+        "title": "Muhammad Nizar Al-Faris",
+        "subtitle": "AI Engineer & Tech Provider",
+        "intro": "Menguasai Digital Entrepreneurship melalui Facebook Ads yang Terukur",
+        "description": "Membangun solusi digital inovatif dengan teknologi modern dan pendekatan berbasis data.",
+        "cta": {
+            "primary": "Lihat Projek",
+            "secondary": "Hubungi Saya"
+        },
+        "stats": [
+            {
+                "label": "Pengalaman AI",
+                "num": "8+",
+                "sub": "Bulan"
+            },
+            {
+                "label": "Proyek Selesai",
+                "num": "5+",
+                "sub": "Projek"
+            },
+            {
+                "label": "Bisnis Aktif",
+                "num": "2",
+                "sub": "Berjalan"
+            }
+        ]
+    },
+    "about": {
+        "title": "Tentang Saya",
+        "intro": "Full-stack developer dengan passion di AI dan digital marketing",
+        "downloadCV": "Unduh CV",
+        "location": {
+            "label": "Lokasi",
+            "value": "Semarang, Jateng"
+        },
+        "education": {
+            "label": "Pendidikan",
+            "value": "SMA Kelas 1",
+            "certifications": "Sertifikasi"
+        },
+        "business": {
+            "label": "Bisnis",
+            "value": "2 Berjalan"
+        },
+        "experience": {
+            "label": "Exp. AI",
+            "value": "8 Bulan"
+        },
+        "stats": {
+            "aiMonths": "Bulan AI",
+            "projects": "Proyek",
+            "businesses": "Bisnis",
+            "success": "Berhasil",
+            "running": "Berjalan"
+        },
+        "bio": {
+            "title": "Siapa Saya?",
+            "p1": "Saya Muhammad Nizar Al-Faris, seorang <1>AI Engineer dan Spesialis Digital Marketing</1> berusia 16 tahun yang passionate dalam menghadirkan solusi digital inovatif. Dengan pengalaman 8 bulan di bidang pengembangan web berbasis AI, saya membantu bisnis mengubah ide menjadi website profesional yang fungsional dan menarik.",
+            "p2": "Yang membedakan saya adalah pendekatan <1>AI-first development</1> menggunakan berbagai intelligent agents (Claude AI, Qwen Coder, Cascade Windsurf, dan tools modern lainnya) untuk mempercepat proses development hingga <1>3x lebih cepat</1> tanpa mengorbankan kualitas.",
+            "p3": "\"Lebih baik mempekerjakan AI daripada dipekerjakan oleh AI\" - moto ini mencerminkan semangat saya untuk menguasai teknologi. Saat ini, saya juga mendalami digital entrepreneurship, menguasai Facebook Ads dan strategi digital marketing untuk pertumbuhan bisnis."
+        },
+        "skills": {
+            "title": "Keahlian Utama",
+            "core": "Core Skill",
+            "frontend": "Frontend & Deployment",
+            "growth": "Growth & Strategy",
+            "productivity": "Productivity",
+            "list": {
+                "aiEngineering": {
+                    "name": "AI Engineering",
+                    "items": [
+                        "No-Code/Low-Code",
+                        "AI-Assisted Coding",
+                        "Rapid Prototyping"
+                    ]
+                },
+                "techStack": {
+                    "name": "Tech Stack",
+                    "items": [
+                        "Next.js, React, TS",
+                        "Tailwind CSS",
+                        "Vercel"
+                    ]
+                },
+                "digitalMarketing": {
+                    "name": "Digital Marketing",
+                    "items": [
+                        "FB Ads",
+                        "Content Strategy",
+                        "SEO & Analytics"
+                    ]
+                },
+                "productivity": {
+                    "name": "Productivity",
+                    "items": [
+                        "8+ AI Tools",
+                        "Claude & Qwen",
+                        "Multi-AI Workflow"
+                    ]
+                }
+            }
+        },
+        "techAndEdu": {
+            "title": "Teknologi & Pendidikan",
+            "tools": "Tools Utama",
+            "toolsList": [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS",
+                "Claude AI",
+                "Vercel",
+                "Meta Ads Manager",
+                "Google Analytics"
+            ]
+        },
+        "whyChoose": {
+            "title": "Mengapa Memilih Saya?",
+            "subtitle": "Kombinasi unik antara keahlian teknis AI development dan pemahaman mendalam tentang digital marketing",
+            "speed": {
+                "title": "Pengembangan 3x Lebih Cepat",
+                "desc": "Menggunakan AI-assisted development untuk mempercepat proses tanpa mengorbankan kualitas"
+            },
+            "result": {
+                "title": "Fokus pada Hasil",
+                "desc": "Setiap proyek dirancang dengan tujuan bisnis yang jelas dan metrics yang terukur"
+            },
+            "quality": {
+                "title": "Kualitas Terjamin",
+                "desc": "Code yang clean, responsive design, dan performa optimal (90+ Lighthouse score)"
+            },
+            "communication": {
+                "title": "Komunikasi Transparan",
+                "desc": "Update progress berkala dan kolaborasi yang erat dengan client"
+            }
+        },
+        "workflow": {
+            "title": "Proses Kerja Saya",
+            "subtitle": "Metodologi yang terstruktur untuk memastikan hasil terbaik di setiap proyek",
+            "step1": {
+                "title": "Konsultasi & Discovery",
+                "desc": "Memahami kebutuhan bisnis, target audience, dan goals yang ingin dicapai",
+                "duration": "1-2 hari"
+            },
+            "step2": {
+                "title": "Planning & Design",
+                "desc": "Membuat wireframe, mockup, dan tech stack planning yang sesuai dengan kebutuhan",
+                "duration": "2-3 hari"
+            },
+            "step3": {
+                "title": "Development",
+                "desc": "Coding dengan AI-assisted development, regular updates, dan iterasi berdasarkan feedback",
+                "duration": "5-14 hari"
+            },
+            "step4": {
+                "title": "Testing & QA",
+                "desc": "Testing menyeluruh untuk memastikan semua fitur berfungsi dengan baik",
+                "duration": "1-2 hari"
+            },
+            "step5": {
+                "title": "Deployment & Support",
+                "desc": "Deploy ke production dan support untuk memastikan website berjalan lancar",
+                "duration": "Ongoing"
+            }
+        },
+        "testimonials": {
+            "title": "Apa Kata Mereka?",
+            "subtitle": "Feedback dari client yang puas dengan hasil kerja saya",
+            "placeholder": "* Testimonial di atas adalah placeholder. Data asli akan diisi setelah mendapat feedback dari client."
+        }
+    },
+    "projects": {
+        "title": "Projek Terbaru",
+        "viewAll": "Lihat Semua",
+        "techStack": "Teknologi",
+        "livePreview": "Pratinjau",
+        "visitSite": "Kunjungi Situs",
+        "page": {
+            "title": "Proyek Unggulan",
+            "subtitle": "Showcase karya terbaru dan proyek yang berhasil diselesaikan dengan hasil terukur",
+            "filters": {
+                "all": "Semua Proyek",
+                "webDev": "Web Development",
+                "ecommerce": "E-commerce",
+                "landingPage": "Landing Pages",
+                "personal": "Proyek Personal"
+            },
+            "card": {
+                "featured": "UNGGULAN",
+                "keyResults": "Hasil Utama:",
+                "viewWebsite": "Lihat Website"
+            },
+            "modal": {
+                "detailTitle": "Case Study Detail",
+                "challenge": "Tantangan",
+                "solution": "Solusi",
+                "results": "Hasil",
+                "metrics": "Metrik Utama"
+            },
+            "stats": {
+                "title": "Statistik Portfolio",
+                "subtitle": "Semua proyek dalam pengembangan berkelanjutan dengan optimasi performa terus menerus",
+                "completed": "Proyek Selesai",
+                "satisfaction": "Kepuasan Klien",
+                "bestPractices": "Rata-rata Best Practices",
+                "seo": "Rata-rata SEO Score",
+                "note": "<0>Catatan:</0> Skor performa mencerminkan baseline v1.0. Optimasi aktif sedang berlangsung menargetkan 90+ di semua metrik melalui optimasi gambar, code splitting, dan pengurangan ukuran bundle."
+            },
+            "items": {
+                "feyd": {
+                    "title": "Feyd Store - Platform E-commerce Islami",
+                    "category": "E-commerce",
+                    "description": "Platform e-commerce untuk penjualan Al-Qur'an Kharisma dengan tajwid berwarna & terjemahan. Dibangun dengan Next.js + pengembangan berbasis AI.",
+                    "features": [
+                        "E-commerce fungsional dengan UI/UX modern",
+                        "Sistem pembayaran terintegrasi (BSI, E-wallet)",
+                        "Menjalankan Facebook Ads (budget 32k/hari)",
+                        "Responsif mobile & SEO optimized"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Menentukan dan mengintegrasikan berbagai fitur penting dalam satu platform e-commerce yang kompleks. Memperkenalkan Al-Qur'an Kharisma ke pasar yang lebih luas secara online dan bersaing dengan produk sejenis.",
+                        "solution": "Menggunakan kombinasi Cascade Windsurf, Claude, dan Qwen untuk memungkinkan kustomisasi dan efisiensi dalam pengembangan. Fokus pada keunggulan produk (tajwid warna, terjemahan) dan penggunaan Facebook Ads (Traffic Tsabit) untuk mendatangkan traffic berkualitas.",
+                        "results": [
+                            "566 Link Clicks dari kampanye Traffic Tsabit",
+                            "CTR 2.37% (di atas rata-rata industri)",
+                            "CPC Rp 165 (sangat efisien)",
+                            "LP Conversion Rate 60.07%"
+                        ]
+                    }
+                },
+                "frontworks": {
+                    "title": "Frontworks - Portfolio AI Frontend Engineer",
+                    "category": "Personal",
+                    "description": "Website portfolio profesional yang menampilkan keahlian sebagai AI Frontend Engineer dengan desain modern & elemen interaktif.",
+                    "features": [
+                        "Sistem desain yang dihasilkan AI",
+                        "Animasi halus & micro-interactions",
+                        "Showcase proyek dengan case studies",
+                        "Performa optimal (90+ Lighthouse score)"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Merancang UI/UX dan tata letak yang tidak hanya menarik, tetapi juga fungsional dan mudah dinavigasi.",
+                        "solution": "Memanfaatkan Cascade Windsurf dan Claude untuk mengeksplorasi pendekatan desain, serta melakukan riset menyeluruh terhadap website profesional lainnya. AI digunakan sebagai alat bantu powerful namun tetap mengutamakan sentuhan kreatif humanis.",
+                        "results": [
+                            "Portfolio modern dan profesional",
+                            "Performa 95+ di semua metrics Lighthouse",
+                            "Showcase keahlian AI-First Development",
+                            "Professional presentation untuk client pitching"
+                        ]
+                    }
+                },
+                "tilawah": {
+                    "title": "Program Tilawah 40 Hari - Landing Page Edukasi",
+                    "category": "Landing Page",
+                    "description": "Landing page untuk program edukasi tilawah dengan copywriting yang dioptimalkan AI untuk konversi.",
+                    "features": [
+                        "Desain landing page yang engaging",
+                        "Arsitektur informasi program yang jelas",
+                        "Meningkatkan tingkat pendaftaran",
+                        "Waktu loading cepat (<2s)"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Membuat landing page yang efektif untuk program edukasi dengan target audience yang spesifik (muslim yang ingin belajar tilawah).",
+                        "solution": "Copywriting yang persuasif dengan struktur AIDA, visual hierarchy yang jelas, dan CTA yang prominent di multiple sections.",
+                        "results": [
+                            "Landing page yang conversion-focused",
+                            "Clear value proposition",
+                            "Mobile-first responsive design",
+                            "Fast loading untuk user experience optimal"
+                        ]
+                    }
+                },
+                "dapur": {
+                    "title": "Dapur Ummu Kamila - Website Bakery Rumahan",
+                    "category": "Web Development",
+                    "description": "Website showcase untuk usaha bakery rumahan dengan katalog produk & sistem pemesanan.",
+                    "features": [
+                        "Showcase produk yang menarik",
+                        "Optimasi gambar",
+                        "Integrasi kontak (WhatsApp)",
+                        "Desain mobile-first"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Membuat website showcase untuk UMKM bakery dengan budget terbatas namun tetap profesional dan fungsional.",
+                        "solution": "Fokus pada visual produk dengan image optimization, integrasi WhatsApp untuk kemudahan pemesanan, dan design yang warm & inviting.",
+                        "results": [
+                            "Website profesional untuk UMKM",
+                            "WhatsApp integration untuk pemesanan",
+                            "Image optimization untuk loading cepat",
+                            "Responsive di semua devices"
+                        ]
+                    }
+                },
+                "khoiru": {
+                    "title": "Khoiru Ummah - Website Institusi Pendidikan",
+                    "category": "Web Development",
+                    "description": "Website profil sekolah dengan fokus informasi keunggulan pendidikan & fasilitas.",
+                    "features": [
+                        "Desain institusional profesional",
+                        "Layout responsif",
+                        "Struktur SEO-friendly",
+                        "Cepat & ringan"
+                    ],
+                    "caseStudy": {
+                        "challenge": "Menyeimbangkan pendekatan desain yang islami dengan nuansa internasional dan universal.",
+                        "solution": "Mengambil inspirasi dari website institusi pendidikan ternama (UI, Oxford, Edinburgh) dan menggabungkan elemen desain dari berbagai referensi untuk menciptakan identitas digital yang kuat, inklusif, namun tetap islami.",
+                        "results": [
+                            "Desain website yang profesional & modern",
+                            "Identitas visual islami yang kuat namun universal",
+                            "Struktur informasi yang jelas dan rapi",
+                            "Mudah dikelola dan dikembangkan"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "journey": {
+        "title": "Perjalanan Digital Entrepreneurship",
+        "subtitle": "Dari pembelajaran hingga membangun bisnis digital yang sukses",
+        "events": {
+            "learning": {
+                "date": "Agustus 2025",
+                "title": "Awal Mula Belajar",
+                "description": "Memulai perjalanan digital dengan bootcamp RevoU & mentoring intensif.",
+                "achievements": [
+                    "Fundamental Digital Marketing",
+                    "Krenovator Digital Tribe",
+                    "Adaptasi Mindset Entrepreneur"
+                ]
+            },
+            "business": {
+                "date": "Oktober 2025",
+                "title": "Peluncuran Bisnis",
+                "description": "Mendirikan Feyd Store (Commerce) & Frontworks (Web Dev Service).",
+                "achievements": [
+                    "Rilis Feyd Store v1.0",
+                    "Research Market Fit",
+                    "Setup Operational Workflow",
+                    "Initial Revenue Stream"
+                ]
+            },
+            "marketing": {
+                "date": "November 2025",
+                "title": "Growth & Ads",
+                "description": "Scaling bisnis dengan Facebook Ads (32k/day) & Organic Content.",
+                "achievements": [
+                    "Winning Campaign Found",
+                    "Audience Testing Strategy",
+                    "Integrasi AI untuk Konten",
+                    "ROI Positive in 2 Weeks"
+                ]
+            },
+            "expansion": {
+                "date": "2025 - 2026",
+                "title": "Expansion & Scale",
+                "description": "Target ekspansi layanan dan otomatisasi sistem bisnis.",
+                "achievements": [
+                    "5+ Sertifikasi Profesional",
+                    "Target 5 Klien/Bulan",
+                    "Membangun Tim Inti",
+                    "Systematizing Operations"
+                ]
+            }
+        },
+        "goals": {
+            "title": "Goals & Aspirasi 2025 - 2026",
+            "description": "Fokus utama tahun depan adalah skalabilitas bisnis dan ekspansi layanan untuk memberikan dampak yang lebih luas kepada klien dan komunitas.",
+            "items": [
+                "Scale Feyd Store Revenue",
+                "Establish Frontworks Agency",
+                "Build Operational Team",
+                "AI-Driven Content Strategy"
+            ]
+        },
+        "controls": {
+            "showLess": "Sembunyikan",
+            "showMore": "Lihat {{count}} Lagi"
+        }
+    },
+    "contact": {
+        "title": "Mari Terhubung",
+        "subtitle": "Punya projek atau ide? Saya siap membantu!",
+        "page": {
+            "heading": "Siap Transformasi Kehadiran Digital Anda?",
+            "subheading": "Mari diskusikan bagaimana kami dapat mewujudkan ide Anda dengan solusi berbasis AI."
+        },
+        "info": {
+            "title": "Hubungi Saya",
+            "emailDesc": "Respon dalam 24 jam",
+            "linkedinDesc": "Professional networking",
+            "githubDesc": "Portfolio & code samples",
+            "whatsappDesc": "Respon Cepat (Disarankan)",
+            "location": "Lokasi",
+            "locationDesc": "Indonesia (WIB/UTC+7)",
+            "hoursTitle": "Jam Kerja",
+            "availability": {
+                "weekdays": "Senin - Jumat",
+                "weekend": "Sabtu - Minggu"
+            }
+        },
+        "form": {
+            "title": "Kirim Pesan",
+            "name": "Nama Lengkap",
+            "email": "Alamat Email",
+            "service": "Layanan yang Diminati",
+            "message": "Pesan",
+            "placeholders": {
+                "name": "Nama lengkap Anda",
+                "email": "email@contoh.com",
+                "message": "Ceritakan tentang proyek Anda..."
+            },
+            "services": {
+                "placeholder": "Pilih layanan",
+                "webDev": "Pengembangan Web",
+                "ecommerce": "Platform E-commerce",
+                "landingPage": "Landing Page",
+                "digitalMarketing": "Konsultasi Digital Marketing",
+                "other": "Layanan Lainnya"
+            },
+            "submit": "Kirim Pesan",
+            "success": "Pesan berhasil dikirim! Saya akan segera menghubungi Anda.",
+            "error": "Mohon lengkapi semua field yang diperlukan."
+        },
+        "preferences": {
+            "title": "Metode Komunikasi Terbaik",
+            "whatsapp": {
+                "method": "WhatsApp",
+                "speed": "Tercepat",
+                "responseTime": "< 2 jam",
+                "bestFor": "Pertanyaan mendesak, diskusi cepat"
+            },
+            "email": {
+                "method": "Email",
+                "speed": "Cepat",
+                "responseTime": "< 24 jam",
+                "bestFor": "Proposal detail, brief proyek"
+            },
+            "linkedin": {
+                "method": "LinkedIn",
+                "speed": "Menengah",
+                "responseTime": "1-2 hari",
+                "bestFor": "Networking profesional, kolaborasi"
+            }
+        },
+        "process": {
+            "title": "Proses Setelah Anda Menghubungi",
+            "steps": {
+                "consultation": {
+                    "title": "Konsultasi Gratis",
+                    "desc": "Diskusi kebutuhan dan goals proyek Anda"
+                },
+                "proposal": {
+                    "title": "Proposal & Quote",
+                    "desc": "Proposal detail dengan timeline dan pricing"
+                },
+                "kickoff": {
+                    "title": "Kick-off Meeting",
+                    "desc": "Finalisasi requirements dan mulai development"
+                }
+            }
+        },
+        "cta": {
+            "title": "Butuh Respon Cepat?",
+            "desc": "Hubungi saya via WhatsApp untuk diskusi langsung dan respon dalam hitungan jam",
+            "button": "Chat di WhatsApp"
+        },
+        "whatsapp": {
+            "header": "Pesan Baru dari Website",
+            "nameLabel": "Nama",
+            "emailLabel": "Email",
+            "serviceLabel": "Layanan",
+            "messageLabel": "Pesan",
+            "notSpecified": "Tidak disebutkan"
+        }
+    },
+    "businesses": {
+        "title": "Bisnis Saya",
+        "subtitle": "Bisnis digital aktif yang memberikan nilai kepada pelanggan",
+        "items": {
+            "feyd": {
+                "name": "Feyd Store",
+                "category": "E-commerce Produk Islami",
+                "description": "Menyediakan Al-Qur'an Kharisma dengan tajwid berwarna & terjemahan, serta novel-novel inspiratif islami.",
+                "products": [
+                    "Al-Qur'an Kharisma",
+                    "Novel Melawan Kemustahilan",
+                    "Novel Titik Balik",
+                    "Novel Sebelum Aku Tiada"
+                ],
+                "platforms": [
+                    "Website",
+                    "Facebook",
+                    "Instagram",
+                    "WhatsApp"
+                ],
+                "payment": [
+                    "BSI",
+                    "Dana",
+                    "Ovo",
+                    "Gopay"
+                ]
+            },
+            "frontworks": {
+                "name": "Frontworks",
+                "category": "Layanan Web Development Berbasis AI",
+                "description": "Jasa pembuatan website profesional menggunakan pengembangan berbasis AI untuk delivery cepat dan kualitas tinggi.",
+                "services": [
+                    "Pembuatan Landing Page",
+                    "Solusi E-commerce",
+                    "Website Profil Perusahaan",
+                    "Optimasi Website"
+                ],
+                "specialization": [
+                    "AI-First Development",
+                    "Rapid Prototyping",
+                    "Modern Tech Stack"
+                ],
+                "stats": [
+                    "5+ Proyek Selesai",
+                    "100% Kepuasan Klien"
+                ]
+            }
+        },
+        "labels": {
+            "products": "Produk:",
+            "services": "Layanan:",
+            "platforms": "Platform:",
+            "specialization": "Spesialisasi:",
+            "payment": "Pembayaran:",
+            "portfolio": "Portfolio:",
+            "visitStore": "Kunjungi Toko",
+            "viewPortfolio": "Lihat Portfolio"
+        }
+    },
+    "performanceRoadmap": {
+        "title": "Roadmap Optimasi Performa",
+        "subtitle": "Perjalanan perbaikan berkelanjutan menargetkan skor 95+ di semua metrik Lighthouse",
+        "note": {
+            "label": "Catatan:",
+            "text": "Skor performa mencerminkan baseline v1.0. Optimasi aktif sedang berlangsung menargetkan 90+ di semua metrik melalui optimasi gambar, code splitting, dan pengurangan ukuran bundle."
+        },
+        "statusMessage": "Semua proyek dalam pengembangan aktif dengan optimasi performa berkelanjutan",
+        "phases": [
+            {
+                "phase": "Saat Ini",
+                "date": "Des 2025",
+                "actions": [
+                    "Pengukuran baseline selesai",
+                    "Target optimasi teridentifikasi",
+                    "Fondasi SEO & Best Practices yang kuat"
+                ]
+            },
+            {
+                "phase": "Q1 2026",
+                "date": "Jan-Mar 2026",
+                "actions": [
+                    "Optimasi gambar (WebP, lazy load)",
+                    "Code splitting & tree shaking",
+                    "Hapus dependensi tidak terpakai",
+                    "Perbaiki label aksesibilitas"
+                ]
+            },
+            {
+                "phase": "Q2 2026",
+                "date": "Apr-Jun 2026",
+                "actions": [
+                    "Implementasi CDN",
+                    "Strategi caching tingkat lanjut",
+                    "Server-side rendering (SSR)",
+                    "Optimasi schema markup"
+                ]
+            },
+            {
+                "phase": "Target",
+                "date": "Q3 2026",
+                "actions": [
+                    "Semua metrik Lighthouse > 95",
+                    "Skor aksesibilitas sempurna",
+                    "Performa terdepan di industri",
+                    "Peringkat mesin pencari teratas"
+                ]
+            }
+        ],
+        "metrics": {
+            "perf": "Perf",
+            "a11y": "A11y",
+            "bp": "BP",
+            "seo": "SEO",
+            "performance": "Performa",
+            "accessibility": "Aksesibilitas",
+            "bestPractices": "Best Practices"
+        },
+        "actionItems": "Item Tindakan:"
+    },
+    "adsPerformance": {
+        "title": "Hasil Marketing Berbasis Data",
+        "subtitle": "Mengelola campaign Facebook Ads dengan pendekatan data-driven untuk mengoptimalkan ROI dan conversion rate",
+        "period": {
+            "label": "Periode Campaign",
+            "value": "10 Nov - 4 Des 2024"
+        },
+        "spend": {
+            "label": "Total Ad Spend",
+            "value": "Rp 298.643"
+        },
+        "budget": {
+            "label": "Strategi Budget",
+            "value": "Rp 32.000/hari per campaign"
+        },
+        "metrics": {
+            "clicks": {
+                "label": "Total Link Clicks",
+                "sub": "Di semua campaign"
+            },
+            "views": {
+                "label": "Video Views",
+                "sub": "Konten audiens yang menarik"
+            },
+            "impressions": {
+                "label": "Total Impressions",
+                "sub": "Menjangkau audiens target"
+            },
+            "frequency": {
+                "label": "Rata-rata Frekuensi",
+                "sub": "Eksposur iklan optimal"
+            },
+            "ctr": {
+                "label": "CTR Tertinggi",
+                "sub": "Campaign: KM/Leads/Tsabit"
+            },
+            "cpc": {
+                "label": "CPC Terendah ⭐",
+                "sub": "Campaign: Traffic Tsabit"
+            },
+            "lcToLp": {
+                "label": "LC ke LP Terbaik",
+                "sub": "Konversi Landing Page"
+            },
+            "leadRate": {
+                "label": "Lead Rate Terbaik",
+                "sub": "Campaign: TB/Leads"
+            }
+        },
+        "table": {
+            "title": "Rincian Campaign",
+            "headers": {
+                "campaign": "Campaign",
+                "status": "Status",
+                "clicks": "Link Clicks",
+                "ctr": "CTR",
+                "cpc": "CPC",
+                "impressions": "Impressions",
+                "results": "Hasil"
+            }
+        },
+        "insights": {
+            "title": "Key Insights",
+            "items": [
+                "Berhasil mengoptimalkan CPC hingga Rp 165 (50% lebih murah dari rata-rata industri)",
+                "Mencapai CTR 4.62% (3x lebih tinggi dari benchmark Facebook Ads 1.5%)",
+                "Landing page conversion rate mencapai 62.90% dengan LC to LP optimization",
+                "Mengelola 4 kampanye simultan dengan total budget Rp 298K untuk testing & scaling",
+                "Video completion rate tinggi: 359 penonton menonton 100% konten video"
+            ]
+        },
+        "products": {
+            "title": "Produk yang Diiklankan",
+            "items": [
+                "Al-Qur'an Kharisma (Tajwid Berwarna)",
+                "Novel: Melawan Kemustahilan",
+                "Novel: Titik Balik",
+                "Novel: Sebelum Aku Tiada"
+            ]
+        }
+    },
+    "techStackPage": {
+        "title": "Arsenal Teknologi",
+        "subtitle": "Toolkit komprehensif untuk pengembangan berbasis AI modern",
+        "categories": {
+            "frontend": "Frontend Development",
+            "ai": "Tools Pengembangan AI",
+            "infra": "Deployment & Infrastructure",
+            "marketing": "Digital Marketing",
+            "design": "Desain & Kolaborasi",
+            "data": "Data & Analytics"
+        },
+        "tools": {
+            "aiDesign": "Tools Desain Berbasis AI",
+            "convTracking": "Pelacakan Konversi"
+        }
+    },
+    "educationPage": {
+        "title": "Pendidikan & Sertifikasi",
+        "subtitle": "Pembelajaran berkelanjutan dan pengembangan profesional",
+        "school": {
+            "name": "Pondok Abdurrahman Bin Auf",
+            "grade": "SMA Kelas 10 (2025)",
+            "currently": "Saat Ini",
+            "currentlyStudying": "Sedang Menempuh Pendidikan",
+            "focus": "Fokus: Pendidikan Umum, Agama, & Digitalpreneur/Digital Marketing",
+            "address": "Jl. Mulya 2, RT.005/RW.006, Karyamulya, Cirebon"
+        },
+        "certificates": {
+            "title": "Sertifikasi",
+            "view": "Lihat"
+        },
+        "bootcamps": {
+            "title": "Bootcamp & Pelatihan",
+            "items": [
+                "RevoU - Full-Stack Development & Digital Marketing",
+                "Krenovator Digital Tribe - Entrepreneurship Program"
+            ]
+        }
+    },
+    "servicesPage": {
+        "title": "Layanan yang Ditawarkan",
+        "subtitle": "Solusi digital komprehensif yang didukung teknologi AI",
+        "labels": {
+            "techStack": "Teknologi:",
+            "process": "Proses Pengerjaan:",
+            "deliverables": "Yang Anda Dapatkan:",
+            "startingFrom": "Mulai dari:",
+            "consultationButton": "Konsultasi Gratis"
+        },
+        "items": {
+            "webDev": {
+                "title": "Pengembangan Web Berbasis AI",
+                "shortTitle": "Web Development",
+                "description": "Pembuatan website modern dengan teknologi AI untuk percepatan development hingga 3x lipat. Dari landing page hingga platform e-commerce yang lengkap.",
+                "techStack": [
+                    "Next.js",
+                    "React",
+                    "Tailwind",
+                    "Vercel"
+                ],
+                "pricing": "Harga Custom",
+                "process": [
+                    "Konsultasi kebutuhan dan goals",
+                    "Wireframe & mockup design",
+                    "AI-assisted development",
+                    "Testing & quality assurance",
+                    "Deployment & training"
+                ],
+                "deliverables": [
+                    "Source code lengkap",
+                    "Dokumentasi teknis",
+                    "Hosting setup (Vercel/Netlify)",
+                    "Basic SEO optimization",
+                    "30 hari support gratis"
+                ]
+            },
+            "ecommerce": {
+                "title": "Solusi E-commerce",
+                "shortTitle": "E-commerce",
+                "description": "Platform e-commerce lengkap dengan integrasi pembayaran, manajemen inventory, dan optimasi SEO untuk memaksimalkan penjualan online Anda.",
+                "techStack": [
+                    "Next.js",
+                    "Payment Gateway",
+                    "Meta Pixel"
+                ],
+                "pricing": "Harga Custom",
+                "process": [
+                    "Analisis produk & target market",
+                    "Design UI/UX e-commerce",
+                    "Integrasi payment gateway",
+                    "Setup inventory management",
+                    "Marketing pixel integration"
+                ],
+                "deliverables": [
+                    "Platform e-commerce lengkap",
+                    "Admin dashboard",
+                    "Payment gateway aktif",
+                    "Meta Pixel tracking",
+                    "Training penggunaan sistem"
+                ]
+            },
+            "landingPage": {
+                "title": "Pembuatan Landing Page",
+                "shortTitle": "Landing Page",
+                "description": "Landing page yang fokus pada konversi dengan desain modern dan loading cepat. Sempurna untuk kampanye marketing, peluncuran produk, atau profil perusahaan.",
+                "techStack": [
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Analytics"
+                ],
+                "pricing": "Harga Custom",
+                "process": [
+                    "Briefing tujuan kampanye",
+                    "Copywriting & design",
+                    "Development & optimization",
+                    "Analytics setup",
+                    "A/B testing preparation"
+                ],
+                "deliverables": [
+                    "Landing page responsif",
+                    "Google Analytics setup",
+                    "Form submission handling",
+                    "Performance optimization",
+                    "Conversion tracking"
+                ]
+            },
+            "digitalMarketing": {
+                "title": "Konsultasi Digital Marketing",
+                "shortTitle": "Digital Marketing",
+                "description": "Strategi Facebook Ads dan digital marketing untuk meningkatkan jangkauan dan konversi. Pendekatan berbasis data dengan pengukuran ROI yang jelas.",
+                "techStack": [
+                    "Meta Ads Manager",
+                    "Analytics",
+                    "Meta Pixel"
+                ],
+                "pricing": "Harga Custom",
+                "process": [
+                    "Audit marketing saat ini",
+                    "Strategi & planning kampanye",
+                    "Setup & optimization ads",
+                    "Monitoring & reporting",
+                    "Iterasi berdasarkan data"
+                ],
+                "deliverables": [
+                    "Strategi marketing lengkap",
+                    "Campaign setup & management",
+                    "Weekly performance reports",
+                    "Audience insights",
+                    "Rekomendasi optimization"
+                ]
+            }
+        },
+        "faq": {
+            "title": "Pertanyaan yang Sering Diajukan",
+            "subtitle": "Jawaban untuk pertanyaan umum seputar layanan dan proses kerja",
+            "items": [
+                {
+                    "question": "Berapa lama waktu pengerjaan untuk sebuah proyek?",
+                    "answer": "Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Landing page sederhana bisa selesai dalam 5-7 hari, sementara e-commerce platform membutuhkan 10-14 hari. Saya selalu memberikan timeline yang realistis di awal proyek."
+                },
+                {
+                    "question": "Apakah saya mendapat source code setelah proyek selesai?",
+                    "answer": "Ya, Anda akan mendapatkan full source code dan dokumentasi lengkap. Anda memiliki 100% ownership atas code yang dibuat untuk proyek Anda."
+                },
+                {
+                    "question": "Bagaimana sistem pembayaran yang diterapkan?",
+                    "answer": "Sistem pembayaran fleksibel: 50% di awal sebagai down payment, 50% setelah proyek selesai dan Anda puas dengan hasilnya. Untuk proyek besar, bisa dicicil per milestone."
+                },
+                {
+                    "question": "Apakah ada support setelah website launch?",
+                    "answer": "Ya, setiap proyek mendapat 30 hari support gratis untuk bug fixes dan minor adjustments. Setelah itu, tersedia paket maintenance bulanan jika diperlukan."
+                },
+                {
+                    "question": "Apakah bisa request revisi?",
+                    "answer": "Tentu! Setiap tahap development ada review dan feedback session. Revisi minor unlimited selama development phase. Revisi major akan didiskusikan terlebih dahulu."
+                },
+                {
+                    "question": "Teknologi apa yang digunakan?",
+                    "answer": "Saya menggunakan tech stack modern seperti Next.js, React, TypeScript, dan Tailwind CSS. Semua dipilih berdasarkan best practices dan kebutuhan proyek Anda untuk performa optimal."
+                }
+            ]
+        },
+        "cta": {
+            "title": "Siap Memulai Proyek Anda?",
+            "desc": "Mari diskusikan kebutuhan Anda dan temukan solusi terbaik untuk bisnis Anda",
+            "button": "Hubungi Saya Sekarang"
+        }
+    },
+    "common": {
+        "readMore": "Baca Selengkapnya",
+        "learnMore": "Pelajari Lebih Lanjut",
+        "backToTop": "Kembali ke Atas"
+    },
+    "websiteAnalytics": {
+        "title": "Performa Peluncuran Website",
+        "subtitle": "Metrik harian rata-rata dalam 24 jam pertama sejak peluncuran website dengan Google Analytics",
+        "launchContext": {
+            "title": "Performa Peluncuran Website",
+            "date": "10 Des 2025 • Tracking 24 Jam",
+            "live": "Live"
+        },
+        "metrics": {
+            "activeUsers": {
+                "label": "Pengguna Aktif",
+                "sub": "24 Jam Pertama"
+            },
+            "interactions": {
+                "label": "Interaksi",
+                "sub": "Aksi Pengguna"
+            },
+            "avgSession": {
+                "label": "Rata-rata Sesi",
+                "sub": "2x Rata-rata Industri"
+            },
+            "cities": {
+                "label": "Kota Dijangkau",
+                "sub": "Skala Nasional"
+            }
+        },
+        "velocity": {
+            "title": "Metrik Kecepatan Peluncuran",
+            "usersDay": "Pengguna/Hari",
+            "eventsDay": "Event/Hari",
+            "engagementRate": "Tingkat Engagement"
+        },
+        "traffic": {
+            "title": "Campuran Sumber Traffic",
+            "direct": {
+                "name": "Traffic Langsung",
+                "context": "Brand recall yang kuat"
+            },
+            "paid": {
+                "name": "Iklan Berbayar",
+                "context": "Validasi kampanye cepat"
+            },
+            "social": {
+                "name": "Referral Sosial",
+                "context": "Viralitas organik"
+            }
+        },
+        "geo": {
+            "title": "Jangkauan Geografis (24j)",
+            "primary": "Pasar Utama",
+            "expanding": "Ekspansi Ke"
+        },
+        "views": {
+            "title": "Tampilan Dashboard Analytics",
+            "items": {
+                "pages": "Tinjauan Halaman & Layar",
+                "events": "Analytics Event",
+                "users": "Demografi Pengguna",
+                "engagement": "Engagement & Retensi"
+            },
+            "comingSoon": "Segera Hadir"
+        },
+        "insights": {
+            "title": "Insight & Pembelajaran Peluncuran",
+            "items": [
+                {
+                    "category": "Kecepatan Peluncuran",
+                    "headline": "Adopsi Awal yang Cepat",
+                    "description": "8.3 pengguna per hari menunjukkan minat pasar yang kuat dan validasi product-market fit."
+                },
+                {
+                    "category": "Kualitas Engagement",
+                    "headline": "Aktivitas Pengguna Tinggi",
+                    "description": "6.8 event per pengguna (2x rata-rata industri) membuktikan relevansi konten dan pengalaman pengguna yang menarik."
+                },
+                {
+                    "category": "Diversifikasi Channel",
+                    "headline": "Sukses Multi-Sumber",
+                    "description": "3 channel traffic aktif sejak hari pertama memvalidasi efektivitas strategi akuisisi yang terdiversifikasi."
+                },
+                {
+                    "category": "Validasi Geografis",
+                    "headline": "Daya Tarik Nasional",
+                    "description": "7 kota tercapai dalam 24 jam menunjukkan jangkauan terukur di luar jaringan lokal dan viralitas organik."
+                },
+                {
+                    "category": "Kualitas Sesi",
+                    "headline": "Interaksi Bermakna",
+                    "description": "Rata-rata sesi 8 detik (2x benchmark portfolio) mengindikasikan pengunjung terlibat mendalam dengan konten."
+                },
+                {
+                    "category": "Strategi Peluncuran",
+                    "headline": "Eksekusi Prima",
+                    "description": "Soft launch multi-channel dengan tracking langsung mendemonstrasikan pendekatan profesional dan mindset berbasis data."
+                }
+            ]
+        }
+    },
+    "dataAnalysis": {
+        "title": "Analisis & Pembelajaran dari Data",
+        "subtitle": "Mengambil insight berharga dari data kampanye untuk pengambilan keputusan yang lebih baik",
+        "campaignSection": "Analisis Kampanye",
+        "learningSection": "Pembelajaran Utama",
+        "actionSection": "Tindakan Optimalisasi",
+        "campaigns": {
+            "tsabit": {
+                "name": "Traffic Tsabit",
+                "analysis": "CTR tinggi (2.37%) dan CPC rendah (Rp 165) menunjukkan bahwa audience targeting dan creative (video pendek) sangat efektif.",
+                "conclusion": "Benchmark untuk kampanye lain"
+            },
+            "leads": {
+                "name": "11/11-KM/Leads/Tsabit",
+                "analysis": "CTR sangat tinggi (4.62%) tapi Cost per Result sangat mahal (Rp 94.372). Ini menunjukkan click banyak, tapi conversion (lead) sangat sedikit.",
+                "conclusion": "Landing page atau lead form perlu dioptimasi"
+            },
+            "highCpc": {
+                "name": "High CPC Campaigns",
+                "analysis": "Kampanye dengan CPC tinggi menunjukkan bahwa audience atau creative kurang relevan.",
+                "conclusion": "Perlu adjustment targeting/creative"
+            }
+        },
+        "learnings": [
+            {
+                "title": "Audience Targeting adalah Kunci",
+                "description": "Semakin spesifik dan relevan targeting, semakin tinggi engagement dan conversion rate."
+            },
+            {
+                "title": "Creative & Copy Harus Relevan",
+                "description": "Creative yang menarik dan copy yang jelas sangat mempengaruhi CTR dan CPC. Video pendek terbukti paling efektif."
+            },
+            {
+                "title": "Analisis Data Harus Berkala",
+                "description": "Regular monitoring memungkinkan optimasi real-time dan mencegah pemborosan budget."
+            },
+            {
+                "title": "Landing Page Perlu Optimasi",
+                "description": "High CTR tapi low conversion menunjukkan landing page belum optimal. Perlu A/B testing dan improvement."
+            }
+        ],
+        "actions": [
+            "Menghentikan kampanye performa buruk",
+            "Alokasi budget lebih ke \"Traffic Tsabit\"",
+            "Rencana optimasi landing page Feyd Store",
+            "Merancang creative & copy baru berdasarkan insight"
+        ]
+    },
+    "socialMediaAnalytics": {
+        "title": "Performa Social Media",
+        "tabs": {
+            "instagram": "Instagram",
+            "tiktok": "TikTok"
+        },
+        "panel": {
+            "analytics": "Analytics",
+            "overview": "Performance Overview"
+        },
+        "metrics": {
+            "totalEngagement": "Total Engagement",
+            "totalViews": "Total Views",
+            "followers": "Followers",
+            "reach": "Reach",
+            "likes": "Likes",
+            "comments": "Comments",
+            "shares": "Shares",
+            "profile": "Profile"
+        },
+        "sections": {
+            "engagement": "Engagement Breakdown",
+            "traffic": "Traffic Sources",
+            "topContent": "Top Content",
+            "swipe": "Swipe to see more →",
+            "imageUnavailable": "Image Unavailable"
+        },
+        "traffic": {
+            "fyp": "For You Page",
+            "search": "Search"
+        }
+    },
+    "marketingStrategy": {
+        "title": "Strategi & Proses Digital Marketing",
+        "subtitle": "Menerapkan pendekatan data-driven dalam pemasaran digital, fokus pada audience targeting yang tepat, creative yang menarik, dan analisis berkelanjutan untuk optimasi kampanye",
+        "platformsTitle": "Platform & Tools Utama",
+        "platforms": [
+            {
+                "name": "Facebook Ads",
+                "description": "Platform utama untuk iklan digital"
+            },
+            {
+                "name": "Canva",
+                "description": "Desain konten visual"
+            },
+            {
+                "name": "Meta Pixel",
+                "description": "Analisis konversi"
+            },
+            {
+                "name": "Landing Page",
+                "description": "Next.js/Vercel"
+            }
+        ],
+        "processTitle": "Proses Kerja 5 Langkah",
+        "process": [
+            {
+                "title": "Research & Targeting",
+                "description": "Menentukan audience berdasarkan interest (Al-Qur'an, Agama Islam, Pendidikan Anak) dan perilaku pengunjung menggunakan Meta Pixel untuk memahami customer journey."
+            },
+            {
+                "title": "Creative & Copy",
+                "description": "Membuat video pendek yang menarik perhatian dengan copywriting yang fokus pada keunggulan produk (tajwid warna, terjemahan) dan solusi (belajar Al-Qur'an jadi mudah)."
+            },
+            {
+                "title": "Setup & Launch",
+                "description": "Menentukan objective (Traffic ke landing page, Leads), mengatur budget harian Rp 32.000 untuk testing berbagai audience dan creative."
+            },
+            {
+                "title": "Monitoring & Optimization",
+                "description": "Menganalisis metrik utama: CTR (kualitas creative), CPC (efisiensi biaya), Link Click to LP Rate (kualitas traffic). Menghentikan kampanye buruk, alokasi ke yang terbaik."
+            },
+            {
+                "title": "Reporting",
+                "description": "Menyajikan data hasil kampanye dari Ads Manager dalam bentuk tabel, grafik, dan ringkasan insight untuk pengambilan keputusan."
+            }
+        ],
+        "deepDiveTitle": "Deep Dive: Strategi Pemasaran Terstruktur",
+        "deepDive": {
+            "research": {
+                "title": "Riset Pasar",
+                "purpose": "Tujuan",
+                "purposeText": "Memahami target audience, pain points, dan kompetitor",
+                "app": "Aplikasi di Feyd Store",
+                "appText": "Menganalisis audience yang tertarik dengan Al-Qur'an Kharisma dan novel islami melalui Meta Pixel dan Facebook Audience Insights",
+                "result": "Hasil",
+                "resultText": "Interest targeting spesifik: Agama Islam, Al-Qur'an, Pendidikan Anak"
+            },
+            "content": {
+                "title": "Perencanaan & Strategi Konten",
+                "purpose": "Tujuan",
+                "purposeText": "Menentukan brand positioning dan content pillars",
+                "brandPos": "Brand Positioning",
+                "brandPosText": "Al-Qur'an Kharisma dengan tajwid berwarna dan terjemahan",
+                "pillars": "Content Pillars",
+                "pillarsList": [
+                    "Produk",
+                    "Edukasi",
+                    "Testimoni",
+                    "Promosi"
+                ]
+            },
+            "execution": {
+                "title": "Produksi & Eksekusi",
+                "purpose": "Tujuan",
+                "purposeText": "Membuat dan menjalankan kampanye yang efektif",
+                "app": "Aplikasi",
+                "appText": "Membuat iklan video pendek yang menonjolkan keunggulan Al-Qur'an Kharisma dengan copy yang menekankan kemudahan belajar",
+                "tools": "Tools",
+                "toolsText": "Canva (desain), Facebook Ads Manager (eksekusi)"
+            },
+            "analysis": {
+                "title": "Analisis & Evaluasi",
+                "purpose": "Tujuan",
+                "purposeText": "Mengukur performa dan menemukan area untuk perbaikan",
+                "app": "Aplikasi",
+                "appText": "Menganalisis metrik seperti CTR, CPC, Link Click to LP Rate, Cost per Result dari kampanye Facebook Ads",
+                "action": "Aksi",
+                "actionText": "Menghentikan kampanye performa buruk, alokasi budget ke kampanye terbaik seperti \"Traffic Tsabit\""
+            }
+        }
+    },
+    "certificates": {
+        "title": "Sertifikasi & Penghargaan",
+        "subtitle": "Validasi keahlian melalui sertifikasi profesional resmi",
+        "close": "Tutup [Esc]",
+        "items": [
+            {
+                "title": "RevoU Software Engineering (Fundamental)",
+                "category": "Software Engineering",
+                "description": "Menguasai dasar-dasar pengembangan perangkat lunak dan web development. (19 Sep 2025)"
+            },
+            {
+                "title": "RevoU Software Engineering (Advanced)",
+                "category": "Software Engineering",
+                "description": "Memahami arsitektur sistem dan teknik pengembangan perangkat lunak tingkat lanjut. (3 Okt 2025)"
+            },
+            {
+                "title": "RevoU Digital Marketing (Strategy)",
+                "category": "Digital Marketing",
+                "description": "Menyusun dan menerapkan strategi pemasaran digital secara efektif. (10 Okt 2025)"
+            },
+            {
+                "title": "RevoU Digital Marketing (Advanced)",
+                "category": "Digital Marketing",
+                "description": "Menganalisis data dan mengoptimalkan kinerja kampanye pemasaran secara mendalam. (17 Okt 2025)"
+            },
+            {
+                "title": "Universitas Satya Negara Indonesia - Frame to Fame",
+                "category": "Creative",
+                "description": "Memahami proses pembuatan animasi dan membuka peluang karier sebagai creator berbasis animasi. (15 Jul 2025)"
+            }
+        ]
+    },
+    "caseStudy": {
+        "title": "Case Study: Feyd Store",
+        "subtitle": "Contoh nyata penerapan digital marketing untuk bisnis e-commerce Al-Qur'an dan Novel",
+        "challenge": {
+            "title": "Tantangan",
+            "description": "Memperkenalkan Al-Qur'an Kharisma ke pasar yang lebih luas secara online dan bersaing dengan produk sejenis untuk menarik minat pembaca novel islami."
+        },
+        "strategy": {
+            "title": "Strategi",
+            "items": [
+                "Fokus pada keunggulan produk (tajwid warna, terjemahan, kisah inspiratif)",
+                "Target audience spesifik yang tertarik dengan Al-Qur'an dan bacaan Islami",
+                "Penggunaan Facebook Ads untuk mendatangkan traffic berkualitas ke landing page Feyd Store"
+            ]
+        },
+        "execution": {
+            "title": "Eksekusi: Kampanye \"Traffic Tsabit\"",
+            "objective": "Objective",
+            "objectiveVal": "Traffic",
+            "creative": "Creative",
+            "creativeVal": "Video pendek menampilkan tampilan Novel Islami",
+            "copy": "Copy",
+            "copyVal": "Novel Islami yang mudah dibaca",
+            "targeting": "Targeting",
+            "targetingVal": "Interest: Novel Islami, Agama Islam"
+        },
+        "results": {
+            "title": "Hasil Kampanye",
+            "metrics": {
+                "clicks": "Link Clicks",
+                "views": "Landing Page Views",
+                "ctr": "CTR",
+                "cpc": "CPC"
+            },
+            "lpConversion": {
+                "label": "LP Conversion Rate",
+                "desc": "Traffic berkualitas tinggi"
+            },
+            "costResult": {
+                "label": "Cost Per Result",
+                "desc": "Efisiensi biaya optimal"
+            }
+        },
+        "learnings": {
+            "title": "Key Learnings",
+            "items": [
+                "Berhasil: Audience targeting yang spesifik dan creative video pendek sangat efektif untuk niche ini",
+                "Perlu Ditingkatkan: Konversi dari landing page ke pembelian masih menjadi fokus utama. Perlu optimasi lebih lanjut pada landing page dan strategi penjualan"
+            ]
+        }
+    },
+    "skillsVisualization": {
+        "title": "Skills & Expertise",
+        "subtitle": "Tingkat keahlian berdasarkan pengalaman proyek dan jam terbang",
+        "categories": {
+            "frontend": "Frontend Development",
+            "marketing": "Digital Marketing",
+            "ai": "AI & Automation"
+        },
+        "levels": {
+            "expert": "Expert Level",
+            "advanced": "Advanced Level",
+            "intermediate": "Intermediate Level"
+        },
+        "legend": {
+            "expert": "Expert (85%+)",
+            "advanced": "Advanced (70-84%)",
+            "intermediate": "Intermediate (<70%)"
+        }
+    }
+}
